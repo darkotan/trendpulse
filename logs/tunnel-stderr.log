@@ -477,3 +477,5 @@
 2026-05-30T03:32:30Z INF Registered tunnel connection connIndex=3 connection=fd0b1a09-8341-45d9-90bd-c5195928af4a event=0 ip=198.41.192.67 location=hkg09 protocol=quic
 2026-05-30T03:32:30Z INF Registered tunnel connection connIndex=2 connection=9aa8dcad-6aa6-4746-b142-fa902179370b event=0 ip=198.41.200.63 location=hkg12 protocol=quic
 2026-05-30T03:32:30Z INF Registered tunnel connection connIndex=1 connection=c9d52c12-eec9-42f5-924a-dd46dc358d4c event=0 ip=198.41.192.227 location=hkg09 protocol=quic
+2026-05-30T18:10:53Z ERR  error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp [::1]:8766: connect: connection refused" connIndex=3 event=1 ingressRule=0 originService=http://localhost:8766
+2026-05-30T18:10:53Z ERR Request failed error="Unable to reach the origin service. The service may be down or it may not be responding to traffic from cloudflared: dial tcp [::1]:8766: connect: connection refused" connIndex=3 dest=http://trendscan.org/ event=0 ip=198.41.192.67 type=http
