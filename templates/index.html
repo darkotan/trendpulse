@@ -297,8 +297,17 @@
           <span style="font-size:11px">${t('Affiliate · Webull / Robinhood / Tiger Brokers',currentLang)}</span>
         </a>
       </div>
-      <!-- A-Ads / Adsterra: paste your ad script here -->
-      <div id="ad-network-slot" style="margin-top:16px;text-align:center;min-height:90px"></div>`;
+      <!-- A-Ads: CPM/CPC banner (pays per view + click) -->
+      <div id="ad-network-slot" style="margin-top:16px;text-align:center;min-height:90px;position:relative">
+        <input autocomplete="off" type="checkbox" id="aadsclose" hidden />
+        <div style="width:100%;text-align:center;font-size:0">
+          <label for="aadsclose" style="position:absolute;top:0;right:8px;z-index:10;cursor:pointer;border-radius:4px;background:rgba(248,248,249,.7);padding:1px 4px">
+            <svg fill="#000" height="14px" width="14px" viewBox="0 0 490 490"><polygon points="456.851,0 245,212.564 33.149,0 0.708,32.337 212.669,245.004 0.708,457.678 33.149,490 245,277.443 456.851,490 489.292,457.678 277.331,245.004 489.292,32.337"/></svg>
+          </label>
+          <iframe data-aa="2440110" src="//acceptable.a-ads.com/2440110/?size=Adaptive" style="border:0;padding:0;width:100%;height:auto;overflow:hidden;margin:auto"></iframe>
+        </div>
+        <style>#aadsclose:checked+div{display:none}</style>
+      </div>`;
       return el;
     }
 
