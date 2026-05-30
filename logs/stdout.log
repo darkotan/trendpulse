@@ -573,3 +573,8 @@
 [TrendPulse] Server starting at http://localhost:8766
  * Serving Flask app 'app'
  * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse] Server starting at http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...

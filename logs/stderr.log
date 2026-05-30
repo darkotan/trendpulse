@@ -1263,3 +1263,23 @@ Press CTRL+C to quit
 127.0.0.1 - - [31/May/2026 01:35:26] "GET /og-image.png HTTP/1.1" 200 -
 127.0.0.1 - - [31/May/2026 01:35:30] "GET /og-image.png HTTP/1.1" 200 -
 127.0.0.1 - - [31/May/2026 01:35:30] "GET /rss.xml HTTP/1.1" 200 -
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://172.16.34.58:8766
+Press CTRL+C to quit
+127.0.0.1 - - [31/May/2026 01:38:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:38:48] "GET /og-image.png HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:38:48] "GET /rss.xml HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:38:48] "GET /sitemap.xml HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:38:48] "GET /bitcoin-price HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:38:48] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:38:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:39:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:39:55] "GET /feed.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 01:39:55] "GET /rss.xml HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:39:56] "GET /sitemap.xml HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:39:56] "GET /og-image.png HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:39:56] "GET /bitcoin-price HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:39:56] "GET /stock-market-today HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:39:56] "GET /health HTTP/1.1" 200 -
