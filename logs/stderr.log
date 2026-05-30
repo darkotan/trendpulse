@@ -1387,3 +1387,4 @@ Press CTRL+C to quit
 127.0.0.1 - - [31/May/2026 01:48:05] "GET /feed.json HTTP/1.1" 200 -
 127.0.0.1 - - [31/May/2026 01:48:05] "GET /api/all HTTP/1.1" 200 -
 127.0.0.1 - - [31/May/2026 01:48:09] "GET /api/wechat-digest HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 01:48:18] "GET / HTTP/1.1" 200 -

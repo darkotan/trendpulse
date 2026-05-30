@@ -201,7 +201,19 @@
 
     // ── Affiliate links (fill with your referral codes) ─
     const STOCK_AFFILIATE = {};
-    const CRYPTO_AFFILIATE = {};
+    const CRYPTO_AFFILIATE = {
+      // Binance referral — your code: GRO_28502_3H9MX
+      BTC: 'https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX',
+      ETH: 'https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX',
+      SOL: 'https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX',
+      DOGE: 'https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX',
+      XRP: 'https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX',
+      ADA: 'https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX',
+      AVAX: 'https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX',
+      DOT: 'https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX',
+      LINK: 'https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX',
+      UNI: 'https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX',
+    };
 
     function esc(s) { return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : ''; }
 
@@ -274,7 +286,7 @@
     function renderAds() {
       const el = document.createElement('div'); el.className = 'ad-banner';
       el.innerHTML = `<div class="ad-grid">
-        <a class="ad-card" href="https://accounts.binance.com/en/register?ref=35101515" target="_blank" rel="nofollow sponsored" style="text-decoration:none">
+        <a class="ad-card" href="https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX" target="_blank" rel="nofollow sponsored" style="text-decoration:none">
           <strong>₿ ${t('₿ Trade Crypto',currentLang)}</strong>
           <span>${t('Lowest fees on Binance. Get 10% off trading fees.',currentLang)}</span>
           <span style="font-size:11px">${t('Affiliate · Binance / OKX / Bybit',currentLang)}</span>
