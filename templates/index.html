@@ -296,7 +296,22 @@
           <span>${t('Commission-free trading. Sign up and get free stocks.',currentLang)}</span>
           <span style="font-size:11px">${t('Affiliate · Webull / Robinhood / Tiger Brokers',currentLang)}</span>
         </a>
-      </div>`;
+      </div>
+      <!-- A-Ads / Adsterra: paste your ad script here -->
+      <div id="ad-network-slot" style="margin-top:16px;text-align:center;min-height:90px"></div>`;
+      return el;
+    }
+
+    // ── Sticky Bottom CTA Bar ────────────────────────────
+    function renderStickyBar() {
+      const el = document.createElement('div');
+      el.id = 'sticky-cta';
+      el.innerHTML = `
+        <div style="position:fixed;bottom:0;left:0;right:0;z-index:999;background:var(--black);padding:12px 20px;display:flex;align-items:center;justify-content:center;gap:12px;flex-wrap:wrap;box-shadow:0 -2px 16px rgba(0,0,0,.15)">
+          <span style="color:#fff;font-size:14px;font-weight:500">₿ ${t('₿ Trade Crypto',currentLang)} — ${t('Lowest fees on Binance. Get 10% off trading fees.',currentLang)}</span>
+          <a href="https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX" target="_blank" rel="nofollow sponsored" style="background:var(--orange);color:#fff;padding:8px 20px;border-radius:6px;text-decoration:none;font-size:14px;font-weight:600;white-space:nowrap">${t('Subscribe',currentLang)}</a>
+          <button onclick="document.getElementById('sticky-cta').style.display='none'" style="background:none;border:none;color:var(--gray-400);cursor:pointer;font-size:16px;padding:4px">✕</button>
+        </div>`;
       return el;
     }
 
@@ -322,6 +337,7 @@
         grid.appendChild(makeCard('icon-gh', 'GitHub Trending', data.github||[], renderGH));
         grid.appendChild(renderAds());
         grid.appendChild(renderNewsletter());
+        document.body.appendChild(renderStickyBar());
         updateTime.textContent = new Date(data.updated_at * 1000).toLocaleTimeString();
       } catch(err) {
         console.error('[TrendPulse]', err);
