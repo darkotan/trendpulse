@@ -9,6 +9,7 @@ from data.collector import (
 )
 from og_image import generate_og_image
 from auto_promote import ping_all_services, ping_sitemap, SITE_URL, SITE_NAME, RSS_URL, SITEMAP_URL
+from analytics import track_pageview, track_ad_click, get_stats
 import time, threading, io
 from datetime import datetime
 
@@ -52,6 +53,43 @@ def bg_updater():
 def public_url(): return "https://trendscan.org"
 
 # ── Core Routes ────────────────────────────────────
+@app.before_request
+def track_request():
+    """Track every page view (except API/static)."""
+    if request.path.startswith('/api/') or request.path.startswith('/static/'):
+        return
+    if request.path in ('/health', '/og-image.png', '/robots.txt', '/sitemap.xml', '/rss.xml', '/feed.json'):
+        return
+    track_pageview(
+        ip=request.headers.get('CF-Connecting-IP', request.remote_addr or ''),
+        path=request.path,
+        referrer=request.referrer or '',
+        ua=request.headers.get('User-Agent', ''),
+        lang=request.headers.get('Accept-Language', ''))
+
+@app.route("/api/track-click")
+def track_click():
+    """Track affiliate/ad clicks."""
+    ad_type = request.args.get('type', 'unknown')
+    target = request.args.get('url', '')
+    track_ad_click(
+        ip=request.headers.get('CF-Connecting-IP', request.remote_addr or ''),
+        ad_type=ad_type, target_url=target)
+    return jsonify({"ok": True})
+
+@app.route("/analytics")
+def analytics_dashboard():
+    """Simple analytics dashboard (password protected)."""
+    pw = request.args.get('pw', '')
+    if pw != 'trendscan2026':
+        return "<h2>Access denied</h2><p>Add ?pw=trendscan2026 to the URL</p>", 403
+    data = get_cache()
+    stats = get_stats(7)
+    return render_template("analytics.html", stats=stats, cache=data)
+
+@app.route("/api/stats")
+def api_stats():
+    return jsonify(get_stats(7))
 @app.route("/")
 def index(): return render_template("index.html")
 

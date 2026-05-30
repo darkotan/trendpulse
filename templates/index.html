@@ -222,6 +222,19 @@
 
     function esc(s) { return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;') : ''; }
 
+    function trackClick(type, url) {
+      fetch('/api/track-click?type=' + encodeURIComponent(type) + '&url=' + encodeURIComponent(url));
+    }
+
+    // Track clicks on all affiliate links (delegation)
+    document.addEventListener('click', function(e) {
+      var a = e.target.closest('a');
+      if (!a) return;
+      var href = a.getAttribute('href') || '';
+      if (href.includes('binance.com') && href.includes('ref=')) trackClick('binance', href);
+      if (href.includes('okx.com') && href.includes('join')) trackClick('okx', href);
+    });
+
     function affLink(url, symbol, type) {
       const links = type === 'stock' ? STOCK_AFFILIATE : CRYPTO_AFFILIATE;
       return links[symbol] || url || '#';
