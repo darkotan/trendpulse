@@ -147,10 +147,10 @@
 
   <footer>
     <div class="footer-links">
-      <a href="#" data-i18n="About">About</a>
-      <a href="#" data-i18n="Privacy">Privacy</a>
-      <a href="#" data-i18n="Contact">Contact</a>
-      <a href="#" data-i18n="GitHub">GitHub</a>
+      <a href="/about" data-i18n="About">About</a>
+      <a href="/privacy" data-i18n="Privacy">Privacy</a>
+      <a href="/contact" data-i18n="Contact">Contact</a>
+      <a href="https://github.com/darkotan/trendpulse" data-i18n="GitHub">GitHub</a>
     </div>
     <p data-i18n="TrendPulse © 2026 · Real-time data aggregation · Not financial advice · Some links may contain affiliate referrals">TrendPulse © 2026 · Real-time data aggregation · Not financial advice · Some links may contain affiliate referrals</p>
   </footer>
@@ -273,7 +273,18 @@
 
     function renderAds() {
       const el = document.createElement('div'); el.className = 'ad-banner';
-      el.innerHTML = `<div class="ad-grid"><div class="ad-card"><strong data-i18n="📈 Trade Stocks">${t('📈 Trade Stocks',currentLang)}</strong><span data-i18n="Commission-free trading. Sign up and get free stocks.">${t('Commission-free trading. Sign up and get free stocks.',currentLang)}</span><span style="font-size:11px" data-i18n="Affiliate · Webull / Robinhood / Tiger Brokers">${t('Affiliate · Webull / Robinhood / Tiger Brokers',currentLang)}</span></div><div class="ad-card"><strong data-i18n="₿ Trade Crypto">${t('₿ Trade Crypto',currentLang)}</strong><span data-i18n="Lowest fees on Binance. Get 10% off trading fees.">${t('Lowest fees on Binance. Get 10% off trading fees.',currentLang)}</span><span style="font-size:11px" data-i18n="Affiliate · Binance / OKX / Bybit">${t('Affiliate · Binance / OKX / Bybit',currentLang)}</span></div></div>`;
+      el.innerHTML = `<div class="ad-grid">
+        <a class="ad-card" href="https://accounts.binance.com/en/register?ref=35101515" target="_blank" rel="nofollow sponsored" style="text-decoration:none">
+          <strong>₿ ${t('₿ Trade Crypto',currentLang)}</strong>
+          <span>${t('Lowest fees on Binance. Get 10% off trading fees.',currentLang)}</span>
+          <span style="font-size:11px">${t('Affiliate · Binance / OKX / Bybit',currentLang)}</span>
+        </a>
+        <a class="ad-card" href="https://www.okx.com/join/35101515" target="_blank" rel="nofollow sponsored" style="text-decoration:none">
+          <strong>📈 ${t('📈 Trade Stocks',currentLang)}</strong>
+          <span>${t('Commission-free trading. Sign up and get free stocks.',currentLang)}</span>
+          <span style="font-size:11px">${t('Affiliate · Webull / Robinhood / Tiger Brokers',currentLang)}</span>
+        </a>
+      </div>`;
       return el;
     }
 

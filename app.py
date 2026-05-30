@@ -1,8 +1,6 @@
 """
 TrendPulse — Real-time Data Aggregation Dashboard
 ===================================================
-Multi-source data aggregation with Vercel-inspired design.
-Monetization: Ads → Affiliate → Premium → API access.
 """
 
 from flask import Flask, render_template, jsonify, request, make_response, send_file
@@ -53,19 +51,20 @@ def bg_updater():
 
 def public_url(): return "https://trendscan.org"
 
-# ── Routes ────────────────────────────────────────
+# ── Core Routes ────────────────────────────────────
 @app.route("/")
 def index(): return render_template("index.html")
 
 @app.route("/robots.txt")
 def robots():
-    txt = f"User-agent: *\nAllow: /\nSitemap: {public_url()}/sitemap.xml\n"
-    return make_response(txt, {"Content-Type": "text/plain"})
+    return make_response(f"User-agent: *\nAllow: /\nSitemap: {public_url()}/sitemap.xml\n", {"Content-Type": "text/plain"})
 
 @app.route("/sitemap.xml")
 def sitemap():
     base, today = public_url(), datetime.utcnow().strftime("%Y-%m-%d")
-    paths = ["/", "/bitcoin-price", "/crypto-prices", "/stock-market-today", "/trending-github", "/tech-news"]
+    paths = ["/", "/about", "/privacy", "/contact",
+             "/bitcoin-price", "/crypto-prices", "/stock-market-today",
+             "/trending-github", "/tech-news", "/cathie-wood-arkk"]
     urls = "".join(f'  <url>\n    <loc>{base}{p}</loc>\n    <lastmod>{today}</lastmod>\n    <changefreq>hourly</changefreq>\n    <priority>{"1.0" if p=="/" else "0.8"}</priority>\n  </url>\n' for p in paths)
     return make_response(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{urls}</urlset>', {"Content-Type": "application/xml"})
 
@@ -89,6 +88,34 @@ def json_feed():
 
 def _esc(s): return (s or "").replace("&","&amp;").replace("<","&lt;").replace(">","&gt;").replace('"',"&quot;")
 
+# ── Static Info Pages ──────────────────────────────
+@app.route("/about")
+def about():
+    return render_template("static_page.html", title="About TrendPulse", content="""<h1>About TrendPulse</h1>
+<p>TrendPulse is a real-time data aggregation dashboard. We pull live data from Hacker News, Yahoo Finance, Binance, and GitHub — four feeds in one clean interface.</p>
+<p>Built with Python Flask and vanilla JavaScript. Zero API keys required — all data comes from public APIs. Open source on <a href="https://github.com/darkotan/trendpulse">GitHub</a>.</p>
+<h2>Why TrendPulse?</h2>
+<p>Because checking four different sites every morning is annoying. One tab, one glance, all the data.</p>""")
+
+@app.route("/privacy")
+def privacy():
+    return render_template("static_page.html", title="Privacy Policy", content="""<h1>Privacy Policy</h1>
+<p>TrendPulse does not collect, store, or share any personal data. We don't use cookies. We don't have user accounts. We don't track you.</p>
+<p>All data displayed on TrendPulse is sourced from public APIs (Hacker News, Yahoo Finance, Binance, GitHub). We don't store your IP address or browsing history.</p>
+<h2>Third-Party Services</h2>
+<p>Some links on TrendPulse may be affiliate links. When you click an affiliate link and make a purchase or sign up, we may earn a commission at no extra cost to you. Affiliate links are clearly marked.</p>""")
+
+@app.route("/contact")
+def contact():
+    return render_template("static_page.html", title="Contact", content="""<h1>Contact</h1>
+<p>For questions, suggestions, or data source requests, reach out via:</p>
+<ul style="color:#666;line-height:2;padding-left:20px">
+<li>GitHub: <a href="https://github.com/darkotan/trendpulse">darkotan/trendpulse</a></li>
+<li>Email: darkotan@hotmail.com</li>
+</ul>
+<p>We're always looking to add new data sources. Let us know what you'd like to see.</p>""")
+
+# ── API ────────────────────────────────────────────
 @app.route("/api/all")
 def api_all(): return jsonify(get_cache())
 
@@ -109,11 +136,12 @@ def og_image(): return send_file(io.BytesIO(generate_og_image()), mimetype="imag
 
 # ── SEO Pages ──────────────────────────────────────
 _PAGES = [
-    ("/bitcoin-price", "Bitcoin (BTC) Price Today — Live USD Price | TrendPulse", "Live Bitcoin price. Real-time BTC price, 24h change, volume.", "Bitcoin Price Today", "bitcoin price, btc usd, bitcoin live", "crypto", "symbol", "BTC"),
-    ("/crypto-prices", "Crypto Prices Today — BTC, ETH, SOL, DOGE | TrendPulse", "Live crypto prices: Bitcoin, Ethereum, Solana. Real-time 24h change.", "Crypto Prices Today", "crypto prices, btc eth sol, crypto tracker", "crypto", None, None),
-    ("/stock-market-today", "Stock Market Today — Top Movers, Live Prices | TrendPulse", "Live stock movers: AAPL, TSLA, NVDA, MSFT. Real-time prices.", "Stock Market Today", "stock market today, stock movers, live stocks", "stocks", None, None),
-    ("/trending-github", "Trending GitHub Repos Today — Top Open Source | TrendPulse", "Discover trending GitHub repos. Most starred open source projects.", "Trending on GitHub", "trending github, top repos, open source", "github", None, None),
-    ("/tech-news", "Tech News Today — Hacker News Top Stories | TrendPulse", "Latest tech news from Hacker News. Top stories by votes.", "Today's Tech News", "tech news, hacker news, technology news", "hn", None, None),
+    ("/bitcoin-price", "Bitcoin (BTC) Price Today — Live USD | TrendPulse", "Live Bitcoin price. Real-time BTC price, 24h change.", "Bitcoin Price Today", "bitcoin price, btc usd, bitcoin live", "crypto", "symbol", "BTC"),
+    ("/crypto-prices", "Crypto Prices Today — BTC, ETH, SOL | TrendPulse", "Live crypto prices: BTC, ETH, SOL, DOGE. 24h change.", "Crypto Prices Today", "crypto prices, btc eth sol, crypto tracker", "crypto", None, None),
+    ("/stock-market-today", "Stock Market Today — Top Movers Live | TrendPulse", "Live stock movers: AAPL, TSLA, NVDA, MSFT.", "Stock Market Today", "stock market today, stock movers", "stocks", None, None),
+    ("/trending-github", "Trending GitHub Repos Today | TrendPulse", "Discover trending GitHub repos. Most starred projects.", "Trending on GitHub", "trending github, top repos, open source", "github", None, None),
+    ("/tech-news", "Tech News Today — Hacker News Top Stories | TrendPulse", "Latest tech news from Hacker News.", "Today's Tech News", "tech news, hacker news, technology news", "hn", None, None),
+    ("/cathie-wood-arkk", "Cathie Wood ARKK ETF — Latest Price & News | TrendPulse", "Cathie Wood's ARK Innovation ETF. Live price, top holdings, latest news.", "Cathie Wood & ARKK ETF", "cathie wood, arkk etf, ark invest, cathie wood portfolio, tesla ark", "stocks", None, None),
 ]
 for path, title, desc, h1, kw, sec, fk, fv in _PAGES:
     def _make_seo(p=path, t=title, d=desc, h=h1, k=kw, s=sec, fkk=fk, fvv=fv):
@@ -123,6 +151,31 @@ for path, title, desc, h1, kw, sec, fk, fv in _PAGES:
             return render_template("seo_page.html", title=t, description=d, h1=h, keywords=k, items=items, section=s)
         return handler
     app.add_url_rule(path, f"seo_{path.replace('/','_').replace('-','_')}", _make_seo())
+
+# ── WeChat Daily Digest (parsed by cron) ───────────
+@app.route("/api/wechat-digest")
+def wechat_digest():
+    """Generate a WeChat-friendly market digest message."""
+    data = get_cache()
+    lines = ["📊 TrendPulse 市场摘要", ""]
+
+    # Top stock mover
+    stocks = data.get("stocks", [])
+    if stocks:
+        s = stocks[0]; d = "📈" if s.get("change_pct",0)>=0 else "📉"
+        lines.append(f"🔥 异动: {s['symbol']} {d} {s['change_pct']:+.2f}% → ${s['price']:.2f}")
+
+    # BTC
+    crypto = data.get("crypto", [])
+    btc = next((c for c in crypto if c["symbol"]=="BTC"), None)
+    if btc: lines.append(f"₿ BTC: ${btc['price']:,.0f} ({btc['change_pct']:+.1f}%)")
+
+    # Top HN
+    hn = data.get("hn", [])
+    if hn: lines.append(f"🔗 HN: {hn[0]['title'][:60]}")
+
+    lines.append(f"\n→ trendscan.org")
+    return jsonify({"message": "\n".join(lines)})
 
 # ── Main ───────────────────────────────────────────
 if __name__ == "__main__":

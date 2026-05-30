@@ -65,7 +65,7 @@ def fetch_hn_trending(limit: int = 10) -> list:
 WATCH_TICKERS = [
     "AAPL", "MSFT", "GOOGL", "NVDA",
     "TSLA", "META", "SPY", "QQQ",
-    "COIN", "GME",
+    "COIN", "GME", "ARKK",
 ]
 
 
