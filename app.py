@@ -8,16 +8,18 @@ Run: python3 app.py
 Open: http://localhost:8766
 """
 
-from flask import Flask, render_template, jsonify, request, make_response
+from flask import Flask, render_template, jsonify, request, make_response, send_file
 from data.collector import (
     fetch_hn_trending,
     fetch_stock_movers,
     fetch_crypto_prices,
     fetch_github_trending,
 )
+from og_image import generate_og_image
 import time
 import threading
 from datetime import datetime
+import io
 
 app = Flask(__name__)
 
@@ -94,6 +96,57 @@ Sitemap: {base}/sitemap.xml
     resp = make_response(txt)
     resp.headers["Content-Type"] = "text/plain"
     return resp
+
+
+@app.route("/rss.xml")
+def rss_feed():
+    """RSS feed for feed readers and directories."""
+    base = public_url()
+    data = get_cache()
+    today = datetime.utcnow().strftime("%a, %d %b %Y %H:%M:%S +0000")
+
+    items_xml = ""
+    # Hacker News top 3 as RSS items
+    for item in data.get("hn", [])[:3]:
+        items_xml += f"""    <item>
+      <title>{_xml_escape(item.get('title', ''))}</title>
+      <link>{_xml_escape(item.get('url', base))}</link>
+      <description>Score: {item.get('score', 0)} | Comments: {item.get('comments', 0)}</description>
+      <pubDate>{today}</pubDate>
+      <guid>{base}/hn#{item.get('id', '')}</guid>
+    </item>
+"""
+    # Stock movers as RSS items
+    for item in data.get("stocks", [])[:3]:
+        pct = item.get('change_pct', 0)
+        direction = "↑" if pct >= 0 else "↓"
+        items_xml += f"""    <item>
+      <title>{item.get('symbol', '')} {direction}{abs(pct):.1f}% — ${item.get('price', 0):.2f}</title>
+      <link>{base}/stock-market-today</link>
+      <description>Price: ${item.get('price', 0):.2f} | Change: {pct:+.2f}% | High: ${item.get('high', 0):.2f} | Low: ${item.get('low', 0):.2f}</description>
+      <pubDate>{today}</pubDate>
+      <guid>{base}/stocks#{item.get('symbol', '')}</guid>
+    </item>
+"""
+
+    xml = f"""<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>TrendPulse — Real-time Market Data & Tech News</title>
+    <link>{base}</link>
+    <description>Live Hacker News, stock market, crypto, and GitHub trending data. Updated every 5 minutes.</description>
+    <language>en</language>
+    <lastBuildDate>{today}</lastBuildDate>
+    <atom:link href="{base}/rss.xml" rel="self" type="application/rss+xml"/>
+{items_xml}  </channel>
+</rss>"""
+    resp = make_response(xml)
+    resp.headers["Content-Type"] = "application/xml; charset=utf-8"
+    return resp
+
+
+def _xml_escape(s: str) -> str:
+    return s.replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
 
 @app.route("/sitemap.xml")
@@ -217,6 +270,13 @@ def _seo_page(title, desc, h1, keywords, section, filter_key=None, filter_val=No
     return render_template("seo_page.html",
         title=title, description=desc, h1=h1, keywords=keywords,
         items=items, section=section)
+
+
+@app.route("/og-image.png")
+def og_image():
+    """Generate OG share image for social media previews."""
+    img_bytes = generate_og_image()
+    return send_file(io.BytesIO(img_bytes), mimetype="image/png")
 
 
 # ── Main ─────────────────────────────────────────────────────
