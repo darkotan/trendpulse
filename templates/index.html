@@ -304,6 +304,7 @@
   <header>
     <a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
     <div class="header-actions">
+      <span id="marketStatus" style="font-size:11px;padding:2px 8px;border-radius:4px;background:var(--gray-100);color:var(--gray-500)">Market</span>
       <span class="live-badge">Live</span>
       <span class="updated-time" id="updateTime">--:--:--</span>
     </div>
@@ -312,8 +313,8 @@
   <div class="container">
     <!-- Hero -->
     <section class="hero">
-      <h1>Pulse on what <span class="pulse-word">matters</span>.</h1>
-      <p>Real-time data from markets, Hacker News, crypto, GitHub, Reddit & ProductHunt — all in one pulse.</p>
+      <h1>One glance. <span class="pulse-word">Everything</span> that moves.</h1>
+      <p>Markets, crypto, tech news, trending repos — live, free, no noise.</p>
       <div class="hero-badges">
         <span class="badge badge-hn">🔗 Hacker News</span>
         <span class="badge badge-stocks">📈 Stocks</span>
@@ -402,6 +403,27 @@
       if (h.includes('binance.com') && h.includes('ref=')) trackClick('binance', h);
       if (h.includes('okx.com') && h.includes('join')) trackClick('okx', h);
     });
+
+    /* ── Sparkline SVG ───────────────────────────────── */
+    function sparklineSVG(data, width, height, color) {
+      if (!data || data.length < 2) return '';
+      const min = Math.min(...data), max = Math.max(...data), range = max - min || 1;
+      const points = data.map((v, i) => `${(i/(data.length-1))*width},${height-((v-min)/range)*height}`).join(' ');
+      return `<svg width="${width}" height="${height}" style="vertical-align:middle;margin-left:4px"><polyline points="${points}" fill="none" stroke="${color||'#0072f5'}" stroke-width="1.5" stroke-linecap="round"/></svg>`;
+    }
+
+    /* ── Market Status ───────────────────────────────── */
+    function updateMarketStatus(data) {
+      const el = document.getElementById('marketStatus');
+      const now = new Date();
+      const hour = now.getUTCHours();
+      const day = now.getUTCDay();
+      // US market: 9:30-16:00 ET = 13:30-20:00 UTC, Mon-Fri
+      const isOpen = day >= 1 && day <= 5 && hour >= 13 && hour < 20;
+      el.textContent = isOpen ? '🟢 Market Open' : '⚫ Market Closed';
+      el.style.background = isOpen ? 'rgba(10,153,80,.1)' : 'var(--gray-100)';
+      el.style.color = isOpen ? 'var(--green)' : 'var(--gray-500)';
+    }
 
     /* ── Watchlist (localStorage) ────────────────────── */
     const WATCH_KEY = 'trendpulse_watchlist';
@@ -555,7 +577,7 @@
       el.innerHTML = `
         <span class="item-rank">${rank}</span>
         <div class="item-content">
-          <div class="item-title">${esc(item.symbol || item.ticker || '')} <span class="affiliate-tag">Trade</span>${starIcon(item.symbol || item.ticker, 'stock')}</div>
+          <div class="item-title">${esc(item.symbol || item.ticker || '')} <span class="affiliate-tag">Trade</span>${starIcon(item.symbol || item.ticker, 'stock')}${sparklineSVG(item.sparkline, 40, 16, item.change_pct >= 0 ? '#0a9950' : '#dc2626')}</div>
           <div class="item-meta">
             <span>$${fmt(item.price)}</span>
             <span>H: $${fmt(item.high)}</span>
@@ -651,7 +673,7 @@
       card.className = 'card';
       card.innerHTML = `
         <div class="card-header">
-          <div class="card-title"><span class="card-icon" style="background:var(--accent)">🔮</span>Serenity 投研</div>
+          <div class="card-title"><span class="card-icon" style="background:var(--accent)">🔮</span>Serenity 投研<span style="font-size:10px;color:var(--gray-400);margin-left:6px">🟢看多 🔴看空 ⚪中性 · 分数=优先级</span></div>
           <span class="card-badge"><a href="/serenity" style="color:var(--gray-400);text-decoration:none">全部 →</a></span>
         </div>
         <div class="card-body" id="serenityBody"></div>`;
@@ -805,6 +827,9 @@
         // Sentiment strip
         renderSentiment(data);
 
+        // Market status
+        updateMarketStatus(data);
+
         // Watchlist
         renderWatchlist(data);
 
@@ -823,7 +848,11 @@
           commGrid.appendChild(makeCard('icon-reddit', 'Reddit', `${data.reddit.length} posts`, data.reddit, renderReddit));
         }
         if ((data.producthunt||[]).length > 0) {
-          commGrid.appendChild(makeCard('icon-ph', 'ProductHunt', `${data.producthunt.length} products`, data.producthunt, renderPH));
+          // Only show if at least one product has votes
+          const hasVotes = data.producthunt.some(p => (p.votes||0) > 0);
+          if (hasVotes) {
+            commGrid.appendChild(makeCard('icon-ph', 'ProductHunt', `${data.producthunt.length} products`, data.producthunt, renderPH));
+          }
         }
         // Serenity picks
         fetch('/api/serenity').then(r=>r.json()).then(s=>{
