@@ -499,24 +499,62 @@
     function renderWatchlist(data) {
       const el = document.getElementById('watchlistSection');
       const wl = getWatchlist();
-      if (wl.length === 0) { el.innerHTML = '<div style="color:var(--gray-400);font-size:13px;padding:8px 0">Click ⭐ on any stock or crypto to add it here.</div>'; return; }
+      if (wl.length === 0) { el.innerHTML = '<div style="color:var(--gray-400);font-size:13px;padding:8px 0">Click ⭐ on any stock or crypto to track it here. Add price alerts for notifications.</div>'; return; }
+      const alerts = getAlerts();
       const items = [];
       for (const key of wl) {
         const [type, symbol] = key.split(':');
-        if (type === 'stock') {
-          const s = (data.stocks||[]).find(x => x.symbol === symbol);
-          if (s) items.push({...s, _type: 'stock'});
-        } else if (type === 'crypto') {
-          const c = (data.crypto||[]).find(x => x.symbol === symbol);
-          if (c) items.push({...c, _type: 'crypto'});
-        }
+        const itemsList = type === 'stock' ? (data.stocks||[]) : (data.crypto||[]);
+        const item = itemsList.find(x => x.symbol === symbol);
+        if (item) items.push({...item, _type: type});
       }
       if (items.length === 0) { el.innerHTML = ''; return; }
       el.innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap;padding:8px 0">${items.map(i => {
         const pct = i.change_pct || 0;
         const cls = pct >= 0 ? 'up' : 'down';
-        return `<a href="${i._type==='crypto'?i.url||'#':'#'}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--text)">${i._type==='crypto'?'₿':''} ${i.symbol} <span class="${cls}" style="font-family:monospace;font-size:12px">${pct>=0?'+':''}${pct}%</span></a>`;
+        const alert = alerts[i._type + ':' + i.symbol];
+        const alertActive = alert && ((alert.above && i.price >= alert.price) || (!alert.above && i.price <= alert.price));
+        const alertIcon = alert ? (alertActive ? '🔔' : '🔕') : '';
+        return `<span style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:var(--card-bg);border:1px solid ${alertActive ? 'var(--green)' : 'var(--border)'};border-radius:8px;font-size:13px;font-weight:500;color:var(--text);cursor:pointer" onclick="setAlert('${i.symbol}','${i._type}',${i.price})" title="${alert ? (alert.above ? 'Alert above $'+alert.price : 'Alert below $'+alert.price) : 'Click to set price alert'}">
+          ${i._type==='crypto'?'₿':''} ${i.symbol} <span class="${cls}" style="font-family:monospace;font-size:12px">${pct>=0?'+':''}${pct}%</span> ${alertIcon}
+        </span>`;
       }).join('')}</div>`;
+    }
+
+    /* ── Price Alerts ────────────────────────────────── */
+    const ALERT_KEY = 'trendpulse_alerts';
+    function getAlerts() { try { return JSON.parse(localStorage.getItem(ALERT_KEY) || '{}'); } catch(e) { return {}; } }
+    function saveAlerts(a) { localStorage.setItem(ALERT_KEY, JSON.stringify(a)); }
+    function setAlert(symbol, type, currentPrice) {
+      const key = type + ':' + symbol;
+      const price = parseFloat(prompt(`Set alert for ${symbol} (current: $${currentPrice})\nEnter target price:`));
+      if (!price || isNaN(price)) return;
+      const above = price > currentPrice;
+      const alerts = getAlerts();
+      if (alerts[key] && alerts[key].price === price) { delete alerts[key]; } // toggle off
+      else { alerts[key] = { price, above, setAt: Date.now() }; }
+      saveAlerts(alerts);
+      loadData();
+    }
+    function checkAlerts(data) {
+      const alerts = getAlerts();
+      let triggered = [];
+      for (const [key, alert] of Object.entries(alerts)) {
+        const [type, symbol] = key.split(':');
+        const items = type === 'stock' ? (data.stocks||[]) : (data.crypto||[]);
+        const item = items.find(x => x.symbol === symbol);
+        if (!item) continue;
+        const hit = alert.above ? item.price >= alert.price : item.price <= alert.price;
+        if (hit) {
+          triggered.push(`${symbol} hit $${alert.price}! (now $${item.price})`);
+          delete alerts[key];
+        }
+      }
+      if (triggered.length > 0) {
+        saveAlerts(alerts);
+        return triggered;
+      }
+      return [];
     }
 
     /* ── Sentiment Strip ────────────────────────────── */
@@ -883,6 +921,12 @@
 
         // Since Last Visit (FOMO)
         renderSinceLastVisit(data);
+
+        // Check price alerts
+        const triggered = checkAlerts(data);
+        if (triggered.length > 0) {
+          setTimeout(() => alert('🔔 Alert!\n' + triggered.join('\n')), 1000);
+        }
 
         // Watchlist
         renderWatchlist(data);
