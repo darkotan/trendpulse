@@ -472,7 +472,7 @@
       el.innerHTML = `
         <div class="sentiment-strip">
           <span style="font-size:13px;font-weight:500;color:var(--gray-300);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${narrative}${btcStr}</span>
-          <span style="font-size:12px;color:var(--gray-500);white-space:nowrap">${new Date().toLocaleTimeString()}</span>
+          <span style="font-size:12px;color:var(--gray-500);white-space:nowrap;margin-left:12px">F&G ${fgScore} · VIX ${vixValue} · ${new Date().toLocaleTimeString()}</span>
         </div>`;
     }
 
@@ -678,21 +678,13 @@
       const el = document.createElement('div');
       el.className = 'ad-banner';
       el.innerHTML = `
-        <div class="ad-label">Affiliate Partners</div>
-        <div class="ad-grid">
-          <a class="ad-card" href="${BINANCE_BASE}" target="_blank" rel="nofollow sponsored">
-            <div class="ad-card-logo">🟡</div>
-            <div class="ad-card-title">Binance</div>
-            <div class="ad-card-desc">World's largest crypto exchange.<br>Lowest trading fees with our referral.</div>
-            <div class="ad-card-cta cta-binance">Get 10% Fee Discount →</div>
-            <div class="ad-card-perks">Spot, Futures, Earn &amp; more</div>
+        <div style="display:flex;gap:12px;align-items:center;justify-content:center;flex-wrap:wrap;padding:4px 0">
+          <span style="font-size:11px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px">Sponsored</span>
+          <a href="${BINANCE_BASE}" target="_blank" rel="nofollow sponsored" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text);font-size:13px;font-weight:500;background:var(--card-bg)">
+            🟡 Binance <span style="color:var(--blue);font-size:12px">10% off fees →</span>
           </a>
-          <a class="ad-card" href="${OKX_BASE}" target="_blank" rel="nofollow sponsored">
-            <div class="ad-card-logo">⚫</div>
-            <div class="ad-card-title">OKX</div>
-            <div class="ad-card-desc">Trade 350+ cryptocurrencies.<br>Advanced tools for every trader.</div>
-            <div class="ad-card-cta cta-okx">Sign Up & Get Rewards →</div>
-            <div class="ad-card-perks">Web3 Wallet, DEX, NFTs</div>
+          <a href="${OKX_BASE}" target="_blank" rel="nofollow sponsored" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--border);border-radius:8px;text-decoration:none;color:var(--text);font-size:13px;font-weight:500;background:var(--card-bg)">
+            ⚫ OKX <span style="color:var(--blue);font-size:12px">Sign up →</span>
           </a>
         </div>`;
       return el;
