@@ -110,6 +110,13 @@ def track_request():
 # ── Core Routes ────────────────────────────────────
 @app.route("/")
 def index():
+    """Serenity research homepage."""
+    return render_template("serenity_home.html")
+
+
+@app.route("/dashboard")
+def dashboard():
+    """Original data dashboard."""
     return render_template("index.html")
 
 @app.route("/robots.txt")
