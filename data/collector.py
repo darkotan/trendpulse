@@ -139,11 +139,18 @@ def _get_yahoo_quote(symbol: str) -> dict | None:
             return None
         meta = result[0].get("meta", {})
         price = meta.get("regularMarketPrice")
-        prev = meta.get("chartPreviousClose") or meta.get("previousClose")
+        prev = (meta.get("regularMarketPreviousClose")
+                or meta.get("chartPreviousClose")
+                or meta.get("previousClose"))
         if not price or not prev:
             return None
         change = price - prev
         pct = (change / prev) * 100 if prev else 0
+
+        # Skip outliers: >50% change likely bad data
+        if abs(pct) > 50:
+            print(f"[Collector] Skipping {symbol}: {pct:.1f}% change (likely bad prev close {prev})")
+            return None
 
         # Get 5-day price history for mini chart
         timestamps = result[0].get("timestamp", [])

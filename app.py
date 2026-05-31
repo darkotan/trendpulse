@@ -21,6 +21,7 @@ from analytics import track_pageview, track_ad_click, get_stats
 from serenity_collector import get_serenity_data, get_serenity_summary
 import time, threading, io
 from datetime import datetime
+from pathlib import Path
 
 app = Flask(__name__)
 _cache = {}
@@ -287,6 +288,22 @@ def api_stats():
 @app.route("/api/serenity")
 def api_serenity():
     return jsonify(get_serenity_summary())
+
+
+@app.route("/api/subscribe", methods=["POST"])
+def api_subscribe():
+    """Save email subscription to file."""
+    try:
+        data = request.get_json(force=True)
+        email = (data or {}).get("email", "").strip()
+        if "@" not in email or "." not in email:
+            return jsonify({"ok": False, "error": "Invalid email"}), 400
+        sub_file = Path(__file__).parent / "data" / "subscribers.txt"
+        with open(sub_file, "a") as f:
+            f.write(f"{datetime.utcnow().isoformat()} {email}\n")
+        return jsonify({"ok": True})
+    except Exception as e:
+        return jsonify({"ok": False, "error": str(e)}), 500
 
 
 @app.route("/serenity")

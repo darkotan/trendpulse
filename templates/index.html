@@ -405,31 +405,18 @@
       const vixLabel = vix.classification || 'VIX';
       const vixEmoji = vix.value != null ? getVixEmoji(vix.value) : '📉';
 
+      // Add narrative summary
+      const upStocks = (data.stocks||[]).filter(s=>s.change_pct>0).length;
+      const narrative = (data.stocks||[]).length > 0
+        ? `${upStocks > (data.stocks.length/2) ? 'Markets rallying' : 'Markets mixed'}: ${upStocks}/${data.stocks.length} stocks up. Top mover: ${data.stocks[0]?.symbol} ${data.stocks[0]?.change_pct >= 0 ? '+' : ''}${data.stocks[0]?.change_pct}%. `
+        : '';
+      const btc = (data.crypto||[]).find(c=>c.symbol==='BTC');
+      const btcStr = btc ? `BTC $${btc.price?.toLocaleString() || '--'} (${btc.change_pct >= 0 ? '+' : ''}${btc.change_pct}%).` : '';
+
       el.innerHTML = `
         <div class="sentiment-strip">
-          <div class="sentiment-item">
-            <span class="sentiment-emoji">${fgEmoji}</span>
-            <div class="sentiment-info">
-              <span class="sentiment-label">Fear & Greed</span>
-              <span class="sentiment-value" style="color:${fgColor}">${fgScore} <span style="font-size:12px;font-weight:500;color:var(--gray-400)">${fgLabel}</span></span>
-            </div>
-          </div>
-          <div class="sentiment-divider"></div>
-          <div class="sentiment-item">
-            <span class="sentiment-emoji">${vixEmoji}</span>
-            <div class="sentiment-info">
-              <span class="sentiment-label">VIX Index</span>
-              <span class="sentiment-value">${vixValue} <span style="font-size:12px;font-weight:500;color:var(--gray-400)">${vixLabel}</span></span>
-            </div>
-          </div>
-          <div class="sentiment-divider"></div>
-          <div class="sentiment-item">
-            <span class="sentiment-emoji">🕐</span>
-            <div class="sentiment-info">
-              <span class="sentiment-label">Updated</span>
-              <span class="sentiment-value" style="font-size:14px;color:var(--gray-500)">${new Date().toLocaleTimeString()}</span>
-            </div>
-          </div>
+          <span style="font-size:13px;font-weight:500;color:var(--gray-300);flex:1;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${narrative}${btcStr}</span>
+          <span style="font-size:12px;color:var(--gray-500);white-space:nowrap">${new Date().toLocaleTimeString()}</span>
         </div>`;
     }
 
@@ -660,19 +647,22 @@
       el.className = 'newsletter';
       el.innerHTML = `
         <h2>Get the daily pulse 📬</h2>
-        <p>Top stories, market moves, and trending repos — delivered to your inbox every morning.</p>
+        <p>One email every morning. Market summary, top HN stories, trending repos. No spam, unsubscribe anytime.</p>
         <div class="newsletter-form">
           <input type="email" id="nlEmail" placeholder="you@email.com" autocomplete="email">
           <button onclick="window._subscribeNL()">Subscribe</button>
         </div>
-        <div class="newsletter-confirm" id="nlConfirm">✓ Subscribed! Check your inbox.</div>`;
+        <div class="newsletter-confirm" id="nlConfirm">✓ Thanks! You're on the list.</div>`;
       return el;
     }
     window._subscribeNL = function() {
       const email = document.getElementById('nlEmail');
       if (!email || !email.value || !email.value.includes('@')) return;
-      // Simple health check to confirm server reachable
-      fetch('/health').then(() => {
+      fetch('/api/subscribe', {
+        method: 'POST',
+        headers: {'Content-Type': 'application/json'},
+        body: JSON.stringify({email: email.value})
+      }).then(r => r.json()).then(d => {
         document.getElementById('nlConfirm').style.display = 'block';
         email.value = '';
       }).catch(() => {
@@ -766,11 +756,15 @@
         mainGrid.appendChild(makeCard('icon-crypto', 'Crypto', `${(data.crypto||[]).length} coins`, data.crypto||[], renderCrypto));
         mainGrid.appendChild(makeCard('icon-gh', 'GitHub Trending', `${(data.github||[]).length} repos`, data.github||[], renderGH));
 
-        // Community grid
+        // Community grid — only show cards with data
         const commGrid = document.getElementById('communityGrid');
         commGrid.innerHTML = '';
-        commGrid.appendChild(makeCard('icon-reddit', 'Reddit', `${(data.reddit||[]).length} posts`, data.reddit||[], renderReddit));
-        commGrid.appendChild(makeCard('icon-ph', 'ProductHunt', `${(data.producthunt||[]).length} products`, data.producthunt||[], renderPH));
+        if ((data.reddit||[]).length > 0) {
+          commGrid.appendChild(makeCard('icon-reddit', 'Reddit', `${data.reddit.length} posts`, data.reddit, renderReddit));
+        }
+        if ((data.producthunt||[]).length > 0) {
+          commGrid.appendChild(makeCard('icon-ph', 'ProductHunt', `${data.producthunt.length} products`, data.producthunt, renderPH));
+        }
         // Serenity picks
         fetch('/api/serenity').then(r=>r.json()).then(s=>{
           if (s.hot_picks && s.hot_picks.length > 0) {
@@ -788,8 +782,10 @@
         nlSection.innerHTML = '';
         nlSection.appendChild(renderNewsletter());
 
-        // Sticky CTA
-        document.getElementById('stickyCta').style.display = 'flex';
+        // Sticky CTA — show after 8s, user had time to browse
+        setTimeout(() => {
+          document.getElementById('stickyCta').style.display = 'flex';
+        }, 8000);
 
         // Update time
         const timeEl = document.getElementById('updateTime');
