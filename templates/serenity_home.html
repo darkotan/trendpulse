@@ -127,7 +127,7 @@
           const isBull = p.view.includes('看多');
           const isBear = p.view.includes('看空');
           return `
-            <div class="pick-card" onclick="window.open('/serenity','_self')">
+            <div class="pick-card" id="pick-${p.rank}">
               <div class="pick-rank">#${p.rank}</div>
               <div class="pick-body">
                 <div class="pick-header">
@@ -135,11 +135,15 @@
                   <span class="pick-view ${isBull?'bullish':isBear?'bearish':'neutral-bg'}">${esc(p.view)}</span>
                   <span class="pick-priority">优先 ${p.priority}</span>
                 </div>
-                <div class="pick-thesis">${esc(p.change || '暂无详细分析')}</div>
+                <div class="pick-thesis">${esc(p.change || '')}</div>
+                <div style="margin-top:8px;padding:12px;background:rgba(168,85,247,.05);border-radius:8px;border-left:3px solid var(--accent);font-size:13px;color:#c4b5fd;line-height:1.7">
+                  <strong style="color:var(--accent)">GPT xhigh 深度分析</strong><br>
+                  ${esc(p.full_analysis || p.change || '暂无深度分析')}
+                </div>
                 <div class="pick-meta">
-                  <span>📅 24h提及: ${p.mentions_24h||0}次</span>
-                  <span>📅 7d提及: ${p.mentions_7d||0}次</span>
-                  <span>📰 新闻: ${p.news||0}条</span>
+                  <span>📅 24h:${p.mentions_24h||0}</span>
+                  <span>7d:${p.mentions_7d||0}</span>
+                  <span>📰 新闻:${p.news||0}</span>
                 </div>
               </div>
             </div>`;
