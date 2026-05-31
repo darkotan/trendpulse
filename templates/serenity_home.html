@@ -3,59 +3,61 @@
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Serenity 投研 — 704只标的实时追踪 | TrendPulse</title>
-  <meta name="description" content="Serenity 投研终端：每日热点标的、多空评级、GPT深度分析、AI产业链追踪。704只标的全覆盖。">
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <meta name="description" content="Serenity 投研终端：每日热点标的、多空评级、深度分析、AI产业链追踪。优先级分数=提及频率×观点确定度×催化剂新鲜度×风险回报比。">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root{--bg:#060608;--card:#101012;--border:#1a1a1e;--green:#059669;--red:#dc2626;--blue:#3b82f6;--orange:#f59e0b;--purple:#a855f7;--text:#e5e5e5;--muted:#666;--accent:#a855f7}
+    :root{--black:#171717;--white:#fff;--gray-900:#171717;--gray-600:#4d4d4d;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--gray-50:#fafafa;--blue:#0072f5;--blue-bg:#ebf5ff;--blue-text:#0068d6;--green:#059669;--red:#dc2626;--orange:#e67e00;--accent:#7c3aed;--shadow:0 0 0 1px rgba(0,0,0,.08),0 2px 2px rgba(0,0,0,.04),0 8px 8px -8px rgba(0,0,0,.04),0 0 0 1px #fafafa}
     *{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);color:var(--text);font-family:'Geist',system-ui,sans-serif;min-height:100vh;line-height:1.6}
-    header{position:sticky;top:0;z-index:100;background:rgba(6,6,8,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-    .logo{font-size:15px;font-weight:600;color:var(--text);text-decoration:none;display:flex;align-items:center;gap:8px}
-    .logo-accent{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-    .header-actions{display:flex;align-items:center;gap:16px;font-size:13px}
-    .header-actions a{color:var(--muted);text-decoration:none}
-    .header-actions a:hover{color:var(--text)}
+    body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased;line-height:1.5}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:15px;font-weight:600;letter-spacing:-0.32px;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:8px}
+    .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
+    .header-actions a{font-size:13px;color:var(--gray-500);text-decoration:none}
+    .header-actions a:hover{color:var(--black)}
 
-    .container{max-width:960px;margin:0 auto;padding:36px 24px}
+    .container{max-width:860px;margin:0 auto;padding:40px 24px}
     .hero{margin-bottom:32px}
-    .hero h1{font-size:32px;font-weight:700;letter-spacing:-1.28px;margin-bottom:6px;background:linear-gradient(135deg,var(--accent),var(--blue));-webkit-background-clip:text;-webkit-text-fill-color:transparent}
-    .hero-sub{font-size:14px;color:var(--muted)}
+    .hero h1{font-size:32px;font-weight:600;letter-spacing:-1.28px;margin-bottom:6px;color:var(--black)}
+    .hero .sub{font-size:15px;color:var(--gray-500)}
 
-    .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:10px;margin-bottom:28px}
-    .stat-box{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:14px 16px}
-    .stat-box .label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
-    .stat-box .val{font-size:22px;font-weight:700;font-family:'Geist Mono',monospace}
-    .stat-box .sub{font-size:11px;color:var(--muted);margin-top:2px}
+    .story-box{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:12px;padding:18px 22px;margin-bottom:28px;font-size:14px;color:var(--gray-600);line-height:1.7;display:flex;flex-wrap:wrap;gap:12px;align-items:center}
+    .story-box span{display:inline-flex;align-items:center;gap:4px}
+    .story-box .sep{color:var(--gray-100)}
 
-    .section-title{font-size:13px;font-weight:600;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px;display:flex;align-items:center;gap:8px}
-    .section-title::after{content:'';flex:1;height:1px;background:var(--border)}
+    .stats-row{display:grid;grid-template-columns:repeat(auto-fit,minmax(120px,1fr));gap:10px;margin-bottom:28px}
+    .stat-box{background:var(--white);box-shadow:var(--shadow);border-radius:10px;padding:14px 16px;text-align:center}
+    .stat-box .label{font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.8px;margin-bottom:6px}
+    .stat-box .val{font-size:22px;font-weight:600;font-family:'Geist Mono',monospace;letter-spacing:-0.44px}
+    .stat-box .sub{font-size:11px;color:var(--gray-400);margin-top:2px}
+
+    .section-title{font-size:13px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:14px}
 
     .picks-grid{display:flex;flex-direction:column;gap:16px;margin-bottom:36px}
-    .pick{background:var(--card);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:border-color .2s}
-    .pick:hover{border-color:var(--accent)}
-    .pick-top{padding:18px 22px;display:flex;align-items:flex-start;gap:16px}
-    .pick-rank{font-size:13px;font-weight:600;color:var(--muted);font-family:'Geist Mono',monospace;min-width:28px;padding-top:3px}
+    .pick{background:var(--white);box-shadow:var(--shadow);border-radius:14px;overflow:hidden;transition:box-shadow .2s}
+    .pick:hover{box-shadow:0 0 0 1px rgba(0,0,0,.08),0 4px 8px rgba(0,0,0,.06),0 16px 16px -8px rgba(0,0,0,.06)}
+    .pick-top{padding:20px 24px;display:flex;align-items:flex-start;gap:16px}
+    .pick-rank{font-size:13px;font-weight:500;color:var(--gray-400);font-family:'Geist Mono',monospace;min-width:28px;padding-top:3px}
     .pick-main{flex:1;min-width:0}
-    .pick-head{display:flex;align-items:center;gap:10px;margin-bottom:6px;flex-wrap:wrap}
-    .pick-sym{font-size:18px;font-weight:700;letter-spacing:-0.36px}
-    .pick-view{padding:2px 10px;border-radius:6px;font-size:11px;font-weight:600}
-    .bull{background:rgba(5,150,105,.15);color:var(--green)}.bear{background:rgba(220,38,38,.15);color:var(--red)}
-    .pick-pri{font-size:12px;font-weight:600;font-family:'Geist Mono',monospace;color:var(--accent)}
-    .pick-cat{font-size:11px;color:var(--muted)}
-    .pick-body{padding:0 22px 18px;display:flex;flex-direction:column;gap:8px}
-    .blk{padding:12px 14px;border-radius:8px;font-size:13px;line-height:1.7}
-    .blk-company{border-left:3px solid var(--blue);background:rgba(59,130,246,.05);color:#a0c8f0}
-    .blk-thesis{border-left:3px solid var(--green);background:rgba(5,150,105,.05);color:#a0e0c0}
-    .blk-risk{border-left:3px solid var(--orange);background:rgba(245,158,11,.05);color:#e0c080}
-    .blk strong{font-size:10px;text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px}
-    .blk-company strong{color:var(--blue)}.blk-thesis strong{color:var(--green)}.blk-risk strong{color:var(--orange)}
+    .pick-head{display:flex;align-items:center;gap:10px;margin-bottom:4px;flex-wrap:wrap}
+    .pick-sym{font-size:18px;font-weight:600;letter-spacing:-0.36px;color:var(--black)}
+    .pick-view{font-size:11px;font-weight:500;padding:2px 10px;border-radius:6px}
+    .bull{color:var(--green);background:rgba(5,150,105,.08)}
+    .bear{color:var(--red);background:rgba(220,38,38,.08)}
+    .neutral-tag{color:var(--gray-500);background:var(--gray-50)}
+    .pick-pri{font-size:12px;font-weight:500;font-family:'Geist Mono',monospace;color:var(--accent);cursor:help}
+    .pick-cat{font-size:12px;color:var(--gray-400);margin-top:2px}
+    .pick-body{padding:0 24px 20px;display:flex;flex-direction:column;gap:8px}
+    .blk{padding:14px 16px;border-radius:8px;font-size:14px;line-height:1.75}
+    .blk .blk-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:6px}
+    .blk-co{background:var(--blue-bg);color:var(--gray-900)}.blk-co .blk-label{color:var(--blue-text)}
+    .blk-th{background:rgba(5,150,105,.04);color:var(--gray-900)}.blk-th .blk-label{color:var(--green)}
+    .blk-ri{background:rgba(245,158,11,.04);color:var(--gray-900)}.blk-ri .blk-label{color:var(--orange)}
 
-    .info-banner{background:linear-gradient(135deg,rgba(168,85,247,.08),rgba(59,130,246,.08));border:1px solid var(--border);border-radius:12px;padding:20px 24px;margin-bottom:28px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
-    .info-banner span{font-size:13px;color:var(--muted)}
-    .info-banner strong{color:var(--text)}
+    .legend{font-size:11px;color:var(--gray-400);margin-top:8px;padding:8px 14px;background:var(--gray-50);border-radius:8px;display:flex;flex-wrap:wrap;gap:12px}
+    .legend span{display:inline-flex;align-items:center;gap:4px}
 
-    footer{text-align:center;padding:40px 24px;border-top:1px solid var(--border);margin-top:40px;font-size:12px;color:var(--muted)}
-    footer a{color:var(--muted)}
+    footer{text-align:center;padding:40px 24px;border-top:1px solid var(--gray-100);margin-top:40px;font-size:12px;color:var(--gray-400)}
+    footer a{color:var(--gray-500)}
 
     @media(max-width:600px){
       .pick-top{flex-direction:column;gap:8px}
@@ -65,7 +67,7 @@
 </head>
 <body>
   <header>
-    <a href="/" class="logo"><span class="logo-accent"></span>Serenity 投研追踪</a>
+    <a href="/" class="logo"><span class="logo-dot"></span>Serenity 投研追踪</a>
     <div class="header-actions">
       <a href="/dashboard">数据面板</a>
     </div>
@@ -74,10 +76,15 @@
   <div class="container" id="app">
     <div class="hero">
       <h1>Serenity 投研实时追踪</h1>
-      <p class="hero-sub" id="heroSub">加载中...</p>
+      <p class="sub" id="heroSub">加载中...</p>
+      <div class="legend">
+        <span>📊 <strong>优先级分数</strong> = 提及频率 × 观点确定度 × 催化剂新鲜度 × 风险回报比</span>
+        <span>· 分数越高 = 越需要立刻关注</span>
+        <span>· 400+ = 最高优先级</span>
+      </div>
     </div>
 
-    <div class="info-banner" id="infoBanner"></div>
+    <div class="story-box" id="storyBox"></div>
     <div class="stats-row" id="statsRow"></div>
 
     <div class="section-title">🔥 热点标的</div>
@@ -98,18 +105,20 @@
 
         $('heroSub').textContent=`追踪 ${sr.total_stocks||704} 只标的 · ${sr.bullish_count||0} 看多 · ${sr.bearish_count||0} 看空 · 更新于 ${new Date(sr.updated_at*1000).toLocaleString()}`;
 
-        $('infoBanner').innerHTML=`
-          <span>₿ <strong>BTC</strong> $${btc?btc.price?.toLocaleString():'--'} <span style="color:${btc&&btc.change_pct>=0?'var(--green)':'var(--red)'}">${btc?(btc.change_pct>=0?'+':'')+btc.change_pct+'%':'--'}</span></span>
-          <span>📈 <strong>SPY</strong> $${spy?spy.price:'--'} <span style="color:${spy&&spy.change_pct>=0?'var(--green)':'var(--red)'}">${spy?(spy.change_pct>=0?'+':'')+spy.change_pct+'%':'--'}</span></span>
+        $('storyBox').innerHTML=`
+          <span>₿ <strong>BTC</strong> $${btc?btc.price?.toLocaleString():'--'} <span style="color:${btc&&btc.change_pct>=0?'var(--green)':'var(--red)'};font-weight:500">${btc?(btc.change_pct>=0?'+':'')+btc.change_pct+'%':'--'}</span></span>
+          <span class="sep">|</span>
+          <span>📈 <strong>S&P 500</strong> $${spy?spy.price:'--'} <span style="color:${spy&&spy.change_pct>=0?'var(--green)':'var(--red)'};font-weight:500">${spy?(spy.change_pct>=0?'+':'')+spy.change_pct+'%':'--'}</span></span>
+          <span class="sep">|</span>
           <span>📊 <strong>VIX</strong> ${vix.price||'--'}</span>
-          <span>😱 <strong>Fear & Greed</strong> ${fg.score||'--'} (${fg.sentiment||'--'})</span>`;
+          <span class="sep">|</span>
+          <span>😱 <strong>恐慌贪婪</strong> ${fg.score||'--'} (${fg.sentiment||'--'})</span>`;
 
         $('statsRow').innerHTML=`
-          <div class="stat-box"><div class="label">总标的</div><div class="val" style="color:var(--accent)">${sr.total_stocks||704}</div><div class="sub">全覆盖追踪</div></div>
-          <div class="stat-box"><div class="label">🟢 看多</div><div class="val" style="color:var(--green)">${sr.bullish_count||0}</div><div class="sub">${picks.filter(p=>p.view.includes('看多')).length} 只在热点</div></div>
+          <div class="stat-box"><div class="label">追踪标的</div><div class="val" style="color:var(--accent)">${sr.total_stocks||704}</div><div class="sub">全覆盖</div></div>
+          <div class="stat-box"><div class="label">🟢 看多</div><div class="val" style="color:var(--green)">${sr.bullish_count||0}</div><div class="sub">${picks.filter(p=>p.view.includes('看多')).length} 在热点</div></div>
           <div class="stat-box"><div class="label">🔴 看空</div><div class="val" style="color:var(--red)">${sr.bearish_count||0}</div><div class="sub">谨慎对待</div></div>
-          <div class="stat-box"><div class="label">最高优先</div><div class="val">${picks[0]?picks[0].symbol:'--'}</div><div class="sub">优先 ${picks[0]?picks[0].priority:'--'}</div></div>
-          <div class="stat-box"><div class="label">热门行业</div><div class="val" style="font-size:16px">AI/半导体</div><div class="sub">光互连 · CPO</div></div>`;
+          <div class="stat-box"><div class="label">最高优先级</div><div class="val">${picks[0]?picks[0].symbol:'--'}</div><div class="sub">${picks[0]?picks[0].priority:'--'} 分</div></div>`;
 
         $('picksGrid').innerHTML=picks.map(p=>{
           const isBull=p.view.includes('看多'),isBear=p.view.includes('看空');
@@ -119,21 +128,21 @@
               <div class="pick-main">
                 <div class="pick-head">
                   <span class="pick-sym">${esc(p.symbol)}</span>
-                  <span class="pick-view ${isBull?'bull':isBear?'bear':''}" style="${!isBull&&!isBear?'background:rgba(100,100,100,.15);color:var(--muted)':''}">${esc(p.view)}</span>
-                  <span class="pick-pri">优先 ${p.priority}</span>
+                  <span class="pick-view ${isBull?'bull':isBear?'bear':'neutral-tag'}">${esc(p.view)}</span>
+                  <span class="pick-pri" title="优先级 = 提及频率 × 确定度 × 新鲜度 × 风险回报比">⚡ ${p.priority}</span>
                 </div>
-                <div class="pick-cat">${esc(p.change||'')} · 24h提及${p.mentions_24h||0}次 · 7d提及${p.mentions_7d||0}次</div>
+                <div class="pick-cat">${esc(p.change||'')} · 24h 提及 ${p.mentions_24h||0} 次 · 7d 提及 ${p.mentions_7d||0} 次</div>
               </div>
             </div>
             <div class="pick-body">
-              <div class="blk blk-company"><strong>🏢 公司介绍</strong>${esc(p.company||'暂无')}</div>
-              <div class="blk blk-thesis"><strong>📈 ${isBull?'为什么看好':'为什么看空'}</strong>${esc(p.thesis||'暂无')}</div>
-              <div class="blk blk-risk"><strong>⚠️ 风险提示</strong>${esc(p.risk||'暂无')}</div>
+              <div class="blk blk-co"><span class="blk-label">🏢 公司介绍</span>${esc(p.company||'暂无')}</div>
+              <div class="blk blk-th"><span class="blk-label">📈 ${isBull?'为什么看好':'为什么看空'}</span>${esc(p.thesis||'暂无')}</div>
+              <div class="blk blk-ri"><span class="blk-label">⚠️ 风险提示</span>${esc(p.risk||'暂无')}</div>
             </div>
           </div>`;
         }).join('');
 
-      }catch(e){$('picksGrid').innerHTML='<div style="color:var(--muted);padding:40px;text-align:center">加载失败，刷新试试</div>';}
+      }catch(e){$('picksGrid').innerHTML='<div style="color:var(--gray-400);padding:40px;text-align:center">加载失败，刷新试试</div>';}
     }
     load();setInterval(load,120000);
   </script>
