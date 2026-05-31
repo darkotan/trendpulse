@@ -324,9 +324,16 @@
 
     <!-- Market Story -->
     <div class="section-label">📰 Today's Story</div>
-    <div id="marketStory" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:24px;font-size:14px;line-height:1.6;color:var(--text);min-height:48px">
+    <div id="marketStory" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:12px;font-size:14px;line-height:1.6;color:var(--text);min-height:40px">
       Loading market summary...
     </div>
+    <div id="storyActions" style="text-align:right;margin-bottom:24px;font-size:12px;color:var(--gray-400)">
+      <a href="https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX" target="_blank" rel="nofollow sponsored" style="color:var(--blue)">Trade on Binance →</a>
+    </div>
+
+    <!-- Watchlist -->
+    <div class="section-label">⭐ Your Watchlist</div>
+    <div id="watchlistSection" style="margin-bottom:24px;min-height:8px"></div>
 
     <!-- Market Sentiment Strip -->
     <div id="sentimentStrip"></div>
@@ -395,6 +402,49 @@
       if (h.includes('binance.com') && h.includes('ref=')) trackClick('binance', h);
       if (h.includes('okx.com') && h.includes('join')) trackClick('okx', h);
     });
+
+    /* ── Watchlist (localStorage) ────────────────────── */
+    const WATCH_KEY = 'trendpulse_watchlist';
+    function getWatchlist() { try { return JSON.parse(localStorage.getItem(WATCH_KEY) || '[]'); } catch(e) { return []; } }
+    function saveWatchlist(list) { localStorage.setItem(WATCH_KEY, JSON.stringify(list)); }
+    function toggleWatch(symbol, type) {
+      let wl = getWatchlist();
+      const key = type + ':' + symbol;
+      const idx = wl.indexOf(key);
+      if (idx >= 0) wl.splice(idx, 1); else wl.push(key);
+      saveWatchlist(wl);
+      loadData(); // re-render
+    }
+    function isWatched(symbol, type) {
+      return getWatchlist().includes(type + ':' + symbol);
+    }
+    function starIcon(symbol, type) {
+      const watched = isWatched(symbol, type);
+      return `<span onclick="event.preventDefault();event.stopPropagation();toggleWatch('${symbol}','${type}')" style="cursor:pointer;font-size:14px;opacity:${watched?'1':'0.3'};transition:opacity .15s;margin-left:6px" title="${watched?'Remove from watchlist':'Add to watchlist'}">⭐</span>`;
+    }
+
+    function renderWatchlist(data) {
+      const el = document.getElementById('watchlistSection');
+      const wl = getWatchlist();
+      if (wl.length === 0) { el.innerHTML = '<div style="color:var(--gray-400);font-size:13px;padding:8px 0">Click ⭐ on any stock or crypto to add it here.</div>'; return; }
+      const items = [];
+      for (const key of wl) {
+        const [type, symbol] = key.split(':');
+        if (type === 'stock') {
+          const s = (data.stocks||[]).find(x => x.symbol === symbol);
+          if (s) items.push({...s, _type: 'stock'});
+        } else if (type === 'crypto') {
+          const c = (data.crypto||[]).find(x => x.symbol === symbol);
+          if (c) items.push({...c, _type: 'crypto'});
+        }
+      }
+      if (items.length === 0) { el.innerHTML = ''; return; }
+      el.innerHTML = `<div style="display:flex;gap:8px;flex-wrap:wrap;padding:8px 0">${items.map(i => {
+        const pct = i.change_pct || 0;
+        const cls = pct >= 0 ? 'up' : 'down';
+        return `<a href="${i._type==='crypto'?i.url||'#':'#'}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:4px;padding:4px 10px;background:var(--card-bg);border:1px solid var(--border);border-radius:8px;text-decoration:none;font-size:13px;font-weight:500;color:var(--text)">${i._type==='crypto'?'₿':''} ${i.symbol} <span class="${cls}" style="font-family:monospace;font-size:12px">${pct>=0?'+':''}${pct}%</span></a>`;
+      }).join('')}</div>`;
+    }
 
     /* ── Sentiment Strip ────────────────────────────── */
     function renderSentiment(data) {
@@ -505,7 +555,7 @@
       el.innerHTML = `
         <span class="item-rank">${rank}</span>
         <div class="item-content">
-          <div class="item-title">${esc(item.symbol || item.ticker || '')} <span class="affiliate-tag">Trade</span></div>
+          <div class="item-title">${esc(item.symbol || item.ticker || '')} <span class="affiliate-tag">Trade</span>${starIcon(item.symbol || item.ticker, 'stock')}</div>
           <div class="item-meta">
             <span>$${fmt(item.price)}</span>
             <span>H: $${fmt(item.high)}</span>
@@ -528,7 +578,7 @@
       el.innerHTML = `
         <span class="item-rank">${rank}</span>
         <div class="item-content">
-          <div class="item-title">₿ ${esc(item.symbol || '')} <span class="affiliate-tag">Trade</span></div>
+          <div class="item-title">₿ ${esc(item.symbol || '')} <span class="affiliate-tag">Trade</span>${starIcon(item.symbol, 'crypto')}</div>
           <div class="item-meta">
             <span>${fmtPrice(item.price)}</span>
             <span>Vol: ${item.volume_fmt || '$0'}</span>
@@ -762,6 +812,9 @@
 
         // Sentiment strip
         renderSentiment(data);
+
+        // Watchlist
+        renderWatchlist(data);
 
         // Main 2x2 grid
         const mainGrid = document.getElementById('mainGrid');
