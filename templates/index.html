@@ -619,11 +619,13 @@
           card.className = 'card';
           const bodyId = 'body-' + title.replace(/\s+/g, '');
           const srcLabel = source ? `<span style="font-size:10px;color:var(--gray-400);font-family:monospace;margin-left:8px">via ${source}</span>` : '';
+          const narId = title.replace(/\s+/g, '') + '-narrative';
           card.innerHTML = `
             <div class="card-header">
               <div class="card-title"><span class="card-icon ${iconClass}"></span>${title}${srcLabel}</div>
               <span class="card-badge">${subtitle}</span>
             </div>
+            <div id="${narId}" style="padding:6px 20px 0;font-size:12px;color:var(--gray-400);min-height:20px"></div>
         <div class="card-body"></div>`;
       const body = card.querySelector('.card-body');
       if (!items || items.length === 0) {
@@ -911,6 +913,18 @@
           if (s.story) {
             storyEl.innerHTML = `<strong>📰 Today's Story:</strong> ${esc(s.story)}`;
           }
+        }).catch(()=>{});
+
+        // Card briefings (the "so what" layer)
+        fetch('/api/briefing').then(r=>r.json()).then(b => {
+          const addNarrative = (id, text) => {
+            const el = document.getElementById(id);
+            if (el && text) el.textContent = text;
+          };
+          addNarrative('MarketMovers-narrative', b.stocks_narrative);
+          addNarrative('Crypto-narrative', b.crypto_narrative);
+          addNarrative('HackerNews-narrative', b.hn_narrative);
+          addNarrative('GitHubTrending-narrative', b.github_narrative);
         }).catch(()=>{});
 
         // Sentiment strip

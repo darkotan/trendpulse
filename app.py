@@ -298,6 +298,65 @@ def market_story():
     crypto = data.get("crypto", [])
     hn = data.get("hn", [])
 
+
+@app.route("/api/briefing")
+def briefing():
+    """Generate editorial context for each data card — the 'so what' layer."""
+    data = get_cache()
+    stocks = data.get("stocks", [])
+    crypto = data.get("crypto", [])
+    hn = data.get("hn", [])
+    gh = data.get("github", [])
+
+    result = {"stocks_narrative": "", "crypto_narrative": "", "hn_narrative": "", "github_narrative": ""}
+
+    # Stocks: contextualize top movers
+    if len(stocks) >= 3:
+        up = [s for s in stocks if s["change_pct"] > 0]
+        down = [s for s in stocks if s["change_pct"] < 0]
+        parts = []
+        if up:
+            parts.append(f"{len(up)}/{len(stocks)} stocks rising.")
+            top = up[0]
+            parts.append(f"{top['symbol']} leads at +{top['change_pct']}%.")
+        if down:
+            parts.append(f"{len(down)} falling.")
+        result["stocks_narrative"] = " ".join(parts)
+
+    # Crypto: fear/greed + BTC context
+    if crypto:
+        btc = next((c for c in crypto if c["symbol"] == "BTC"), None)
+        movers = sorted(crypto, key=lambda x: abs(x["change_pct"]), reverse=True)
+        parts = []
+        if btc:
+            parts.append(f"BTC ${btc['price']:,.0f} ({btc['change_pct']:+.1f}%).")
+        if movers:
+            top_mover = movers[0]
+            parts.append(f"Most active: {top_mover['symbol']} {top_mover['change_pct']:+.1f}%.")
+        result["crypto_narrative"] = " ".join(parts)
+
+    # HN: contextualize the front page
+    if len(hn) >= 3:
+        top = hn[0]
+        rising = [s for s in hn[1:5] if s["comments"] > 50]
+        parts = [f"'{top['title'][:50]}...' dominates ({top['score']} pts)."]
+        if rising:
+            parts.append(f"{len(rising)} active discussions with 50+ comments.")
+        result["hn_narrative"] = " ".join(parts)
+
+    # GitHub: trending context
+    if len(gh) >= 3:
+        parts = [f"Top: {gh[0]['name']} ({gh[0]['stars_fmt']} ⭐)."]
+        languages = set(g["language"] for g in gh[:5] if g.get("language"))
+        if languages:
+            parts.append(f"Hot languages: {', '.join(list(languages)[:3])}.")
+        result["github_narrative"] = " ".join(parts)
+
+    return jsonify(result)
+    stocks = data.get("stocks", [])
+    crypto = data.get("crypto", [])
+    hn = data.get("hn", [])
+
     if not stocks:
         return jsonify({"story": "Loading market data...", "highlights": []})
 
