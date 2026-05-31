@@ -4,124 +4,109 @@
     "symbol": "NVDA",
     "view": "看多 高风险偏多",
     "priority": 467,
+    "change": "Windows PC英伟达硬件 + Jensen供应链扩散 + AI capex推文",
     "mentions_24h": 3,
     "mentions_7d": 14,
     "news": 10,
-    "change": "Windows PC英伟达硬件 + Jensen供应链扩散 + AI capex推文",
-    "full_analysis": "今天多了两条新消息：一是 Windows 笔记本要用英伟达芯片了，二是 Jensen 的供应链名单被传开了。简单说就是英伟达的需求不再只是 GPU 本身，而是整台电脑、连接器、散热、代工厂都在跟着吃红利。不过这些都还没落实到订单和利润上，得继续看。凌晨又来了一条 AI 投资的推文，专门提到 NVDA。",
-    "company": "英伟达。全球 AI 芯片霸主，GPU 市占率超 80%。从数据中心到自动驾驶，所有 AI 算力都绕不开它的芯片。",
-    "thesis": "AI 需求正在从芯片本身扩散到整个供应链——笔记本、连接器、散热、代工厂都在跟着吃肉。Windows 笔记本用英伟达硬件是新的增长信号。",
-    "risk": "订单和利润尚未兑现。供应链故事很大，但需要财报验证。"
+    "full_analysis": "当日新增两条可用线索：一是 Windows PC/笔记本采用英伟达硬件的讨论，二是 Jensen 供应链伙伴清单被扩散。边际含义是需求叙事继续从 GPU 本体外溢到整机、连接器、电力/散热和制造伙伴，但这些仍需与公司订单、毛利率和客户预算分开验证。新增 02:39 AI capex 推文，直接点名该标的。"
   },
   {
     "rank": 2,
     "symbol": "LITE",
     "view": "看多 高风险偏多",
     "priority": 458,
+    "change": "SIVE美国化参照标杆，光互连大票叙事锚",
     "mentions_24h": 3,
     "mentions_7d": 8,
     "news": 10,
-    "change": "SIVE美国化路径参照标杆，从小型光子公司到美国光互连大票",
-    "full_analysis": "今天被拿来当 SIVE 的参照物了——SIVE 想走美国化路线，LITE 就是\"美国光模块大厂\"的样板。但 LITE 自己的业绩还得靠订单和利润说话，现在只是被借来当标杆。最近一周被提了 9 次，一个月 78 次，关注度非常高。",
-    "company": "Lumentum。美国光模块/光学元件大厂，做激光器和 3D 传感。苹果 Face ID 的供应商之一。",
-    "thesis": "被拿来当 SIVE \"美国化\"的参照标杆——如果 SIVE 要变成美国光互连大票，LITE 就是样板。市场在这个故事里给它重新定价。",
-    "risk": "自身业绩还需客户订单和毛利率验证。目前只是被借来当\"对比标杆\"，不是业务真的爆发了。"
+    "full_analysis": "当日被 SIVE 的潜在美国化路径用作参照标杆，强化「从小型光子公司到美国光互连大票」的叙事锚；Lumentum 自身仍需以订单、客户、毛利率和现金流验证估值。未见本地新增一手公司事实。近 24 小时仍有新增提及（1 次），7 天累计 9 次、30 天 78 次，注意力保持在高位。"
   },
   {
     "rank": 3,
     "symbol": "SIVE",
     "view": "看多 高风险偏多",
     "priority": 446,
+    "change": "美国化/Nasdaq路径讨论 + CHIPS + 估值溢价",
     "mentions_24h": 4,
     "mentions_7d": 29,
     "news": 1,
-    "change": "美国化/Nasdaq路径 + CHIPS支持 + 估值溢价",
-    "full_analysis": "今天最大变化：大家都在讨论她去美国上市的可能性。美国股东结构、政府补贴、估值翻倍、并购机会——听起来很美好。但这些都是分析和推测，不是官方消息。她也提醒大家\"反信息战\"——看好的人太多，反而容易踩踏。凌晨的 AI 投资推文也提到了她。",
-    "company": "SIVE（小盘股）。做光子学/光互连芯片，是 CPO（共封装光学）赛道上的核心玩家。市值约 20 亿美元。",
-    "thesis": "最大的催化剂是美国化路径——去纳斯达克上市、拿 CHIPS 补贴、吸引美国机构资金、可能被并购。如果成功，估值对标 LITE 有 5-10 倍空间。光子学管线一个季度暴涨 77%。",
-    "risk": "这些都是分析和推测，不是官方公告。看好的人太多会导致拥挤交易。需要管理层、SEC 正式确认。"
+    "full_analysis": "当日新增美国化/Nasdaq 路径讨论，并强调美国股东结构、CHIPS 支持、估值溢价、M&A 和机构资金可能性。边际偏正面，但这是作者建议和战略推断，必须等待管理层、交易所、SEC 或正式公告验证。反信息战表述也提示叙事对抗和拥挤风险上升。新增 02:39 AI capex 推文，直接点名该标的。"
   },
   {
     "rank": 4,
     "symbol": "AAOI",
     "view": "看多 高风险偏多",
     "priority": 440,
+    "change": "CPO/Photonics 海外媒体报道",
     "mentions_24h": 4,
     "mentions_7d": 11,
     "news": 4,
-    "change": "CPO/Photonics 媒体报道同框",
-    "full_analysis": "今天因为 CPO/光互联的新闻被海外媒体提到了，知名度又涨了一波。但媒体报道归媒体报道，真正的业绩要看 800G/1.6T 光模块的出货量、大客户集中度、毛利率和融资情况。一周被提 5 次，一个月 52 次，热度不低。",
-    "company": "Applied Optoelectronics。美国本土光模块厂商，做 800G/1.6T 数据中心光互联。从激光晶圆到封装全在美国。",
-    "thesis": "CPO/光互联赛道上的纯美国标的。数据中心升级 800G/1.6T 是确定性的需求。海外媒体正在关注这个赛道。",
-    "risk": "媒体报道不是业绩。出货量、大客户集中度（能不能拿下 AWS/Azure）、毛利率、融资能力都需要验证。"
+    "full_analysis": "当日被海外媒体报道与 CPO/Photonics 供应链 thesis 同框，提升外部关注度；但媒体覆盖不能替代 800G/1.6T 出货、客户集中度、毛利率和融资风险验证。未见本地新增一手公司事实。近 24 小时仍有新增提及（1 次），7 天累计 5 次、30 天 52 次，注意力保持在高位。"
   },
   {
     "rank": 5,
     "symbol": "IREN",
     "view": "看空 谨慎",
     "priority": 381,
+    "change": "NVDA 34亿交易，但6B ATM稀释风险未解",
     "mentions_24h": 0,
     "mentions_7d": 2,
     "news": 10,
-    "change": "NVDA 34亿交易但6B ATM稀释风险未解",
-    "full_analysis": "她是唯一看空的。虽然 IREN 刚跟英伟达签了 34 亿美元的单子，股价也涨了，但她不买账。核心问题没变：6B 的 ATM 随时可能稀释股份，涨多少都会被摊薄。24 小时内没人提，一周 4 次，热度在降。",
-    "company": "Iris Energy。用可再生能源挖比特币 + AI 算力转型的数据中心公司。刚跟英伟达签了 34 亿美元合同。",
-    "thesis": "Serenity 看空。虽然 AI 转型看起来有进展（英伟达合同），但 60 亿美元的 ATM（随时增发股票）会不断稀释现有股东。涨多少都会被摊薄。",
-    "risk": "如果暂停 ATM 或者 AI 收入真的爆发，空头会被挤。但目前她认为风险大于机会。"
+    "full_analysis": "未见本地新增一手公司事实。 24 小时没有新增提及，但 7 天累计 4 次、30 天 32 次，仍有历史关注度。历史信号显示：边际新增了与Nvidia的34亿美元交易新闻，强化了AI转型的可行性并推动价格短期走强，但作者仍维持明确看空，未改变对稀释抑制上行空间的判断；该信息部分抵消了前期极度悲观的叙事，但尚未触及核心风险（6B ATM）。"
   },
   {
     "rank": 6,
     "symbol": "MRVL",
     "view": "看多 高风险偏多",
     "priority": 380,
+    "change": "Celestial + CPO/Photonics 供应链同框",
     "mentions_24h": 2,
     "mentions_7d": 4,
     "news": 10,
-    "change": "Celestial + CPO/Photonics 供应链同框",
-    "full_analysis": "Celestial + CPO/Photonics 供应链同框"
+    "full_analysis": "当日被媒体报道与 Celestial、CPO/Photonics thesis 同框，供应链叙事继续增强；需要回到定制芯片、互连订单、客户预算和利润率兑现。未见本地新增一手公司事实。 24 小时没有新增提及，但 7 天累计 4 次、30 天 41 次，仍有历史关注度。"
   },
   {
     "rank": 7,
     "symbol": "ONDS",
     "view": "中性 高风险观察",
     "priority": 366,
+    "change": "完成收购Omnisys Ltd ~$196M",
     "mentions_24h": 0,
     "mentions_7d": 0,
     "news": 10,
-    "change": "完成收购Omnisys $196M",
-    "full_analysis": "完成收购Omnisys $196M"
+    "full_analysis": "披露事项提示：Ondas Inc. completed its previously announced acquisition of 100% of Omnisys Ltd. for approximately $196."
   },
   {
     "rank": 8,
     "symbol": "SNDK",
     "view": "看多 高风险偏多",
     "priority": 342,
+    "change": "AI capex推文 + 情绪过热警示",
     "mentions_24h": 1,
     "mentions_7d": 3,
     "news": 10,
-    "change": "AI capex推文 + 情绪过热警示",
-    "full_analysis": "AI capex推文 + 情绪过热警示"
+    "full_analysis": "新增 02:39 AI capex 推文，直接点名该标的。近 24 小时仍有新增提及（2 次），7 天累计 3 次、30 天 20 次，注意力保持在高位。历史信号显示：作者在近30天内高频看多且未改变立场，最新推文仍以历史涨幅炫耀强化持仓信念；新闻面持续集中报道AI转型与需求缺口，无新增分歧信息；边际方向不变但情绪过热的警示信号增多。"
   },
   {
     "rank": 9,
     "symbol": "RKLB",
     "view": "看多 高风险偏多",
     "priority": 330,
+    "change": "$30亿 ATM远期售股安排",
     "mentions_24h": 1,
     "mentions_7d": 2,
     "news": 10,
-    "change": "$30亿 ATM远期售股安排",
-    "full_analysis": "$30亿 ATM远期售股安排"
+    "full_analysis": "披露事项提示：Rocket Lab 在 2026-05-20 签署最高 30 亿美元的普通股 equity distribution/ATM 及远期售股安排，可通过销售代理、Forward Sellers 和 Forward Purchasers 不定期发行或出售普通股。"
   },
   {
     "rank": 10,
     "symbol": "AMD",
     "view": "看多 高风险偏多",
     "priority": 329,
+    "change": "AI需求确认 + Intel资金分流风险",
     "mentions_24h": 0,
     "mentions_7d": 3,
     "news": 10,
-    "change": "AI需求确认 + Intel资金分流风险",
-    "full_analysis": "AI需求确认 + Intel资金分流风险"
+    "full_analysis": "未见本地新增一手公司事实。 24 小时没有新增提及，但 7 天累计 3 次、30 天 30 次，仍有历史关注度。历史信号显示：近期Reuters报道AMD要求合作伙伴提升产量，Amkor合作先进封装，$10B台湾投资落地，进一步确认AI需求；作者维持bullish，但Intel同期涨幅更大提示资金分流，边际上未改变看多判断但增加相对风险。"
   }
 ]
