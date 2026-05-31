@@ -136,9 +136,8 @@
                   <span class="pick-priority">优先 ${p.priority}</span>
                 </div>
                 <div class="pick-thesis">${esc(p.change || '')}</div>
-                <div style="margin-top:8px;padding:12px;background:rgba(168,85,247,.05);border-radius:8px;border-left:3px solid var(--accent);font-size:13px;color:#c4b5fd;line-height:1.7">
-                  <strong style="color:var(--accent)">GPT xhigh 深度分析</strong><br>
-                  ${esc(p.full_analysis || p.change || '暂无深度分析')}
+                <div style="margin-top:10px;padding:14px 16px;background:rgba(168,85,247,.06);border-radius:10px;border-left:3px solid var(--accent);font-size:14px;color:#d4c4f0;line-height:1.8">
+                  💬 ${esc(p.full_analysis || p.change || '暂无解读')}
                 </div>
                 <div class="pick-meta">
                   <span>📅 24h:${p.mentions_24h||0}</span>
