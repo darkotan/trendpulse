@@ -2489,3 +2489,25 @@ Press CTRL+C to quit
 127.0.0.1 - - [31/May/2026 19:17:53] "GET /api/all HTTP/1.1" 200 -
 127.0.0.1 - - [31/May/2026 19:17:53] "GET /api/serenity HTTP/1.1" 200 -
 127.0.0.1 - - [31/May/2026 19:18:38] "GET /api/stocks HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:18:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:18:46] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:18:46] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:18:46] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 19:18:53] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:18:54] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:19:54] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:19:54] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:20:24] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 19:20:54] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:20:54] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:21:54] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:21:54] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:22:32] "GET /api/market-story HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 19:22:32] "GET /api/stock/AAPL HTTP/1.1" 404 -
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+127.0.0.1 - - [31/May/2026 19:22:52] "GET /api/market-story HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 19:22:52] "GET /api/stock/AAPL HTTP/1.1" 200 -

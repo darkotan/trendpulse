@@ -322,6 +322,12 @@
       </div>
     </section>
 
+    <!-- Market Story -->
+    <div class="section-label">📰 Today's Story</div>
+    <div id="marketStory" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:16px 20px;margin-bottom:24px;font-size:14px;line-height:1.6;color:var(--text);min-height:48px">
+      Loading market summary...
+    </div>
+
     <!-- Market Sentiment Strip -->
     <div id="sentimentStrip"></div>
 
@@ -447,15 +453,16 @@
       return '🔥';
     }
 
-    /* ── Card Builder ───────────────────────────────── */
-    function makeCard(iconClass, title, badge, items, renderFn) {
-      const card = document.createElement('div');
-      card.className = 'card';
-      card.innerHTML = `
-        <div class="card-header">
-          <div class="card-title"><span class="card-icon ${iconClass}"></span>${esc(title)}</div>
-          <span class="card-badge">${badge}</span>
-        </div>
+    function makeCard(iconClass, title, subtitle, items, renderFn, source) {
+          const card = document.createElement('div');
+          card.className = 'card';
+          const bodyId = 'body-' + title.replace(/\s+/g, '');
+          const srcLabel = source ? `<span style="font-size:10px;color:var(--gray-400);font-family:monospace;margin-left:8px">via ${source}</span>` : '';
+          card.innerHTML = `
+            <div class="card-header">
+              <div class="card-title"><span class="card-icon ${iconClass}"></span>${title}${srcLabel}</div>
+              <span class="card-badge">${subtitle}</span>
+            </div>
         <div class="card-body"></div>`;
       const body = card.querySelector('.card-body');
       if (!items || items.length === 0) {
@@ -745,16 +752,24 @@
         if (!resp.ok) throw new Error('API error ' + resp.status);
         const data = await resp.json();
 
+        // Market story
+        fetch('/api/market-story').then(r=>r.json()).then(s=>{
+          const storyEl = document.getElementById('marketStory');
+          if (s.story) {
+            storyEl.innerHTML = `<strong>📰 Today's Story:</strong> ${esc(s.story)}`;
+          }
+        }).catch(()=>{});
+
         // Sentiment strip
         renderSentiment(data);
 
         // Main 2x2 grid
         const mainGrid = document.getElementById('mainGrid');
         mainGrid.innerHTML = '';
-        mainGrid.appendChild(makeCard('icon-hn', 'Hacker News', `${(data.hn||[]).length} stories`, data.hn||[], renderHN));
-        mainGrid.appendChild(makeCard('icon-stocks', 'Market Movers', `${(data.stocks||[]).length} tickers`, data.stocks||[], renderStock));
-        mainGrid.appendChild(makeCard('icon-crypto', 'Crypto', `${(data.crypto||[]).length} coins`, data.crypto||[], renderCrypto));
-        mainGrid.appendChild(makeCard('icon-gh', 'GitHub Trending', `${(data.github||[]).length} repos`, data.github||[], renderGH));
+        mainGrid.appendChild(makeCard('icon-hn', 'Hacker News', `${(data.hn||[]).length} stories`, data.hn||[], renderHN, 'HN API'));
+        mainGrid.appendChild(makeCard('icon-stocks', 'Market Movers', `${(data.stocks||[]).length} tickers`, data.stocks||[], renderStock, 'Yahoo Finance'));
+        mainGrid.appendChild(makeCard('icon-crypto', 'Crypto', `${(data.crypto||[]).length} coins`, data.crypto||[], renderCrypto, 'Binance'));
+        mainGrid.appendChild(makeCard('icon-gh', 'GitHub Trending', `${(data.github||[]).length} repos`, data.github||[], renderGH, 'GitHub API'));
 
         // Community grid — only show cards with data
         const commGrid = document.getElementById('communityGrid');

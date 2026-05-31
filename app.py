@@ -290,6 +290,59 @@ def api_serenity():
     return jsonify(get_serenity_summary())
 
 
+@app.route("/api/market-story")
+def market_story():
+    """Generate a one-paragraph narrative of what's happening today."""
+    data = get_cache()
+    stocks = data.get("stocks", [])
+    crypto = data.get("crypto", [])
+    hn = data.get("hn", [])
+
+    if not stocks:
+        return jsonify({"story": "Loading market data...", "highlights": []})
+
+    up = [s for s in stocks if s["change_pct"] > 0]
+    down = [s for s in stocks if s["change_pct"] < 0]
+    top_up = up[0] if up else None
+    top_down = down[0] if down else None
+    btc = next((c for c in crypto if c["symbol"] == "BTC"), None)
+    eth = next((c for c in crypto if c["symbol"] == "ETH"), None)
+
+    # Build narrative
+    parts = []
+    highlights = []
+
+    direction = "rallying" if len(up) > len(down) else "mixed" if len(up) == len(down) else "declining"
+    parts.append(f"Markets are {direction} today with {len(up)}/{len(stocks)} tracked stocks in the green.")
+
+    if top_up:
+        parts.append(f"Top gainer: {top_up['symbol']} +{top_up['change_pct']}% (${top_up['price']}).")
+        highlights.append({"symbol": top_up["symbol"], "change": f"+{top_up['change_pct']}%", "type": "gain"})
+    if top_down:
+        parts.append(f"Biggest drop: {top_down['symbol']} {top_down['change_pct']}%.")
+        highlights.append({"symbol": top_down["symbol"], "change": f"{top_down['change_pct']}%", "type": "loss"})
+    if btc:
+        direction = "up" if btc["change_pct"] >= 0 else "down"
+        parts.append(f"Bitcoin is {direction} {abs(btc['change_pct']):.1f}% at ${btc['price']:,.0f}.")
+        highlights.append({"symbol": "BTC", "change": f"{btc['change_pct']:+.1f}%", "type": "crypto"})
+    if hn:
+        parts.append(f"On Hacker News, '{hn[0]['title'][:60]}' is trending with {hn[0]['score']} points.")
+
+    story = " ".join(parts)
+    return jsonify({"story": story, "highlights": highlights})
+
+
+@app.route("/api/stock/<symbol>")
+def stock_detail(symbol):
+    """Get detail for one stock with referral links."""
+    from data.collector import _get_yahoo_quote
+    quote = _get_yahoo_quote(symbol.upper())
+    if not quote:
+        return jsonify({"error": "Not found"}), 404
+    quote["binance_url"] = f"https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX"
+    return jsonify(quote)
+
+
 @app.route("/api/subscribe", methods=["POST"])
 def api_subscribe():
     """Save email subscription to file."""
