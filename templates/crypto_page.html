@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="keywords" content="{{ symbol }} price, {{ symbol }} crypto, {{ symbol }} USD, {{ symbol }} live price, buy {{ symbol }}">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trendscan.org/crypto/{{ symbol }}">
+
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://trendscan.org/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"{{ symbol }} Crypto Price","description":"{{ description }}","url":"https://trendscan.org/crypto/{{ symbol }}"}
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #171717; --white: #ffffff;
+      --gray-600: #4d4d4d; --gray-500: #666666; --gray-400: #808080;
+      --gray-100: #ebebeb; --gray-50: #fafafa;
+      --blue: #0072f5; --blue-bg: #ebf5ff;
+      --green: #0a9950; --red: #dc2626; --orange: #f7931a;
+      --radius: 8px; --radius-lg: 12px;
+      --shadow: 0px 0px 0px 1px rgba(0,0,0,0.08), 0px 2px 2px rgba(0,0,0,0.04), 0px 8px 8px -8px rgba(0,0,0,0.04);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+    body{background:var(--white);color:var(--black);line-height:1.5;min-height:100vh}
+
+    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 0 0 1px rgba(0,0,0,0.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:16px;font-weight:600;text-decoration:none;color:var(--black);display:flex;align-items:center;gap:8px}
+    .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--orange)}
+    .header-nav{display:flex;gap:20px;font-size:13px;font-weight:500}
+    .header-nav a{color:var(--gray-500);text-decoration:none}
+    .header-nav a:hover{color:var(--black)}
+
+    .container{max-width:900px;margin:0 auto;padding:32px 24px}
+    .breadcrumb{font-size:12px;color:var(--gray-400);margin-bottom:24px}
+    .breadcrumb a{color:var(--gray-400);text-decoration:none}
+    .breadcrumb a:hover{color:var(--blue)}
+
+    .quote-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:32px;margin-bottom:24px}
+    .ticker-row{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
+    .ticker-symbol{font-size:32px;font-weight:600;letter-spacing:-1px}
+    .ticker-price{font-size:48px;font-weight:600;letter-spacing:-2px;font-family:'Geist Mono',monospace}
+    .ticker-change{font-size:20px;font-weight:500;font-family:'Geist Mono',monospace}
+    .up{color:var(--green)}.down{color:var(--red)}
+    .meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;padding-top:24px;border-top:1px solid var(--gray-100)}
+    .meta-item{text-align:center}
+    .meta-label{font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+    .meta-value{font-size:16px;font-weight:600;font-family:'Geist Mono',monospace}
+
+    .info-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:20px;margin-bottom:24px}
+    .info-card h2{font-size:18px;font-weight:600;margin-bottom:8px}
+    .info-card p{font-size:14px;color:var(--gray-500);line-height:1.7}
+
+    .trade-bar{background:linear-gradient(135deg,#f7931a,#ff6b00);border-radius:var(--radius-lg);padding:24px;text-align:center;color:var(--white);margin-bottom:24px}
+    .trade-bar strong{font-size:18px;display:block;margin-bottom:8px}
+    .trade-bar a{display:inline-block;margin-top:8px;background:#fff;color:#f7931a;padding:10px 28px;border-radius:var(--radius);text-decoration:none;font-weight:600;font-size:14px}
+
+    .related-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:40px}
+    .related-link{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius);padding:12px 16px;font-size:13px;font-weight:500;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:8px}
+    .related-link:hover{border-color:var(--orange)}
+
+    .not-found{text-align:center;padding:60px 0;color:var(--gray-400)}
+
+    footer{max-width:900px;margin:0 auto;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
+    footer p{font-size:12px;color:var(--gray-400)}
+    footer a{color:var(--gray-500);text-decoration:none}
+
+    @media(max-width:600px){
+      .ticker-price{font-size:36px}
+      .meta-grid{grid-template-columns:repeat(2,1fr)}
+      .related-links{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
+    <nav class="header-nav">
+      <a href="/stocks">Stocks</a>
+      <a href="/crypto">Crypto</a>
+      <a href="/market-sentiment">Sentiment</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> › <a href="/crypto">Crypto</a> › {{ symbol }}
+    </div>
+
+    {% if coin %}
+    <div class="quote-card">
+      <div class="ticker-row">
+        <span class="ticker-symbol">₿ {{ symbol }}</span>
+        <span class="ticker-change {% if coin.change_pct >= 0 %}up{% else %}down{% endif %}">
+          {% if coin.change_pct >= 0 %}+{% endif %}{{ coin.change_pct }}%
+        </span>
+      </div>
+      <div class="ticker-price {% if coin.change_pct >= 0 %}up{% else %}down{% endif %}">
+        ${{ "{:,.2f}".format(coin.price) }}
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">24h High</div>
+          <div class="meta-value">${{ "{:,.2f}".format(coin.high) }}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">24h Low</div>
+          <div class="meta-value">${{ "{:,.2f}".format(coin.low) }}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">24h Volume</div>
+          <div class="meta-value">{{ coin.volume_fmt }}</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="trade-bar">
+      <strong>₿ Trade {{ symbol }} on Binance — Lowest Fees</strong>
+      Get 10% off trading fees when you sign up with our referral link.
+      <br><a href="https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX" target="_blank" rel="nofollow sponsored">Trade {{ symbol }} Now</a>
+    </div>
+
+    <div class="info-card">
+      <h2>About {{ symbol }}</h2>
+      <p>{{ symbol }} is currently trading at <strong>${{ "{:,.2f}".format(coin.price) }}</strong>. 24-hour change is <strong>{% if coin.change_pct >= 0 %}+{% endif %}{{ coin.change_pct }}%</strong>. 24h high is ${{ "{:,.2f}".format(coin.high) }} and 24h low is ${{ "{:,.2f}".format(coin.low) }}. Trading volume in the last 24 hours is {{ coin.volume_fmt }}.</p>
+      <p style="margin-top:8px">Data sourced from Binance. Updated every 5 minutes. This is not financial advice. Cryptocurrency trading involves substantial risk.</p>
+    </div>
+
+    {% else %}
+    <div class="not-found">
+      <h2>{{ symbol }} — Data Unavailable</h2>
+      <p style="margin-top:8px">Unable to fetch live data for {{ symbol }}.</p>
+      <p style="margin-top:8px"><a href="/crypto" style="color:var(--blue)">← Back to all crypto</a></p>
+    </div>
+    {% endif %}
+
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">Other Cryptocurrencies</h3>
+    <div class="related-links">
+      <a href="/crypto/BTC" class="related-link">₿ BTC</a>
+      <a href="/crypto/ETH" class="related-link">⟠ ETH</a>
+      <a href="/crypto/SOL" class="related-link">◎ SOL</a>
+      <a href="/crypto/DOGE" class="related-link">🐕 DOGE</a>
+      <a href="/crypto/XRP" class="related-link">💧 XRP</a>
+      <a href="/crypto/ADA" class="related-link">🔷 ADA</a>
+      <a href="/crypto/LINK" class="related-link">🔗 LINK</a>
+      <a href="/crypto/PEPE" class="related-link">🐸 PEPE</a>
+      <a href="/crypto/ARB" class="related-link">🔷 ARB</a>
+      <a href="/crypto/SUI" class="related-link">🌊 SUI</a>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="/">TrendPulse</a> · Real-time data aggregation · <a href="/privacy">Privacy</a> · <a href="/contact">Contact</a></p>
+  </footer>
+</body>
+</html>

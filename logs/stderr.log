@@ -1615,3 +1615,827 @@ Press CTRL+C to quit
 127.0.0.1 - - [31/May/2026 02:46:37] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [31/May/2026 02:46:37] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [31/May/2026 02:46:39] "GET /api/stats HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:47:07] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:48:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:48:07] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:49:07] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:50:07] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:51:02] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:51:09] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:51:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:51:11] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 02:51:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:51:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:51:12] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 02:51:25] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:51:43] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:52:52] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:55:13] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:56:30] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:56:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:56:32] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 02:56:33] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 02:56:33] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 03:00:29] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 03:00:31] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 03:01:24] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 03:01:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 03:01:27] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 03:01:27] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 03:01:28] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 03:01:28] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 03:35:18] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 03:35:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 03:35:21] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 03:35:22] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 03:35:22] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 03:35:22] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 03:50:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:00:46] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:00:48] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:49:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:53:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:55:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:55:12] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:55:13] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:55:14] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:55:14] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:55:15] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 04:55:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:55:16] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 04:55:17] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 04:55:18] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 05:00:21] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 05:00:24] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 05:01:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 05:14:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 05:56:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 05:58:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 06:00:40] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 06:00:43] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 06:05:04] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 06:05:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 06:05:07] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 06:05:07] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 06:05:08] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 06:05:08] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 06:10:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 06:11:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 06:11:32] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 06:42:10] "GET /wp-login.php HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 06:58:13] "GET /wp-login.php HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 06:59:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 07:00:25] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 07:00:25] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 07:02:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 07:36:05] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 07:36:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 07:36:08] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 07:36:08] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 07:36:08] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 07:36:08] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 08:03:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:03:12] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 08:03:13] "GET /favicon.png HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 08:03:43] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:03:46] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:04:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:04:11] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 08:04:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:04:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:07:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:10:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:10:33] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 08:10:35] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:10:35] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:15:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:15:18] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:15:19] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:15:24] "GET /privacy HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:15:25] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 08:15:28] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:00:30] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:00:30] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:00:33] "GET /api/wechat-digest HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:04:20] "GET /api/wechat-digest HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:08:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:11:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:11:18] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:11:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:11:21] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 09:11:21] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:11:22] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:11:22] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:16:48] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:17:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:22:13] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:22:14] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:22:14] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:24:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:28:51] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:29:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:30:15] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:30:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:50:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:50:07] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 09:50:07] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:50:08] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:50:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:50:54] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 09:50:55] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:50:55] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:51:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:51:55] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:52:07] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:52:08] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:53:01] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:53:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:53:32] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 09:53:35] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:53:36] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:53:49] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:54:35] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:56:41] "GET /.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:56:41] "GET /.git/HEAD HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /secrets.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /api/config HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /.env.local HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /account.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /sitemap.xml HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /config.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /google-credentials.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /firebase-adminsdk.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /key.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /actuator/env HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /.env.development HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /appsettings.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /.env.backup HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /gcp-credentials.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /.env.bak HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /service-account.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /.env.production HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /api/env HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /credentials.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /firebase.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /keyfile.json HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:42] "GET /static/i18n.js.map HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 09:56:47] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:56:47] "GET /privacy HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:56:48] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:59:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 09:59:56] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 10:03:13] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:03:15] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:07:43] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 10:08:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:12:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:17:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:17:41] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:17:42] "GET /privacy HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:17:42] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:17:43] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 10:18:22] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 10:20:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:20:53] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 10:20:53] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:20:53] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:20:54] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 10:20:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:20:57] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:20:57] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:24:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:32:53] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 10:41:46] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:41:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:41:48] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 10:41:49] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:41:50] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 10:41:50] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 10:51:48] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 11:00:30] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:00:30] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:01:24] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 11:16:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:16:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:25:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:25:34] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 11:25:35] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:25:35] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:27:49] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:27:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:27:52] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 11:27:52] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:27:52] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:28:52] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:29:52] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:30:51] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 11:30:52] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:31:52] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:32:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:32:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:32:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:33:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:34:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:34:44] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 11:35:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:36:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:37:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:38:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:40:36] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:41:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:41:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 11:49:47] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 11:51:42] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 12:00:43] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:00:46] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:01:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:22:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:23:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:23:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:27:39] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:27:40] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 12:27:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:27:41] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 12:27:42] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:27:42] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:27:42] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 12:27:59] "GET /api/track-click?type=binance&url=https://accounts.binance.com/en/register?ref%3DGRO_28502_3H9MX HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:28:00] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:28:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:28:04] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 12:28:04] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:28:04] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:28:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 12:30:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:35:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:39:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:46:59] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 12:51:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:51:16] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 12:51:16] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:51:16] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 12:51:17] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 12:52:48] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:01:00] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:01:02] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:04:25] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 13:05:28] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 13:08:09] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:13:07] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 13:15:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:15:56] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:15:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:16:00] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 13:16:01] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:16:01] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:16:01] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 13:23:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:25:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:31:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:32:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:43:06] "GET /wp-login.php HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 13:46:11] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 13:53:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:54:11] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 13:58:38] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 13:59:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 13:59:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:00:16] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:00:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:00:18] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:00:19] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 14:00:19] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:00:20] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:00:30] "GET /cmd_sco HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:00:31] "GET /cmd_sco HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:01:03] "GET /cmd_sco HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:02:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:04:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:04:22] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 14:04:23] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:04:24] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:04:33] "GET /cmd_sco HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:04:34] "GET /cmd_sco HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:04:45] "GET /cmd_sco HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:04:53] "GET /cmd_sco HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:08:57] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:13:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:43] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:44] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:44] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:45] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:45] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:45] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:45] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:46] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:46] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:47] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:48] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:48] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:50] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:13:50] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:13:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:50] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:13:51] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:51] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:55] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:55] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:55] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:13:55] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:13:55] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:00] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:14:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:14:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:15] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:19] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:19] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:23] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:14:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:25] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:27] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:27] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:29] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:30] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:14:31] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:31] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:14:32] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:33] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:35] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 14:14:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:38] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:38] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:38] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:41] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:41] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:41] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:43] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:43] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:14:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:44] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:45] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:45] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:45] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:49] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:14:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:50] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:50] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:52] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:52] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:14:52] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:14:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:54] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:54] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 14:14:54] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 14:14:54] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:54] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:54] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:55] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:55] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:56] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:56] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:56] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:56] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:57] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:57] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:57] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:14:57] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:58] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:58] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:14:59] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:00] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:00] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:00] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:00] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:00] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:00] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:00] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:01] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:01] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:02] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:04] "GET /static/i18n.js HTTP/1.1" 304 -
+127.0.0.1 - - [31/May/2026 14:15:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:05] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:05] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:08] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:08] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:09] "GET /static/i18n.js HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:09] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:12] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:14] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:17] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:15:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:15:43] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:17:48] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:20:21] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:20:31] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:27:05] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:29:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:30:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:30:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:30:22] "GET /wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:22] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET /website/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET /news/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:30:26] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:26] "GET /wp2/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:30:26] "GET /wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:26] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:30:26] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:26] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:26] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:26] "GET /sito/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:27] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:27] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:27] "GET /website/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:27] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:27] "GET /news/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:28] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:31] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:31] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:31] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:31] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:31] "GET /wp2/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:34] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:35] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:30:35] "GET /sito/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+/Users/darkotan/trendpulse/start.sh: line 7: 72118 Terminated: 15          PYTHONUNBUFFERED=1 python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://172.16.34.58:8766
+Press CTRL+C to quit
+127.0.0.1 - - [31/May/2026 14:37:32] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:38:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:40:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:40:53] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:40:53] "GET /favicon.png HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 14:41:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:41:55] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:47:37] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:47:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:47:40] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:47:40] "GET /favicon.ico HTTP/1.1" 404 -
+/Users/darkotan/trendpulse/start.sh: line 7: 83787 Terminated: 15          PYTHONUNBUFFERED=1 python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://172.16.34.58:8766
+Press CTRL+C to quit
+127.0.0.1 - - [31/May/2026 14:47:55] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:48:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:53:24] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:53:26] "GET /api/sentiment HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:53:30] "GET /stock/AAPL HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:53:30] "GET /crypto/BTC HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 14:56:45] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+/Users/darkotan/trendpulse/start.sh: line 7: 83944 Terminated: 15          PYTHONUNBUFFERED=1 python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://172.16.34.58:8766
+Press CTRL+C to quit
+/Users/darkotan/trendpulse/start.sh: line 7: 84130 Killed: 9               PYTHONUNBUFFERED=1 python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://172.16.34.58:8766
+Press CTRL+C to quit
+/Users/darkotan/trendpulse/start.sh: line 7: 84160 Killed: 9               PYTHONUNBUFFERED=1 python3 app.py
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://172.16.34.58:8766
+Press CTRL+C to quit
+127.0.0.1 - - [31/May/2026 15:19:17] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 15:19:19] "POST /api/subscribe HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 15:19:20] "GET /api/subscribers/count HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 15:19:24] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 15:19:24] "HEAD /stock/TSLA HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 15:19:25] "HEAD /market-sentiment HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 15:19:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 15:35:41] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 15:35:41] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:12:21] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:12:21] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:13:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:18:54] "GET /wp-login.php HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 18:22:10] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:22:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:22:13] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:23:13] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:24:13] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:24:38] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:24:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:24:42] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:25:13] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:25:18] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:25:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:25:26] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:26:14] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:26:26] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:27:14] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:27:26] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:27:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:28:14] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:28:26] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:28:57] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 18:29:26] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:30:26] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:31:26] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:37:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 18:41:57] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 18:50:58] "GET /${OKX_BASE} HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 18:53:36] "GET /api/serenity HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 18:53:36] "GET /serenity HTTP/1.1" 404 -
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+127.0.0.1 - - [31/May/2026 18:53:52] "GET /api/serenity HTTP/1.1" 200 -

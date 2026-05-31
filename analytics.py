@@ -67,6 +67,57 @@ def track_ad_click(ip: str, ad_type: str, target_url: str = ""):
     threading.Thread(target=_track, daemon=True).start()
 
 
+# ── Newsletter subscribers ─────────────────────────
+
+def add_subscriber(email: str) -> bool:
+    """Store email subscription. Returns True if new, False if duplicate."""
+    with _lock:
+        try:
+            conn = _db()
+            conn.execute("""CREATE TABLE IF NOT EXISTS subscribers (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email TEXT UNIQUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )""")
+            conn.execute("INSERT OR IGNORE INTO subscribers (email) VALUES (?)", (email,))
+            rows = conn.total_changes
+            conn.commit()
+            conn.close()
+            return rows > 0
+        except Exception as e:
+            print(f"[Analytics] Subscriber error: {e}")
+            return False
+
+
+def get_subscriber_count() -> int:
+    """Return total subscriber count."""
+    with _lock:
+        try:
+            conn = _db()
+            conn.execute("""CREATE TABLE IF NOT EXISTS subscribers (
+                id INTEGER PRIMARY KEY AUTOINCREMENT,
+                email TEXT UNIQUE,
+                created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+            )""")
+            count = conn.execute("SELECT COUNT(*) FROM subscribers").fetchone()[0]
+            conn.close()
+            return count
+        except Exception:
+            return 0
+
+
+def get_subscribers() -> list:
+    """Return list of subscriber emails."""
+    with _lock:
+        try:
+            conn = _db()
+            rows = conn.execute("SELECT email FROM subscribers ORDER BY created_at").fetchall()
+            conn.close()
+            return [r[0] for r in rows]
+        except Exception:
+            return []
+
+
 def get_stats(days: int = 7) -> dict:
     """Return analytics summary for the last N days."""
     with _lock:

@@ -769,3 +769,674 @@
 [TrendPulse] Starting http://localhost:8766
  * Serving Flask app 'app'
  * Debug mode: off
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[Collector] https://api.binance.com/api/v3/ticker/24hr → <urlopen error timed out>
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://production.dataviz.cnn.io/index/fearandgreed/graphda → HTTP Error 418: Unknown Error
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://production.dataviz.cnn.io/index/fearandgreed/graphda → HTTP Error 418: Unknown Error
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://production.dataviz.cnn.io/index/fearandgreed/graphda → HTTP Error 418: Unknown Error
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://production.dataviz.cnn.io/index/fearandgreed/graphda → HTTP Error 418: Unknown Error
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://api.github.com/search/repositories?q=stars:%3E100+pu → The read operation timed out
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] ProductHunt: <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] text https://www.producthunt.com/feed → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] https://api.alternative.me/fng/?limit=1 → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/%5EVIX?int → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SHY?interv → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/IEF?interv → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/TLT?interv → <urlopen error [Errno 8] nodename nor servname provided, or not known>
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked

@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Serenity 投研看板 | TrendPulse</title>
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--bg:#0a0a0a;--card:#141414;--border:#222;--green:#0a9950;--red:#dc2626;--blue:#0072f5;--text:#e5e5e5;--muted:#666;--bull:#059669;--bear:#dc2626}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--bg);color:var(--text);font-family:'Geist',system-ui,sans-serif;padding:24px;min-height:100vh}
+    header{display:flex;align-items:center;gap:12px;margin-bottom:32px}
+    header a{color:var(--blue);text-decoration:none;font-size:14px}
+    h1{font-size:28px;font-weight:600;letter-spacing:-1.12px}
+    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(360px,1fr));gap:12px}
+    .card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 20px;display:flex;align-items:center;gap:16px;transition:border-color .15s}
+    .card:hover{border-color:var(--blue)}
+    .rank{font-size:14px;font-weight:500;color:var(--muted);font-family:'Geist Mono',monospace;min-width:24px}
+    .symbol{font-size:16px;font-weight:600;letter-spacing:-0.32px;min-width:64px}
+    .view{font-size:12px;padding:2px 8px;border-radius:4px;font-weight:500}
+    .bullish{background:rgba(5,150,105,.15);color:var(--bull)}.bearish{background:rgba(220,38,38,.15);color:var(--bear)}.neutral{background:rgba(100,100,100,.15);color:var(--muted)}
+    .priority{font-size:13px;font-weight:600;font-family:'Geist Mono',monospace;color:var(--blue);min-width:48px;text-align:right}
+    .change{font-size:12px;color:var(--muted);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+    .meta{display:flex;gap:8px;font-size:11px;color:var(--muted);font-family:'Geist Mono',monospace}
+    footer{text-align:center;margin-top:40px;font-size:12px;color:var(--muted)}
+    a{color:var(--blue);text-decoration:none}
+    @media(max-width:600px){.grid{grid-template-columns:1fr}}
+  </style>
+</head>
+<body>
+  <header>
+    <h1>🔮 Serenity 投研看板</h1>
+    <a href="/">← TrendPulse</a>
+  </header>
+  <div class="grid">
+  {% for p in picks %}
+    <div class="card">
+      <span class="rank">#{{ p.rank }}</span>
+      <span class="symbol">{{ p.symbol }}</span>
+      <span class="view {{ 'bullish' if '看多' in p.view else 'bearish' if '看空' in p.view else 'neutral' }}">{{ p.view }}</span>
+      <span class="priority">{{ p.priority }}</span>
+      <span class="change">{{ p.change }}</span>
+      <span class="meta">24h:{{ p.mentions_24h }} 7d:{{ p.mentions_7d }}</span>
+    </div>
+  {% endfor %}
+  </div>
+  <footer>Source: analysissite.vercel.app · Auto-refresh via cron</footer>
+</body>
+</html>

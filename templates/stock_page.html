@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="keywords" content="{{ symbol }} stock, {{ symbol }} price, {{ symbol }} stock price today, {{ symbol }} quote">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trendscan.org/stock/{{ symbol }}">
+
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://trendscan.org/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"{{ symbol }} Stock Price","description":"{{ description }}","url":"https://trendscan.org/stock/{{ symbol }}"}
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #171717; --white: #ffffff;
+      --gray-600: #4d4d4d; --gray-500: #666666; --gray-400: #808080;
+      --gray-100: #ebebeb; --gray-50: #fafafa;
+      --blue: #0072f5; --blue-bg: #ebf5ff;
+      --green: #0a9950; --red: #dc2626;
+      --radius: 8px; --radius-lg: 12px;
+      --shadow: 0px 0px 0px 1px rgba(0,0,0,0.08), 0px 2px 2px rgba(0,0,0,0.04), 0px 8px 8px -8px rgba(0,0,0,0.04);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+    body{background:var(--white);color:var(--black);line-height:1.5;min-height:100vh}
+
+    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 0 0 1px rgba(0,0,0,0.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    .logo{font-size:16px;font-weight:600;text-decoration:none;color:var(--black);display:flex;align-items:center;gap:8px}
+    .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
+    .header-nav{display:flex;gap:20px;font-size:13px;font-weight:500}
+    .header-nav a{color:var(--gray-500);text-decoration:none}
+    .header-nav a:hover{color:var(--black)}
+
+    .container{max-width:900px;margin:0 auto;padding:32px 24px}
+    .breadcrumb{font-size:12px;color:var(--gray-400);margin-bottom:24px}
+    .breadcrumb a{color:var(--gray-400);text-decoration:none}
+    .breadcrumb a:hover{color:var(--blue)}
+
+    .quote-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:32px;margin-bottom:24px}
+    .ticker-row{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
+    .ticker-symbol{font-size:32px;font-weight:600;letter-spacing:-1px}
+    .ticker-price{font-size:48px;font-weight:600;letter-spacing:-2px;font-family:'Geist Mono',monospace}
+    .ticker-change{font-size:20px;font-weight:500;font-family:'Geist Mono',monospace}
+    .up{color:var(--green)}.down{color:var(--red)}
+    .meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;padding-top:24px;border-top:1px solid var(--gray-100)}
+    .meta-item{text-align:center}
+    .meta-label{font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+    .meta-value{font-size:16px;font-weight:600;font-family:'Geist Mono',monospace}
+
+    .chart-container{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:24px;margin-bottom:24px;height:200px;position:relative}
+    .chart-container h3{font-size:14px;font-weight:600;margin-bottom:12px}
+
+    .info-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:20px;margin-bottom:24px}
+    .info-card h2{font-size:18px;font-weight:600;margin-bottom:8px}
+    .info-card p{font-size:14px;color:var(--gray-500);line-height:1.7}
+
+    .related-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:40px}
+    .related-link{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius);padding:12px 16px;font-size:13px;font-weight:500;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:8px}
+    .related-link:hover{border-color:var(--blue)}
+
+    .not-found{text-align:center;padding:60px 0;color:var(--gray-400)}
+    .affiliate-bar{background:var(--black);border-radius:var(--radius-lg);padding:20px 24px;text-align:center;color:var(--white);margin-bottom:24px}
+    .affiliate-bar a{color:var(--blue);text-decoration:none;font-weight:600}
+
+    footer{max-width:900px;margin:0 auto;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
+    footer p{font-size:12px;color:var(--gray-400)}
+    footer a{color:var(--gray-500);text-decoration:none}
+
+    @media(max-width:600px){
+      .ticker-price{font-size:36px}
+      .meta-grid{grid-template-columns:repeat(2,1fr)}
+      .related-links{grid-template-columns:1fr}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
+    <nav class="header-nav">
+      <a href="/stocks">Stocks</a>
+      <a href="/crypto">Crypto</a>
+      <a href="/market-sentiment">Sentiment</a>
+    </nav>
+  </header>
+
+  <div class="container">
+    <div class="breadcrumb">
+      <a href="/">Home</a> › <a href="/stocks">Stocks</a> › {{ symbol }}
+    </div>
+
+    {% if quote %}
+    <div class="quote-card">
+      <div class="ticker-row">
+        <span class="ticker-symbol">{{ symbol }}</span>
+        <span class="ticker-change {% if quote.change_pct >= 0 %}up{% else %}down{% endif %}">
+          {% if quote.change_pct >= 0 %}+{% endif %}{{ quote.change_pct }}%
+        </span>
+      </div>
+      <div class="ticker-price {% if quote.change_pct >= 0 %}up{% else %}down{% endif %}">
+        ${{ "{:,.2f}".format(quote.price) }}
+      </div>
+      <div class="meta-grid">
+        <div class="meta-item">
+          <div class="meta-label">Day High</div>
+          <div class="meta-value">${{ "{:,.2f}".format(quote.high) }}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Day Low</div>
+          <div class="meta-value">${{ "{:,.2f}".format(quote.low) }}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Previous Close</div>
+          <div class="meta-value">${{ "{:,.2f}".format(quote.previous_close) }}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Change</div>
+          <div class="meta-value {% if quote.change >= 0 %}up{% else %}down{% endif %}">
+            {% if quote.change >= 0 %}+{% endif %}${{ "{:,.2f}".format(quote.change) }}
+          </div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Volume</div>
+          <div class="meta-value">{{ "{:,.0f}".format(quote.volume) }}</div>
+        </div>
+        <div class="meta-item">
+          <div class="meta-label">Market Cap</div>
+          <div class="meta-value">{% if quote.market_cap %}${{ "{:,.0f}".format(quote.market_cap // 1000000000) }}B{% else %}--{% endif %}</div>
+        </div>
+      </div>
+    </div>
+
+    {% if quote.sparkline %}
+    <div class="chart-container">
+      <h3>5-Day Price Trend</h3>
+      <canvas id="sparkChart" width="850" height="150"></canvas>
+    </div>
+    <script>
+      const sparkline = {{ quote.sparkline | tojson }};
+      const canvas = document.getElementById('sparkChart');
+      if (canvas && sparkline.length) {
+        const ctx = canvas.getContext('2d');
+        const W = canvas.width, H = canvas.height;
+        const pad = 10;
+        const min = Math.min(...sparkline), max = Math.max(...sparkline);
+        const range = max - min || 1;
+        const points = sparkline.map((v, i) => ({
+          x: pad + (i / (sparkline.length - 1)) * (W - pad * 2),
+          y: H - pad - ((v - min) / range) * (H - pad * 2)
+        }));
+        const isUp = sparkline[sparkline.length - 1] >= sparkline[0];
+        ctx.strokeStyle = isUp ? '#0a9950' : '#dc2626';
+        ctx.lineWidth = 2;
+        ctx.lineJoin = 'round';
+        ctx.beginPath();
+        ctx.moveTo(points[0].x, points[0].y);
+        for (let i = 1; i < points.length; i++) {
+          ctx.lineTo(points[i].x, points[i].y);
+        }
+        ctx.stroke();
+        // Gradient fill
+        const grad = ctx.createLinearGradient(0, pad, 0, H - pad);
+        grad.addColorStop(0, isUp ? 'rgba(10,153,80,0.15)' : 'rgba(220,38,38,0.15)');
+        grad.addColorStop(1, 'rgba(255,255,255,0)');
+        ctx.lineTo(points[points.length-1].x, H - pad);
+        ctx.lineTo(points[0].x, H - pad);
+        ctx.closePath();
+        ctx.fillStyle = grad;
+        ctx.fill();
+      }
+    </script>
+    {% endif %}
+
+    <div class="info-card">
+      <h2>About {{ symbol }} Stock</h2>
+      <p>{{ symbol }} is currently trading at <strong>${{ "{:,.2f}".format(quote.price) }}</strong>. Today's change is <strong>{% if quote.change_pct >= 0 %}+{% endif %}{{ quote.change_pct }}%</strong>. The day high is ${{ "{:,.2f}".format(quote.high) }} and day low is ${{ "{:,.2f}".format(quote.low) }}. Previous close was ${{ "{:,.2f}".format(quote.previous_close) }}.</p>
+      <p style="margin-top:8px">Data sourced from Yahoo Finance. Updated every 5 minutes. This is not financial advice.</p>
+    </div>
+
+    {% else %}
+    <div class="not-found">
+      <h2>{{ symbol }} — Data Unavailable</h2>
+      <p style="margin-top:8px">Unable to fetch live data for {{ symbol }}. This could be due to market hours or data source availability.</p>
+      <p style="margin-top:8px"><a href="/stocks" style="color:var(--blue)">← Back to all stocks</a></p>
+    </div>
+    {% endif %}
+
+    <div class="affiliate-bar">
+      📈 Trade {{ symbol }} with zero commissions — <a href="https://www.okx.com/join/35101515" target="_blank" rel="nofollow sponsored">OKX</a> · <a href="https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX" target="_blank" rel="nofollow sponsored">Binance</a>
+    </div>
+
+    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">Other Popular Stocks</h3>
+    <div class="related-links">
+      <a href="/stock/AAPL" class="related-link">📱 AAPL</a>
+      <a href="/stock/MSFT" class="related-link">💻 MSFT</a>
+      <a href="/stock/NVDA" class="related-link">🎮 NVDA</a>
+      <a href="/stock/GOOGL" class="related-link">🔍 GOOGL</a>
+      <a href="/stock/TSLA" class="related-link">🚗 TSLA</a>
+      <a href="/stock/META" class="related-link">👤 META</a>
+      <a href="/stock/AMZN" class="related-link">📦 AMZN</a>
+      <a href="/stock/COIN" class="related-link">🪙 COIN</a>
+      <a href="/stock/SPY" class="related-link">📊 SPY</a>
+      <a href="/stock/QQQ" class="related-link">📊 QQQ</a>
+    </div>
+  </div>
+
+  <footer>
+    <p><a href="/">TrendPulse</a> · Real-time data aggregation · <a href="/privacy">Privacy</a> · <a href="/contact">Contact</a></p>
+  </footer>
+</body>
+</html>
