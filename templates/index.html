@@ -334,7 +334,10 @@
 
     <!-- Watchlist -->
     <div class="section-label">⭐ Your Watchlist</div>
-    <div id="watchlistSection" style="margin-bottom:24px;min-height:8px"></div>
+    <div id="watchlistSection" style="margin-bottom:12px;min-height:8px"></div>
+
+    <!-- Since Last Visit -->
+    <div id="sinceLastVisit" style="background:var(--card-bg);border:1px solid var(--border);border-radius:12px;padding:12px 16px;margin-bottom:24px;font-size:13px;color:var(--gray-400);display:none"></div>
 
     <!-- Market Sentiment Strip -->
     <div id="sentimentStrip"></div>
@@ -418,11 +421,59 @@
       const now = new Date();
       const hour = now.getUTCHours();
       const day = now.getUTCDay();
-      // US market: 9:30-16:00 ET = 13:30-20:00 UTC, Mon-Fri
       const isOpen = day >= 1 && day <= 5 && hour >= 13 && hour < 20;
       el.textContent = isOpen ? '🟢 Market Open' : '⚫ Market Closed';
       el.style.background = isOpen ? 'rgba(10,153,80,.1)' : 'var(--gray-100)';
       el.style.color = isOpen ? 'var(--green)' : 'var(--gray-500)';
+    }
+
+    /* ── Since Last Visit (FOMO engine) ──────────────── */
+    const VISIT_KEY = 'trendpulse_last_visit';
+    function getLastVisit() { return parseInt(localStorage.getItem(VISIT_KEY) || '0'); }
+    function saveLastVisit() { localStorage.setItem(VISIT_KEY, Date.now().toString()); }
+
+    function renderSinceLastVisit(data) {
+      const el = document.getElementById('sinceLastVisit');
+      const lastVisit = getLastVisit();
+      if (!lastVisit) { saveLastVisit(); return; }
+
+      const minutes = Math.floor((Date.now() - lastVisit) / 60000);
+      if (minutes < 5) return; // Too recent, skip
+
+      const timeAgo = minutes < 60 ? `${minutes}min ago`
+        : minutes < 1440 ? `${Math.floor(minutes/60)}h ago`
+        : `${Math.floor(minutes/1440)}d ago`;
+
+      // Check watchlist changes
+      const wl = getWatchlist();
+      const changes = [];
+      for (const key of wl) {
+        const [type, symbol] = key.split(':');
+        const items = type === 'stock' ? (data.stocks||[]) : (data.crypto||[]);
+        const item = items.find(x => x.symbol === symbol);
+        if (item && item.change_pct && Math.abs(item.change_pct) > 0.5) {
+          changes.push(`${item.symbol} ${item.change_pct >= 0 ? '📈' : '📉'} ${item.change_pct >= 0 ? '+' : ''}${item.change_pct}%`);
+        }
+      }
+
+      // Top market movers since last visit
+      const topMover = (data.stocks||[])[0];
+      const btc = (data.crypto||[]).find(c => c.symbol === 'BTC');
+
+      let msg = `🕐 You were here ${timeAgo}. `;
+      if (changes.length > 0) {
+        msg += `Your watchlist: ${changes.slice(0,3).join(' · ')}. `;
+      }
+      if (topMover) {
+        msg += `Biggest mover: ${topMover.symbol} ${topMover.change_pct >= 0 ? '+' : ''}${topMover.change_pct}%.`;
+      }
+      if (btc) {
+        msg += ` BTC $${btc.price?.toLocaleString() || '--'}.`;
+      }
+
+      el.textContent = msg;
+      el.style.display = 'block';
+      saveLastVisit();
     }
 
     /* ── Watchlist (localStorage) ────────────────────── */
@@ -829,6 +880,9 @@
 
         // Market status
         updateMarketStatus(data);
+
+        // Since Last Visit (FOMO)
+        renderSinceLastVisit(data);
 
         // Watchlist
         renderWatchlist(data);
