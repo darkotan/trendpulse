@@ -4596,3 +4596,29 @@ Press CTRL+C to quit
 127.0.0.1 - - [03/Jun/2026 00:57:43] "GET /performance HTTP/1.1" 200 -
 127.0.0.1 - - [03/Jun/2026 00:57:43] "GET /api/performance HTTP/1.1" 200 -
 127.0.0.1 - - [03/Jun/2026 01:00:32] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:04:19] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [03/Jun/2026 01:06:18] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:06:35] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:06:35] "GET /api/performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:06:35] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+127.0.0.1 - - [03/Jun/2026 01:06:35] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [03/Jun/2026 01:06:35] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+127.0.0.1 - - [03/Jun/2026 01:06:38] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:06:38] "GET /api/performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:06:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:06:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:06:42] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:06:42] "GET /api/performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:06:47] "GET / HTTP/1.1" 200 -
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+127.0.0.1 - - [03/Jun/2026 01:07:17] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:07:23] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:07:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:09:00] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:09:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:09:06] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:09:06] "GET /api/performance HTTP/1.1" 200 -

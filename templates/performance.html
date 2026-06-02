@@ -2,52 +2,77 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Serenity 战绩追踪 — 历史准确率 & 收益分析 | TrendPulse</title>
-  <meta name="description" content="Serenity 历史战绩分析：看涨/看空准确率、校准曲线、提及后收益追踪。224只标的真实历史数据。">
+  <title>Serenity 战绩 — 历史准确率 & 收益 | TrendPulse</title>
+  <meta name="description" content="Serenity 历史战绩分析：看涨/看空准确率、校准曲线、提及后收益追踪。224只标的真实数据。">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root{--black:#171717;--white:#fff;--gray-600:#4d4d4d;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--gray-50:#fafafa;--green:#059669;--red:#dc2626;--blue:#0072f5;--accent:#7c3aed;--orange:#e67e00;--shadow:0 0 0 1px rgba(0,0,0,.08)}
-    *{box-sizing:border-box;margin:0;padding:0}
+    :root{--black:#171717;--white:#fff;--gray-600:#4d4d4d;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--gray-50:#fafafa;--green:#059669;--red:#dc2626;--blue:#0072f5;--accent:#7c3aed;--orange:#e67e00}
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html,body{overflow-x:hidden;max-width:100vw}
-    body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';line-height:1.5}
-    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased;line-height:1.5}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between}
     header a{font-size:15px;font-weight:600;color:var(--black);text-decoration:none}
-    .container{max-width:1000px;margin:0 auto;padding:32px 24px}
-    h1{font-size:28px;font-weight:600;letter-spacing:-1.12px}
-    .sub{font-size:14px;color:var(--gray-500);margin-bottom:32px}
-    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:28px}
-    .card{background:var(--white);box-shadow:var(--shadow);border-radius:10px;padding:18px 20px}
-    .card .l{font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
-    .card .v{font-size:28px;font-weight:700;font-family:'Geist Mono',monospace;letter-spacing:-0.56px}
-    .card .s{font-size:11px;color:var(--gray-400);margin-top:2px}
-    .section-title{font-size:12px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin:28px 0 12px}
-    table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:24px}
-    th{text-align:left;padding:8px 12px;border-bottom:1px solid var(--gray-100);font-size:11px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
-    td{padding:10px 12px;border-bottom:1px solid var(--gray-50);font-family:'Geist Mono',monospace;font-size:12px}
-    td:first-child{font-weight:600;font-family:'Geist',sans-serif;font-size:13px}
-    .win-bar{display:inline-block;height:18px;border-radius:3px;min-width:2px;vertical-align:middle}
-    .heat-cell{text-align:center;font-size:11px;padding:4px 8px;border-radius:4px;min-width:48px;display:inline-block}
-    .hot{background:rgba(5,150,105,.12);color:var(--green)}
-    .warm{background:rgba(5,150,105,.06);color:#0a7a55}
-    .cool{background:rgba(100,100,100,.06);color:var(--gray-500)}
-    .cold{background:rgba(220,38,38,.06);color:var(--red)}
-    .tag{display:inline-block;padding:1px 8px;border-radius:4px;font-size:11px;font-weight:500}
+    .container{max-width:900px;margin:0 auto;padding:28px 16px}
+    h1{font-size:24px;font-weight:600;letter-spacing:-0.72px}
+    .sub{font-size:13px;color:var(--gray-500);margin-bottom:24px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:8px;margin-bottom:24px}
+    .card{box-shadow:0 0 0 1px rgba(0,0,0,.06);border-radius:10px;padding:16px}
+    .card .l{font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
+    .card .v{font-size:24px;font-weight:700;font-family:'Geist Mono',monospace}
+    .card .s{font-size:10px;color:var(--gray-400);margin-top:2px}
+    .section-title{font-size:11px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin:24px 0 10px}
+
+    /* Top 5 list */
+    .top-list{display:flex;flex-direction:column;gap:6px}
+    .top-item{display:flex;align-items:center;gap:12px;padding:12px 16px;background:var(--gray-50);border-radius:8px}
+    .top-rank{font-size:13px;font-weight:600;color:var(--gray-400);font-family:'Geist Mono',monospace;min-width:20px}
+    .top-sym{font-weight:600;font-size:14px;flex:1}
+    .top-chain{font-size:12px;color:var(--gray-500)}
+    .top-ret{font-weight:700;font-size:14px;font-family:'Geist Mono',monospace}
+
+    /* Heatmap cards */
+    .heat-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px}
+    .heat-card{box-shadow:0 0 0 1px rgba(0,0,0,.06);border-radius:10px;padding:14px 16px}
+    .heat-card .view-name{font-size:13px;font-weight:600;margin-bottom:8px;color:var(--gray-600)}
+    .heat-row{display:flex;gap:6px;flex-wrap:wrap}
+    .heat-badge{padding:4px 10px;border-radius:6px;font-size:11px;font-family:'Geist Mono',monospace;font-weight:500}
+    .hot{background:rgba(5,150,105,.1);color:var(--green)}
+    .warm{background:rgba(5,150,105,.05);color:#0a7a55}
+    .cool{background:#f5f5f5;color:var(--gray-500)}
+    .cold{background:rgba(220,38,38,.05);color:var(--red)}
+
+    /* Calibration list */
+    .cal-list{display:flex;flex-direction:column;gap:6px}
+    .cal-item{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--gray-50);border-radius:8px;font-size:13px}
+    .cal-group{font-weight:500;flex:1;min-width:0;font-size:12px}
+    .cal-n{font-size:11px;color:var(--gray-400);min-width:30px;font-family:'Geist Mono',monospace}
+    .cal-wr{font-weight:600;min-width:50px;text-align:right;font-family:'Geist Mono',monospace}
+    .cal-ex{font-weight:600;min-width:55px;text-align:right;font-family:'Geist Mono',monospace;font-size:12px}
+    .cal-bar{height:14px;border-radius:3px;min-width:4px}
+
+    /* Stock timeline */
+    .stock-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:8px}
+    .stock-card{box-shadow:0 0 0 1px rgba(0,0,0,.06);border-radius:10px;padding:14px 16px}
+    .stock-card .sym{font-size:15px;font-weight:700}
+    .stock-card .meta{font-size:11px;color:var(--gray-400);margin-top:4px}
+    .stock-card .perf{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+    .stock-card .perf span{padding:3px 8px;border-radius:4px;font-size:11px;font-family:'Geist Mono',monospace;font-weight:500}
+    .stock-card .since{font-size:18px;font-weight:700;margin-top:6px;font-family:'Geist Mono',monospace}
+
+    .tag{display:inline-block;padding:1px 6px;border-radius:4px;font-size:10px;font-weight:500}
     .tag-bull{background:rgba(5,150,105,.08);color:var(--green)}
     .tag-bear{background:rgba(220,38,38,.08);color:var(--red)}
-    footer{text-align:center;padding:40px 24px;border-top:1px solid var(--gray-100);margin-top:40px;font-size:12px;color:var(--gray-400)}
-    /* Mobile */
-    @media(max-width:640px){
+
+    footer{text-align:center;padding:36px 20px;border-top:1px solid var(--gray-100);margin-top:36px;font-size:11px;color:var(--gray-400)}
+
+    @media(max-width:480px){
       .cards{grid-template-columns:repeat(2,1fr)}
-      .container{padding:20px 16px}
-      h1{font-size:22px}
-      .sub{font-size:13px}
-      .card{padding:14px 16px}
-      .card .v{font-size:22px}
-      .heat-cell{font-size:10px;padding:3px 6px;min-width:36px}
-      th,td{padding:6px 8px;font-size:11px}
-      .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
-      table{min-width:600px;width:100%}
-      .tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
+      .heat-grid{grid-template-columns:1fr}
+      .stock-grid{grid-template-columns:1fr}
+      .card .v{font-size:20px}
+      .container{padding:20px 12px}
+      h1{font-size:20px}
+    }
   </style>
 </head>
 <body>
@@ -56,80 +81,73 @@
     <a href="/" style="font-size:13px;color:var(--gray-500)">← 返回</a>
   </header>
   <div class="container" id="app"></div>
-  <footer><p>来源: analysissite.vercel.app · 胜率=跑赢SPY的比例 · 超额=扣除SPY后的百分点 · 过往表现不代表未来</p></footer>
+  <footer><p>来源: analysissite.vercel.app · 胜率=跑赢SPY · 超额=扣除基准 · 过往不代表未来</p></footer>
 
   <script>
     fetch('/api/performance').then(r=>r.json()).then(d=>{
       const h=d.heatmap||[],c=d.calibration||[],t=d.stocks_timeline||[],top=d.top_returns||[],s=d.summary||{};
-      const esc=s=>s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'):'';
 
-      // Heat cell color helper
-      function heatClass(v){
-        const n=parseFloat(v);
-        if(n>=55) return 'hot';
-        if(n>=50) return 'warm';
-        if(n>=40) return 'cool';
-        return 'cold';
-      }
+      function hcls(v){const n=parseFloat(v);return n>=55?'hot':n>=50?'warm':n>=40?'cool':'cold';}
+      function heatBadge(label,pct){return`<span class="heat-badge ${hcls(pct)}">${label}: ${pct}</span>`;}
 
       document.getElementById('app').innerHTML=`
         <h1>📊 Serenity 历史战绩</h1>
-        <p class="sub">224 只标的真实追踪数据 · 胜率 = 跑赢 SPY 的比例 · 超额收益 = 扣除基准后的百分点</p>
+        <p class="sub">${s.total_stocks_tracked||224} 只标的 · ${s.positive_return||161} 正收益 · 跑赢 SPY 的比例</p>
 
         <div class="cards">
-          <div class="card"><div class="l">追踪标的</div><div class="v">${s.total_stocks_tracked||224}</div><div class="s">美股 + 有价格数据</div></div>
-          <div class="card"><div class="l">至今正收益</div><div class="v" style="color:var(--green)">${s.positive_return||161}</div><div class="s">${((s.positive_return||161)/(s.total_stocks_tracked||224)*100).toFixed(0)}% 的标的上赚钱</div></div>
-          <div class="card"><div class="l">至今负收益</div><div class="v" style="color:var(--red)">${s.negative_return||63}</div><div class="s">关注止损信号</div></div>
-          <div class="card"><div class="l">观点变化</div><div class="v" style="color:var(--accent)">1</div><div class="s">GPT xhigh 历史跟踪</div></div>
+          <div class="card"><div class="l">追踪标的</div><div class="v">${s.total_stocks_tracked||224}</div></div>
+          <div class="card"><div class="l">至今正收益</div><div class="v" style="color:var(--green)">${s.positive_return||161}</div><div class="s">${((s.positive_return||161)/(s.total_stocks_tracked||224)*100).toFixed(0)}%</div></div>
+          <div class="card"><div class="l">至今负收益</div><div class="v" style="color:var(--red)">${s.negative_return||63}</div></div>
+          <div class="card"><div class="l">观点变化</div><div class="v" style="color:var(--accent)">1</div></div>
         </div>
 
-        <div class="section-title">🏆 至今最高收益 Top 5</div>
-        <div class="tbl-scroll"><table><tr><th>股票</th><th>赛道</th><th>至今收益</th></tr>
-        ${top.map(t=>`<tr><td style="font-weight:600">${t.symbol}</td><td>${t.chain}</td><td style="color:var(--green);font-weight:600">${t.return}</td></tr>`).join('')}</table></div>
+        <div class="section-title">🏆 至今最高收益</div>
+        <div class="top-list">
+          ${top.map((t,i)=>`<div class="top-item">
+            <span class="top-rank">#${i+1}</span>
+            <span class="top-sym">${t.symbol}</span>
+            <span class="top-chain">${t.chain}</span>
+            <span class="top-ret" style="color:var(--green)">${t.return}</span>
+          </div>`).join('')}
+        </div>
 
-        <div class="section-title">📈 观点 × 时间窗口胜率热力图</div>
-        <div class="tbl-scroll"><table>
-          <tr><th>观点</th><th>1D</th><th>5D</th><th>1W</th><th>1M</th><th>3M</th><th>6M</th></tr>
-          ${h.map(r=>`<tr>
-            <td style="font-weight:500;font-family:Geist,sans-serif">${r.view.replace(/_/g,' ')}</td>
-            <td><span class="heat-cell ${heatClass(r['1d'])}">${r['1d']}</span></td>
-            <td><span class="heat-cell ${heatClass(r['5d'])}">${r['5d']}</span></td>
-            <td><span class="heat-cell ${heatClass(r['1w'])}">${r['1w']}</span></td>
-            <td><span class="heat-cell ${heatClass(r['1m'])}">${r['1m']}</span></td>
-            <td><span class="heat-cell ${heatClass(r['3m'])}">${r['3m']}</span></td>
-            <td><span class="heat-cell ${heatClass(r['6m'])}">${r['6m']}</span></td>
-          </tr>`).join('')}
-        </table></div>
+        <div class="section-title">📈 观点 × 时间窗口胜率</div>
+        <div class="heat-grid">
+          ${h.map(r=>`<div class="heat-card">
+            <div class="view-name">${r.view.replace(/_/g,' ')}</div>
+            <div class="heat-row">
+              ${heatBadge('1D',r['1d'])}${heatBadge('5D',r['5d'])}${heatBadge('1W',r['1w'])}${heatBadge('1M',r['1m'])}${heatBadge('3M',r['3m'])}${heatBadge('6M',r['6m'])}
+            </div>
+          </div>`).join('')}
+        </div>
 
-        <div class="section-title">🎯 校准曲线 — 1M 表现（按置信度分组）</div>
-        <div class="tbl-scroll"><table>
-          <tr><th>分组</th><th>样本数</th><th>胜率</th><th>均值超额</th><th>强度</th></tr>
+        <div class="section-title">🎯 校准曲线（1M 表现）</div>
+        <div class="cal-list">
           ${c.map(r=>{
             const wr=parseFloat(r.win_rate);
-            const w=Math.max(2,wr*2);
-            return `<tr>
-              <td style="font-weight:500;font-family:Geist,sans-serif">${r.group}</td>
-              <td>${r.n}</td>
-              <td><span style="color:${wr>=60?'var(--green)':wr>=50?'var(--orange)':'var(--red)'};font-weight:600">${r.win_rate}</span></td>
-              <td style="color:${r.avg_excess.startsWith('+')?'var(--green)':'var(--red)'};font-weight:600">${r.avg_excess}</td>
-              <td><span class="win-bar" style="width:${w}px;background:${wr>=60?'var(--green)':wr>=50?'var(--orange)':'var(--red)'}"></span></td>
-            </tr>`;
+            return`<div class="cal-item">
+              <span class="cal-group">${r.group}</span>
+              <span class="cal-n">N=${r.n}</span>
+              <span class="cal-wr" style="color:${wr>=60?'var(--green)':wr>=50?'var(--orange)':'var(--red)'}">${r.win_rate}</span>
+              <span class="cal-ex" style="color:${r.avg_excess.startsWith('+')?'var(--green)':'var(--red)'}">${r.avg_excess}</span>
+              <span class="cal-bar" style="width:${Math.max(4,wr*2)}px;background:${wr>=60?'var(--green)':wr>=50?'var(--orange)':'var(--red)'}"></span>
+            </div>`;
           }).join('')}
-        </table></div>
+        </div>
 
-        <div class="section-title">📋 个股回溯 — 首次提及至今表现</div>
-        <div class="tbl-scroll"><table>
-          <tr><th>股票</th><th>首次提及</th><th>基准价</th><th>1W</th><th>1M</th><th>6M</th><th>至今</th><th>观点</th></tr>
-          ${t.map(r=>`<tr>
-            <td style="font-weight:600">${r.symbol}</td>
-            <td>${r.first_mention}</td><td>${r.base_price}</td>
-            <td style="color:${r['1w'].startsWith('+')?'var(--green)':'var(--red)'}">${r['1w']}</td>
-            <td style="color:${r['1m'].startsWith('+')?'var(--green)':'var(--red)'}">${r['1m']}</td>
-            <td style="color:${r['6m'].startsWith('+')?'var(--green)':'var(--red)'}">${r['6m']}</td>
-            <td style="font-weight:700;color:${r.since.startsWith('+')?'var(--green)':'var(--red)'}">${r.since}</td>
-            <td><span class="tag ${r.view==='看多'?'tag-bull':'tag-bear'}">${r.view}</span></td>
-          </tr>`).join('')}
-        </table></div>`;
+        <div class="section-title">📋 个股回溯</div>
+        <div class="stock-grid">
+          ${t.map(r=>`<div class="stock-card">
+            <div class="sym">${r.symbol} <span class="tag ${r.view==='看多'?'tag-bull':'tag-bear'}">${r.view}</span></div>
+            <div class="meta">${r.first_mention} · 基准价 ${r.base_price}</div>
+            <div class="perf">
+              <span style="color:${r['1w'].startsWith('+')?'var(--green)':'var(--red)'};background:${r['1w'].startsWith('+')?'rgba(5,150,105,.06)':'rgba(220,38,38,.06)'}">1W ${r['1w']}</span>
+              <span style="color:${r['1m'].startsWith('+')?'var(--green)':'var(--red)'};background:${r['1m'].startsWith('+')?'rgba(5,150,105,.06)':'rgba(220,38,38,.06)'}">1M ${r['1m']}</span>
+              <span style="color:${r['6m'].startsWith('+')?'var(--green)':'var(--red)'};background:${r['6m'].startsWith('+')?'rgba(5,150,105,.06)':'rgba(220,38,38,.06)'}">6M ${r['6m']}</span>
+            </div>
+            <div class="since" style="color:${r.since.startsWith('+')?'var(--green)':'var(--red)'}">${r.since} 至今</div>
+          </div>`).join('')}
+        </div>`;
     }).catch(()=>{document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:var(--gray-400)">加载数据中...</div>';});
   </script>
 </body>
