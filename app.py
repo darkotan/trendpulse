@@ -96,15 +96,11 @@ def public_url():
     return "https://trendscan.org"
 
 # ── Language Detection ──────────────────────────────
+from translations import detect_language, get_translations
+
 def detect_lang(accept_lang: str = "") -> str:
-    """Detect preferred language from Accept-Language header. Returns 'zh' or 'en'."""
-    if not accept_lang:
-        return "en"  # default to English when unknown
-    al = accept_lang.lower()
-    # Chinese browsers send zh-CN, zh-TW, zh-HK, zh
-    if any(t in al for t in ("zh", "cmn", "yue")):
-        return "zh"
-    return "en"
+    """Detect preferred language from Accept-Language header. Returns language code."""
+    return detect_language(accept_lang)
 
 # ── Analytics tracking ────────────────────────────
 @app.before_request
@@ -126,7 +122,8 @@ def track_request():
 @app.context_processor
 def inject_lang():
     raw_lang = request.headers.get('Accept-Language', '') if request else ''
-    return {'lang': detect_lang(raw_lang)}
+    lang = detect_lang(raw_lang)
+    return {'lang': lang, 'T': get_translations(lang)}
 
 # ── Core Routes ────────────────────────────────────
 @app.route("/")

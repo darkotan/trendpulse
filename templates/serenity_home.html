@@ -5,6 +5,30 @@
   {% if lang == 'zh' %}
   <title>Serenity 投研 — AI产业链深度追踪 | TrendPulse</title>
   <meta name="description" content="Serenity 投研终端：每日热点标的深度分析、多空评级、AI产业链追踪。优先级分数=提及频率×确定度×新鲜度×风险回报比。">
+  {% elif lang == 'ja' %}
+  <title>Serenity リサーチ — AI サプライチェーン追跡 | TrendPulse</title>
+  <meta name="description" content="Serenity リサーチターミナル：毎日のホット銘柄分析、強弱評価、AIサプライチェーン追跡。">
+  {% elif lang == 'ko' %}
+  <title>Serenity 리서치 — AI 공급망 추적 | TrendPulse</title>
+  <meta name="description" content="Serenity 리서치 터미널: 매일 핫 종목 심층 분석, 강약 평가, AI 공급망 추적.">
+  {% elif lang == 'fr' %}
+  <title>Serenity Recherche — Chaîne d'Approvisionnement IA | TrendPulse</title>
+  <meta name="description" content="Terminal de Recherche Serenity : Analyse quotidienne, notations haussières/baissières, suivi de la chaîne IA.">
+  {% elif lang == 'de' %}
+  <title>Serenity Research — KI-Lieferkette Analyse | TrendPulse</title>
+  <meta name="description" content="Serenity Research Terminal: Tägliche Aktienanalyse, Bullish/Bearish Bewertungen, KI-Lieferkette Verfolgung.">
+  {% elif lang == 'es' %}
+  <title>Serenity Investigación — Cadena de Suministro IA | TrendPulse</title>
+  <meta name="description" content="Terminal de Investigación Serenity: Análisis diario, calificaciones alcistas/bajistas, seguimiento de cadena IA.">
+  {% elif lang == 'pt' %}
+  <title>Serenity Pesquisa — Cadeia de Suprimentos IA | TrendPulse</title>
+  <meta name="description" content="Terminal de Pesquisa Serenity: Análise diária, classificações de alta/baixa, rastreamento da cadeia de IA.">
+  {% elif lang == 'ar' %}
+  <title>أبحاث Serenity — سلسلة توريد الذكاء الاصطناعي | TrendPulse</title>
+  <meta name="description" content="طرفيّة أبحاث Serenity: تحليل يومي، تقييمات صعودية/هبوطية، تتبع سلسلة توريد الذكاء الاصطناعي.">
+  {% elif lang == 'ru' %}
+  <title>Serenity Research — ИИ цепочка поставок | TrendPulse</title>
+  <meta name="description" content="Терминал исследований Serenity: Ежедневный анализ, бычьи/медвежьи оценки, отслеживание ИИ-цепочки поставок.">
   {% else %}
   <title>Serenity Research — AI Supply Chain Intelligence | TrendPulse</title>
   <meta name="description" content="Serenity Research Terminal: Daily hot stock deep analysis, bullish/bearish ratings, AI supply chain tracking. Priority = Mentions × Conviction × Freshness × Risk/Reward.">
@@ -98,26 +122,7 @@
   </style>
 </head>
 <body>
-{% set t = {
-    'brand': 'Serenity 投研' if lang == 'zh' else 'Serenity Research',
-    'blog': '博客' if lang == 'zh' else 'Blog',
-    'dashboard': '面板' if lang == 'zh' else 'Dashboard',
-    'hero_title': 'Serenity 投研精华' if lang == 'zh' else 'Serenity Research Highlights',
-    'tracking': '追踪' if lang == 'zh' else 'Tracking',
-    'stocks': '只标的' if lang == 'zh' else 'stocks',
-    'bullish': '看多' if lang == 'zh' else 'Bullish',
-    'bearish': '看空' if lang == 'zh' else 'Bearish',
-    'hot': '热点' if lang == 'zh' else 'Hot',
-    'signals': '最新信号' if lang == 'zh' else 'Latest Signals',
-    'deep_analysis': '深度分析' if lang == 'zh' else 'Deep Analysis',
-    'priority_formula': '优先级 = 提及频率 × 确定度 × 新鲜度 × 风险回报比' if lang == 'zh' else 'Priority = Mentions × Conviction × Freshness × Risk/Reward',
-    'history_signals': '历史信号' if lang == 'zh' else 'Historical Signals',
-    'no_data': '暂无 Serenity 数据' if lang == 'zh' else 'No Serenity data yet',
-    'no_data_sub': '数据源: analysissite.vercel.app · 等待下次 cron 抓取' if lang == 'zh' else 'Source: analysissite.vercel.app · Waiting for next cron fetch',
-    'refresh': '每 2 分钟自动刷新' if lang == 'zh' else 'Auto-refresh every 2 min',
-    'refreshed': '已刷新' if lang == 'zh' else 'Refreshed',
-    'footer': '数据来源: analysissite.vercel.app · Serenity 投研终端' if lang == 'zh' else 'Data: analysissite.vercel.app · Serenity Research Terminal',
-} %}
+{% set t = T %}
   <header>
     <a href="/" class="logo"><span class="logo-dot"></span>{{ t.brand }}</a>
     <div class="header-actions">
@@ -139,14 +144,10 @@
         {% endif %}
       </p>
       <div class="intro-box">
-        <strong>{% if lang == 'zh' %}这个网站做什么：{% else %}What this site does:{% endif %}</strong>
-        {% if lang == 'zh' %}
-        实时追踪 X（Twitter）知名独立分析师 <strong>Serenity</strong> 的最新推文和投研观点。她专注 AI 产业链（半导体、CPO 光互连、数据中心），用算法模型对 704 只标的进行多空评级和优先级排名。本站每小时自动抓取她的最新分析，用人话翻译复杂术语。不用翻 X、不用啃英文、不用自己梳理——打开就能看到她今天在看什么、为什么看好、有什么风险。<br><br>
-        <strong>⚠️ 这不是投资建议。</strong>所有观点来自 Serenity，不代表本站立场。投资有风险，决策需谨慎。
-        {% else %}
-        Real-time tracking of independent analyst <strong>Serenity</strong>'s latest X (Twitter) posts and research. She focuses on the AI supply chain (semiconductors, CPO photonics, data centers), using algorithmic models to rate 704 stocks with bull/bear calls and priority scores. This site auto-fetches her latest analysis every hour and translates complex jargon into plain English. No need to scroll X, read dense threads, or piece things together — open this page and see what she's watching, why she's bullish, and what the risks are.<br><br>
-        <strong>⚠️ Not financial advice.</strong> All views are Serenity's. This site aggregates only. Invest at your own risk.
-        {% endif %}
+        <strong>{{ t.site_intro_title }}</strong>
+        {{ t.site_intro }}<br><br>
+        {{ t.site_intro2 }}<br><br>
+        {{ t.disclaimer }}
       </div>
     </div>
 

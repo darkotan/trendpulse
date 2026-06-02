@@ -111,8 +111,8 @@
       "full_analysis": "本轮边际主要来自最近公司/主题新闻：Strategy Inc (MSTR) Shares Fall 5.8% -- What GF Score of 59 Tells Investors。该标题只说明注意力和验证方向，不能直接推导订单、收入或利润。"
     }
   ],
-  "snapshot_date": "2026-06-02T09:00:00-08:00",
-  "last_checked": "2026-06-03T00:00:00Z",
+  "snapshot_date": "2026-06-02T21:00:05-08:00",
+  "last_checked": "2026-06-03T05:00:00Z",
   "new_tweets_since_snapshot": [
     {
       "time": "2026-06-02 22:19",
@@ -127,7 +127,7 @@
     {
       "time": "2026-06-02 15:55",
       "ticker": "SIVE",
-      "content": "DID YOU LISTEN ANON? Reuters: New Sivers x GFS strategic collaboration. $SIVE has now announced its lasers will be integrated into reference designs built on Globalfoundries Silicon Photonics Platform. For pluggable optical transceivers, CPO, and SiPH. As Broadcom, Nvidia, Marvell, AMD, and anyone who goes through GFS silicon photonics has Sivers embedded as a default laser route. I personally think this news alone should easily 2x or 3x Sivers market cap over the medium term."
+      "content": "DID YOU LISTEN ANON?\n\nReuters: New Sivers x GFS strategic collaboration.\n\n$SIVE has now announced its lasers will be integrated into reference designs built on Globalfoundries Silicon Photonics Platform.\n\nFor pluggable optical transcivers, CPO, and SiPH.\n\nThis is fundamentally the most groundbreaking news for Sivers in history.\n\nAs Broadcom, Nvidia, Marvell, AMD, and anyone who goes through GFS silicon photonics has Sivers embedded as a default laser route.\n\nI personally think this news alone should easily 2x or 3x Sivers market cap over the medium term, given how fundamental this is to their revenue.\n\nTo have Sivers be the standard laser route for the many hyperscalers that use the world's leading photonics foundry."
     },
     {
       "time": "2026-06-02 15:00",
@@ -137,7 +137,7 @@
     {
       "time": "2026-06-02 12:50",
       "ticker": "MRVL",
-      "content": "$NVDA Jensen Huang: '$MRVL the next $1T company ladies and gentlemen'. Marvell is currently trading at $191B."
+      "content": "$NVDA Jensen Huang:\n\n\" $MRVL the next $1T company ladies and gentlemen \".\n\nMarvell is currently trading at $191B.\n\nI have positions in Marvell… but how much faith do we have in Jensen for the 5x?"
     },
     {
       "time": "2026-06-02 09:41",
