@@ -544,15 +544,6 @@ def crypto_page(symbol: str):
         description=f"{symbol} live crypto price: ${coin['price']:,.2f}. 24h change: {pct:+.2f}%. Volume: {coin.get('volume_fmt','')}. Real-time from Binance.")
 
 # ── Blog / Articles ────────────────────────────────
-@app.route("/blog")
-def blog_index():
-    articles = get_articles()
-    desc = f"Market analysis & insights. {len(articles)} articles on AI, semiconductors, crypto, and more."
-    return render_template("blog.html",
-        title="Market Analysis & Insights — TrendPulse Blog",
-        description=desc, articles=articles)
-
-
 @app.route("/blog/<slug>")
 def blog_article(slug: str):
     article = get_article(slug)
