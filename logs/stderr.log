@@ -4622,3 +4622,24 @@ Press CTRL+C to quit
 127.0.0.1 - - [03/Jun/2026 01:09:04] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [03/Jun/2026 01:09:06] "GET /performance HTTP/1.1" 200 -
 127.0.0.1 - - [03/Jun/2026 01:09:06] "GET /api/performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:12:16] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:12:17] "GET /api/performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:12:26] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:12:26] "GET /api/performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:12:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:12:34] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:12:34] "GET /api/all HTTP/1.1" 200 -
+[2026-06-03 01:12:34,848] ERROR in app: Exception on /api/market-story [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'market_story' did not return a valid response. The function either returned None or ended without a return statement.
+127.0.0.1 - - [03/Jun/2026 01:12:34] "GET /api/market-story HTTP/1.1" 500 -
+127.0.0.1 - - [03/Jun/2026 01:12:34] "GET /api/briefing HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:12:34] "GET /api/serenity HTTP/1.1" 200 -

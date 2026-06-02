@@ -17,7 +17,14 @@ h1{font-size:28px;font-weight:600;letter-spacing:-1.12px;margin-bottom:32px}
 footer{text-align:center;padding:40px 24px;font-size:12px;color:var(--gray-400)}
 footer a{color:var(--gray-500)}
 </style></head><body>
-<header><a href="/">TrendPulse</a></header>
+<header>
+<a href="/" style="font-size:15px;font-weight:600;color:var(--black);text-decoration:none">Serenity 投研追踪</a>
+<div style="display:flex;gap:16px">
+  <a href="/blog" style="font-size:13px;color:var(--gray-500);text-decoration:none">博客</a>
+  <a href="/performance" style="font-size:13px;color:var(--gray-500);text-decoration:none">📊 战绩</a>
+  <a href="/dashboard" style="font-size:13px;color:var(--gray-500);text-decoration:none">面板</a>
+</div>
+</header>
 <div class="container">
 <h1>Blog</h1>
 {% for a in articles %}
