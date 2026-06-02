@@ -1,0 +1,18 @@
+<!-- Shared header partial — included by all pages -->
+<style>
+  .site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-100,#ebebeb);padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between}
+  .site-logo{font-size:15px;font-weight:600;letter-spacing:-0.32px;color:var(--black,#171717);text-decoration:none;display:flex;align-items:center;gap:8px}
+  .site-logo-dot{width:7px;height:7px;border-radius:50%;background:var(--accent,#7c3aed)}
+  .site-nav{display:flex;align-items:center;gap:4px}
+  .site-nav a{font-size:13px;color:var(--gray-500,#666);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all .15s}
+  .site-nav a:hover{color:var(--black,#171717);background:var(--gray-50,#fafafa)}
+  .site-nav a.active{color:var(--accent,#7c3aed);background:rgba(124,58,237,.08);font-weight:500}
+</style>
+<header class="site-header">
+  <a href="/" class="site-logo"><span class="site-logo-dot"></span>TrendPulse</a>
+  <nav class="site-nav">
+    <a href="/" {% if active_page == 'serenity' %}class="active"{% endif %}>{{ T.brand }}</a>
+    <a href="/blog" {% if active_page == 'blog' %}class="active"{% endif %}>{{ T.blog }}</a>
+    <a href="/performance" {% if active_page == 'performance' %}class="active"{% endif %}>📊 {{ T.performance }}</a>
+  </nav>
+</header>

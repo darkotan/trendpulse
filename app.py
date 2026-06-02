@@ -123,7 +123,17 @@ def track_request():
 def inject_lang():
     raw_lang = request.headers.get('Accept-Language', '') if request else ''
     lang = detect_lang(raw_lang)
-    return {'lang': lang, 'T': get_translations(lang)}
+    # Determine active page from request path
+    path = request.path if request else '/'
+    if path == '/' or path.startswith('/api/'):
+        active_page = 'serenity'
+    elif path.startswith('/blog'):
+        active_page = 'blog'
+    elif path.startswith('/performance'):
+        active_page = 'performance'
+    else:
+        active_page = ''
+    return {'lang': lang, 'T': get_translations(lang), 'active_page': active_page}
 
 # ── Core Routes ────────────────────────────────────
 @app.route("/")

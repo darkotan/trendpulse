@@ -1,44 +1,38 @@
-<!DOCTYPE html>
-<html lang="en"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title>Blog | TrendPulse</title>
-<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
-<style>:root{--black:#171717;--white:#fff;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--blue:#0072f5}
-*{box-sizing:border-box;margin:0;padding:0}
-html,body{overflow-x:hidden;max-width:100vw}body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga'}
-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-.logo{font-size:15px;font-weight:600;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:8px}
-.logo-dot{width:8px;height:8px;background:var(--blue);border-radius:50%;display:inline-block}
-.header-nav{display:flex;align-items:center;gap:4px}
-.nav-link{font-size:13px;color:var(--gray-500);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all .15s}
-.nav-link:hover{color:var(--black);background:var(--gray-100)}
-.nav-link.active{color:var(--blue);background:rgba(0,114,245,.08);font-weight:500}
-.container{max-width:760px;margin:0 auto;padding:40px 24px}
-h1{font-size:28px;font-weight:600;letter-spacing:-1.12px;margin-bottom:32px}
-.article{display:block;padding:20px 0;border-bottom:1px solid var(--gray-100);text-decoration:none;color:inherit}
-.article:hover h2{color:var(--blue)}
-.article h2{font-size:20px;font-weight:600;letter-spacing:-0.4px;margin-bottom:6px;transition:color .15s}
-.article p{font-size:14px;color:var(--gray-500);line-height:1.6}
-.article .date{font-size:12px;color:var(--gray-400);margin-bottom:8px}
-footer{text-align:center;padding:40px 24px;font-size:12px;color:var(--gray-400)}
-footer a{color:var(--gray-500)}
-</style></head><body>
-<header>
-<a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
-<nav class="header-nav">
-  <a href="/" class="nav-link">Serenity Research</a>
-  <a href="/blog" class="nav-link active">Blog</a>
-  <a href="/performance" class="nav-link">📊 战绩</a>
-</nav>
-</header>
-<div class="container">
-<h1>Blog</h1>
-{% for a in articles %}
-<a class="article" href="/blog/{{ a.slug }}">
-  <div class="date">{{ a.date }}</div>
-  <h2>{{ a.title }}</h2>
-  <p>{{ a.description }}</p>
-</a>
-{% endfor %}
-</div>
-<footer><p><a href="/">TrendPulse</a></p></footer>
-</body></html>
+     1|<!DOCTYPE html>
+     2|<html lang="{{ lang }}"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+     3|<title>Blog | TrendPulse</title>
+     4|<link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&display=swap" rel="stylesheet">
+     5|<style>:root{--black:#171717;--white:#fff;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--blue:#0072f5}
+     6|*{box-sizing:border-box;margin:0;padding:0}
+     7|html,body{overflow-x:hidden;max-width:100vw}body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga'}
+     8|header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+     9|
+    10|
+    11|
+    12|
+    13|
+    14|
+    15|.container{max-width:760px;margin:0 auto;padding:40px 24px}
+    16|h1{font-size:28px;font-weight:600;letter-spacing:-1.12px;margin-bottom:32px}
+    17|.article{display:block;padding:20px 0;border-bottom:1px solid var(--gray-100);text-decoration:none;color:inherit}
+    18|.article:hover h2{color:var(--blue)}
+    19|.article h2{font-size:20px;font-weight:600;letter-spacing:-0.4px;margin-bottom:6px;transition:color .15s}
+    20|.article p{font-size:14px;color:var(--gray-500);line-height:1.6}
+    21|.article .date{font-size:12px;color:var(--gray-400);margin-bottom:8px}
+    22|footer{text-align:center;padding:40px 24px;font-size:12px;color:var(--gray-400)}
+    23|footer a{color:var(--gray-500)}
+    24|</style></head><body>
+{% include '_header.html' %}
+    33|<div class="container">
+    34|<h1>Blog</h1>
+    35|{% for a in articles %}
+    36|<a class="article" href="/blog/{{ a.slug }}">
+    37|  <div class="date">{{ a.date }}</div>
+    38|  <h2>{{ a.title }}</h2>
+    39|  <p>{{ a.description }}</p>
+    40|</a>
+    41|{% endfor %}
+    42|</div>
+    43|<footer><p><a href="/">TrendPulse</a></p></footer>
+    44|</body></html>
+    45|
