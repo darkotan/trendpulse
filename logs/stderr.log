@@ -4671,3 +4671,68 @@ Press CTRL+C to quit
 127.0.0.1 - - [03/Jun/2026 01:23:34] "GET /performance HTTP/1.1" 200 -
 127.0.0.1 - - [03/Jun/2026 01:23:34] "GET /blog HTTP/1.1" 200 -
 127.0.0.1 - - [03/Jun/2026 01:23:34] "GET /blog HTTP/1.1" 200 -
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+[2026-06-03 01:24:03,060] ERROR in app: Exception on /blog [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/darkotan/trendpulse/app.py", line 603, in blog_list
+    articles = list_articles()
+NameError: name 'list_articles' is not defined
+127.0.0.1 - - [03/Jun/2026 01:24:03] "GET /blog HTTP/1.1" 500 -
+[2026-06-03 01:24:08,175] ERROR in app: Exception on /blog [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/darkotan/trendpulse/app.py", line 603, in blog_list
+    articles = list_articles()
+NameError: name 'list_articles' is not defined
+127.0.0.1 - - [03/Jun/2026 01:24:08] "GET /blog HTTP/1.1" 500 -
+127.0.0.1 - - [03/Jun/2026 01:25:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:25:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:25:32] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:25:32] "GET /performance HTTP/1.1" 200 -
+[2026-06-03 01:25:32,337] ERROR in app: Exception on /blog [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/darkotan/trendpulse/app.py", line 603, in blog_list
+    def _esc(s):
+NameError: name 'list_articles' is not defined
+127.0.0.1 - - [03/Jun/2026 01:25:32] "GET /blog HTTP/1.1" 500 -
+[2026-06-03 01:25:32,348] ERROR in app: Exception on /blog [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/darkotan/trendpulse/app.py", line 603, in blog_list
+    def _esc(s):
+NameError: name 'list_articles' is not defined
+127.0.0.1 - - [03/Jun/2026 01:25:32] "GET /blog HTTP/1.1" 500 -
