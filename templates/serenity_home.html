@@ -42,8 +42,10 @@
     header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-100);padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between}
     .logo{font-size:15px;font-weight:600;letter-spacing:-0.32px;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:8px}
     .logo-dot{width:7px;height:7px;border-radius:50%;background:var(--accent)}
-    .header-actions a{font-size:13px;color:var(--gray-500);text-decoration:none;margin-left:16px}
-    .header-actions a:hover{color:var(--black)}
+    .header-nav{display:flex;align-items:center;gap:4px}
+    .nav-link{font-size:13px;color:var(--gray-500);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all .15s}
+    .nav-link:hover{color:var(--black);background:var(--gray-50)}
+    .nav-link.active{color:var(--accent);background:rgba(124,58,237,.08);font-weight:500}
 
     .container{max-width:720px;margin:0 auto;padding:32px 20px}
 
@@ -124,11 +126,12 @@
 <body>
 {% set t = T %}
   <header>
-    <a href="/" class="logo"><span class="logo-dot"></span>{{ t.brand }}</a>
-    <div class="header-actions">
-      <a href="/blog">{{ t.blog }}</a>
-      <a href="/performance">📊 战绩</a>
-    </div>
+    <a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
+    <nav class="header-nav">
+      <a href="/serenity" class="nav-link active">{{ t.brand }}</a>
+      <a href="/blog" class="nav-link">{{ t.blog }}</a>
+      <a href="/performance" class="nav-link">📊 战绩</a>
+    </nav>
   </header>
 
   <div class="container">
