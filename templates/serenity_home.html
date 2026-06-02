@@ -158,6 +158,17 @@
       <div class="stat"><div class="val">{{ serenity.hot_picks|length }}</div><div class="lbl">{{ t.hot }}</div></div>
     </div>
 
+    <!-- Priority Pie Chart -->
+    {% if serenity.hot_picks %}
+    <div class="pie-section">
+      <div class="section-label">📊 优先级权重分布（分数越高 ≈ 仓位越重）</div>
+      <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+        <div style="flex:0 0 200px"><canvas id="priorityPie" width="200" height="200"></canvas></div>
+        <div style="flex:1;min-width:200px;font-size:13px" id="pieLegend"></div>
+      </div>
+    </div>
+    {% endif %}
+
     <!-- 📡 Latest Tweets -->
     {% if serenity.latest_tweets %}
     <div class="tweets-section">
@@ -231,6 +242,8 @@
   <footer>
     {{ t.footer }}
   </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
 
   <script>
     // Translations from server-side
@@ -327,6 +340,40 @@
       }
 
       setInterval(refresh, 120000);
+
+      // Render priority pie chart
+      const picks = {{ serenity.hot_picks | tojson }};
+      if (picks && picks.length > 0 && document.getElementById('priorityPie')) {
+        const total = picks.reduce((s,p) => s + (p.priority||0), 0);
+        const colors = ['#7c3aed','#8b5cf6','#a78bfa','#c4b5fd','#0072f5','#3b82f6','#60a5fa','#059669','#e67e00','#dc2626'];
+        const data = picks.slice(0,8).map(p => p.priority);
+        const labels = picks.slice(0,8).map(p => p.symbol);
+        new Chart(document.getElementById('priorityPie'), {
+          type: 'doughnut',
+          data: {
+            labels: labels,
+            datasets: [{data:data,backgroundColor:colors,borderWidth:2,borderColor:'#fff'}]
+          },
+          options: {
+            responsive:true,maintainAspectRatio:true,
+            plugins:{legend:{display:false}},
+          }
+        });
+        // Legend
+        const leg = document.getElementById('pieLegend');
+        leg.innerHTML = picks.slice(0,8).map((p,i) => {
+          const pct = ((p.priority/total)*100).toFixed(1);
+          return `<div style="display:flex;align-items:center;gap:8px;padding:4px 0">
+            <span style="width:12px;height:12px;border-radius:3px;background:${colors[i]};flex-shrink:0"></span>
+            <span style="font-weight:600;min-width:48px">${p.symbol}</span>
+            <span style="font-family:monospace;font-size:12px;color:var(--gray-400)">优先${p.priority} · ${pct}%</span>
+          </div>`;
+        }).join('');
+        if (picks.length > 8) {
+          const otherPct = ((picks.slice(8).reduce((s,p)=>s+(p.priority||0),0)/total)*100).toFixed(1);
+          leg.innerHTML += `<div style="display:flex;align-items:center;gap:8px;padding:4px 0;color:var(--gray-400);font-size:12px">+${picks.length-8} 其他 · ${otherPct}%</div>`;
+        }
+      }
     })();
   </script>
 </body>
