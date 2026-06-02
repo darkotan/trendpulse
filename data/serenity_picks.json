@@ -112,8 +112,13 @@
     }
   ],
   "snapshot_date": "2026-06-02T09:00:00-08:00",
-  "last_checked": "2026-06-02T21:40:00Z",
+  "last_checked": "2026-06-03T06:30:00Z",
   "new_tweets_since_snapshot": [
+    {
+      "time": "2026-06-02 22:19",
+      "ticker": "LITE",
+      "content": "$LITE rode the first optical wave from $3B to $75B in 2 years time with EML and pluggables. My thesis is $SIVE can do the same from $3B, with CPO/Pluggables and CW. Sivers + GFS SiPH reference laser news, alongside the +54% increase today. Is just one step of the way."
+    },
     {
       "time": "2026-06-02 21:17",
       "ticker": "XFAB",

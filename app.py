@@ -621,6 +621,11 @@ def blog_post(slug):
     return render_template("blog_post.html", article=article)
 
 
+@app.route("/performance")
+def performance():
+    return render_template("performance.html")
+
+
 # ── Main ───────────────────────────────────────────
 if __name__ == "__main__":
     threading.Thread(target=bg_updater, daemon=True).start()

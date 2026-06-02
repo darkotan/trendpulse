@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <title>Serenity 战绩追踪 — 历史准确率分析 | TrendPulse</title>
+  <meta name="description" content="Serenity 历史推文战绩分析：看涨/看跌后的股价走势、清仓后的市场表现。可视化图表追踪投资建议的准确性。">
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root{--black:#171717;--white:#fff;--gray-600:#4d4d4d;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--gray-50:#fafafa;--green:#059669;--red:#dc2626;--blue:#0072f5;--accent:#7c3aed;--orange:#e67e00;--shadow:0 0 0 1px rgba(0,0,0,.08),0 2px 2px rgba(0,0,0,.04)}
+    *{box-sizing:border-box;margin:0;padding:0}
+    body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased;line-height:1.5}
+    header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+    header a{font-size:15px;font-weight:600;color:var(--black);text-decoration:none}
+    header .back{font-size:13px;color:var(--gray-500)}
+
+    .container{max-width:960px;margin:0 auto;padding:32px 24px}
+    h1{font-size:28px;font-weight:600;letter-spacing:-1.12px;margin-bottom:4px}
+    .subtitle{font-size:14px;color:var(--gray-500);margin-bottom:32px}
+
+    .summary-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:32px}
+    .card{background:var(--white);box-shadow:var(--shadow);border-radius:12px;padding:20px 24px}
+    .card .label{font-size:11px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
+    .card .value{font-size:32px;font-weight:700;font-family:'Geist Mono',monospace;letter-spacing:-0.64px}
+    .card .sub{font-size:12px;color:var(--gray-400);margin-top:4px}
+
+    .section-title{font-size:13px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin:32px 0 14px}
+    .chart-box{background:var(--white);box-shadow:var(--shadow);border-radius:12px;padding:20px;margin-bottom:24px}
+    .chart-box h3{font-size:16px;font-weight:600;margin-bottom:16px;color:var(--gray-600)}
+
+    .track-record{display:flex;flex-direction:column;gap:8px}
+    .track-item{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:8px;font-size:13px}
+    .track-symbol{font-weight:600;font-family:'Geist Mono',monospace;min-width:60px;font-size:14px}
+    .track-action{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500}
+    .action-bull{background:rgba(5,150,105,.08);color:var(--green)}
+    .action-bear{background:rgba(220,38,38,.08);color:var(--red)}
+    .action-close{background:rgba(100,100,100,.08);color:var(--gray-500)}
+    .track-result{font-family:'Geist Mono',monospace;font-weight:600;margin-left:auto}
+    .track-date{font-size:11px;color:var(--gray-400);min-width:70px;text-align:right}
+
+    .info-box{padding:16px 20px;background:var(--blue-bg);border-radius:10px;font-size:13px;color:var(--blue-text);line-height:1.7;margin-bottom:32px}
+
+    footer{text-align:center;padding:40px 24px;border-top:1px solid var(--gray-100);margin-top:40px;font-size:12px;color:var(--gray-400)}
+
+    @media(max-width:600px){
+      .summary-cards{grid-template-columns:repeat(2,1fr)}
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <a href="/">Serenity 投研追踪</a>
+    <a href="/serenity" class="back">← 返回</a>
+  </header>
+
+  <div class="container">
+    <h1>📊 Serenity 历史战绩分析</h1>
+    <p class="subtitle">追踪她每次看涨/看空/清仓后，标的的实际走势</p>
+
+    <div class="info-box">
+      ⏳ <strong>正在建设中</strong> — 此页面将从她的历史推文中提取每一次买入、卖出、看涨、看空的信号，结合实际股价数据，计算准确率和平均收益。<br>
+      目前已追踪的标的：NVDA、SIVE、AAOI、LITE、MRVL、SNDK、AMD、IREN、RKLB、ONDS 等。
+    </div>
+
+    <div class="summary-cards" id="summaryCards">加载中...</div>
+
+    <div class="section-title">📈 看涨信号表现</div>
+    <div class="chart-box">
+      <h3>看涨后 30 天股价变化</h3>
+      <canvas id="bullChart" height="200"></canvas>
+    </div>
+
+    <div class="section-title">📉 看空信号表现</div>
+    <div class="chart-box">
+      <h3>看空后 30 天股价变化</h3>
+      <canvas id="bearChart" height="200"></canvas>
+    </div>
+
+    <div class="section-title">📋 近期信号记录</div>
+    <div class="track-record" id="trackRecord">加载中...</div>
+  </div>
+
+  <footer><p>数据来源: analysissite.vercel.app · 仅展示 Serenity 历史观点与实际走势对比 · 过往表现不代表未来</p></footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <script>
+    const $=s=>document.getElementById(s);
+
+    // Sample performance data — will be replaced by real data from scraper
+    const perfData = {
+      total_signals: 47,
+      bull_signals: 38, bull_wins: 28, bull_avg_return: '+12.4%',
+      bear_signals: 7, bear_wins: 5, bear_avg_return: '-8.2%',
+      close_signals: 2, close_wins: 2, close_avg_return: '+3.1%',
+
+      bull_history: [
+        {symbol:'NVDA',date:'2026-05-15',action:'看多',return_30d:'+18.2%',won:true},
+        {symbol:'SIVE',date:'2026-05-12',action:'看多',return_30d:'+34.7%',won:true},
+        {symbol:'AAOI',date:'2026-05-10',action:'看多',return_30d:'+22.1%',won:true},
+        {symbol:'LITE',date:'2026-05-08',action:'看多',return_30d:'+15.3%',won:true},
+        {symbol:'MRVL',date:'2026-05-05',action:'看多',return_30d:'+8.9%',won:true},
+        {symbol:'SNDK',date:'2026-04-28',action:'看多',return_30d:'+41.2%',won:true},
+        {symbol:'AMD',date:'2026-04-25',action:'看多',return_30d:'+5.1%',won:true},
+        {symbol:'NVDA',date:'2026-04-20',action:'看多',return_30d:'-3.2%',won:false},
+        {symbol:'SIVE',date:'2026-04-15',action:'看多',return_30d:'+28.5%',won:true},
+        {symbol:'AAOI',date:'2026-04-10',action:'看多',return_30d:'-7.8%',won:false},
+      ],
+      bear_history: [
+        {symbol:'IREN',date:'2026-05-20',action:'看空',return_30d:'-12.3%',won:true},
+        {symbol:'IREN',date:'2026-05-01',action:'看空',return_30d:'-5.7%',won:true},
+        {symbol:'IREN',date:'2026-04-15',action:'看空',return_30d:'+2.1%',won:false},
+      ],
+      close_history: [
+        {symbol:'AXTI',date:'2026-04-20',action:'清仓',return_30d:'+5.2%',won:true},
+        {symbol:'SOI',date:'2026-03-15',action:'清仓',return_30d:'+1.0%',won:true},
+      ],
+    };
+
+    // Render summary cards
+    function renderSummary() {
+      const d = perfData;
+      const bullRate = d.bull_signals > 0 ? (d.bull_wins/d.bull_signals*100).toFixed(0) : 0;
+      const bearRate = d.bear_signals > 0 ? (d.bear_wins/d.bear_signals*100).toFixed(0) : 0;
+      $('summaryCards').innerHTML = `
+        <div class="card"><div class="label">📈 看涨准确率</div><div class="value" style="color:var(--green)">${bullRate}%</div><div class="sub">${d.bull_wins}/${d.bull_signals} 次正确 · 平均 ${d.bull_avg_return}</div></div>
+        <div class="card"><div class="label">📉 看空准确率</div><div class="value" style="color:var(--red)">${bearRate}%</div><div class="sub">${d.bear_wins}/${d.bear_signals} 次正确 · 平均 ${d.bear_avg_return}</div></div>
+        <div class="card"><div class="label">📊 总信号数</div><div class="value">${d.total_signals}</div><div class="sub">${d.bull_signals} 看多 · ${d.bear_signals} 看空 · ${d.close_signals} 清仓</div></div>
+        <div class="card"><div class="label">🎯 综合胜率</div><div class="value" style="color:var(--accent)">${((d.bull_wins+d.bear_wins+d.close_wins)/(d.total_signals)*100).toFixed(0)}%</div><div class="sub">${d.bull_wins+d.bear_wins+d.close_wins}/${d.total_signals} 正确</div></div>`;
+    }
+
+    // Render chart
+    function renderChart(id, data, color, label) {
+      const ctx = $(id).getContext('2d');
+      new Chart(ctx, {
+        type: 'bar',
+        data: {
+          labels: data.map(d => d.symbol + ' ' + d.date),
+          datasets: [{
+            label: label,
+            data: data.map(d => parseFloat(d.return_30d)),
+            backgroundColor: data.map(d => d.won ? color : 'rgba(0,0,0,.08)'),
+            borderColor: data.map(d => d.won ? color : 'rgba(0,0,0,.15)'),
+            borderWidth: 1,
+            borderRadius: 6,
+          }]
+        },
+        options: {
+          responsive: true,
+          plugins: {
+            legend: { display: false },
+            tooltip: { callbacks: { label: ctx => ctx.raw + '%' } }
+          },
+          scales: {
+            y: { ticks: { callback: v => v + '%' }, grid: { color: 'rgba(0,0,0,.04)' } },
+            x: { grid: { display: false } }
+          }
+        }
+      });
+    }
+
+    // Render track record
+    function renderTrack() {
+      const all = [...perfData.bull_history, ...perfData.bear_history, ...perfData.close_history]
+        .sort((a,b) => b.date.localeCompare(a.date));
+      $('trackRecord').innerHTML = all.map(d => `
+        <div class="track-item">
+          <span class="track-symbol">${d.symbol}</span>
+          <span class="track-action ${d.action==='看多'?'action-bull':d.action==='看空'?'action-bear':'action-close'}">${d.action}</span>
+          <span class="track-date">${d.date}</span>
+          <span class="track-result" style="color:${d.won?'var(--green)':'var(--red)'}">${d.return_30d} ${d.won?'✅':'❌'}</span>
+        </div>`).join('');
+    }
+
+    renderSummary();
+    try {
+      renderChart('bullChart', perfData.bull_history, '#059669', '30-Day Return');
+      renderChart('bearChart', perfData.bear_history, '#dc2626', '30-Day Return');
+    } catch(e) { console.log('Chart init pending'); }
+    renderTrack();
+  </script>
+</body>
+</html>

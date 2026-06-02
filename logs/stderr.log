@@ -4487,3 +4487,46 @@ WARNING: This is a development server. Do not use it in a production deployment.
 Press CTRL+C to quit
 127.0.0.1 - - [02/Jun/2026 22:16:45] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [02/Jun/2026 22:16:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:16:58] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:17:31] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:19:30] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:21:31] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:22:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:22:07] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 22:22:07] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 22:22:07] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 22:22:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:22:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:22:58] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:23:00] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:23:01] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:23:01] "GET /api/briefing HTTP/1.1" 200 -
+[2026-06-02 22:23:01,238] ERROR in app: Exception on /api/market-story [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'market_story' did not return a valid response. The function either returned None or ended without a return statement.
+127.0.0.1 - - [02/Jun/2026 22:23:01] "GET /api/market-story HTTP/1.1" 500 -
+127.0.0.1 - - [02/Jun/2026 22:23:01] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:23:04] "GET /stock/MSFT HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:25:14] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 22:33:09] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 22:43:21] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:45:06] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 22:54:18] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 22:55:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:55:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 22:55:46] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:00:18] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 23:17:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 23:20:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 23:21:22] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:26:49] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 23:31:17] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:43:39] "GET /performance HTTP/1.1" 404 -
