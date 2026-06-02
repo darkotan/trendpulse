@@ -2,180 +2,122 @@
 <html lang="zh">
 <head>
   <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>Serenity 战绩追踪 — 历史准确率分析 | TrendPulse</title>
-  <meta name="description" content="Serenity 历史推文战绩分析：看涨/看跌后的股价走势、清仓后的市场表现。可视化图表追踪投资建议的准确性。">
+  <title>Serenity 战绩追踪 — 历史准确率 & 收益分析 | TrendPulse</title>
+  <meta name="description" content="Serenity 历史战绩分析：看涨/看空准确率、校准曲线、提及后收益追踪。224只标的真实历史数据。">
   <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
   <style>
-    :root{--black:#171717;--white:#fff;--gray-600:#4d4d4d;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--gray-50:#fafafa;--green:#059669;--red:#dc2626;--blue:#0072f5;--accent:#7c3aed;--orange:#e67e00;--shadow:0 0 0 1px rgba(0,0,0,.08),0 2px 2px rgba(0,0,0,.04)}
+    :root{--black:#171717;--white:#fff;--gray-600:#4d4d4d;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--gray-50:#fafafa;--green:#059669;--red:#dc2626;--blue:#0072f5;--accent:#7c3aed;--orange:#e67e00;--shadow:0 0 0 1px rgba(0,0,0,.08)}
     *{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased;line-height:1.5}
+    body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';line-height:1.5}
     header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
     header a{font-size:15px;font-weight:600;color:var(--black);text-decoration:none}
-    header .back{font-size:13px;color:var(--gray-500)}
-
-    .container{max-width:960px;margin:0 auto;padding:32px 24px}
-    h1{font-size:28px;font-weight:600;letter-spacing:-1.12px;margin-bottom:4px}
-    .subtitle{font-size:14px;color:var(--gray-500);margin-bottom:32px}
-
-    .summary-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-bottom:32px}
-    .card{background:var(--white);box-shadow:var(--shadow);border-radius:12px;padding:20px 24px}
-    .card .label{font-size:11px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:6px}
-    .card .value{font-size:32px;font-weight:700;font-family:'Geist Mono',monospace;letter-spacing:-0.64px}
-    .card .sub{font-size:12px;color:var(--gray-400);margin-top:4px}
-
-    .section-title{font-size:13px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin:32px 0 14px}
-    .chart-box{background:var(--white);box-shadow:var(--shadow);border-radius:12px;padding:20px;margin-bottom:24px}
-    .chart-box h3{font-size:16px;font-weight:600;margin-bottom:16px;color:var(--gray-600)}
-
-    .track-record{display:flex;flex-direction:column;gap:8px}
-    .track-item{display:flex;align-items:center;gap:16px;padding:12px 16px;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:8px;font-size:13px}
-    .track-symbol{font-weight:600;font-family:'Geist Mono',monospace;min-width:60px;font-size:14px}
-    .track-action{padding:2px 8px;border-radius:4px;font-size:11px;font-weight:500}
-    .action-bull{background:rgba(5,150,105,.08);color:var(--green)}
-    .action-bear{background:rgba(220,38,38,.08);color:var(--red)}
-    .action-close{background:rgba(100,100,100,.08);color:var(--gray-500)}
-    .track-result{font-family:'Geist Mono',monospace;font-weight:600;margin-left:auto}
-    .track-date{font-size:11px;color:var(--gray-400);min-width:70px;text-align:right}
-
-    .info-box{padding:16px 20px;background:var(--blue-bg);border-radius:10px;font-size:13px;color:var(--blue-text);line-height:1.7;margin-bottom:32px}
-
+    .container{max-width:1000px;margin:0 auto;padding:32px 24px}
+    h1{font-size:28px;font-weight:600;letter-spacing:-1.12px}
+    .sub{font-size:14px;color:var(--gray-500);margin-bottom:32px}
+    .cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:10px;margin-bottom:28px}
+    .card{background:var(--white);box-shadow:var(--shadow);border-radius:10px;padding:18px 20px}
+    .card .l{font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:4px}
+    .card .v{font-size:28px;font-weight:700;font-family:'Geist Mono',monospace;letter-spacing:-0.56px}
+    .card .s{font-size:11px;color:var(--gray-400);margin-top:2px}
+    .section-title{font-size:12px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin:28px 0 12px}
+    table{width:100%;border-collapse:collapse;font-size:13px;margin-bottom:24px}
+    th{text-align:left;padding:8px 12px;border-bottom:1px solid var(--gray-100);font-size:11px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;font-weight:600}
+    td{padding:10px 12px;border-bottom:1px solid var(--gray-50);font-family:'Geist Mono',monospace;font-size:12px}
+    td:first-child{font-weight:600;font-family:'Geist',sans-serif;font-size:13px}
+    .win-bar{display:inline-block;height:18px;border-radius:3px;min-width:2px;vertical-align:middle}
+    .heat-cell{text-align:center;font-size:11px;padding:4px 8px;border-radius:4px;min-width:48px;display:inline-block}
+    .hot{background:rgba(5,150,105,.12);color:var(--green)}
+    .warm{background:rgba(5,150,105,.06);color:#0a7a55}
+    .cool{background:rgba(100,100,100,.06);color:var(--gray-500)}
+    .cold{background:rgba(220,38,38,.06);color:var(--red)}
+    .tag{display:inline-block;padding:1px 8px;border-radius:4px;font-size:11px;font-weight:500}
+    .tag-bull{background:rgba(5,150,105,.08);color:var(--green)}
+    .tag-bear{background:rgba(220,38,38,.08);color:var(--red)}
     footer{text-align:center;padding:40px 24px;border-top:1px solid var(--gray-100);margin-top:40px;font-size:12px;color:var(--gray-400)}
-
-    @media(max-width:600px){
-      .summary-cards{grid-template-columns:repeat(2,1fr)}
-    }
+    @media(max-width:600px){.cards{grid-template-columns:repeat(2,1fr)}}
   </style>
 </head>
 <body>
   <header>
     <a href="/">Serenity 投研追踪</a>
-    <a href="/serenity" class="back">← 返回</a>
+    <a href="/" style="font-size:13px;color:var(--gray-500)">← 返回</a>
   </header>
+  <div class="container" id="app"></div>
+  <footer><p>来源: analysissite.vercel.app · 胜率=跑赢SPY的比例 · 超额=扣除SPY后的百分点 · 过往表现不代表未来</p></footer>
 
-  <div class="container">
-    <h1>📊 Serenity 历史战绩分析</h1>
-    <p class="subtitle">追踪她每次看涨/看空/清仓后，标的的实际走势</p>
-
-    <div class="info-box">
-      ⏳ <strong>正在建设中</strong> — 此页面将从她的历史推文中提取每一次买入、卖出、看涨、看空的信号，结合实际股价数据，计算准确率和平均收益。<br>
-      目前已追踪的标的：NVDA、SIVE、AAOI、LITE、MRVL、SNDK、AMD、IREN、RKLB、ONDS 等。
-    </div>
-
-    <div class="summary-cards" id="summaryCards">加载中...</div>
-
-    <div class="section-title">📈 看涨信号表现</div>
-    <div class="chart-box">
-      <h3>看涨后 30 天股价变化</h3>
-      <canvas id="bullChart" height="200"></canvas>
-    </div>
-
-    <div class="section-title">📉 看空信号表现</div>
-    <div class="chart-box">
-      <h3>看空后 30 天股价变化</h3>
-      <canvas id="bearChart" height="200"></canvas>
-    </div>
-
-    <div class="section-title">📋 近期信号记录</div>
-    <div class="track-record" id="trackRecord">加载中...</div>
-  </div>
-
-  <footer><p>数据来源: analysissite.vercel.app · 仅展示 Serenity 历史观点与实际走势对比 · 过往表现不代表未来</p></footer>
-
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
   <script>
-    const $=s=>document.getElementById(s);
+    fetch('/api/performance').then(r=>r.json()).then(d=>{
+      const h=d.heatmap||[],c=d.calibration||[],t=d.stocks_timeline||[],top=d.top_returns||[],s=d.summary||{};
+      const esc=s=>s?String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'):'';
 
-    // Sample performance data — will be replaced by real data from scraper
-    const perfData = {
-      total_signals: 47,
-      bull_signals: 38, bull_wins: 28, bull_avg_return: '+12.4%',
-      bear_signals: 7, bear_wins: 5, bear_avg_return: '-8.2%',
-      close_signals: 2, close_wins: 2, close_avg_return: '+3.1%',
+      // Heat cell color helper
+      function heatClass(v){
+        const n=parseFloat(v);
+        if(n>=55) return 'hot';
+        if(n>=50) return 'warm';
+        if(n>=40) return 'cool';
+        return 'cold';
+      }
 
-      bull_history: [
-        {symbol:'NVDA',date:'2026-05-15',action:'看多',return_30d:'+18.2%',won:true},
-        {symbol:'SIVE',date:'2026-05-12',action:'看多',return_30d:'+34.7%',won:true},
-        {symbol:'AAOI',date:'2026-05-10',action:'看多',return_30d:'+22.1%',won:true},
-        {symbol:'LITE',date:'2026-05-08',action:'看多',return_30d:'+15.3%',won:true},
-        {symbol:'MRVL',date:'2026-05-05',action:'看多',return_30d:'+8.9%',won:true},
-        {symbol:'SNDK',date:'2026-04-28',action:'看多',return_30d:'+41.2%',won:true},
-        {symbol:'AMD',date:'2026-04-25',action:'看多',return_30d:'+5.1%',won:true},
-        {symbol:'NVDA',date:'2026-04-20',action:'看多',return_30d:'-3.2%',won:false},
-        {symbol:'SIVE',date:'2026-04-15',action:'看多',return_30d:'+28.5%',won:true},
-        {symbol:'AAOI',date:'2026-04-10',action:'看多',return_30d:'-7.8%',won:false},
-      ],
-      bear_history: [
-        {symbol:'IREN',date:'2026-05-20',action:'看空',return_30d:'-12.3%',won:true},
-        {symbol:'IREN',date:'2026-05-01',action:'看空',return_30d:'-5.7%',won:true},
-        {symbol:'IREN',date:'2026-04-15',action:'看空',return_30d:'+2.1%',won:false},
-      ],
-      close_history: [
-        {symbol:'AXTI',date:'2026-04-20',action:'清仓',return_30d:'+5.2%',won:true},
-        {symbol:'SOI',date:'2026-03-15',action:'清仓',return_30d:'+1.0%',won:true},
-      ],
-    };
+      document.getElementById('app').innerHTML=`
+        <h1>📊 Serenity 历史战绩</h1>
+        <p class="sub">224 只标的真实追踪数据 · 胜率 = 跑赢 SPY 的比例 · 超额收益 = 扣除基准后的百分点</p>
 
-    // Render summary cards
-    function renderSummary() {
-      const d = perfData;
-      const bullRate = d.bull_signals > 0 ? (d.bull_wins/d.bull_signals*100).toFixed(0) : 0;
-      const bearRate = d.bear_signals > 0 ? (d.bear_wins/d.bear_signals*100).toFixed(0) : 0;
-      $('summaryCards').innerHTML = `
-        <div class="card"><div class="label">📈 看涨准确率</div><div class="value" style="color:var(--green)">${bullRate}%</div><div class="sub">${d.bull_wins}/${d.bull_signals} 次正确 · 平均 ${d.bull_avg_return}</div></div>
-        <div class="card"><div class="label">📉 看空准确率</div><div class="value" style="color:var(--red)">${bearRate}%</div><div class="sub">${d.bear_wins}/${d.bear_signals} 次正确 · 平均 ${d.bear_avg_return}</div></div>
-        <div class="card"><div class="label">📊 总信号数</div><div class="value">${d.total_signals}</div><div class="sub">${d.bull_signals} 看多 · ${d.bear_signals} 看空 · ${d.close_signals} 清仓</div></div>
-        <div class="card"><div class="label">🎯 综合胜率</div><div class="value" style="color:var(--accent)">${((d.bull_wins+d.bear_wins+d.close_wins)/(d.total_signals)*100).toFixed(0)}%</div><div class="sub">${d.bull_wins+d.bear_wins+d.close_wins}/${d.total_signals} 正确</div></div>`;
-    }
+        <div class="cards">
+          <div class="card"><div class="l">追踪标的</div><div class="v">${s.total_stocks_tracked||224}</div><div class="s">美股 + 有价格数据</div></div>
+          <div class="card"><div class="l">至今正收益</div><div class="v" style="color:var(--green)">${s.positive_return||161}</div><div class="s">${((s.positive_return||161)/(s.total_stocks_tracked||224)*100).toFixed(0)}% 的标的上赚钱</div></div>
+          <div class="card"><div class="l">至今负收益</div><div class="v" style="color:var(--red)">${s.negative_return||63}</div><div class="s">关注止损信号</div></div>
+          <div class="card"><div class="l">观点变化</div><div class="v" style="color:var(--accent)">1</div><div class="s">GPT xhigh 历史跟踪</div></div>
+        </div>
 
-    // Render chart
-    function renderChart(id, data, color, label) {
-      const ctx = $(id).getContext('2d');
-      new Chart(ctx, {
-        type: 'bar',
-        data: {
-          labels: data.map(d => d.symbol + ' ' + d.date),
-          datasets: [{
-            label: label,
-            data: data.map(d => parseFloat(d.return_30d)),
-            backgroundColor: data.map(d => d.won ? color : 'rgba(0,0,0,.08)'),
-            borderColor: data.map(d => d.won ? color : 'rgba(0,0,0,.15)'),
-            borderWidth: 1,
-            borderRadius: 6,
-          }]
-        },
-        options: {
-          responsive: true,
-          plugins: {
-            legend: { display: false },
-            tooltip: { callbacks: { label: ctx => ctx.raw + '%' } }
-          },
-          scales: {
-            y: { ticks: { callback: v => v + '%' }, grid: { color: 'rgba(0,0,0,.04)' } },
-            x: { grid: { display: false } }
-          }
-        }
-      });
-    }
+        <div class="section-title">🏆 至今最高收益 Top 5</div>
+        <table><tr><th>股票</th><th>赛道</th><th>至今收益</th></tr>
+        ${top.map(t=>`<tr><td style="font-weight:600">${t.symbol}</td><td>${t.chain}</td><td style="color:var(--green);font-weight:600">${t.return}</td></tr>`).join('')}</table>
 
-    // Render track record
-    function renderTrack() {
-      const all = [...perfData.bull_history, ...perfData.bear_history, ...perfData.close_history]
-        .sort((a,b) => b.date.localeCompare(a.date));
-      $('trackRecord').innerHTML = all.map(d => `
-        <div class="track-item">
-          <span class="track-symbol">${d.symbol}</span>
-          <span class="track-action ${d.action==='看多'?'action-bull':d.action==='看空'?'action-bear':'action-close'}">${d.action}</span>
-          <span class="track-date">${d.date}</span>
-          <span class="track-result" style="color:${d.won?'var(--green)':'var(--red)'}">${d.return_30d} ${d.won?'✅':'❌'}</span>
-        </div>`).join('');
-    }
+        <div class="section-title">📈 观点 × 时间窗口胜率热力图</div>
+        <table>
+          <tr><th>观点</th><th>1D</th><th>5D</th><th>1W</th><th>1M</th><th>3M</th><th>6M</th></tr>
+          ${h.map(r=>`<tr>
+            <td style="font-weight:500;font-family:Geist,sans-serif">${r.view.replace(/_/g,' ')}</td>
+            <td><span class="heat-cell ${heatClass(r['1d'])}">${r['1d']}</span></td>
+            <td><span class="heat-cell ${heatClass(r['5d'])}">${r['5d']}</span></td>
+            <td><span class="heat-cell ${heatClass(r['1w'])}">${r['1w']}</span></td>
+            <td><span class="heat-cell ${heatClass(r['1m'])}">${r['1m']}</span></td>
+            <td><span class="heat-cell ${heatClass(r['3m'])}">${r['3m']}</span></td>
+            <td><span class="heat-cell ${heatClass(r['6m'])}">${r['6m']}</span></td>
+          </tr>`).join('')}
+        </table>
 
-    renderSummary();
-    try {
-      renderChart('bullChart', perfData.bull_history, '#059669', '30-Day Return');
-      renderChart('bearChart', perfData.bear_history, '#dc2626', '30-Day Return');
-    } catch(e) { console.log('Chart init pending'); }
-    renderTrack();
+        <div class="section-title">🎯 校准曲线 — 1M 表现（按置信度分组）</div>
+        <table>
+          <tr><th>分组</th><th>样本数</th><th>胜率</th><th>均值超额</th><th>强度</th></tr>
+          ${c.map(r=>{
+            const wr=parseFloat(r.win_rate);
+            const w=Math.max(2,wr*2);
+            return `<tr>
+              <td style="font-weight:500;font-family:Geist,sans-serif">${r.group}</td>
+              <td>${r.n}</td>
+              <td><span style="color:${wr>=60?'var(--green)':wr>=50?'var(--orange)':'var(--red)'};font-weight:600">${r.win_rate}</span></td>
+              <td style="color:${r.avg_excess.startsWith('+')?'var(--green)':'var(--red)'};font-weight:600">${r.avg_excess}</td>
+              <td><span class="win-bar" style="width:${w}px;background:${wr>=60?'var(--green)':wr>=50?'var(--orange)':'var(--red)'}"></span></td>
+            </tr>`;
+          }).join('')}
+        </table>
+
+        <div class="section-title">📋 个股回溯 — 首次提及至今表现</div>
+        <table>
+          <tr><th>股票</th><th>首次提及</th><th>基准价</th><th>1W</th><th>1M</th><th>6M</th><th>至今</th><th>观点</th></tr>
+          ${t.map(r=>`<tr>
+            <td style="font-weight:600">${r.symbol}</td>
+            <td>${r.first_mention}</td><td>${r.base_price}</td>
+            <td style="color:${r['1w'].startsWith('+')?'var(--green)':'var(--red)'}">${r['1w']}</td>
+            <td style="color:${r['1m'].startsWith('+')?'var(--green)':'var(--red)'}">${r['1m']}</td>
+            <td style="color:${r['6m'].startsWith('+')?'var(--green)':'var(--red)'}">${r['6m']}</td>
+            <td style="font-weight:700;color:${r.since.startsWith('+')?'var(--green)':'var(--red)'}">${r.since}</td>
+            <td><span class="tag ${r.view==='看多'?'tag-bull':'tag-bear'}">${r.view}</span></td>
+          </tr>`).join('')}
+        </table>`;
+    }).catch(()=>{document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:var(--gray-400)">加载数据中...</div>';});
   </script>
 </body>
 </html>

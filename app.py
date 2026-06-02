@@ -626,6 +626,16 @@ def performance():
     return render_template("performance.html")
 
 
+@app.route("/api/performance")
+def api_performance():
+    """Return historical performance data from JSON."""
+    import json
+    pf = Path(__file__).parent / "data" / "performance.json"
+    if pf.exists():
+        return jsonify(json.loads(pf.read_text()))
+    return jsonify({"error": "No data yet"}), 404
+
+
 # ── Main ───────────────────────────────────────────
 if __name__ == "__main__":
     threading.Thread(target=bg_updater, daemon=True).start()

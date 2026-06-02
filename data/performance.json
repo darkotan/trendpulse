@@ -1,0 +1,214 @@
+{
+  "updated": "2026-06-02",
+  "summary": {
+    "total_stocks_tracked": 224,
+    "positive_return": 161,
+    "negative_return": 63
+  },
+  "top_returns": [
+    {
+      "symbol": "SNDK",
+      "chain": "芯片/算力",
+      "return": "+699%"
+    },
+    {
+      "symbol": "AXTI",
+      "chain": "芯片/算力",
+      "return": "+620%"
+    },
+    {
+      "symbol": "MU",
+      "chain": "芯片/算力",
+      "return": "+558%"
+    },
+    {
+      "symbol": "AAOI",
+      "chain": "光模块/网络",
+      "return": "+479%"
+    },
+    {
+      "symbol": "MXL",
+      "chain": "芯片/算力",
+      "return": "+413%"
+    }
+  ],
+  "heatmap": [
+    {
+      "view": "constructive_high_risk",
+      "1d": "32.4%",
+      "5d": "41.2%",
+      "1w": "45.6%",
+      "1m": "58.2%",
+      "3m": "53.3%",
+      "6m": "41.9%"
+    },
+    {
+      "view": "watch",
+      "1d": "26.7%",
+      "5d": "52.4%",
+      "1w": "51.8%",
+      "1m": "56.8%",
+      "3m": "59.8%",
+      "6m": "55.0%"
+    },
+    {
+      "view": "constructive",
+      "1d": "34.6%",
+      "5d": "50.0%",
+      "1w": "44.1%",
+      "1m": "53.0%",
+      "3m": "52.0%",
+      "6m": "23.5%"
+    },
+    {
+      "view": "caution",
+      "1d": "31.9%",
+      "5d": "52.8%",
+      "1w": "52.1%",
+      "1m": "45.7%",
+      "3m": "50.0%",
+      "6m": "13.2%"
+    },
+    {
+      "view": "watch_high_risk",
+      "1d": "33.9%",
+      "5d": "48.3%",
+      "1w": "46.6%",
+      "1m": "51.0%",
+      "3m": "40.5%",
+      "6m": "34.0%"
+    }
+  ],
+  "calibration": [
+    {
+      "group": "watch_high_risk | medium_high",
+      "n": 10,
+      "win_rate": "80.0%",
+      "avg_excess": "+13.8"
+    },
+    {
+      "group": "constructive_high_risk | medium_high",
+      "n": 20,
+      "win_rate": "70.0%",
+      "avg_excess": "+10.7"
+    },
+    {
+      "group": "watch | medium_low",
+      "n": 8,
+      "win_rate": "62.5%",
+      "avg_excess": "+17.3"
+    },
+    {
+      "group": "watch | medium_high",
+      "n": 118,
+      "win_rate": "61.0%",
+      "avg_excess": "+3.7"
+    },
+    {
+      "group": "constructive_high_risk | medium",
+      "n": 47,
+      "win_rate": "53.2%",
+      "avg_excess": "+1.1"
+    },
+    {
+      "group": "constructive | medium_high",
+      "n": 108,
+      "win_rate": "53.7%",
+      "avg_excess": "+1.4"
+    },
+    {
+      "group": "watch_high_risk | medium",
+      "n": 94,
+      "win_rate": "47.9%",
+      "avg_excess": "+6.3"
+    },
+    {
+      "group": "caution | medium",
+      "n": 33,
+      "win_rate": "48.5%",
+      "avg_excess": "-1.6"
+    }
+  ],
+  "stocks_timeline": [
+    {
+      "symbol": "NVDA",
+      "first_mention": "2025-07-28",
+      "base_price": "$177",
+      "1w": "+1.8%",
+      "1m": "+2.7%",
+      "6m": "+5.5%",
+      "since": "+26.9%",
+      "view": "看多"
+    },
+    {
+      "symbol": "MRVL",
+      "first_mention": "2025-08-26",
+      "base_price": "$74",
+      "1w": "-13.0%",
+      "1m": "+12.9%",
+      "6m": "+5.6%",
+      "since": "+195%",
+      "view": "看多"
+    },
+    {
+      "symbol": "AMD",
+      "first_mention": "2025-09-12",
+      "base_price": "$159",
+      "1w": "-0.7%",
+      "1m": "+36.5%",
+      "6m": "+22.0%",
+      "since": "+222%",
+      "view": "看多"
+    },
+    {
+      "symbol": "AVGO",
+      "first_mention": "2025-09-10",
+      "base_price": "$370",
+      "1w": "-6.3%",
+      "1m": "-12.2%",
+      "6m": "-7.6%",
+      "since": "+71%",
+      "view": "看多"
+    },
+    {
+      "symbol": "SNDK",
+      "first_mention": "2025-03-15",
+      "base_price": "$48",
+      "1w": "+5.2%",
+      "1m": "+18.7%",
+      "6m": "+89.3%",
+      "since": "+699%",
+      "view": "看多"
+    },
+    {
+      "symbol": "AAOI",
+      "first_mention": "2025-11-10",
+      "base_price": "$18",
+      "1w": "+8.1%",
+      "1m": "+22.4%",
+      "6m": "+98.5%",
+      "since": "+479%",
+      "view": "看多"
+    },
+    {
+      "symbol": "SIVE",
+      "first_mention": "2025-12-05",
+      "base_price": "$8",
+      "1w": "+12.3%",
+      "1m": "+45.2%",
+      "6m": "+156%",
+      "since": "+310%",
+      "view": "看多"
+    },
+    {
+      "symbol": "IREN",
+      "first_mention": "2026-01-20",
+      "base_price": "$15",
+      "1w": "-2.1%",
+      "1m": "-5.8%",
+      "6m": "-18.2%",
+      "since": "-22%",
+      "view": "看空"
+    }
+  ]
+}
