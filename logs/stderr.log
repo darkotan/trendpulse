@@ -4542,3 +4542,42 @@ Press CTRL+C to quit
 127.0.0.1 - - [02/Jun/2026 23:45:20] "GET /performance HTTP/1.1" 200 -
 127.0.0.1 - - [02/Jun/2026 23:45:44] "GET / HTTP/1.1" 200 -
 127.0.0.1 - - [02/Jun/2026 23:48:45] "GET /api/performance HTTP/1.1" 404 -
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+127.0.0.1 - - [02/Jun/2026 23:49:11] "GET /api/performance HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 23:49:19] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:49:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 23:50:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 23:50:38] "GET /wp-includes/ID3/license.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:38] "GET /feed/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:38] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:38] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:39] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:39] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:39] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:40] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:40] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:40] "GET /2021/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:40] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:41] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:41] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:41] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:41] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:53] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:53] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:53] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:50:53] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 23:51:27] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 23:59:12] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 00:00:09] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 00:02:17] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 00:02:17] "GET /api/performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 00:02:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 00:02:46] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [03/Jun/2026 00:02:46] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+127.0.0.1 - - [03/Jun/2026 00:02:46] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+127.0.0.1 - - [03/Jun/2026 00:02:48] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 00:02:48] "GET /api/performance HTTP/1.1" 200 -
