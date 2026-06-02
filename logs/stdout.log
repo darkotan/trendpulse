@@ -4900,3 +4900,21 @@
 [Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
 [Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
 [Collector] ProductHunt: HTTP Error 401: Unauthorized
+[TrendPulse] Starting server on port 8766...
+[TrendPulse v2] Starting http://localhost:8766
+ * Serving Flask app 'app'
+ * Debug mode: off
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized
+[Collector] https://query1.finance.yahoo.com/v8/finance/chart/SQ?interva → HTTP Error 404: Not Found
+[Collector] https://www.reddit.com/r/wallstreetbets/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/stocks/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/CryptoCurrency/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/investing/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] https://www.reddit.com/r/StockMarket/hot.json?limit=5 → HTTP Error 403: Blocked
+[Collector] ProductHunt: HTTP Error 401: Unauthorized

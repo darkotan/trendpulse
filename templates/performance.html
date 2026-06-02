@@ -81,11 +81,17 @@
     <div style="display:flex;gap:16px">
       <a href="/blog" style="font-size:13px;color:var(--gray-500);text-decoration:none">博客</a>
       <a href="/performance" style="font-size:13px;color:var(--gray-500);text-decoration:none">📊 战绩</a>
-      <a href="/dashboard" style="font-size:13px;color:var(--gray-500);text-decoration:none">面板</a>
     </div>
   </header>
   <div class="container" id="app"></div>
   <footer><p>来源: analysissite.vercel.app · 胜率=跑赢SPY · 超额=扣除基准 · 过往不代表未来</p></footer>
+  <div style="text-align:center;padding:20px 16px">
+    <span style="font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px">Sponsored</span>
+    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+      <a href="https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX" target="_blank" rel="nofollow sponsored" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--gray-100);border-radius:8px;text-decoration:none;color:var(--black);font-size:13px;font-weight:500">🟡 Binance <span style="color:var(--blue);font-size:12px">10% off →</span></a>
+      <a href="https://www.okx.com/join/35101515" target="_blank" rel="nofollow sponsored" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--gray-100);border-radius:8px;text-decoration:none;color:var(--black);font-size:13px;font-weight:500">⚫ OKX <span style="color:var(--blue);font-size:12px">Sign up →</span></a>
+    </div>
+  </div>
 
   <script>
     fetch('/api/performance').then(r=>r.json()).then(d=>{

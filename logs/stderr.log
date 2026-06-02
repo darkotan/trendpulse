@@ -4736,3 +4736,89 @@ Traceback (most recent call last):
     def _esc(s):
 NameError: name 'list_articles' is not defined
 127.0.0.1 - - [03/Jun/2026 01:25:32] "GET /blog HTTP/1.1" 500 -
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+127.0.0.1 - - [03/Jun/2026 01:25:56] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:26:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:26:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:26:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:26:02] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:26:02] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:26:02] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:26:02] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:26:02] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:26:02] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:31:36] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:31:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:31:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:31:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:31:44] "GET /performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:31:44] "GET /api/performance HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:32:47] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:32:47] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:32:47] "GET /api/briefing HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:32:47] "GET /api/serenity HTTP/1.1" 200 -
+[2026-06-03 01:32:47,644] ERROR in app: Exception on /api/market-story [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'market_story' did not return a valid response. The function either returned None or ended without a return statement.
+127.0.0.1 - - [03/Jun/2026 01:32:47] "GET /api/market-story HTTP/1.1" 500 -
+127.0.0.1 - - [03/Jun/2026 01:33:03] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:33:03] "GET /api/all HTTP/1.1" 200 -
+[2026-06-03 01:33:03,682] ERROR in app: Exception on /api/market-story [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'market_story' did not return a valid response. The function either returned None or ended without a return statement.
+127.0.0.1 - - [03/Jun/2026 01:33:03] "GET /api/briefing HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:33:03] "GET /api/market-story HTTP/1.1" 500 -
+127.0.0.1 - - [03/Jun/2026 01:33:03] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:34:03] "GET /api/all HTTP/1.1" 200 -
+[2026-06-03 01:34:03,705] ERROR in app: Exception on /api/market-story [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'market_story' did not return a valid response. The function either returned None or ended without a return statement.
+127.0.0.1 - - [03/Jun/2026 01:34:03] "GET /api/market-story HTTP/1.1" 500 -
+127.0.0.1 - - [03/Jun/2026 01:34:03] "GET /api/briefing HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:34:03] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:35:03] "GET /api/all HTTP/1.1" 200 -
+[2026-06-03 01:35:03,717] ERROR in app: Exception on /api/market-story [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'market_story' did not return a valid response. The function either returned None or ended without a return statement.
+127.0.0.1 - - [03/Jun/2026 01:35:03] "GET /api/market-story HTTP/1.1" 500 -
+127.0.0.1 - - [03/Jun/2026 01:35:03] "GET /api/briefing HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:35:03] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:35:41] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:35:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [03/Jun/2026 01:35:41] "GET /performance HTTP/1.1" 200 -

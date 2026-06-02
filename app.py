@@ -139,8 +139,9 @@ def index():
 
 @app.route("/dashboard")
 def dashboard():
-    """Original data dashboard."""
-    return render_template("index.html")
+    """Redirect old dashboard to homepage."""
+    from flask import redirect
+    return redirect("/")
 
 @app.route("/robots.txt")
 def robots():
