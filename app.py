@@ -6,7 +6,7 @@ Fear & Greed, VIX, Treasury yields, GitHub trending.
 Programmatic SEO pages for every asset.
 """
 
-from flask import Flask, render_template, jsonify, request, make_response, send_file
+from flask import Flask, render_template, jsonify, request, make_response, send_file, redirect
 from data.collector import (
     fetch_hn_trending, fetch_stock_movers, fetch_stocks_by_sector,
     fetch_crypto_prices, fetch_github_trending,
@@ -137,7 +137,6 @@ def index():
 @app.route("/dashboard")
 def dashboard():
     """Redirect old dashboard to homepage."""
-    from flask import redirect
     return redirect("/")
 
 @app.route("/robots.txt")
@@ -452,9 +451,7 @@ def api_subscribe():
 
 @app.route("/serenity")
 def serenity_page():
-    raw = get_serenity_raw()
-    picks = raw.get("picks", [])
-    return render_template("serenity.html", picks=picks)
+    return redirect("/")
 
 # ── Static Info Pages ──────────────────────────────
 @app.route("/about")
