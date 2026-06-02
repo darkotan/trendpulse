@@ -622,6 +622,7 @@ def blog_post(slug):
 
 
 # ── Main ───────────────────────────────────────────
+if __name__ == "__main__":
     threading.Thread(target=bg_updater, daemon=True).start()
     print("[TrendPulse v2] Starting http://localhost:8766", flush=True)
     app.run(host="0.0.0.0", port=8766, debug=False)
