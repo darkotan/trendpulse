@@ -5,8 +5,13 @@
 <style>:root{--black:#171717;--white:#fff;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--blue:#0072f5}
 *{box-sizing:border-box;margin:0;padding:0}
 html,body{overflow-x:hidden;max-width:100vw}body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga'}
-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center}
-header a{font-size:15px;font-weight:600;color:var(--black);text-decoration:none}
+header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.85);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+.logo{font-size:15px;font-weight:600;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:8px}
+.logo-dot{width:8px;height:8px;background:var(--blue);border-radius:50%;display:inline-block}
+.header-nav{display:flex;align-items:center;gap:4px}
+.nav-link{font-size:13px;color:var(--gray-500);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all .15s}
+.nav-link:hover{color:var(--black);background:var(--gray-100)}
+.nav-link.active{color:var(--blue);background:rgba(0,114,245,.08);font-weight:500}
 .container{max-width:760px;margin:0 auto;padding:40px 24px}
 h1{font-size:28px;font-weight:600;letter-spacing:-1.12px;margin-bottom:32px}
 .article{display:block;padding:20px 0;border-bottom:1px solid var(--gray-100);text-decoration:none;color:inherit}
@@ -18,11 +23,12 @@ footer{text-align:center;padding:40px 24px;font-size:12px;color:var(--gray-400)}
 footer a{color:var(--gray-500)}
 </style></head><body>
 <header>
-<a href="/" style="font-size:15px;font-weight:600;color:var(--black);text-decoration:none">Serenity 投研追踪</a>
-<div style="display:flex;gap:16px">
-  <a href="/blog" style="font-size:13px;color:var(--gray-500);text-decoration:none">博客</a>
-  <a href="/performance" style="font-size:13px;color:var(--gray-500);text-decoration:none">📊 战绩</a>
-</div>
+<a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
+<nav class="header-nav">
+  <a href="/serenity" class="nav-link">Serenity Research</a>
+  <a href="/blog" class="nav-link active">Blog</a>
+  <a href="/performance" class="nav-link">📊 战绩</a>
+</nav>
 </header>
 <div class="container">
 <h1>Blog</h1>

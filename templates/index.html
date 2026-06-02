@@ -82,6 +82,9 @@
     .logo-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--blue); animation: logoPulse 2s ease-in-out infinite; }
     @keyframes logoPulse { 0%,100%{box-shadow:0 0 0 0 rgba(0,114,245,0.4)} 50%{box-shadow:0 0 0 4px rgba(0,114,245,0)} }
     .header-actions { display: flex; align-items: center; gap: 16px; }
+    .header-nav { display: flex; align-items: center; gap: 4px; }
+    .nav-link { font-size: 13px; color: var(--gray-500); text-decoration: none; padding: 6px 12px; border-radius: 6px; transition: all .15s; }
+    .nav-link:hover { color: var(--black); background: var(--gray-50); }
     .live-badge { display: flex; align-items: center; gap: 6px; font-size: 12px; font-weight: 500; color: var(--gray-500); padding: 4px 10px; border-radius: 9999px; background: var(--green-bg); color: var(--green); }
     .live-badge::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: var(--green); animation: pulse 2s infinite; }
     @keyframes pulse { 0%,100%{opacity:1}50%{opacity:.3} }
@@ -303,8 +306,11 @@
   <!-- Header -->
   <header>
     <a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
+    <nav class="header-nav">
+      <a href="/serenity" class="nav-link">Serenity Research</a>
+      <a href="/blog" class="nav-link">Blog</a>
+    </nav>
     <div class="header-actions">
-      <a href="/blog" style="font-size:12px;color:var(--gray-500);text-decoration:none">Blog</a>
       <span id="marketStatus" style="font-size:11px;padding:2px 8px;border-radius:4px;background:var(--gray-100);color:var(--gray-500)">Market</span>
       <span class="live-badge">Live</span>
       <span class="updated-time" id="updateTime">--:--:--</span>

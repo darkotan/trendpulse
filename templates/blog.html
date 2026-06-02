@@ -26,15 +26,21 @@
     .empty{padding:60px 0;text-align:center;color:var(--muted)}
     footer{text-align:center;padding:40px;color:var(--muted);font-size:13px}
     footer a{color:var(--accent)}
+    .header-nav{display:flex;gap:16px;align-items:center}
+    .nav-link{font-size:13px;color:var(--muted);text-decoration:none;transition:color .2s}
+    .nav-link:hover,.nav-link.active{color:var(--fg)}
+    .logo{font-size:15px;font-weight:600;color:var(--fg);text-decoration:none;display:flex;align-items:center;gap:6px}
+    .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent);display:inline-block}
   </style>
 </head>
 <body>
   <header style="position:sticky;top:0;z-index:100;background:var(--bg);border-bottom:1px solid var(--border);padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between">
-    <a href="/" style="font-size:15px;font-weight:600;color:var(--fg);text-decoration:none">Serenity 投研追踪</a>
-    <div style="display:flex;gap:16px">
-      <a href="/blog" style="font-size:13px;color:var(--muted);text-decoration:none">博客</a>
-      <a href="/performance" style="font-size:13px;color:var(--muted);text-decoration:none">📊 战绩</a>
-    </div>
+    <a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
+    <nav class="header-nav">
+      <a href="/serenity" class="nav-link">Serenity Research</a>
+      <a href="/blog" class="nav-link active">Blog</a>
+      <a href="/performance" class="nav-link">📊 战绩</a>
+    </nav>
   </header>
   <div class="container">
     <h1>📝 Market Analysis & Insights</h1>

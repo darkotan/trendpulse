@@ -39,6 +39,9 @@
     .logo{font-size:16px;font-weight:600;letter-spacing:-0.32px;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:8px}
     .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--reddit-orange)}
     .header-actions{display:flex;align-items:center;gap:16px}
+    .header-nav{display:flex;gap:20px;font-size:13px;font-weight:500}
+    .header-nav a{color:var(--gray-500);text-decoration:none}
+    .header-nav a:hover{color:var(--black)}
     .live-dot{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--gray-500)}
     .live-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
     @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
@@ -93,6 +96,9 @@
   <header>
     <a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
     <div class="header-actions">
+      <nav class="header-nav" style="display:flex;gap:20px;font-size:13px;font-weight:500">
+        <a href="/serenity">Serenity</a>
+      </nav>
       <span class="live-dot">Live</span>
     </div>
   </header>

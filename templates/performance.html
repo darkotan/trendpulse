@@ -12,6 +12,10 @@
     body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased;line-height:1.5}
     header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between}
     header a{font-size:15px;font-weight:600;color:var(--black);text-decoration:none}
+    .header-nav{display:flex;align-items:center;gap:20px}
+    .nav-link{font-size:13px;font-weight:500;color:var(--gray-500);text-decoration:none;padding:4px 0;border-bottom:2px solid transparent;transition:all .2s}
+    .nav-link:hover{color:var(--black)}
+    .nav-link.active{color:var(--black);border-bottom-color:var(--black)}
     .container{max-width:900px;margin:0 auto;padding:28px 16px}
     h1{font-size:24px;font-weight:600;letter-spacing:-0.72px}
     .sub{font-size:13px;color:var(--gray-500);margin-bottom:24px}
@@ -77,11 +81,12 @@
 </head>
 <body>
   <header>
-    <a href="/">Serenity 投研追踪</a>
-    <div style="display:flex;gap:16px">
-      <a href="/blog" style="font-size:13px;color:var(--gray-500);text-decoration:none">博客</a>
-      <a href="/performance" style="font-size:13px;color:var(--gray-500);text-decoration:none">📊 战绩</a>
-    </div>
+    <a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
+    <nav class="header-nav">
+      <a href="/serenity" class="nav-link">Serenity Research</a>
+      <a href="/blog" class="nav-link">Blog</a>
+      <a href="/performance" class="nav-link active">📊 战绩</a>
+    </nav>
   </header>
   <div class="container" id="app"></div>
   <footer><p>来源: analysissite.vercel.app · 胜率=跑赢SPY · 超额=扣除基准 · 过往不代表未来</p></footer>
