@@ -27,6 +27,7 @@
     .hero h1{font-size:26px;font-weight:600;letter-spacing:-0.78px;margin-bottom:4px}
     .hero .sub{font-size:14px;color:var(--gray-500);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
     .hero .dot{width:3px;height:3px;background:var(--gray-400);border-radius:50%}
+    .intro-box{margin-top:14px;padding:16px 20px;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:10px;font-size:13px;color:var(--gray-600);line-height:1.8}
 
     /* Stats */
     .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px}
@@ -126,6 +127,16 @@
         <span style="font-size:12px">🕐 {{ serenity.last_checked }}</span>
         {% endif %}
       </p>
+      <div class="intro-box">
+        <strong>{% if lang == 'zh' %}这个网站做什么：{% else %}What this site does:{% endif %}</strong>
+        {% if lang == 'zh' %}
+        实时追踪 X（Twitter）知名独立分析师 <strong>Serenity</strong> 的最新推文和投研观点。她专注 AI 产业链（半导体、CPO 光互连、数据中心），用算法模型对 704 只标的进行多空评级和优先级排名。本站每小时自动抓取她的最新分析，用人话翻译复杂术语。不用翻 X、不用啃英文、不用自己梳理——打开就能看到她今天在看什么、为什么看好、有什么风险。<br><br>
+        <strong>⚠️ 这不是投资建议。</strong>所有观点来自 Serenity，不代表本站立场。投资有风险，决策需谨慎。
+        {% else %}
+        Real-time tracking of independent analyst <strong>Serenity</strong>'s latest X (Twitter) posts and research. She focuses on the AI supply chain (semiconductors, CPO photonics, data centers), using algorithmic models to rate 704 stocks with bull/bear calls and priority scores. This site auto-fetches her latest analysis every hour and translates complex jargon into plain English. No need to scroll X, read dense threads, or piece things together — open this page and see what she's watching, why she's bullish, and what the risks are.<br><br>
+        <strong>⚠️ Not financial advice.</strong> All views are Serenity's. This site aggregates only. Invest at your own risk.
+        {% endif %}
+      </div>
     </div>
 
     <!-- Stats -->
