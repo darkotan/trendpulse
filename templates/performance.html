@@ -46,8 +46,8 @@
       .heat-cell{font-size:10px;padding:3px 6px;min-width:36px}
       th,td{padding:6px 8px;font-size:11px}
       .table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:0 -16px;padding:0 16px}
-      table{min-width:600px}
-    }
+      table{min-width:600px;width:100%}
+      .tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch}
   </style>
 </head>
 <body>
@@ -84,11 +84,11 @@
         </div>
 
         <div class="section-title">🏆 至今最高收益 Top 5</div>
-        <div class="table-wrap"><table><tr><th>股票</th><th>赛道</th><th>至今收益</th></tr>
-        ${top.map(t=>`<tr><td style="font-weight:600">${t.symbol}</td><td>${t.chain}</td><td style="color:var(--green);font-weight:600">${t.return}</td></tr>`).join('')}</table>
+        <div class="tbl-scroll"><table><tr><th>股票</th><th>赛道</th><th>至今收益</th></tr>
+        ${top.map(t=>`<tr><td style="font-weight:600">${t.symbol}</td><td>${t.chain}</td><td style="color:var(--green);font-weight:600">${t.return}</td></tr>`).join('')}</table></div>
 
         <div class="section-title">📈 观点 × 时间窗口胜率热力图</div>
-        <table>
+        <div class="tbl-scroll"><table>
           <tr><th>观点</th><th>1D</th><th>5D</th><th>1W</th><th>1M</th><th>3M</th><th>6M</th></tr>
           ${h.map(r=>`<tr>
             <td style="font-weight:500;font-family:Geist,sans-serif">${r.view.replace(/_/g,' ')}</td>
@@ -99,10 +99,10 @@
             <td><span class="heat-cell ${heatClass(r['3m'])}">${r['3m']}</span></td>
             <td><span class="heat-cell ${heatClass(r['6m'])}">${r['6m']}</span></td>
           </tr>`).join('')}
-        </table>
+        </table></div>
 
         <div class="section-title">🎯 校准曲线 — 1M 表现（按置信度分组）</div>
-        <table>
+        <div class="tbl-scroll"><table>
           <tr><th>分组</th><th>样本数</th><th>胜率</th><th>均值超额</th><th>强度</th></tr>
           ${c.map(r=>{
             const wr=parseFloat(r.win_rate);
@@ -115,10 +115,10 @@
               <td><span class="win-bar" style="width:${w}px;background:${wr>=60?'var(--green)':wr>=50?'var(--orange)':'var(--red)'}"></span></td>
             </tr>`;
           }).join('')}
-        </table>
+        </table></div>
 
         <div class="section-title">📋 个股回溯 — 首次提及至今表现</div>
-        <table>
+        <div class="tbl-scroll"><table>
           <tr><th>股票</th><th>首次提及</th><th>基准价</th><th>1W</th><th>1M</th><th>6M</th><th>至今</th><th>观点</th></tr>
           ${t.map(r=>`<tr>
             <td style="font-weight:600">${r.symbol}</td>
@@ -129,7 +129,7 @@
             <td style="font-weight:700;color:${r.since.startsWith('+')?'var(--green)':'var(--red)'}">${r.since}</td>
             <td><span class="tag ${r.view==='看多'?'tag-bull':'tag-bear'}">${r.view}</span></td>
           </tr>`).join('')}
-        </table>`;
+        </table></div>`;
     }).catch(()=>{document.getElementById('app').innerHTML='<div style="padding:40px;text-align:center;color:var(--gray-400)">加载数据中...</div>';});
   </script>
 </body>
