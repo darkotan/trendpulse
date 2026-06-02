@@ -165,6 +165,13 @@ def get_stats(days: int = 7) -> dict:
             GROUP BY path ORDER BY cnt DESC LIMIT 10
         """).fetchall()
 
+        # Language breakdown
+        lang_rows = conn.execute(f"""
+            SELECT lang, COUNT(*) as cnt, COUNT(DISTINCT ip_hash) as uv
+            FROM pageviews WHERE created_at >= {since} AND lang != ''
+            GROUP BY lang ORDER BY cnt DESC
+        """).fetchall()
+
         conn.close()
 
         return {
@@ -177,4 +184,5 @@ def get_stats(days: int = 7) -> dict:
             "daily_breakdown": [{"date": d[0], "views": d[1], "visitors": d[2]} for d in daily],
             "top_referrers": [{"source": r[0] or "direct", "count": r[1]} for r in referrers],
             "top_pages": [{"path": p[0], "count": p[1]} for p in paths],
+            "languages": [{"lang": l[0], "count": l[1], "unique": l[2]} for l in lang_rows],
         }

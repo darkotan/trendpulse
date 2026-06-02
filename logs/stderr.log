@@ -3036,3 +3036,1326 @@ Press CTRL+C to quit
 127.0.0.1 - - [31/May/2026 22:38:09] "GET /api/serenity HTTP/1.1" 200 -
 127.0.0.1 - - [31/May/2026 22:40:09] "GET /api/serenity HTTP/1.1" 200 -
 127.0.0.1 - - [31/May/2026 22:40:09] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 22:42:09] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 22:42:09] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 22:54:37] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 22:54:37] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:10:19] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 23:10:28] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:10:31] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:11:36] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:11:36] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:13:36] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:13:36] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:15:36] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:15:36] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:19:32] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 23:40:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:46:16] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 23:48:12] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 23:49:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:49:48] "GET /ads.txt HTTP/1.1" 404 -
+127.0.0.1 - - [31/May/2026 23:56:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:58:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:58:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:58:40] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [31/May/2026 23:58:40] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:04:00] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:04:03] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:04:20] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:04:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:04:24] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:04:24] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:04:25] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:09:14] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:10:26] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:27:18] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:28:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:32:28] "GET /wp-json/gravitysmtp/v1/tests/mock-data?page=gravitysmtp-settings HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:37:59] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:43:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:47:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:30] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:41] "GET /https:/fonts.googleapis.com/css2%3Ffamily=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:49:42] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:43] "GET /https:/fonts.googleapis.com/css2%3Ffamily=Geist:wght@400;500;600;700&family=Geist+Mono:wght@400;500&display=swap HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:49:46] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:49:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:18] "GET /?key=8XqgRrAtEWrTNbg HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:19] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:20] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:20] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:50:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:22] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:22] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:24] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:24] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:32] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:50:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:34] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:36] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:36] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:37] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:37] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:58] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:50:58] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:51:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:53:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:53:39] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:53:40] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:53:40] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:53:40] "GET /privacy HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:54:25] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 00:55:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 00:55:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 01:00:49] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 01:00:49] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 01:35:22] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 01:44:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 01:44:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 02:02:15] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 02:02:17] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 02:02:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 03:01:20] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 03:01:59] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 06:05:13] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 06:05:15] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:26:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:34:55] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:34:55] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:34:55] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:00] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:00] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:06] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:06] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:32] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:32] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:33] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:33] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:33] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:33] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:38] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:38] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:41] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:41] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:42] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:35:42] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:36:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:36:40] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:36:40] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:38:40] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:38:40] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:40:40] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:40:40] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:42:40] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:42:40] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:44:40] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:44:40] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 07:51:26] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 07:52:59] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:00:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:00:27] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 08:03:11] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:03:14] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:09:45] "GET /wp-login.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 08:13:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:13:14] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:13:14] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:14:27] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:14:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:14:29] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:14:30] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 08:14:30] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:05:35] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 09:05:38] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 09:05:40] "GET /api/wechat-digest HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 09:16:30] "GET /api/wechat-digest HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 09:25:55] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /website/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /news/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /2018/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:47] "GET /media/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:48] "GET /wp2/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:48] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:48] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 09:33:48] "GET /sito/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 10:02:55] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 10:19:29] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 10:54:13] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 11:12:10] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 11:12:12] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 12:00:15] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 12:00:17] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 12:02:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 12:02:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 12:02:46] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 13:10:00] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 13:10:02] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 14:01:43] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 14:01:45] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 15:06:55] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 15:06:57] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 15:07:07] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 15:45:17] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 16:06:21] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 16:06:24] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 16:10:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 16:10:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 16:10:47] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 16:33:18] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 16:53:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 17:11:26] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 17:11:26] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 18:37:01] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 18:37:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 18:37:03] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 18:37:03] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 18:37:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 18:54:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 19:12:28] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 19:12:30] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 19:15:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 19:16:01] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 19:22:44] "GET /lander/gazprom-prelandergnidanewkomment-thanksstory2-objv2/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 19:30:42] "GET /lander/gazinvest-prelanderbankomatsssr9may1kanal-thankspidaras9may/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 19:35:32] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 19:37:59] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 19:42:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 19:42:45] "GET /lander/gazinvest-prelanderbankomatsssr9may1kanal-thanksvrach/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 20:00:23] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 20:00:23] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 20:01:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 20:01:24] "GET /lander/mod_26/index.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 20:04:36] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 20:05:40] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 20:05:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 20:05:43] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 20:05:43] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 20:05:43] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 20:09:56] "GET /lander/gazprom-leadforma-thankspidarasgaz/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 20:38:39] "GET /lander/tinkoff HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 20:45:14] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 20:45:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 20:48:20] "GET /lander/gp_ru_quiz_orange_obj_js_v2/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 20:49:20] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:00:18] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:00:21] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:00:26] "GET /lander/ru---cryptohub---773-gazprom---vesenniy-sezon-pribil-iz-doma---fz/ HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:02:21] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /.git/HEAD HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /secrets.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /key.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /credentials.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /.env.bak HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /gcp-credentials.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /keyfile.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /config.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /appsettings.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /api/config HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /.env.production HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /service-account.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /.env.local HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /.env.backup HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /google-credentials.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /.env.development HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /account.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /firebase.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /actuator/env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /sitemap.xml HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /api/env HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:52] "GET /firebase-adminsdk.json HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:53] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:21:53] "GET /${BINANCE_BASE} HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:21:53] "GET /privacy HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:21:54] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:21:54] "GET /serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:21:54] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:21:54] "GET /${OKX_BASE} HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:32:54] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:36:37] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:36:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:36:39] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:36:39] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:36:39] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:38:49] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 21:48:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:48:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 21:54:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 22:00:25] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 22:00:25] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 22:02:41] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 22:08:06] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 22:08:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 22:08:11] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 22:08:11] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 22:08:11] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 22:15:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 22:15:49] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 22:47:11] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 22:51:23] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 22:51:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:00:41] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:00:43] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:06:48] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:08:04] "GET /wp-login.php HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:14:27] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:21:01] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:21:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:21:03] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:21:03] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:21:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:39:47] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:43:14] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:46:30] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:46:41] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:54:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:59:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:59:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:59:37] "GET /wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:37] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [01/Jun/2026 23:59:38] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:38] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:38] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:39] "GET /website/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:39] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:39] "GET /news/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:40] "GET /2018/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:40] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:40] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:40] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:40] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:41] "GET /media/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:41] "GET /wp2/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:41] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:41] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [01/Jun/2026 23:59:41] "GET /sito/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 00:00:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 00:02:43] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 00:02:45] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 00:12:51] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 00:17:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 00:23:14] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 00:26:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 00:27:03] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 00:27:03] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 00:27:51] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 00:28:23] "GET /media/system/js/core.js HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 00:53:00] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 00:57:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:00:29] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:00:32] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:10:14] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:22:54] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:25:41] "POST / HTTP/1.1" 405 -
+127.0.0.1 - - [02/Jun/2026 01:35:24] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:24] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:24] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:24] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:24] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:25] "GET /test_404_page/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:35:26] "GET /test_404_page/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:35:26] "GET /test_404_page/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:35:26] "GET /test_404_page/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:35:39] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:48] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:48] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:51] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:35:55] "GET /test_404_page/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:36:00] "GET /test_404_page/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:36:01] "GET /test_404_page/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:36:14] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:36:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:36:19] "GET /test_404_page/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:37:01] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:41:16] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 01:45:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 01:58:24] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 02:00:28] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 02:00:30] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 02:00:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 02:01:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 02:06:16] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 02:18:21] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 02:18:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 02:18:26] "GET /test_404_page/ HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 02:18:41] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 02:18:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 02:18:43] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 02:18:43] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 02:18:44] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 02:20:32] "GET /wp-login.php HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 02:48:39] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:00:04] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:00:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:00:48] "GET /wp-login.php HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:00:50] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:00:52] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:00:53] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:03:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:07:36] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:19] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:12:20] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:12:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:12:25] "GET /.git/HEAD HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:25] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:12:26] "GET /.env.production HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:26] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:12:26] "GET /api/.env HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:26] "GET /env HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:26] "GET /.env.local HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:26] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:26] "GET /.aws/credentials HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:26] "GET /.env.development HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:26] "GET /backend/.env HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:27] "GET /js/config.js HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:27] "GET /.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:27] "GET /config.json HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:27] "GET /${OKX_BASE} HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:27] "GET /privacy HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:12:27] "GET /${BINANCE_BASE} HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:12:27] "GET /serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:12:28] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:12:28] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:23:03] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:23:49] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:25:13] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:25:37] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:25:37] "GET /sitemap.xml HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:25:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:25:37] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:25:37] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:26:11] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:27:09] "GET /sitemap.xml HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:27:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:27:56] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:27:57] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:27:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:27:58] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:27:58] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:28:00] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:28:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:28:10] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:28:10] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:28:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:28:16] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:28:16] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:29:40] "GET /blog HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:29:40] "GET /blog/arm-surge-computex-2026 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:29:40] "GET /blog/arm-surge-computex-2026 HTTP/1.1" 404 -
+/Users/darkotan/trendpulse/start.sh: line 7: 93436 Killed: 9               PYTHONUNBUFFERED=1 python3 app.py
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 22, in <module>
+    from articles import get_articles, get_article
+  File "/Users/darkotan/trendpulse/articles.py", line 12, in <module>
+    def parse_article(path: Path) -> dict | None:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 22, in <module>
+    from articles import get_articles, get_article
+  File "/Users/darkotan/trendpulse/articles.py", line 12, in <module>
+    def parse_article(path: Path) -> dict | None:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 22, in <module>
+    from articles import get_articles, get_article
+  File "/Users/darkotan/trendpulse/articles.py", line 12, in <module>
+    def parse_article(path: Path) -> dict | None:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 22, in <module>
+    from articles import get_articles, get_article
+  File "/Users/darkotan/trendpulse/articles.py", line 12, in <module>
+    def parse_article(path: Path) -> dict | None:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 22, in <module>
+    from articles import get_articles, get_article
+  File "/Users/darkotan/trendpulse/articles.py", line 12, in <module>
+    def parse_article(path: Path) -> dict | None:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 22, in <module>
+    from articles import get_articles, get_article
+  File "/Users/darkotan/trendpulse/articles.py", line 12, in <module>
+    def parse_article(path: Path) -> dict | None:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 22, in <module>
+    from articles import get_articles, get_article
+  File "/Users/darkotan/trendpulse/articles.py", line 12, in <module>
+    def parse_article(path: Path) -> dict | None:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 22, in <module>
+    from articles import get_articles, get_article
+  File "/Users/darkotan/trendpulse/articles.py", line 12, in <module>
+    def parse_article(path: Path) -> dict | None:
+TypeError: unsupported operand type(s) for |: 'type' and 'NoneType'
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+127.0.0.1 - - [02/Jun/2026 03:31:27] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:31:27] "GET /blog/arm-surge-computex-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:31:28] "GET /blog/arm-surge-computex-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:31:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:33:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:33:08] "GET /stock/NVDA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:33:09] "GET /crypto/BTC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:33:09] "GET /serenity HTTP/1.1" 200 -
+/Users/darkotan/trendpulse/start.sh: line 7: 14865 Killed: 9               PYTHONUNBUFFERED=1 python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+/Users/darkotan/trendpulse/start.sh: line 7: 15199 Killed: 9               PYTHONUNBUFFERED=1 /usr/bin/python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+[2026-06-02 03:35:38,153] ERROR in app: Exception on /stock/NVDA [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/darkotan/trendpulse/app.py", line 503, in stock_page
+    title=f"{symbol} Stock Price ${quote['price']:.2f} — {d}{abs(pct):.2f}% Today | TrendPulse",
+NameError: name 'd' is not defined
+127.0.0.1 - - [02/Jun/2026 03:35:38] "GET /stock/NVDA HTTP/1.1" 500 -
+[2026-06-02 03:35:38,335] ERROR in app: Exception on /stock/NVDA [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/darkotan/trendpulse/app.py", line 503, in stock_page
+    title=f"{symbol} Stock Price ${quote['price']:.2f} — {d}{abs(pct):.2f}% Today | TrendPulse",
+NameError: name 'd' is not defined
+127.0.0.1 - - [02/Jun/2026 03:35:38] "GET /stock/NVDA HTTP/1.1" 500 -
+[2026-06-02 03:36:15,806] ERROR in app: Exception on /stock/NVDA [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/darkotan/trendpulse/app.py", line 503, in stock_page
+    return render_template("stock_page.html",
+NameError: name 'd' is not defined
+127.0.0.1 - - [02/Jun/2026 03:36:15] "GET /stock/NVDA HTTP/1.1" 500 -
+[2026-06-02 03:36:15,963] ERROR in app: Exception on /stock/NVDA [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 919, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 917, in full_dispatch_request
+    rv = self.dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 902, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)  # type: ignore[no-any-return]
+  File "/Users/darkotan/trendpulse/app.py", line 503, in stock_page
+    return render_template("stock_page.html",
+NameError: name 'd' is not defined
+127.0.0.1 - - [02/Jun/2026 03:36:15] "GET /stock/NVDA HTTP/1.1" 500 -
+/Users/darkotan/trendpulse/start.sh: line 7: 15215 Killed: 9               PYTHONUNBUFFERED=1 /usr/bin/python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+/Users/darkotan/trendpulse/start.sh: line 7: 15307 Killed: 9               PYTHONUNBUFFERED=1 /usr/bin/python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+127.0.0.1 - - [02/Jun/2026 03:36:52] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:36:54] "GET /stock/NVDA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:36:54] "GET /stock/NVDA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:36:54] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:36:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:37:07] "GET /c82b08cf3b8c4bc1a2d5e6f708192a3d.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:37:07] "GET /c82b08cf3b8c4bc1a2d5e6f708192a3d.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:37:08] "GET /c82b08cf3b8c4bc1a2d5e6f708192a3d.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:37:11] "GET /c82b08cf3b8c4bc1a2d5e6f708192a3d.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:37:15] "GET /c82b08cf3b8c4bc1a2d5e6f708192a3d.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:37:19] "GET /c82b08cf3b8c4bc1a2d5e6f708192a3d.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:37:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:37:41] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:37:42] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:37:42] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:04] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:04] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:08] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:08] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:20] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:21] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:22] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:22] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:23] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:38:23] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:38:23] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:38:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:24] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:24] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:27] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:27] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:28] "GET /api/briefing HTTP/1.1" 200 -
+[2026-06-02 03:38:28,124] ERROR in app: Exception on /api/market-story [GET]
+Traceback (most recent call last):
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1511, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 920, in full_dispatch_request
+    return self.finalize_request(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 939, in finalize_request
+    response = self.make_response(rv)
+  File "/Users/darkotan/Library/Python/3.9/lib/python/site-packages/flask/app.py", line 1212, in make_response
+    raise TypeError(
+TypeError: The view function for 'market_story' did not return a valid response. The function either returned None or ended without a return statement.
+127.0.0.1 - - [02/Jun/2026 03:38:28] "GET /api/market-story HTTP/1.1" 500 -
+127.0.0.1 - - [02/Jun/2026 03:38:28] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:51] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:38:51] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:39:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:40:38] "GET / HTTP/1.1" 200 -
+/Users/darkotan/trendpulse/start.sh: line 7: 15325 Terminated: 15          PYTHONUNBUFFERED=1 /usr/bin/python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Address already in use
+Port 8766 is in use by another program. Either identify and stop that program, or start the server with a different port.
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+Traceback (most recent call last):
+  File "/Users/darkotan/trendpulse/app.py", line 21, in <module>
+    from serenity_collector import get_serenity_data, get_serenity_summary
+ImportError: cannot import name 'get_serenity_data' from 'serenity_collector' (/Users/darkotan/trendpulse/serenity_collector.py)
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+127.0.0.1 - - [02/Jun/2026 03:48:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:48:47] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:48:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:48:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:49:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:49:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:49:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:50:39] "GET /crypto/BTC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:50:48] "GET /stock/AAPL HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:51:04] "GET /stock/NVDA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:51:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:52:16] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:52:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:52:26] "GET /crypto/BTC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:52:35] "GET /crypto/ETH HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:52:37] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:52:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:52:40] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:52:40] "GET /stock/AAPL HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:53:38] "GET / HTTP/1.1" 200 -
+/Users/darkotan/trendpulse/start.sh: line 7: 16140 Killed: 9               PYTHONUNBUFFERED=1 /usr/bin/python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+/Users/darkotan/trendpulse/start.sh: line 7: 16377 Killed: 9               PYTHONUNBUFFERED=1 /usr/bin/python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+127.0.0.1 - - [02/Jun/2026 03:54:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:54:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 03:54:24] "GET /9e1d2a3f4b5c6d7e8f9a0b1c2d3e4f5a.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:54:30] "GET /9e1d2a3f4b5c6d7e8f9a0b1c2d3e4f5a.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:54:34] "GET /9e1d2a3f4b5c6d7e8f9a0b1c2d3e4f5a.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:54:37] "GET /9e1d2a3f4b5c6d7e8f9a0b1c2d3e4f5a.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:54:42] "GET /9e1d2a3f4b5c6d7e8f9a0b1c2d3e4f5a.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 03:56:11] "GET /sitemap.xml HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 04:00:05] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 04:02:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 04:02:33] "GET / HTTP/1.1" 200 -
+/Users/darkotan/trendpulse/start.sh: line 7: 16398 Killed: 9               PYTHONUNBUFFERED=1 /usr/bin/python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+/Users/darkotan/trendpulse/start.sh: line 7: 16918 Killed: 9               PYTHONUNBUFFERED=1 /usr/bin/python3 app.py
+WARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8766
+ * Running on http://192.168.31.186:8766
+Press CTRL+C to quit
+127.0.0.1 - - [02/Jun/2026 04:03:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 04:03:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 04:03:18] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 04:05:22] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:05:48] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 04:05:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 04:06:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 04:11:44] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:14:18] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 04:28:32] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:32] "GET /.env.bak HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:33] "GET /.env.save HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:33] "GET /.env.local HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:33] "GET /backend/.env HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:33] "GET /test.php HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:34] "GET /.env.staging HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:34] "GET /.env.backup HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:34] "GET /.env.orig HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:34] "GET /.env.old HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:34] "GET /.env.tmp HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:35] "GET /.env.php.bak HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:35] "GET /.env.php HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:35] "GET /.env.txt HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:35] "GET /.env.prod HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:35] "GET /.env.dev HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:36] "GET /config.json.save HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:36] "GET /admin/.env HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:36] "GET /.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:36] "GET /config.php HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:37] "GET /config.php.bak HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:37] "GET /config.js HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:38] "GET /aws-config.js HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:38] "GET /aws.config.js HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:28:39] "GET /phpinfo.php HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:33:57] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:53:33] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 04:56:34] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 05:00:28] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:06:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:06:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:06:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:06:39] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:06:39] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:19:29] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 05:23:19] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:23:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:23:22] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 05:41:10] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 05:42:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:42:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:42:21] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:42:22] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 05:44:16] "POST / HTTP/1.1" 405 -
+127.0.0.1 - - [02/Jun/2026 05:59:09] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 06:00:33] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:02:46] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 06:08:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:18:58] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 06:19:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:26:39] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 06:27:53] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:27:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:27:54] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:27:54] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:35:47] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:49:33] "GET /blog/arm-surge-computex-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:50:38] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 06:53:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:55:21] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:55:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 06:55:24] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 06:58:27] "GET /blog/serenity-ai-supply-chain-june-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:00:23] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:03:13] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 07:05:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:10:25] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:10:37] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:11:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:18:13] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 07:19:52] "GET /blog/arm-surge-computex-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:23:35] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:23:51] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:23:52] "GET /${OKX_BASE} HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 07:23:53] "GET /${OKX_BASE} HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 07:23:53] "GET /${OKX_BASE} HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 07:23:54] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:23:55] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 07:41:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:48:33] "GET /blog/serenity-ai-supply-chain-june-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:49:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:50:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:50:11] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:50:16] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 07:50:23] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 07:51:24] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 08:06:56] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 08:13:07] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 08:14:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 08:24:40] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 08:24:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 08:24:43] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 08:34:44] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 08:35:00] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:00:39] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:00:42] "GET /api/wechat-digest HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:01:15] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:01:40] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:02:48] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:05:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:09:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:17:56] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:31:48] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:32:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:32:45] "GET /wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:45] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:32:46] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:46] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:46] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:47] "GET /website/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:47] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:47] "GET /news/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:47] "GET /2018/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:48] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:48] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:48] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:48] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:49] "GET /media/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:49] "GET /wp2/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:49] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:49] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:32:49] "GET /sito/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:43:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:44:21] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:52:46] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:54:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:54:05] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 09:54:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:54:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 09:59:30] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 10:01:00] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:03:17] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 10:20:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:29:47] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 10:35:54] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 10:49:33] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 10:53:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:53:04] "GET /.git/config HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 10:53:04] "GET /.git/HEAD HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 10:57:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 10:57:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:00:40] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:03:58] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:09:32] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 11:18:46] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 11:23:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:33:50] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 11:47:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:49] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:50] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:50] "GET /blog/arm-surge-computex-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:50] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:51] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:51] "GET /blog/serenity-ai-supply-chain-june-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:51] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:52] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:52] "GET /blog/arm-surge-computex-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:52] "GET /blog/serenity-ai-supply-chain-june-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:53] "GET /stock/NVDA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:53] "GET /stock/AAPL HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:53] "GET /stock/TSLA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:54] "GET /crypto/BTC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:54] "GET /privacy HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:54] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:55] "GET /crypto/ETH HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:55] "GET /stock/MSFT HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:55] "GET /serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:56] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:47:58] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:01] "GET /https:/fonts.googleapis.com/css2%3Ffamily=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 11:48:01] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:01] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:01] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:09] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:09] "GET /https:/fonts.googleapis.com/css2%3Ffamily=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 11:48:19] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:19] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:19] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:22] "GET /?key=8XqgRrAtEWrTNbg HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:27] "HEAD / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:32] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 11:48:33] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:41] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 11:48:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:43] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:44] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:45] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 11:48:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:45] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:48:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:49:15] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:49:23] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:52:07] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 11:52:21] "GET /robots.txt HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:13] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:15] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:18] "GET /stock/AAPL HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:20] "GET /stock/MSFT HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:22] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:24] "GET /stock/TSLA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:26] "GET /crypto/ETH HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:27] "GET /crypto/BTC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:29] "GET /stock/NVDA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:30] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:31] "GET /privacy HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:32] "GET /serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:33] "GET /blog/arm-surge-computex-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:34] "GET /crypto HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:35] "GET /market-sentiment HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:36] "GET /crypto/LINK HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:36] "GET /crypto/DOGE HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:37] "GET /stocks HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:37] "GET /crypto/PEPE HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:39] "GET /crypto/ADA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:39] "GET /crypto/SUI HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:40] "GET /crypto/ARB HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:40] "GET /crypto/SAND HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:41] "GET /crypto/ATOM HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:41] "GET /crypto/NEAR HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:42] "GET /crypto/ALGO HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:42] "GET /crypto/MANA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:43] "GET /stock/QQQ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:43] "GET /stock/GOOGL HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:44] "GET /stock/C HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:44] "GET /stock/V HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:45] "GET /stock/TQQQ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:45] "GET /stock/SQQQ HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:46] "GET /stock/ZM HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:46] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:46] "GET /stock/GS HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:47] "GET /dashboard HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:47] "GET /stock/MS HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:47] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:47] "GET /stock/MA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:48] "GET /stock/AAPL HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:48] "GET /stock/BB HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:48] "GET /stock/MSFT HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:49] "GET /stock/NVDA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:49] "GET /stock/TSLA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:49] "GET /stock/DIA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:49] "GET /about HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:49] "GET /serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:49] "GET /crypto/ETH HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:49] "GET /crypto/BTC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /stock/OXY HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /stocks HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /market-sentiment HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /blog/arm-surge-computex-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /privacy HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /contact HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /blog/serenity-ai-supply-chain-june-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /crypto HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /crypto/DOGE HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /stock/XLE HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /crypto/SOL HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /crypto/XRP HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /crypto/PEPE HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /crypto/ARB HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:50] "GET /crypto/SUI HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:51] "GET /crypto/ADA HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:51] "GET /crypto/LINK HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:51] "GET /stock/GME HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:51] "GET /stock/TXN HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:52] "GET /stock/JPM HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:52] "GET /stock/AMD HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:52] "GET /blog/serenity-ai-supply-chain-june-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:53] "GET /stock/CRM HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:53] "GET /stock/XOM HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:54] "GET /stock/SMH HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:54] "GET /stock/BLK HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:55] "GET /stock/IBM HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:55] "GET /stock/BAC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:56] "GET /stock/COP HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:56] "GET /stock/XLK HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:57] "GET /crypto/OP HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:58] "GET /stock/CVX HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:58] "GET /stock/AMC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:58] "GET /stock/NOK HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:59] "GET /stock/AXP HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:53:59] "GET /stock/SPY HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:00] "GET /stock/WFC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:01] "GET /stock/XLF HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:01] "GET /stock/NET HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:02] "GET /stock/NIO HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:02] "GET /stock/IWM HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:03] "GET /stock/PLTR HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:03] "GET /stock/UVXY HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:04] "GET /stock/UBER HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:04] "GET /stock/PYPL HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:05] "GET /stock/META HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:05] "GET /crypto/DOT HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:06] "GET /stock/SNAP HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:06] "GET /crypto/APE HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:07] "GET /stock/CSCO HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:07] "GET /stock/ORCL HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:08] "GET /stock/SHOP HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:08] "GET /stock/SOXX HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:09] "GET /stock/RIVN HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:09] "GET /stock/COIN HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:10] "GET /stock/AMZN HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:11] "GET /stock/INTC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:11] "GET /stock/LCID HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:12] "GET /stock/DDOG HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:12] "GET /crypto/APT HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:13] "GET /stock/ADBE HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:13] "GET /stock/AVGO HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:14] "GET /stock/ARKK HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:14] "GET /stock/CRWD HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:15] "GET /stock/XPEV HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:15] "GET /stock/VIXY HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:16] "GET /crypto/XRP HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:16] "GET /crypto/LTC HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:17] "GET /stock/QCOM HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:17] "GET /stock/NFLX HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:18] "GET /crypto/SOL HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:18] "GET /stock/SCHW HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 11:54:19] "GET /blog/serenity-ai-supply-chain-june-2026 HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 12:00:07] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 12:14:29] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:20:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 12:22:23] "GET /.well-known/farcaster.json HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:22:24] "GET /.well-known/farcaster.json HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:22:26] "GET /.well-known/farcaster.json HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:23:15] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:24:47] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:26:57] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 12:36:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 12:54:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 12:54:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 12:54:28] "GET /wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:28] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 12:54:28] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:28] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:29] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:29] "GET /website/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:29] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:29] "GET /news/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:29] "GET /2020/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:29] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:29] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:30] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:30] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:30] "GET /wp2/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:30] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:30] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:54:30] "GET /sito/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:55:30] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 12:59:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 13:00:18] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 13:04:55] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 13:15:08] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 13:24:52] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 13:30:02] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 13:43:27] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 13:55:11] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 13:55:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 13:56:22] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 14:00:15] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 14:14:02] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 14:25:27] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 14:33:14] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 14:38:40] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 14:47:32] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 14:48:59] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 14:59:15] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 15:00:15] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:01:27] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:09:12] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:10:28] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:12:13] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 15:19:36] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:30:09] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 15:31:08] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:36:13] "GET /.env HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 15:36:17] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:36:22] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:36:22] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:40:03] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:40:04] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 15:40:04] "GET /apple-touch-icon-precomposed.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 15:40:04] "GET /apple-touch-icon.png HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 15:40:06] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 15:43:35] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 15:47:17] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 15:57:20] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 16:00:04] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:17:07] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 16:27:29] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:30:07] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:31:37] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:31:37] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:32:07] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 16:33:37] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:33:37] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:36:26] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:36:26] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:39:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:41:44] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:46:36] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 16:49:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 16:49:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 17:00:37] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 17:04:21] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:20] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 17:07:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 17:07:21] "GET /wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:21] "GET /xmlrpc.php?rsd HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:21] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 17:07:21] "GET /blog/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:22] "GET /web/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:22] "GET /wordpress/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:22] "GET /website/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:22] "GET /wp/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:22] "GET /news/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:22] "GET /2018/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:23] "GET /2019/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:23] "GET /shop/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:23] "GET /wp1/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:23] "GET /test/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:23] "GET /media/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:23] "GET /wp2/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:24] "GET /site/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:24] "GET /cms/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:24] "GET /sito/wp-includes/wlwmanifest.xml HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 17:07:41] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 18:13:50] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:14:54] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:36:44] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:36:44] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:41:27] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 18:43:36] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 18:46:06] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 19:01:34] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 20:24:48] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 20:24:51] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 20:27:04] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 20:33:25] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 20:40:42] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 20:43:10] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 20:49:25] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 20:57:30] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 20:59:51] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 21:00:50] "GET /health HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:01:36] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:01:38] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:03:38] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:05:38] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:07:38] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:09:38] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:09:59] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:10:00] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:10:00] "GET /favicon.ico HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 21:11:38] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:14:52] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 21:19:05] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:20:43] "GET /api/all HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:20:43] "GET /api/serenity HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:20:56] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 21:28:23] "GET /wp-admin/install.php?step=1 HTTP/1.1" 404 -
+127.0.0.1 - - [02/Jun/2026 21:30:48] "GET / HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:34:57] "GET /blog HTTP/1.1" 200 -
+127.0.0.1 - - [02/Jun/2026 21:34:57] "GET /blog/nvda-stock-analysis-2026 HTTP/1.1" 200 -

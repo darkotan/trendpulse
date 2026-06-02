@@ -18,7 +18,9 @@ from data.collector import (
 from og_image import generate_og_image
 from auto_promote import ping_all_services, ping_sitemap, SITE_URL, SITE_NAME, RSS_URL, SITEMAP_URL
 from analytics import track_pageview, track_ad_click, get_stats
-from serenity_collector import get_serenity_data, get_serenity_summary
+from serenity_collector import get_serenity_raw, get_serenity_summary
+from articles import get_articles, get_article
+from company_info import get_company_info
 import time, threading, io
 from datetime import datetime
 from pathlib import Path
@@ -93,6 +95,17 @@ def bg_updater():
 def public_url():
     return "https://trendscan.org"
 
+# ── Language Detection ──────────────────────────────
+def detect_lang(accept_lang: str = "") -> str:
+    """Detect preferred language from Accept-Language header. Returns 'zh' or 'en'."""
+    if not accept_lang:
+        return "en"  # default to English when unknown
+    al = accept_lang.lower()
+    # Chinese browsers send zh-CN, zh-TW, zh-HK, zh
+    if any(t in al for t in ("zh", "cmn", "yue")):
+        return "zh"
+    return "en"
+
 # ── Analytics tracking ────────────────────────────
 @app.before_request
 def track_request():
@@ -100,18 +113,28 @@ def track_request():
         return
     if request.path in ('/health', '/og-image.png', '/robots.txt', '/sitemap.xml', '/rss.xml', '/feed.json'):
         return
+    raw_lang = request.headers.get('Accept-Language', '')
+    parsed_lang = detect_lang(raw_lang)
     track_pageview(
         ip=request.headers.get('CF-Connecting-IP', request.remote_addr or ''),
         path=request.path,
         referrer=request.referrer or '',
         ua=request.headers.get('User-Agent', ''),
-        lang=request.headers.get('Accept-Language', ''))
+        lang=parsed_lang)  # store parsed: 'zh' or 'en'
+
+# Inject language into all template contexts
+@app.context_processor
+def inject_lang():
+    raw_lang = request.headers.get('Accept-Language', '') if request else ''
+    return {'lang': detect_lang(raw_lang)}
 
 # ── Core Routes ────────────────────────────────────
 @app.route("/")
 def index():
-    """Serenity research homepage."""
-    return render_template("serenity_home.html")
+    """Serenity research homepage — server-rendered with full analysis."""
+    from serenity_collector import get_serenity_summary
+    serenity = get_serenity_summary()
+    return render_template("serenity_home.html", serenity=serenity)
 
 
 @app.route("/dashboard")
@@ -144,6 +167,10 @@ def sitemap():
         ("/market-sentiment", "0.9"), ("/reddit-trending", "0.8"),
     ]
 
+    # Blog
+    articles = get_articles()
+    for art in articles:
+        paths.append((f"/blog/{art['slug']}", "0.7"))
     # Stock pages
     for ticker in ALL_TICKERS:
         paths.append((f"/stock/{ticker}", "0.8"))
@@ -427,7 +454,8 @@ def api_subscribe():
 
 @app.route("/serenity")
 def serenity_page():
-    picks = get_serenity_data()
+    raw = get_serenity_raw()
+    picks = raw.get("picks", [])
     return render_template("serenity.html", picks=picks)
 
 # ── Static Info Pages ──────────────────────────────
@@ -491,12 +519,13 @@ def stock_page(symbol: str):
         return render_template("stock_page.html", symbol=symbol, quote=None,
             title=f"{symbol} Stock Price Today — Live Quote | TrendPulse",
             description=f"{symbol} stock price unavailable. Check back for live data.")
+    company_name, sector, company_desc = get_company_info(symbol)
     pct = quote.get("change_pct", 0)
     d = "↑" if pct >= 0 else "↓"
     return render_template("stock_page.html",
-        symbol=symbol, quote=quote,
+        symbol=symbol, quote=quote, company_name=company_name, company_desc=company_desc,
         title=f"{symbol} Stock Price ${quote['price']:.2f} — {d}{abs(pct):.2f}% Today | TrendPulse",
-        description=f"{symbol} live stock price: ${quote['price']:.2f}. Change: {pct:+.2f}%. High ${quote['high']:.2f}, Low ${quote['low']:.2f}. Real-time from Yahoo Finance.")
+        description=f"{symbol} ({company_name}) live stock price: ${quote['price']:.2f}. Change: {pct:+.2f}%. {company_desc[:100]}...")
 
 # ── Individual Crypto Pages (Programmatic SEO) ─────
 @app.route("/crypto/<symbol>")
@@ -513,6 +542,27 @@ def crypto_page(symbol: str):
         symbol=symbol, coin=coin,
         title=f"{symbol} Price ${coin['price']:,.2f} — {d}{abs(pct):.2f}% Today | TrendPulse",
         description=f"{symbol} live crypto price: ${coin['price']:,.2f}. 24h change: {pct:+.2f}%. Volume: {coin.get('volume_fmt','')}. Real-time from Binance.")
+
+# ── Blog / Articles ────────────────────────────────
+@app.route("/blog")
+def blog_index():
+    articles = get_articles()
+    desc = f"Market analysis & insights. {len(articles)} articles on AI, semiconductors, crypto, and more."
+    return render_template("blog.html",
+        title="Market Analysis & Insights — TrendPulse Blog",
+        description=desc, articles=articles)
+
+
+@app.route("/blog/<slug>")
+def blog_article(slug: str):
+    article = get_article(slug)
+    if not article:
+        return render_template("404.html"), 404
+    return render_template("article.html",
+        title=f"{article['title']} | TrendPulse",
+        description=article.get("description", ""),
+        article=article)
+
 
 # ── Legacy SEO Pages ───────────────────────────────
 _PAGES = [
@@ -555,8 +605,23 @@ for path, title, desc, h1, kw, sec, fk, fv in _PAGES:
 def _esc(s):
     return (s or "").replace("&", "&amp;").replace("<", "&lt;").replace(">", "&gt;").replace('"', "&quot;")
 
+
+# ── Blog ────────────────────────────────────────────
+@app.route("/blog")
+def blog_list():
+    articles = list_articles()
+    return render_template("blog_list.html", articles=articles)
+
+
+@app.route("/blog/<slug>")
+def blog_post(slug):
+    article = get_article(slug)
+    if not article:
+        return "Article not found", 404
+    return render_template("blog_post.html", article=article)
+
+
 # ── Main ───────────────────────────────────────────
-if __name__ == "__main__":
     threading.Thread(target=bg_updater, daemon=True).start()
     print("[TrendPulse v2] Starting http://localhost:8766", flush=True)
     app.run(host="0.0.0.0", port=8766, debug=False)

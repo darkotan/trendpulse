@@ -181,10 +181,18 @@
     {% endif %}
 
     <div class="info-card">
-      <h2>About {{ symbol }} Stock</h2>
-      <p>{{ symbol }} is currently trading at <strong>${{ "{:,.2f}".format(quote.price) }}</strong>. Today's change is <strong>{% if quote.change_pct >= 0 %}+{% endif %}{{ quote.change_pct }}%</strong>. The day high is ${{ "{:,.2f}".format(quote.high) }} and day low is ${{ "{:,.2f}".format(quote.low) }}. Previous close was ${{ "{:,.2f}".format(quote.previous_close) }}.</p>
-      <p style="margin-top:8px">Data sourced from Yahoo Finance. Updated every 5 minutes. This is not financial advice.</p>
+      <h2>About {{ company_name }} ({{ symbol }})</h2>
+      <p>{{ company_desc }}</p>
     </div>
+
+    {% if symbol in related_articles %}
+    <div class="info-card">
+      <h2>📝 Latest Analysis</h2>
+      {% for art in related_articles[symbol] %}
+      <p><a href="/blog/{{ art.slug }}" style="color:var(--blue);font-weight:500">{{ art.title }}</a></p>
+      {% endfor %}
+    </div>
+    {% endif %}
 
     {% else %}
     <div class="not-found">
@@ -194,27 +202,8 @@
     </div>
     {% endif %}
 
-    <div class="affiliate-bar">
-      📈 Trade {{ symbol }} with zero commissions — <a href="https://www.okx.com/join/35101515" target="_blank" rel="nofollow sponsored">OKX</a> · <a href="https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX" target="_blank" rel="nofollow sponsored">Binance</a>
-    </div>
-
-    <h3 style="font-size:16px;font-weight:600;margin-bottom:12px">Other Popular Stocks</h3>
-    <div class="related-links">
-      <a href="/stock/AAPL" class="related-link">📱 AAPL</a>
-      <a href="/stock/MSFT" class="related-link">💻 MSFT</a>
-      <a href="/stock/NVDA" class="related-link">🎮 NVDA</a>
-      <a href="/stock/GOOGL" class="related-link">🔍 GOOGL</a>
-      <a href="/stock/TSLA" class="related-link">🚗 TSLA</a>
-      <a href="/stock/META" class="related-link">👤 META</a>
-      <a href="/stock/AMZN" class="related-link">📦 AMZN</a>
-      <a href="/stock/COIN" class="related-link">🪙 COIN</a>
-      <a href="/stock/SPY" class="related-link">📊 SPY</a>
-      <a href="/stock/QQQ" class="related-link">📊 QQQ</a>
-    </div>
-  </div>
-
-  <footer>
-    <p><a href="/">TrendPulse</a> · Real-time data aggregation · <a href="/privacy">Privacy</a> · <a href="/contact">Contact</a></p>
+    <footer>
+    <p><a href="/">TrendPulse</a> · Real-time market data · <a href="/privacy">Privacy</a> · <a href="/blog">Analysis</a></p>
   </footer>
 </body>
 </html>
