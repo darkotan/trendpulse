@@ -1,64 +1,65 @@
-<!DOCTYPE html>
-<html lang="{{ lang }}">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>{{ T.blog_meta_title }}</title>
-  <meta name="description" content="{{ T.blog_meta_desc }}">
-  <meta property="og:title" content="{{ T.blog_meta_title }}">
-  <meta property="og:description" content="{{ T.blog_meta_desc }}">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="/og-image.png">
-  <link rel="canonical" href="https://trendscan.org/blog">
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600;700&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root{--black:#171717;--white:#fff;--gray-600:#4d4d4d;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--gray-50:#fafafa;--blue:#0072f5;--accent:#7c3aed}
-    *{box-sizing:border-box;margin:0;padding:0}
-    html,body{overflow-x:hidden;max-width:100vw}
-    body{background:var(--white);color:var(--black);font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased;line-height:1.5}
-    .container{max-width:760px;margin:0 auto;padding:40px 24px}
-    h1{font-size:24px;font-weight:600;letter-spacing:-0.72px;margin-bottom:6px}
-    .sub{font-size:14px;color:var(--gray-500);margin-bottom:32px}
-    .article-card{display:block;padding:20px 0;border-bottom:1px solid var(--gray-100);text-decoration:none;color:inherit;transition:background .15s}
-    .article-card:hover h2{color:var(--blue)}
-    .article-card h2{font-size:18px;font-weight:600;letter-spacing:-0.36px;margin-bottom:4px;transition:color .15s}
-    .article-card .date{font-size:12px;color:var(--gray-400);margin-bottom:6px;font-family:'Geist Mono',monospace}
-    .article-card .desc{font-size:14px;color:var(--gray-600);line-height:1.6}
-    .article-card .tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
-    .tag{font-size:10px;padding:2px 8px;background:rgba(124,58,237,.06);color:var(--accent);border-radius:4px;font-weight:500}
-    .empty{padding:80px 0;text-align:center;color:var(--gray-400);font-size:14px}
-    footer{text-align:center;padding:36px 20px;border-top:1px solid var(--gray-100);margin-top:36px;font-size:12px;color:var(--gray-400)}
-    footer a{color:var(--gray-500);text-decoration:none}
-    footer a:hover{color:var(--black)}
-    @media(max-width:480px){
-      .container{padding:24px 16px}
-      h1{font-size:20px}
-      .article-card h2{font-size:16px}
-    }
-  </style>
-</head>
-<body>
-{% include '_header.html' %}
-  <div class="container">
-    <h1>{{ T.blog_title }}</h1>
-    <p class="sub">{{ T.blog_subtitle }}</p>
-
-    {% if articles %}
-      {% for a in articles %}
-      <a href="/blog/{{ a.slug }}" class="article-card">
-        <h2>{{ a.title }}</h2>
-        <div class="date">{{ a.date }}</div>
-        <div class="desc">{{ a.description[:200] }}{% if a.description|length > 200 %}...{% endif %}</div>
-        {% if a.tags %}
-        <div class="tags">{% for t in a.tags %}<span class="tag">{{ t }}</span>{% endfor %}</div>
-        {% endif %}
-      </a>
-      {% endfor %}
-    {% else %}
-      <div class="empty">{{ T.blog_empty }}</div>
-    {% endif %}
-  </div>
-  <footer>
-    <a href="/">{{ T.blog_back_home }}</a>
-  </footer>
-</body>
-</html>
+     1|     1|     1|<!DOCTYPE html>
+     2|     2|     2|<html lang="{{ lang }}">
+     3|     3|     3|<head>
+     4|     4|     4|  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+     5|     5|     5|  <title>{{ T.blog_meta_title }}</title>
+     6|     6|     6|  <meta name="description" content="{{ T.blog_meta_desc }}">
+     7|     7|     7|  <meta property="og:title" content="{{ T.blog_meta_title }}">
+     8|     8|     8|  <meta property="og:description" content="{{ T.blog_meta_desc }}">
+     9|     9|     9|  <meta property="og:type" content="website">
+    10|    10|    10|  <meta property="og:image" content="/og-image.png">
+    11|    11|    11|  <link rel="canonical" href="https://trendscan.org/blog">
+    12|    12|    12|  <!-- fonts loaded via _css.html -->
+    13|    13|    13|  <style>
+    14|    14|    14|    
+    15|    15|    15|    *{box-sizing:border-box;margin:0;padding:0}
+    16|    16|    16|    html,body{overflow-x:hidden;max-width:100vw}
+    17|    17|    17|    body { /* bg from _css.html */ }
+    18|    18|    18|    .container{max-width:760px;margin:0 auto;padding:40px 24px}
+    19|    19|    19|    h1{font-size:24px;font-weight:600;letter-spacing:-0.72px;margin-bottom:6px}
+    20|    20|    20|    .sub{font-size:14px;color:var(--gray-500);margin-bottom:32px}
+    21|    21|    21|    .article-card{display:block;padding:20px 0;border-bottom:1px solid var(--gray-100);text-decoration:none;color:inherit;transition:background .15s}
+    22|    22|    22|    .article-card:hover h2{color:var(--blue)}
+    23|    23|    23|    .article-card h2{font-size:18px;font-weight:600;letter-spacing:-0.36px;margin-bottom:4px;transition:color .15s}
+    24|    24|    24|    .article-card .date{font-size:12px;color:var(--gray-400);margin-bottom:6px;font-family:'Geist Mono',monospace}
+    25|    25|    25|    .article-card .desc{font-size:14px;color:var(--gray-600);line-height:1.6}
+    26|    26|    26|    .article-card .tags{margin-top:8px;display:flex;gap:6px;flex-wrap:wrap}
+    27|    27|    27|    .tag{font-size:10px;padding:2px 8px;background:rgba(124,58,237,.06);color:var(--accent);border-radius:4px;font-weight:500}
+    28|    28|    28|    .empty{padding:80px 0;text-align:center;color:var(--gray-400);font-size:14px}
+    29|    29|    29|    footer{text-align:center;padding:36px 20px;border-top:1px solid var(--gray-100);margin-top:36px;font-size:12px;color:var(--gray-400)}
+    30|    30|    30|    footer a{color:var(--gray-500);text-decoration:none}
+    31|    31|    31|    footer a:hover{color:var(--black)}
+    32|    32|    32|    @media(max-width:480px){
+    33|    33|    33|      .container{padding:24px 16px}
+    34|    34|    34|      h1{font-size:20px}
+    35|    35|    35|      .article-card h2{font-size:16px}
+    36|    36|    36|    }
+    37|    37|    37|  </style>
+    38|    38|    38|</head>
+    39|    39|    39|<body>
+    40|    40|    40|{% include '_header.html' %}
+    41|    41|    41|  <div class="container">
+    42|    42|    42|    <h1>{{ T.blog_title }}</h1>
+    43|    43|    43|    <p class="sub">{{ T.blog_subtitle }}</p>
+    44|    44|    44|
+    45|    45|    45|    {% if articles %}
+    46|    46|    46|      {% for a in articles %}
+    47|    47|    47|      <a href="/blog/{{ a.slug }}" class="article-card">
+    48|    48|    48|        <h2>{{ a.title }}</h2>
+    49|    49|    49|        <div class="date">{{ a.date }}</div>
+    50|    50|    50|        <div class="desc">{{ a.description[:200] }}{% if a.description|length > 200 %}...{% endif %}</div>
+    51|    51|    51|        {% if a.tags %}
+    52|    52|    52|        <div class="tags">{% for t in a.tags %}<span class="tag">{{ t }}</span>{% endfor %}</div>
+    53|    53|    53|        {% endif %}
+    54|    54|    54|      </a>
+    55|    55|    55|      {% endfor %}
+    56|    56|    56|    {% else %}
+    57|    57|    57|      <div class="empty">{{ T.blog_empty }}</div>
+    58|    58|    58|    {% endif %}
+    59|    59|    59|  </div>
+    60|    60|    60|  <footer>
+    61|    61|    61|    <a href="/">{{ T.blog_back_home }}</a>
+    62|    62|    62|  </footer>
+    63|    63|    63|</body>
+    64|    64|    64|</html>
+    65|    65|    65|

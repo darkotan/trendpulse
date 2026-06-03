@@ -1,69 +1,70 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-  <title>TrendPulse Analytics</title>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root{--bg:#0a0a0a;--card:#141414;--border:#222;--green:#0a9950;--blue:#0072f5;--text:#e5e5e5;--muted:#666;--accent:#f7931a}
-    *{box-sizing:border-box;margin:0;padding:0}
-    body{background:var(--bg);color:var(--text);font-family:'Geist',system-ui,sans-serif;padding:24px;min-height:100vh}
-    h1{font-size:28px;font-weight:600;letter-spacing:-1.12px;margin-bottom:4px}
-    .sub{color:var(--muted);font-size:14px;margin-bottom:32px}
-    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px}
-    .stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
-    .stat .label{font-size:12px;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
-    .stat .value{font-size:36px;font-weight:600;letter-spacing:-1.44px;font-family:'Geist Mono',monospace}
-    .stat .value.green{color:var(--green)}.stat .value.accent{color:var(--accent)}
-    table{width:100%;border-collapse:collapse;margin-bottom:24px}
-    th{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted);text-transform:uppercase}
-    td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:14px;font-family:'Geist Mono',monospace}
-    .badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;background:var(--card);border:1px solid var(--border)}
-    .refresh{font-size:12px;color:var(--muted);margin-top:24px}
-    a{color:var(--blue)}
-  </style>
-</head>
-<body>
-  {% set dark_header = true %}
-  {% include '_header.html' %}
-  <h1>📊 TrendPulse Analytics</h1>
-  <p class="sub">{{ stats.period_days }}-day overview · Auto-refresh 60s</p>
-
-  <div class="grid">
-    <div class="stat">
-      <div class="label">Total Page Views</div>
-      <div class="value">{{ stats.pageviews_total }}</div>
-    </div>
-    <div class="stat">
-      <div class="label">Unique Visitors</div>
-      <div class="value accent">{{ stats.visitors_unique }}</div>
-    </div>
-    <div class="stat">
-      <div class="label">Today's Views</div>
-      <div class="value green">{{ stats.today_views }}</div>
-    </div>
-    <div class="stat">
-      <div class="label">Today's Visitors</div>
-      <div class="value">{{ stats.today_unique }}</div>
-    </div>
-  </div>
-
-  <table>
-    <tr><th>Top Pages</th><th>Views</th></tr>
-    {% for p in stats.top_pages %}<tr><td>{{ p.path }}</td><td>{{ p.count }}</td></tr>{% endfor %}
-  </table>
-
-  <table>
-    <tr><th>Top Referrers</th><th>Visits</th></tr>
-    {% for r in stats.top_referrers %}<tr><td>{{ r.source[:80] }}</td><td>{{ r.count }}</td></tr>{% endfor %}
-  </table>
-
-  <table>
-    <tr><th>Daily Breakdown</th><th>Views</th><th>Visitors</th></tr>
-    {% for d in stats.daily_breakdown %}<tr><td>{{ d.date }}</td><td>{{ d.views }}</td><td>{{ d.visitors }}</td></tr>{% endfor %}
-  </table>
-
-  <p class="refresh">Updated: <span id="time">--</span> · Ad clicks: {{ stats.ad_clicks }}</p>
-  <script>document.getElementById('time').textContent=new Date().toLocaleTimeString();setTimeout(()=>location.reload(),60000)</script>
-</body>
-</html>
+     1|<!DOCTYPE html>
+     2|<html lang="en">
+     3|<head>
+     4|  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+     5|  <title>TrendPulse Analytics</title>
+     6|  <!-- fonts loaded via _css.html -->
+     7|  <style>
+     8|    /* CSS variables loaded via _css.html */
+     9|    *{box-sizing:border-box;margin:0;padding:0}
+    10|    body { /* background from _css.html */ }
+    11|    h1{font-size:28px;font-weight:600;letter-spacing:-1.12px;margin-bottom:4px}
+    12|    .sub{color:var(--muted);font-size:14px;margin-bottom:32px}
+    13|    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:16px;margin-bottom:32px}
+    14|    .stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:20px}
+    15|    .stat .label{font-size:12px;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+    16|    .stat .value{font-size:36px;font-weight:600;letter-spacing:-1.44px;font-family:'Geist Mono',monospace}
+    17|    .stat .value.green{color:var(--green)}.stat .value.accent{color:var(--accent)}
+    18|    table{width:100%;border-collapse:collapse;margin-bottom:24px}
+    19|    th{text-align:left;padding:10px 12px;border-bottom:1px solid var(--border);font-size:12px;color:var(--muted);text-transform:uppercase}
+    20|    td{padding:10px 12px;border-bottom:1px solid var(--border);font-size:14px;font-family:'Geist Mono',monospace}
+    21|    .badge{display:inline-block;padding:2px 8px;border-radius:4px;font-size:11px;background:var(--card);border:1px solid var(--border)}
+    22|    .refresh{font-size:12px;color:var(--muted);margin-top:24px}
+    23|    a{color:var(--blue)}
+    24|  </style>
+    25|</head>
+    26|<body>
+    27|  {% set dark_header = true %}
+    28|  {% include '_header.html' %}
+    29|  <h1>📊 TrendPulse Analytics</h1>
+    30|  <p class="sub">{{ stats.period_days }}-day overview · Auto-refresh 60s</p>
+    31|
+    32|  <div class="grid">
+    33|    <div class="stat">
+    34|      <div class="label">Total Page Views</div>
+    35|      <div class="value">{{ stats.pageviews_total }}</div>
+    36|    </div>
+    37|    <div class="stat">
+    38|      <div class="label">Unique Visitors</div>
+    39|      <div class="value accent">{{ stats.visitors_unique }}</div>
+    40|    </div>
+    41|    <div class="stat">
+    42|      <div class="label">Today's Views</div>
+    43|      <div class="value green">{{ stats.today_views }}</div>
+    44|    </div>
+    45|    <div class="stat">
+    46|      <div class="label">Today's Visitors</div>
+    47|      <div class="value">{{ stats.today_unique }}</div>
+    48|    </div>
+    49|  </div>
+    50|
+    51|  <table>
+    52|    <tr><th>Top Pages</th><th>Views</th></tr>
+    53|    {% for p in stats.top_pages %}<tr><td>{{ p.path }}</td><td>{{ p.count }}</td></tr>{% endfor %}
+    54|  </table>
+    55|
+    56|  <table>
+    57|    <tr><th>Top Referrers</th><th>Visits</th></tr>
+    58|    {% for r in stats.top_referrers %}<tr><td>{{ r.source[:80] }}</td><td>{{ r.count }}</td></tr>{% endfor %}
+    59|  </table>
+    60|
+    61|  <table>
+    62|    <tr><th>Daily Breakdown</th><th>Views</th><th>Visitors</th></tr>
+    63|    {% for d in stats.daily_breakdown %}<tr><td>{{ d.date }}</td><td>{{ d.views }}</td><td>{{ d.visitors }}</td></tr>{% endfor %}
+    64|  </table>
+    65|
+    66|  <p class="refresh">Updated: <span id="time">--</span> · Ad clicks: {{ stats.ad_clicks }}</p>
+    67|  <script>document.getElementById('time').textContent=new Date().toLocaleTimeString();setTimeout(()=>location.reload(),60000)</script>
+    68|</body>
+    69|</html>
+    70|

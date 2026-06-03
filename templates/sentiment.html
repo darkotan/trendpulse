@@ -1,316 +1,323 @@
-<!DOCTYPE html>
-<html lang="{{ lang }}">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="" id="canonicalLink">
-
-  <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{{ description }}">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="/og-image.png">
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="{{ title }}">
-  <meta name="twitter:description" content="{{ description }}">
-
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root {
-      --black: #171717; --white: #ffffff;
-      --gray-600: #4d4d4d; --gray-500: #666666; --gray-400: #808080;
-      --gray-300: #b0b0b0; --gray-200: #d4d4d4;
-      --gray-100: #ebebeb; --gray-50: #fafafa;
-      --blue: #0072f5; --blue-dark: #0059c2; --blue-bg: #ebf5ff; --blue-light: #f0f7ff;
-      --green: #0a9950; --red: #dc2626; --orange: #f7931a; --yellow: #eab308;
-      --gauge-extreme-fear: #dc2626; --gauge-fear: #f97316; --gauge-neutral: #eab308;
-      --gauge-greed: #22c55e; --gauge-extreme-greed: #0a9950;
-      --shadow-border: 0 0 0 1px rgba(0,0,0,0.08);
-      --shadow-card: 0 0 0 1px rgba(0,0,0,0.08), 0 2px 2px rgba(0,0,0,0.04), 0 8px 8px -8px rgba(0,0,0,0.04);
-      --shadow-card-hover: 0 0 0 1px rgba(0,0,0,0.08), 0 4px 6px rgba(0,0,0,0.06), 0 16px 16px -8px rgba(0,0,0,0.06);
-      --radius: 8px; --radius-lg: 12px;
+     1|     1|     1|<!DOCTYPE html>
+     2|     2|     2|<html lang="{{ lang }}">
+     3|     3|     3|<head>
+     4|     4|     4|  <meta charset="UTF-8">
+     5|     5|     5|  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6|     6|     6|  <title>{{ title }}</title>
+     7|     7|     7|  <meta name="description" content="{{ description }}">
+     8|     8|     8|  <meta name="robots" content="index, follow">
+     9|     9|     9|  <link rel="canonical" href="" id="canonicalLink">
+    10|    10|    10|
+    11|    11|    11|  <meta property="og:title" content="{{ title }}">
+    12|    12|    12|  <meta property="og:description" content="{{ description }}">
+    13|    13|    13|  <meta property="og:type" content="website">
+    14|    14|    14|  <meta property="og:image" content="/og-image.png">
+    15|    15|    15|  <meta name="twitter:card" content="summary_large_image">
+    16|    16|    16|  <meta name="twitter:title" content="{{ title }}">
+    17|    17|    17|  <meta name="twitter:description" content="{{ description }}">
+    18|    18|    18|
+    19|    19|    19|  <!-- fonts loaded via _css.html -->
+    20|    20|    20|  <style>
+    21|    21|    21|        :root {
+      --black: var(--text); --white: var(--bg);
+      --gray-900: var(--text); --gray-600: var(--text-secondary);
+      --gray-500: var(--text-secondary); --gray-400: var(--text-muted);
+      --gray-300: var(--border); --gray-200: var(--border);
+      --gray-100: var(--border); --gray-50: var(--bg-secondary);
+      --blue: var(--blue); --green: var(--green); --red: var(--red);
+      --accent: var(--accent); --accent-dim: var(--accent-dim);
     }
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{font-family:'Geist',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
-    body{background:var(--gray-50);color:var(--black);line-height:1.5;min-height:100vh}
-    /* header styling handled by _header.html (site-header class) */
-
-    .live-dot{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--gray-500)}
-    .live-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
-    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-
-    .container{max-width:960px;margin:0 auto;padding:40px 24px}
-
-    .hero{text-align:center;margin-bottom:40px}
-    .hero h1{font-size:42px;font-weight:600;letter-spacing:-2px;line-height:1;color:var(--black);margin-bottom:10px}
-    .hero p{font-size:16px;color:var(--gray-500);max-width:520px;margin:0 auto;line-height:1.6}
-
-    /* ── Gauge ── */
-    .gauge-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:48px 32px;text-align:center;margin-bottom:24px;transition:box-shadow .15s ease}
-    .gauge-card:hover{box-shadow:var(--shadow-card-hover)}
-    .gauge-label{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:24px}
-
-    .gauge-wrap{position:relative;width:280px;height:160px;margin:0 auto 24px}
-    .gauge-svg{width:100%;height:100%}
-    .gauge-track{fill:none;stroke:var(--gray-100);stroke-width:22;stroke-linecap:round}
-    .gauge-fill{fill:none;stroke-width:22;stroke-linecap:round;transition:stroke-dashoffset .8s ease,stroke .4s ease}
-    .gauge-emoji{font-size:52px;line-height:1;margin-bottom:8px}
-    .gauge-score{font-size:56px;font-weight:600;font-family:'Geist Mono',monospace;letter-spacing:-3px;line-height:1;margin-bottom:4px}
-    .gauge-sentiment{font-size:18px;font-weight:500;color:var(--gray-500);margin-bottom:20px}
-    .gauge-scale{display:flex;justify-content:space-between;max-width:320px;margin:0 auto;padding-top:16px;border-top:1px solid var(--gray-100)}
-    .gauge-scale span{font-size:11px;font-weight:500;color:var(--gray-400);font-family:'Geist Mono',monospace}
-
-    /* ── Info Cards Grid ── */
-    .info-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:24px}
-    @media(min-width:600px){.info-grid{grid-template-columns:1fr 1fr}}
-
-    .card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow:hidden;transition:box-shadow .15s ease}
-    .card:hover{box-shadow:var(--shadow-card-hover)}
-    .card-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--gray-100)}
-    .card-title{font-size:15px;font-weight:600;letter-spacing:-0.3px;display:flex;align-items:center;gap:8px}
-    .card-icon{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:var(--blue)}
-    .card-body{padding:20px}
-
-    /* ── VIX Card ── */
-    .vix-price{font-size:40px;font-weight:600;letter-spacing:-2px;font-family:'Geist Mono',monospace;margin-bottom:4px}
-    .vix-change{font-size:16px;font-weight:500;font-family:'Geist Mono',monospace;margin-bottom:20px}
-    .vix-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:16px;border-top:1px solid var(--gray-100)}
-    .vix-meta-item .label{font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px}
-    .vix-meta-item .value{font-size:15px;font-weight:600;font-family:'Geist Mono',monospace}
-
-    /* ── Status Badges ── */
-    .status-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:9999px;font-size:12px;font-weight:600}
-    .status-green{color:var(--green);background:rgba(10,153,80,0.08)}
-    .status-red{color:var(--red);background:rgba(220,38,38,0.08)}
-    .status-neutral{color:var(--yellow);background:rgba(234,179,8,0.1)}
-
-    .up{color:var(--green)}.down{color:var(--red)}
-
-    /* ── Treasury Table ── */
-    .table-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow-x:auto;margin-bottom:24px;transition:box-shadow .15s ease}
-    .table-card:hover{box-shadow:var(--shadow-card-hover)}
-    .table-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--gray-100)}
-    .table-title{font-size:15px;font-weight:600;letter-spacing:-0.3px;display:flex;align-items:center;gap:8px}
-
-    table{width:100%;border-collapse:collapse;min-width:480px}
-    th{text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray-400);padding:12px 20px;border-bottom:1px solid var(--gray-100);background:var(--gray-50)}
-    td{padding:14px 20px;font-size:14px;border-bottom:1px solid var(--gray-100)}
-    tr:last-child td{border-bottom:none}
-    tr:hover td{background:var(--gray-50)}
-    td.label-cell{font-weight:600;color:var(--black)}
-    .etf-cell{font-size:12px;font-family:'Geist Mono',monospace;color:var(--gray-400);background:var(--blue-light);padding:2px 8px;border-radius:4px;display:inline-block}
-    td.price-cell{font-family:'Geist Mono',monospace;font-weight:600}
-    td.change-cell{font-family:'Geist Mono',monospace;font-weight:600}
-
-    .empty-state{text-align:center;padding:40px 20px;color:var(--gray-400);font-size:14px}
-    .empty-state .icon{font-size:32px;margin-bottom:8px}
-
-    footer{max-width:960px;margin:60px auto 0;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
-    footer p{font-size:12px;color:var(--gray-400)}
-    footer a{color:var(--gray-500);text-decoration:none}
-    footer a:hover{text-decoration:underline}
-
-    @media(max-width:600px){
-      .hero h1{font-size:32px;letter-spacing:-1.5px}
-      .hero p{font-size:14px}
-      .gauge-wrap{width:220px;height:130px}
-      .gauge-card{padding:32px 20px}
-      .gauge-score{font-size:44px}
-      .gauge-emoji{font-size:40px}
-      .gauge-scale span{font-size:10px}
-      .vix-price{font-size:32px}
-      .card-body{padding:16px}
-      th,td{padding:10px 14px}
-      .info-grid{grid-template-columns:1fr}
-      .container{padding:24px 16px}
-      footer{margin-top:40px;padding:20px 16px}
+    @media (prefers-color-scheme: dark) {
+      :root {
+      --black: var(--text); --white: var(--bg);
+      --gray-900: var(--text); --gray-600: var(--text-secondary);
+      --gray-500: var(--text-secondary); --gray-400: var(--text-muted);
+      --gray-300: var(--border); --gray-200: var(--border);
+      --gray-100: var(--border); --gray-50: var(--bg-secondary);
+      --blue: var(--blue); --green: var(--green); --red: var(--red);
+      --accent: var(--accent); --accent-dim: var(--accent-dim);
     }
-  </style>
-</head>
-<body>
-
-{% include '_header.html' %}
-
-<div class="container">
-
-  <div class="hero">
-    <h1>{{ title }}</h1>
-    <p>{{ description }}</p>
-  </div>
-
-  {# ─── Fear & Greed Gauge ─── #}
-  {% if fg %}
-    {% set score = fg.score|int %}
-    {% set emoji_map = {0:'😱', 1:'😱', 2:'😰', 3:'😟', 4:'😐', 5:'🙂', 6:'😊', 7:'😄', 8:'🤑', 9:'🤑'} %}
-    {% set sent_map = {0:'Extreme Fear', 1:'Extreme Fear', 2:'Fear', 3:'Fear', 4:'Neutral', 5:'Neutral', 6:'Greed', 7:'Greed', 8:'Extreme Greed', 9:'Extreme Greed'} %}
-    {% set color_map = {0:'#dc2626', 1:'#dc2626', 2:'#f97316', 3:'#f97316', 4:'#eab308', 5:'#eab308', 6:'#22c55e', 7:'#22c55e', 8:'#0a9950', 9:'#0a9950'} %}
-    {% set decile = ((score // 10) | int) %}
-    {% set emoji = emoji_map.get(decile, '😐') %}
-    {% set sentiment_label = fg.sentiment if fg.sentiment else sent_map.get(decile, 'Neutral') %}
-    {% set gauge_color = color_map.get(decile, '#eab308') %}
-    {# Arc geometry: sweep 180°, radius 110, viewBox 280x160 #}
-    {% set r = 110 %}
-    {% set cx = 140 %}
-    {% set cy = 140 %}
-    {% set circumference = 3.14159265 * r %}
-    {% set fill_pct = score / 100.0 %}
-    {% set dash_offset = circumference * (1 - fill_pct) %}
-
-    <div class="gauge-card">
-      <div class="gauge-label">Fear &amp; Greed Index</div>
-      <div class="gauge-wrap">
-        <svg class="gauge-svg" viewBox="0 0 280 160">
-          <path class="gauge-track"
-                d="M 30 140 A 110 110 0 0 1 250 140" />
-          <path class="gauge-fill"
-                d="M 30 140 A 110 110 0 0 1 250 140"
-                stroke="{{ gauge_color }}"
-                stroke-dasharray="{{ circumference }}"
-                stroke-dashoffset="{{ '%.2f'|format(dash_offset) }}" />
-        </svg>
-      </div>
-      <div class="gauge-emoji">{{ emoji }}</div>
-      <div class="gauge-score" style="color:{{ gauge_color }}">{{ score }}</div>
-      <div class="gauge-sentiment">{{ sentiment_label }}</div>
-      <div class="gauge-scale">
-        <span>0 — Extreme Fear</span>
-        <span>50</span>
-        <span>100 — Extreme Greed</span>
-      </div>
-    </div>
-  {% else %}
-    <div class="gauge-card">
-      <div class="gauge-label">Fear &amp; Greed Index</div>
-      <div class="empty-state">
-        <div class="icon">📊</div>
-        <p>Fear &amp; Greed data is currently unavailable.</p>
-      </div>
-    </div>
-  {% endif %}
-
-  {# ─── VIX + Info Cards ─── #}
-  <div class="info-grid">
-    {# ─── VIX Card ─── #}
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title"><span class="card-icon">⚡</span> CBOE VIX</div>
-        <span class="card-badge" style="font-family:'Geist Mono',monospace;font-size:12px;color:var(--gray-400)">Volatility Index</span>
-      </div>
-      <div class="card-body">
-        {% if vix %}
-          {% set vix_change = vix.change_pct|float if vix.change_pct else 0 %}
-          <div class="vix-price">{{ '%.2f'|format(vix.price|float) }}</div>
-          <div class="vix-change {% if vix_change > 0 %}down{% elif vix_change < 0 %}up{% endif %}">
-            {% if vix_change > 0 %}▲{% elif vix_change < 0 %}▼{% else %}—{% endif %}
-            {{ '%+.2f'|format(vix_change) }}%
-          </div>
-          <div class="vix-meta">
-            <div class="vix-meta-item">
-              <div class="label">Previous Close</div>
-              <div class="value">{{ '%.2f'|format(vix.previous_close|float) }}</div>
-            </div>
-            <div class="vix-meta-item">
-              <div class="label">Current</div>
-              <div class="value">{{ '%.2f'|format(vix.price|float) }}</div>
-            </div>
-          </div>
-        {% else %}
-          <div class="empty-state">
-            <div class="icon">📉</div>
-            <p>VIX data unavailable.</p>
-          </div>
-        {% endif %}
-      </div>
-    </div>
-
-    {# ─── Context Card ─── #}
-    <div class="card">
-      <div class="card-header">
-        <div class="card-title"><span class="card-icon" style="background:var(--blue-dark)">ℹ</span> What This Means</div>
-      </div>
-      <div class="card-body">
-        {% if fg %}
-          <p style="font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:12px">
-            {% if score <= 25 %}
-              The market is in <strong style="color:var(--red)">Extreme Fear</strong>. Investors are highly risk-averse.
-              This can signal a potential buying opportunity for long-term investors.
-            {% elif score <= 45 %}
-              The market is in <strong style="color:var(--orange)">Fear</strong> territory. Caution is elevated
-              and investors are preferring safer assets.
-            {% elif score <= 55 %}
-              The market is <strong style="color:var(--yellow)">Neutral</strong>. There is no strong directional
-              sentiment among investors.
-            {% elif score <= 75 %}
-              The market is showing <strong style="color:#22c55e">Greed</strong>. Optimism is rising and risk appetite
-              is increasing.
-            {% else %}
-              The market is in <strong style="color:var(--green)">Extreme Greed</strong>. Investor euphoria is high.
-              This can signal caution as markets may be overheating.
-            {% endif %}
-          </p>
-          {% if vix %}
-            <p style="font-size:13px;color:var(--gray-400);line-height:1.6">
-              VIX at <strong style="color:var(--gray-600)">{{ '%.2f'|format(vix.price|float) }}</strong>
-              {% if vix.price|float < 15 %}suggests low volatility and complacency.
-              {% elif vix.price|float < 20 %}indicates normal market conditions.
-              {% elif vix.price|float < 30 %}points to elevated uncertainty.
-              {% else %}signals high fear and market stress.{% endif %}
-            </p>
-          {% endif %}
-        {% else %}
-          <p style="font-size:14px;color:var(--gray-400)">Market sentiment data is currently being gathered.</p>
-        {% endif %}
-      </div>
-    </div>
-  </div>
-
-  {# ─── Treasury Yields Table ─── #}
-  <div class="table-card">
-    <div class="table-header">
-      <div class="table-title"><span class="card-icon" style="background:var(--blue-dark)">🏦</span> Treasury Yields</div>
-      <span class="card-badge" style="font-family:'Geist Mono',monospace;font-size:12px;color:var(--gray-400)">Bond ETFs</span>
-    </div>
-
-    {% if treasury %}
-      <table>
-        <thead>
-          <tr>
-            <th>Maturity</th>
-            <th>ETF</th>
-            <th style="text-align:right">Price</th>
-            <th style="text-align:right">Change</th>
-          </tr>
-        </thead>
-        <tbody>
-          {% for bond in treasury %}
-            <tr>
-              <td class="label-cell">{{ bond.label }}</td>
-              <td><span class="etf-cell">{{ bond.etf }}</span></td>
-              <td class="price-cell" style="text-align:right">{{ '%.2f'|format(bond.price|float) }}</td>
-              <td class="change-cell {% if bond.change_pct|float > 0 %}up{% elif bond.change_pct|float < 0 %}down{% endif %}" style="text-align:right">
-                {% if bond.change_pct|float > 0 %}▲{% elif bond.change_pct|float < 0 %}▼{% else %}—{% endif %}
-                {{ '%+.2f'|format(bond.change_pct|float) }}%
-              </td>
-            </tr>
-          {% endfor %}
-        </tbody>
-      </table>
-    {% else %}
-      <div class="empty-state">
-        <div class="icon">🏛️</div>
-        <p>Treasury yield data is currently unavailable.</p>
-      </div>
-    {% endif %}
-  </div>
-
-</div>
-
-<footer>
-  <p>Data provided for informational purposes only. Not financial advice. &copy; TrendPulse</p>
-</footer>
-
-</body>
-</html>
-
+    }
+    35|    35|    35|    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    36|    36|    36|    html{font-family:'Geist',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
+    37|    37|    37|    body { /* bg from _css.html */ }
+    38|    38|    38|    /* header styling handled by _header.html (site-header class) */
+    39|    39|    39|
+    40|    40|    40|    .live-dot{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--gray-500)}
+    41|    41|    41|    .live-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+    42|    42|    42|    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+    43|    43|    43|
+    44|    44|    44|    .container{max-width:960px;margin:0 auto;padding:40px 24px}
+    45|    45|    45|
+    46|    46|    46|    .hero{text-align:center;margin-bottom:40px}
+    47|    47|    47|    .hero h1{font-size:42px;font-weight:600;letter-spacing:-2px;line-height:1;color:var(--black);margin-bottom:10px}
+    48|    48|    48|    .hero p{font-size:16px;color:var(--gray-500);max-width:520px;margin:0 auto;line-height:1.6}
+    49|    49|    49|
+    50|    50|    50|    /* ── Gauge ── */
+    51|    51|    51|    .gauge-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:48px 32px;text-align:center;margin-bottom:24px;transition:box-shadow .15s ease}
+    52|    52|    52|    .gauge-card:hover{box-shadow:var(--shadow-card-hover)}
+    53|    53|    53|    .gauge-label{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:24px}
+    54|    54|    54|
+    55|    55|    55|    .gauge-wrap{position:relative;width:280px;height:160px;margin:0 auto 24px}
+    56|    56|    56|    .gauge-svg{width:100%;height:100%}
+    57|    57|    57|    .gauge-track{fill:none;stroke:var(--gray-100);stroke-width:22;stroke-linecap:round}
+    58|    58|    58|    .gauge-fill{fill:none;stroke-width:22;stroke-linecap:round;transition:stroke-dashoffset .8s ease,stroke .4s ease}
+    59|    59|    59|    .gauge-emoji{font-size:52px;line-height:1;margin-bottom:8px}
+    60|    60|    60|    .gauge-score{font-size:56px;font-weight:600;font-family:'Geist Mono',monospace;letter-spacing:-3px;line-height:1;margin-bottom:4px}
+    61|    61|    61|    .gauge-sentiment{font-size:18px;font-weight:500;color:var(--gray-500);margin-bottom:20px}
+    62|    62|    62|    .gauge-scale{display:flex;justify-content:space-between;max-width:320px;margin:0 auto;padding-top:16px;border-top:1px solid var(--gray-100)}
+    63|    63|    63|    .gauge-scale span{font-size:11px;font-weight:500;color:var(--gray-400);font-family:'Geist Mono',monospace}
+    64|    64|    64|
+    65|    65|    65|    /* ── Info Cards Grid ── */
+    66|    66|    66|    .info-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:24px}
+    67|    67|    67|    @media(min-width:600px){.info-grid{grid-template-columns:1fr 1fr}}
+    68|    68|    68|
+    69|    69|    69|    .card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow:hidden;transition:box-shadow .15s ease}
+    70|    70|    70|    .card:hover{box-shadow:var(--shadow-card-hover)}
+    71|    71|    71|    .card-/* header from _header.html */
+    72|    72|    72|    .card-title{font-size:15px;font-weight:600;letter-spacing:-0.3px;display:flex;align-items:center;gap:8px}
+    73|    73|    73|    .card-icon{width:20px;height:20px;border-radius:4px;display:flex;align-items:center;justify-content:center;font-size:11px;color:#fff;background:var(--blue)}
+    74|    74|    74|    .card-body{padding:20px}
+    75|    75|    75|
+    76|    76|    76|    /* ── VIX Card ── */
+    77|    77|    77|    .vix-price{font-size:40px;font-weight:600;letter-spacing:-2px;font-family:'Geist Mono',monospace;margin-bottom:4px}
+    78|    78|    78|    .vix-change{font-size:16px;font-weight:500;font-family:'Geist Mono',monospace;margin-bottom:20px}
+    79|    79|    79|    .vix-meta{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:16px;border-top:1px solid var(--gray-100)}
+    80|    80|    80|    .vix-meta-item .label{font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px}
+    81|    81|    81|    .vix-meta-item .value{font-size:15px;font-weight:600;font-family:'Geist Mono',monospace}
+    82|    82|    82|
+    83|    83|    83|    /* ── Status Badges ── */
+    84|    84|    84|    .status-badge{display:inline-flex;align-items:center;gap:4px;padding:3px 10px;border-radius:9999px;font-size:12px;font-weight:600}
+    85|    85|    85|    .status-green{color:var(--green);background:rgba(10,153,80,0.08)}
+    86|    86|    86|    .status-red{color:var(--red);background:rgba(220,38,38,0.08)}
+    87|    87|    87|    .status-neutral{color:var(--yellow);background:rgba(234,179,8,0.1)}
+    88|    88|    88|
+    89|    89|    89|    .up{color:var(--green)}.down{color:var(--red)}
+    90|    90|    90|
+    91|    91|    91|    /* ── Treasury Table ── */
+    92|    92|    92|    .table-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow-x:auto;margin-bottom:24px;transition:box-shadow .15s ease}
+    93|    93|    93|    .table-card:hover{box-shadow:var(--shadow-card-hover)}
+    94|    94|    94|    .table-/* header from _header.html */
+    95|    95|    95|    .table-title{font-size:15px;font-weight:600;letter-spacing:-0.3px;display:flex;align-items:center;gap:8px}
+    96|    96|    96|
+    97|    97|    97|    table{width:100%;border-collapse:collapse;min-width:480px}
+    98|    98|    98|    th{text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray-400);padding:12px 20px;border-bottom:1px solid var(--gray-100);background:var(--gray-50)}
+    99|    99|    99|    td{padding:14px 20px;font-size:14px;border-bottom:1px solid var(--gray-100)}
+   100|   100|   100|    tr:last-child td{border-bottom:none}
+   101|   101|   101|    tr:hover td{background:var(--gray-50)}
+   102|   102|   102|    td.label-cell{font-weight:600;color:var(--black)}
+   103|   103|   103|    .etf-cell{font-size:12px;font-family:'Geist Mono',monospace;color:var(--gray-400);background:var(--blue-light);padding:2px 8px;border-radius:4px;display:inline-block}
+   104|   104|   104|    td.price-cell{font-family:'Geist Mono',monospace;font-weight:600}
+   105|   105|   105|    td.change-cell{font-family:'Geist Mono',monospace;font-weight:600}
+   106|   106|   106|
+   107|   107|   107|    .empty-state{text-align:center;padding:40px 20px;color:var(--gray-400);font-size:14px}
+   108|   108|   108|    .empty-state .icon{font-size:32px;margin-bottom:8px}
+   109|   109|   109|
+   110|   110|   110|    footer{max-width:960px;margin:60px auto 0;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
+   111|   111|   111|    footer p{font-size:12px;color:var(--gray-400)}
+   112|   112|   112|    footer a{color:var(--gray-500);text-decoration:none}
+   113|   113|   113|    footer a:hover{text-decoration:underline}
+   114|   114|   114|
+   115|   115|   115|    @media(max-width:600px){
+   116|   116|   116|      .hero h1{font-size:32px;letter-spacing:-1.5px}
+   117|   117|   117|      .hero p{font-size:14px}
+   118|   118|   118|      .gauge-wrap{width:220px;height:130px}
+   119|   119|   119|      .gauge-card{padding:32px 20px}
+   120|   120|   120|      .gauge-score{font-size:44px}
+   121|   121|   121|      .gauge-emoji{font-size:40px}
+   122|   122|   122|      .gauge-scale span{font-size:10px}
+   123|   123|   123|      .vix-price{font-size:32px}
+   124|   124|   124|      .card-body{padding:16px}
+   125|   125|   125|      th,td{padding:10px 14px}
+   126|   126|   126|      .info-grid{grid-template-columns:1fr}
+   127|   127|   127|      .container{padding:24px 16px}
+   128|   128|   128|      footer{margin-top:40px;padding:20px 16px}
+   129|   129|   129|    }
+   130|   130|   130|  </style>
+   131|   131|   131|</head>
+   132|   132|   132|<body>
+   133|   133|   133|
+   134|   134|   134|{% include '_header.html' %}
+   135|   135|   135|
+   136|   136|   136|<div class="container">
+   137|   137|   137|
+   138|   138|   138|  <div class="hero">
+   139|   139|   139|    <h1>{{ title }}</h1>
+   140|   140|   140|    <p>{{ description }}</p>
+   141|   141|   141|  </div>
+   142|   142|   142|
+   143|   143|   143|  {# ─── Fear & Greed Gauge ─── #}
+   144|   144|   144|  {% if fg %}
+   145|   145|   145|    {% set score = fg.score|int %}
+   146|   146|   146|    {% set emoji_map = {0:'😱', 1:'😱', 2:'😰', 3:'😟', 4:'😐', 5:'🙂', 6:'😊', 7:'😄', 8:'🤑', 9:'🤑'} %}
+   147|   147|   147|    {% set sent_map = {0:'Extreme Fear', 1:'Extreme Fear', 2:'Fear', 3:'Fear', 4:'Neutral', 5:'Neutral', 6:'Greed', 7:'Greed', 8:'Extreme Greed', 9:'Extreme Greed'} %}
+   148|   148|   148|    {% set color_map = {0:'#dc2626', 1:'#dc2626', 2:'#f97316', 3:'#f97316', 4:'#eab308', 5:'#eab308', 6:'#22c55e', 7:'#22c55e', 8:'#0a9950', 9:'#0a9950'} %}
+   149|   149|   149|    {% set decile = ((score // 10) | int) %}
+   150|   150|   150|    {% set emoji = emoji_map.get(decile, '😐') %}
+   151|   151|   151|    {% set sentiment_label = fg.sentiment if fg.sentiment else sent_map.get(decile, 'Neutral') %}
+   152|   152|   152|    {% set gauge_color = color_map.get(decile, '#eab308') %}
+   153|   153|   153|    {# Arc geometry: sweep 180°, radius 110, viewBox 280x160 #}
+   154|   154|   154|    {% set r = 110 %}
+   155|   155|   155|    {% set cx = 140 %}
+   156|   156|   156|    {% set cy = 140 %}
+   157|   157|   157|    {% set circumference = 3.14159265 * r %}
+   158|   158|   158|    {% set fill_pct = score / 100.0 %}
+   159|   159|   159|    {% set dash_offset = circumference * (1 - fill_pct) %}
+   160|   160|   160|
+   161|   161|   161|    <div class="gauge-card">
+   162|   162|   162|      <div class="gauge-label">Fear &amp; Greed Index</div>
+   163|   163|   163|      <div class="gauge-wrap">
+   164|   164|   164|        <svg class="gauge-svg" viewBox="0 0 280 160">
+   165|   165|   165|          <path class="gauge-track"
+   166|   166|   166|                d="M 30 140 A 110 110 0 0 1 250 140" />
+   167|   167|   167|          <path class="gauge-fill"
+   168|   168|   168|                d="M 30 140 A 110 110 0 0 1 250 140"
+   169|   169|   169|                stroke="{{ gauge_color }}"
+   170|   170|   170|                stroke-dasharray="{{ circumference }}"
+   171|   171|   171|                stroke-dashoffset="{{ '%.2f'|format(dash_offset) }}" />
+   172|   172|   172|        </svg>
+   173|   173|   173|      </div>
+   174|   174|   174|      <div class="gauge-emoji">{{ emoji }}</div>
+   175|   175|   175|      <div class="gauge-score" style="color:{{ gauge_color }}">{{ score }}</div>
+   176|   176|   176|      <div class="gauge-sentiment">{{ sentiment_label }}</div>
+   177|   177|   177|      <div class="gauge-scale">
+   178|   178|   178|        <span>0 — Extreme Fear</span>
+   179|   179|   179|        <span>50</span>
+   180|   180|   180|        <span>100 — Extreme Greed</span>
+   181|   181|   181|      </div>
+   182|   182|   182|    </div>
+   183|   183|   183|  {% else %}
+   184|   184|   184|    <div class="gauge-card">
+   185|   185|   185|      <div class="gauge-label">Fear &amp; Greed Index</div>
+   186|   186|   186|      <div class="empty-state">
+   187|   187|   187|        <div class="icon">📊</div>
+   188|   188|   188|        <p>Fear &amp; Greed data is currently unavailable.</p>
+   189|   189|   189|      </div>
+   190|   190|   190|    </div>
+   191|   191|   191|  {% endif %}
+   192|   192|   192|
+   193|   193|   193|  {# ─── VIX + Info Cards ─── #}
+   194|   194|   194|  <div class="info-grid">
+   195|   195|   195|    {# ─── VIX Card ─── #}
+   196|   196|   196|    <div class="card">
+   197|   197|   197|      <div class="card-header">
+   198|   198|   198|        <div class="card-title"><span class="card-icon">⚡</span> CBOE VIX</div>
+   199|   199|   199|        <span class="card-badge" style="font-family:'Geist Mono',monospace;font-size:12px;color:var(--gray-400)">Volatility Index</span>
+   200|   200|   200|      </div>
+   201|   201|   201|      <div class="card-body">
+   202|   202|   202|        {% if vix %}
+   203|   203|   203|          {% set vix_change = vix.change_pct|float if vix.change_pct else 0 %}
+   204|   204|   204|          <div class="vix-price">{{ '%.2f'|format(vix.price|float) }}</div>
+   205|   205|   205|          <div class="vix-change {% if vix_change > 0 %}down{% elif vix_change < 0 %}up{% endif %}">
+   206|   206|   206|            {% if vix_change > 0 %}▲{% elif vix_change < 0 %}▼{% else %}—{% endif %}
+   207|   207|   207|            {{ '%+.2f'|format(vix_change) }}%
+   208|   208|   208|          </div>
+   209|   209|   209|          <div class="vix-meta">
+   210|   210|   210|            <div class="vix-meta-item">
+   211|   211|   211|              <div class="label">Previous Close</div>
+   212|   212|   212|              <div class="value">{{ '%.2f'|format(vix.previous_close|float) }}</div>
+   213|   213|   213|            </div>
+   214|   214|   214|            <div class="vix-meta-item">
+   215|   215|   215|              <div class="label">Current</div>
+   216|   216|   216|              <div class="value">{{ '%.2f'|format(vix.price|float) }}</div>
+   217|   217|   217|            </div>
+   218|   218|   218|          </div>
+   219|   219|   219|        {% else %}
+   220|   220|   220|          <div class="empty-state">
+   221|   221|   221|            <div class="icon">📉</div>
+   222|   222|   222|            <p>VIX data unavailable.</p>
+   223|   223|   223|          </div>
+   224|   224|   224|        {% endif %}
+   225|   225|   225|      </div>
+   226|   226|   226|    </div>
+   227|   227|   227|
+   228|   228|   228|    {# ─── Context Card ─── #}
+   229|   229|   229|    <div class="card">
+   230|   230|   230|      <div class="card-header">
+   231|   231|   231|        <div class="card-title"><span class="card-icon" style="background:var(--blue-dark)">ℹ</span> What This Means</div>
+   232|   232|   232|      </div>
+   233|   233|   233|      <div class="card-body">
+   234|   234|   234|        {% if fg %}
+   235|   235|   235|          <p style="font-size:14px;color:var(--gray-600);line-height:1.7;margin-bottom:12px">
+   236|   236|   236|            {% if score <= 25 %}
+   237|   237|   237|              The market is in <strong style="color:var(--red)">Extreme Fear</strong>. Investors are highly risk-averse.
+   238|   238|   238|              This can signal a potential buying opportunity for long-term investors.
+   239|   239|   239|            {% elif score <= 45 %}
+   240|   240|   240|              The market is in <strong style="color:var(--orange)">Fear</strong> territory. Caution is elevated
+   241|   241|   241|              and investors are preferring safer assets.
+   242|   242|   242|            {% elif score <= 55 %}
+   243|   243|   243|              The market is <strong style="color:var(--yellow)">Neutral</strong>. There is no strong directional
+   244|   244|   244|              sentiment among investors.
+   245|   245|   245|            {% elif score <= 75 %}
+   246|   246|   246|              The market is showing <strong style="color:#22c55e">Greed</strong>. Optimism is rising and risk appetite
+   247|   247|   247|              is increasing.
+   248|   248|   248|            {% else %}
+   249|   249|   249|              The market is in <strong style="color:var(--green)">Extreme Greed</strong>. Investor euphoria is high.
+   250|   250|   250|              This can signal caution as markets may be overheating.
+   251|   251|   251|            {% endif %}
+   252|   252|   252|          </p>
+   253|   253|   253|          {% if vix %}
+   254|   254|   254|            <p style="font-size:13px;color:var(--gray-400);line-height:1.6">
+   255|   255|   255|              VIX at <strong style="color:var(--gray-600)">{{ '%.2f'|format(vix.price|float) }}</strong>
+   256|   256|   256|              {% if vix.price|float < 15 %}suggests low volatility and complacency.
+   257|   257|   257|              {% elif vix.price|float < 20 %}indicates normal market conditions.
+   258|   258|   258|              {% elif vix.price|float < 30 %}points to elevated uncertainty.
+   259|   259|   259|              {% else %}signals high fear and market stress.{% endif %}
+   260|   260|   260|            </p>
+   261|   261|   261|          {% endif %}
+   262|   262|   262|        {% else %}
+   263|   263|   263|          <p style="font-size:14px;color:var(--gray-400)">Market sentiment data is currently being gathered.</p>
+   264|   264|   264|        {% endif %}
+   265|   265|   265|      </div>
+   266|   266|   266|    </div>
+   267|   267|   267|  </div>
+   268|   268|   268|
+   269|   269|   269|  {# ─── Treasury Yields Table ─── #}
+   270|   270|   270|  <div class="table-card">
+   271|   271|   271|    <div class="table-header">
+   272|   272|   272|      <div class="table-title"><span class="card-icon" style="background:var(--blue-dark)">🏦</span> Treasury Yields</div>
+   273|   273|   273|      <span class="card-badge" style="font-family:'Geist Mono',monospace;font-size:12px;color:var(--gray-400)">Bond ETFs</span>
+   274|   274|   274|    </div>
+   275|   275|   275|
+   276|   276|   276|    {% if treasury %}
+   277|   277|   277|      <table>
+   278|   278|   278|        <thead>
+   279|   279|   279|          <tr>
+   280|   280|   280|            <th>Maturity</th>
+   281|   281|   281|            <th>ETF</th>
+   282|   282|   282|            <th style="text-align:right">Price</th>
+   283|   283|   283|            <th style="text-align:right">Change</th>
+   284|   284|   284|          </tr>
+   285|   285|   285|        </thead>
+   286|   286|   286|        <tbody>
+   287|   287|   287|          {% for bond in treasury %}
+   288|   288|   288|            <tr>
+   289|   289|   289|              <td class="label-cell">{{ bond.label }}</td>
+   290|   290|   290|              <td><span class="etf-cell">{{ bond.etf }}</span></td>
+   291|   291|   291|              <td class="price-cell" style="text-align:right">{{ '%.2f'|format(bond.price|float) }}</td>
+   292|   292|   292|              <td class="change-cell {% if bond.change_pct|float > 0 %}up{% elif bond.change_pct|float < 0 %}down{% endif %}" style="text-align:right">
+   293|   293|   293|                {% if bond.change_pct|float > 0 %}▲{% elif bond.change_pct|float < 0 %}▼{% else %}—{% endif %}
+   294|   294|   294|                {{ '%+.2f'|format(bond.change_pct|float) }}%
+   295|   295|   295|              </td>
+   296|   296|   296|            </tr>
+   297|   297|   297|          {% endfor %}
+   298|   298|   298|        </tbody>
+   299|   299|   299|      </table>
+   300|   300|   300|    {% else %}
+   301|   301|   301|      <div class="empty-state">
+   302|   302|   302|        <div class="icon">🏛️</div>
+   303|   303|   303|        <p>Treasury yield data is currently unavailable.</p>
+   304|   304|   304|      </div>
+   305|   305|   305|    {% endif %}
+   306|   306|   306|  </div>
+   307|   307|   307|
+   308|   308|   308|</div>
+   309|   309|   309|
+   310|   310|   310|<footer>
+   311|   311|   311|  <p>Data provided for informational purposes only. Not financial advice. &copy; TrendPulse</p>
+   312|   312|   312|</footer>
+   313|   313|   313|
+   314|   314|   314|</body>
+   315|   315|   315|</html>
+   316|   316|   316|
+   317|   317|   317|

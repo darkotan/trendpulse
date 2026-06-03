@@ -1,88 +1,89 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>{{ title }}</title>
-  <meta name="description" content="{{ description }}">
-  <meta name="keywords" content="{{ keywords }}">
-  <meta name="robots" content="index, follow">
-  <link rel="canonical" href="https://trendscan.org{{ request.path }}">
-  <meta property="og:title" content="{{ title }}">
-  <meta property="og:description" content="{{ description }}">
-  <meta property="og:type" content="website">
-  <meta property="og:image" content="https://trendscan.org/og-image.png">
-  <script type="application/ld+json">
-  {"@context":"https://schema.org","@type":"WebPage","name":"{{ h1 }}","description":"{{ description }}"}
-  </script>
-  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-  <style>
-    :root{--black:#171717;--white:#fff;--gray-500:#666;--gray-400:#808080;--gray-100:#ebebeb;--gray-50:#fafafa;--blue:#0072f5;--blue-bg:#ebf5ff;--blue-text:#0068d6;--green:#0a9950;--red:#dc2626;--shadow-border:0 0 0 1px rgba(0,0,0,.08)}
-    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    html{font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
-    body{background:var(--white);color:var(--black);line-height:1.5;min-height:100vh}
-    .container{max-width:720px;margin:0 auto;padding:40px 24px}
-    h1{font-size:36px;font-weight:600;letter-spacing:-1.44px;line-height:1.15;margin-bottom:8px}
-    .subtitle{font-size:16px;color:var(--gray-500);margin-bottom:32px}
-    .items{display:flex;flex-direction:column;gap:0}
-    .item{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--gray-100);text-decoration:none;color:inherit}
-    .item:last-child{border-bottom:none}
-    .item:hover .item-title{color:var(--blue)}
-    .item-rank{font-size:13px;font-weight:500;color:var(--gray-400);font-family:'Geist Mono',monospace;min-width:24px}
-    .item-content{flex:1;min-width:0}
-    .item-title{font-size:16px;font-weight:500;color:var(--black);line-height:1.4;transition:color .15s}
-    .item-meta{margin-top:4px;font-size:13px;color:var(--gray-400)}
-    .item-value{font-size:14px;font-weight:600;text-align:right;font-family:'Geist Mono',monospace;white-space:nowrap}
-    .up{color:var(--green)}.down{color:var(--red)}
-    .cta{display:block;margin:40px auto 0;padding:12px 24px;border-radius:6px;background:var(--black);color:var(--white);font-size:14px;font-weight:600;text-decoration:none;text-align:center;max-width:280px}
-    .cta:hover{opacity:.85}
-    footer{text-align:center;padding:40px 24px;border-top:1px solid var(--gray-100);margin-top:40px}
-    footer p{font-size:12px;color:var(--gray-400)}
-  </style>
-</head>
-<body>
-  {% include '_header.html' %}
-  <div class="container">
-    <h1>{{ h1 }}</h1>
-    <p class="subtitle">{{ description }}</p>
-    <div class="items">
-      {% for item in (items[:10] if section != 'crypto' else items[:8]) %}
-      <div class="item">
-        <span class="item-rank">{{ loop.index }}</span>
-        <div class="item-content">
-          <div class="item-title">
-            {% if section == 'hn' %}
-              {{ item.title }}
-            {% elif section == 'stocks' %}
-              {{ item.symbol }} — ${{ "%.2f"|format(item.price) }}
-            {% elif section == 'crypto' %}
-              ₿ {{ item.symbol }} — ${{ "%.2f"|format(item.price) if item.price >= 1 else "%.4f"|format(item.price) }}
-            {% elif section == 'github' %}
-              {{ item.name }}
-            {% endif %}
-          </div>
-          <div class="item-meta">
-            {% if section == 'hn' %}
-              ⬆ {{ item.score }} points · 💬 {{ item.comments }} comments · by {{ item.by }}
-            {% elif section == 'stocks' %}
-              H: ${{ "%.2f"|format(item.high) }} · L: ${{ "%.2f"|format(item.low) }}
-            {% elif section == 'crypto' %}
-              Vol: {{ item.volume_fmt }}
-            {% elif section == 'github' %}
-              ⭐ {{ item.stars_fmt }} · {{ item.language }}
-            {% endif %}
-          </div>
-        </div>
-        {% if section in ('stocks', 'crypto') %}
-        <div class="item-value {{ 'up' if item.change_pct >= 0 else 'down' }}">
-          {{ '+' if item.change_pct >= 0 }}{{ "%.2f"|format(item.change_pct) }}%
-        </div>
-        {% endif %}
-      </div>
-      {% endfor %}
-    </div>
-    <a href="/" class="cta">View Full Dashboard →</a>
-  </div>
-  <footer><p>TrendPulse · Real-time data · Not financial advice</p></footer>
-</body>
-</html>
+     1|     1|     1|<!DOCTYPE html>
+     2|     2|     2|<html lang="en">
+     3|     3|     3|<head>
+     4|     4|     4|  <meta charset="UTF-8">
+     5|     5|     5|  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+     6|     6|     6|  <title>{{ title }}</title>
+     7|     7|     7|  <meta name="description" content="{{ description }}">
+     8|     8|     8|  <meta name="keywords" content="{{ keywords }}">
+     9|     9|     9|  <meta name="robots" content="index, follow">
+    10|    10|    10|  <link rel="canonical" href="https://trendscan.org{{ request.path }}">
+    11|    11|    11|  <meta property="og:title" content="{{ title }}">
+    12|    12|    12|  <meta property="og:description" content="{{ description }}">
+    13|    13|    13|  <meta property="og:type" content="website">
+    14|    14|    14|  <meta property="og:image" content="https://trendscan.org/og-image.png">
+    15|    15|    15|  <script type="application/ld+json">
+    16|    16|    16|  {"@context":"https://schema.org","@type":"WebPage","name":"{{ h1 }}","description":"{{ description }}"}
+    17|    17|    17|  </script>
+    18|    18|    18|  <!-- fonts loaded via _css.html -->
+    19|    19|    19|  <style>
+    20|    20|    20|    
+    21|    21|    21|    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    22|    22|    22|    html{font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
+    23|    23|    23|    body { /* bg from _css.html */ }
+    24|    24|    24|    .container{max-width:720px;margin:0 auto;padding:40px 24px}
+    25|    25|    25|    h1{font-size:36px;font-weight:600;letter-spacing:-1.44px;line-height:1.15;margin-bottom:8px}
+    26|    26|    26|    .subtitle{font-size:16px;color:var(--gray-500);margin-bottom:32px}
+    27|    27|    27|    .items{display:flex;flex-direction:column;gap:0}
+    28|    28|    28|    .item{display:flex;align-items:center;gap:12px;padding:14px 0;border-bottom:1px solid var(--gray-100);text-decoration:none;color:inherit}
+    29|    29|    29|    .item:last-child{border-bottom:none}
+    30|    30|    30|    .item:hover .item-title{color:var(--blue)}
+    31|    31|    31|    .item-rank{font-size:13px;font-weight:500;color:var(--gray-400);font-family:'Geist Mono',monospace;min-width:24px}
+    32|    32|    32|    .item-content{flex:1;min-width:0}
+    33|    33|    33|    .item-title{font-size:16px;font-weight:500;color:var(--black);line-height:1.4;transition:color .15s}
+    34|    34|    34|    .item-meta{margin-top:4px;font-size:13px;color:var(--gray-400)}
+    35|    35|    35|    .item-value{font-size:14px;font-weight:600;text-align:right;font-family:'Geist Mono',monospace;white-space:nowrap}
+    36|    36|    36|    .up{color:var(--green)}.down{color:var(--red)}
+    37|    37|    37|    .cta{display:block;margin:40px auto 0;padding:12px 24px;border-radius:6px;background:var(--black);color:var(--white);font-size:14px;font-weight:600;text-decoration:none;text-align:center;max-width:280px}
+    38|    38|    38|    .cta:hover{opacity:.85}
+    39|    39|    39|    footer{text-align:center;padding:40px 24px;border-top:1px solid var(--gray-100);margin-top:40px}
+    40|    40|    40|    footer p{font-size:12px;color:var(--gray-400)}
+    41|    41|    41|  </style>
+    42|    42|    42|</head>
+    43|    43|    43|<body>
+    44|    44|    44|  {% include '_header.html' %}
+    45|    45|    45|  <div class="container">
+    46|    46|    46|    <h1>{{ h1 }}</h1>
+    47|    47|    47|    <p class="subtitle">{{ description }}</p>
+    48|    48|    48|    <div class="items">
+    49|    49|    49|      {% for item in (items[:10] if section != 'crypto' else items[:8]) %}
+    50|    50|    50|      <div class="item">
+    51|    51|    51|        <span class="item-rank">{{ loop.index }}</span>
+    52|    52|    52|        <div class="item-content">
+    53|    53|    53|          <div class="item-title">
+    54|    54|    54|            {% if section == 'hn' %}
+    55|    55|    55|              {{ item.title }}
+    56|    56|    56|            {% elif section == 'stocks' %}
+    57|    57|    57|              {{ item.symbol }} — ${{ "%.2f"|format(item.price) }}
+    58|    58|    58|            {% elif section == 'crypto' %}
+    59|    59|    59|              ₿ {{ item.symbol }} — ${{ "%.2f"|format(item.price) if item.price >= 1 else "%.4f"|format(item.price) }}
+    60|    60|    60|            {% elif section == 'github' %}
+    61|    61|    61|              {{ item.name }}
+    62|    62|    62|            {% endif %}
+    63|    63|    63|          </div>
+    64|    64|    64|          <div class="item-meta">
+    65|    65|    65|            {% if section == 'hn' %}
+    66|    66|    66|              ⬆ {{ item.score }} points · 💬 {{ item.comments }} comments · by {{ item.by }}
+    67|    67|    67|            {% elif section == 'stocks' %}
+    68|    68|    68|              H: ${{ "%.2f"|format(item.high) }} · L: ${{ "%.2f"|format(item.low) }}
+    69|    69|    69|            {% elif section == 'crypto' %}
+    70|    70|    70|              Vol: {{ item.volume_fmt }}
+    71|    71|    71|            {% elif section == 'github' %}
+    72|    72|    72|              ⭐ {{ item.stars_fmt }} · {{ item.language }}
+    73|    73|    73|            {% endif %}
+    74|    74|    74|          </div>
+    75|    75|    75|        </div>
+    76|    76|    76|        {% if section in ('stocks', 'crypto') %}
+    77|    77|    77|        <div class="item-value {{ 'up' if item.change_pct >= 0 else 'down' }}">
+    78|    78|    78|          {{ '+' if item.change_pct >= 0 }}{{ "%.2f"|format(item.change_pct) }}%
+    79|    79|    79|        </div>
+    80|    80|    80|        {% endif %}
+    81|    81|    81|      </div>
+    82|    82|    82|      {% endfor %}
+    83|    83|    83|    </div>
+    84|    84|    84|    <a href="/" class="cta">View Full Dashboard →</a>
+    85|    85|    85|  </div>
+    86|    86|    86|  <footer><p>TrendPulse · Real-time data · Not financial advice</p></footer>
+    87|    87|    87|</body>
+    88|    88|    88|</html>
+    89|    89|    89|
