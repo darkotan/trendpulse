@@ -44,7 +44,7 @@ body { /* bg from _css.html */ }
 .container{max-width:720px;margin:0 auto;padding:32px 20px}
 
 /* Hero */
-.hero{margin-bottom:24px}
+.hero{margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--gray-100)}
 .hero h1{font-size:26px;font-weight:600;letter-spacing:-0.78px;margin-bottom:4px}
 .hero .sub{font-size:14px;color:var(--gray-500);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
 .hero .dot{width:3px;height:3px;background:var(--gray-400);border-radius:50%}
@@ -52,24 +52,24 @@ body { /* bg from _css.html */ }
 .sponsored-wrap{max-width:720px;margin:0 auto;padding:24px 20px;border-top:1px solid var(--gray-100);margin-top:24px;text-align:center}
 
 /* Stats */
-.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px}
-.stat{background:var(--white);box-shadow:var(--card-shadow);border-radius:10px;padding:12px;text-align:center}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px;padding-bottom:24px;border-bottom:1px solid var(--gray-100)}
+.stat{background:var(--white);box-shadow:var(--card-shadow);border:1px solid var(--gray-100);border-radius:10px;padding:12px;text-align:center}
 .stat .val{font-size:20px;font-weight:600;font-family:'Geist Mono',monospace}
 .stat .lbl{font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
 
 /* Tweets feed */
-.tweets-section{margin-bottom:28px}
+.tweets-section{margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--gray-100)}
 .section-label{font-size:11px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
-.tweet{background:var(--blue-bg);border-radius:10px;padding:12px 16px;margin-bottom:6px;font-size:13px;line-height:1.6}
+.tweet{background:var(--blue-bg);border:1px solid rgba(0,114,245,.08);border-radius:10px;padding:12px 16px;margin-bottom:6px;font-size:13px;line-height:1.6}
 .tweet .t-time{font-size:10px;color:var(--blue-text);font-weight:500;margin-right:8px;font-family:'Geist Mono',monospace}
 .tweet .t-ticker{font-weight:600;color:var(--accent)}
 .tweet .t-body{color:var(--gray-900)}
 
 /* Picks */
 .picks-section{margin-bottom:36px}
-.pick{background:var(--white);box-shadow:var(--card-shadow);border-radius:12px;margin-bottom:14px;overflow:hidden;transition:transform .15s ease,box-shadow .15s ease}
+.pick{background:var(--white);box-shadow:var(--card-shadow);border:1px solid var(--gray-100);border-radius:12px;margin-bottom:14px;overflow:hidden;transition:transform .15s ease,box-shadow .15s ease}
 .pick:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.08)}
-.pie-section{margin-bottom:28px}
+.pie-section{margin-bottom:28px;padding-bottom:24px;border-bottom:1px solid var(--gray-100)}
 .pie-section .section-label{margin-bottom:12px}
 .pick-/* header from _header.html */
 .pick-rank{font-size:12px;color:var(--gray-400);font-family:'Geist Mono',monospace;min-width:24px;padding-top:2px}
@@ -84,21 +84,21 @@ body { /* bg from _css.html */ }
 .tag-change{font-size:11px;color:var(--gray-500)}
 .tag-count{font-size:10px;color:var(--gray-400);font-family:'Geist Mono',monospace}
 
-.pick-body{padding:16px 20px}
+.pick-body{padding:16px 20px;border-top:1px solid var(--gray-100)}
 .pick-body p{font-size:14px;color:var(--gray-600);line-height:1.75;margin-bottom:10px}
 .pick-body p:last-child,.pick-body .signal-block:last-child{margin-bottom:0}
 .signal-block{background:rgba(245,158,11,.04);border-left:3px solid var(--orange);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--gray-900);line-height:1.7;margin-top:6px}
 .signal-block .sig-label{font-size:10px;font-weight:600;color:var(--orange);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px}
 
 /* Footer */
-footer{text-align:center;padding:32px 20px;border-top:1px solid var(--gray-100);margin-top:0;font-size:12px;color:var(--gray-400)}
+footer{text-align:center;padding:32px 20px;border-top:1px solid var(--gray-200);margin-top:0;font-size:12px;color:var(--gray-400)}
 footer a{color:var(--gray-500);text-decoration:none}
 footer a:hover{color:var(--black)}
 
 .empty{text-align:center;padding:48px 20px;color:var(--gray-400);font-size:14px}
 
 /* Refresh indicator */
-.refresh-bar{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;font-size:11px;color:var(--gray-400)}
+.refresh-bar{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;font-size:11px;color:var(--gray-400);border-top:1px solid var(--gray-100);margin-top:12px}
 .refresh-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
 @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 

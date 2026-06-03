@@ -51,7 +51,15 @@ body { /* bg from _css.html */ }
 .updated-time{font-family:'Geist Mono',monospace;font-size:12px;color:var(--gray-400)}
 
 .container{max-width:1280px;margin:0 auto;padding:40px 24px}
-.hero{text-align:center;margin-bottom:48px}
+
+/* Section styling */
+.section{margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--gray-100)}
+.section:last-child{border-bottom:none}
+.section-title{font-size:14px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--gray-100)}
+
+/* Dividers */
+.divider{border:none;border-top:1px solid var(--gray-100);margin:24px 0}
+.hero{text-align:center;margin-bottom:48px;padding-bottom:24px;border-bottom:1px solid var(--gray-100)}
 .hero h1{font-size:48px;font-weight:600;letter-spacing:-2.4px;line-height:1;color:var(--black);margin-bottom:12px}
 .hero p{font-size:18px;font-weight:400;color:var(--gray-500);max-width:560px;margin:0 auto;line-height:1.6}
 .hero .badge-row{margin-top:16px;display:flex;gap:8px;justify-content:center;flex-wrap:wrap}
@@ -59,7 +67,7 @@ body { /* bg from _css.html */ }
 
 .grid{display:grid;grid-template-columns:1fr;gap:24px;max-width:800px;margin:0 auto}
 
-.card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow:hidden;transition:box-shadow .15s ease}
+.card{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow:hidden;transition:box-shadow .15s ease}
 .card:hover{box-shadow:0 0 0 1px rgba(0,0,0,.08),0 4px 6px rgba(0,0,0,.06),0 16px 16px -8px rgba(0,0,0,.06),0 0 0 1px #fafafa}
 .card-/* header from _header.html */
 .card-title{font-size:16px;font-weight:600;letter-spacing:-0.32px;display:flex;align-items:center;gap:8px}
@@ -81,7 +89,7 @@ body { /* bg from _css.html */ }
 .post-score{font-weight:600;color:var(--reddit-orange)}
 .post-time{font-size:11px;color:var(--gray-400)}
 
-footer{max-width:1280px;margin:60px auto 0;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
+footer{max-width:1280px;margin:60px auto 0;padding:24px;text-align:center;border-top:2px solid var(--gray-100)}
 footer p{font-size:12px;color:var(--gray-400)}
 footer a{color:var(--gray-500);text-decoration:none}
 footer a:hover{text-decoration:underline}
@@ -120,6 +128,7 @@ footer a:hover{text-decoration:underline}
 </section>
 
 <div class="grid">
+<hr class="divider">
 <div class="card">
 <div class="card-header">
 <div class="card-title">

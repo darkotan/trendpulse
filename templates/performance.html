@@ -19,7 +19,10 @@ h1{font-size:24px;font-weight:600;letter-spacing:-0.72px}
 .card .l{font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.5px;margin-bottom:3px}
 .card .v{font-size:24px;font-weight:700;font-family:'Geist Mono',monospace}
 .card .s{font-size:10px;color:var(--gray-400);margin-top:2px}
-.section-title{font-size:11px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin:24px 0 10px}
+.section-title{font-size:11px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin:24px 0 10px;padding-bottom:8px;border-bottom:1px solid var(--gray-100)}
+
+/* Dividers */
+.divider{border:none;border-top:1px solid var(--gray-100);margin:24px 0}
 
 /* Loading & empty states */
 .loading{text-align:center;padding:60px 20px;color:var(--gray-400);font-size:14px}
@@ -68,7 +71,7 @@ h1{font-size:24px;font-weight:600;letter-spacing:-0.72px}
 .tag-bull{background:rgba(5,150,105,.08);color:var(--green)}
 .tag-bear{background:rgba(220,38,38,.08);color:var(--red)}
 
-footer{text-align:center;padding:36px 20px;border-top:1px solid var(--gray-100);margin-top:36px;font-size:11px;color:var(--gray-400)}
+footer{text-align:center;padding:36px 20px;border-top:2px solid var(--gray-100);margin-top:36px;font-size:11px;color:var(--gray-400)}
 
 @media(max-width:480px){
 .cards{grid-template-columns:repeat(2,1fr)}
@@ -122,7 +125,7 @@ html+=`<div class="cards">
 </div>`;
 
 // Top returns
-html+=`<div class="section-title">🏆 至今最高收益</div>`;
+html+=`<hr class="divider"><div class="section-title">🏆 至今最高收益</div>`;
 if(top.length){
 html+=`<div class="top-list">`;
 top.forEach((item,i)=>{
@@ -139,7 +142,7 @@ html+=`<div class="empty-state">暂无最高收益数据</div>`;
 }
 
 // Heatmap
-html+=`<div class="section-title">📈 观点 × 时间窗口胜率</div>`;
+html+=`<hr class="divider"><div class="section-title">📈 观点 × 时间窗口胜率</div>`;
 if(h.length){
 html+=`<div class="heat-grid">`;
 h.forEach(r=>{
@@ -157,7 +160,7 @@ html+=`<div class="empty-state">暂无胜率数据</div>`;
 }
 
 // Calibration
-html+=`<div class="section-title">🎯 校准曲线（1M 表现）</div>`;
+html+=`<hr class="divider"><div class="section-title">🎯 校准曲线（1M 表现）</div>`;
 if(c.length){
 html+=`<div class="cal-list">`;
 c.forEach(r=>{
@@ -178,7 +181,7 @@ html+=`<div class="empty-state">暂无校准数据</div>`;
 }
 
 // Stocks timeline
-html+=`<div class="section-title">📋 个股回溯</div>`;
+html+=`<hr class="divider"><div class="section-title">📋 个股回溯</div>`;
 if(stocks.length){
 html+=`<div class="stock-grid">`;
 stocks.forEach(r=>{

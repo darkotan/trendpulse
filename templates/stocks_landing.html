@@ -41,18 +41,19 @@ html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothi
 body { /* bg from _css.html */ }
 
 .container{max-width:1280px;margin:0 auto;padding:32px 24px}
-.hero{margin-bottom:40px}
+.hero{margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid var(--gray-100)}
 .hero h1{font-size:clamp(24px,4vw,36px);font-weight:600;letter-spacing:-1.5px;margin-bottom:8px}
 .hero p{font-size:16px;color:var(--gray-500);max-width:600px}
 
 .stock-table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
 .empty-state{text-align:center;padding:40px 0;color:var(--gray-400);font-size:14px}
 
-.section{margin-bottom:40px}
+.section{margin-bottom:40px;padding-bottom:20px;border-bottom:1px solid var(--gray-100)}
+.section:last-child{border-bottom:none}
 .section-title{font-size:14px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--gray-100)}
 
 .stock-table{width:100%;border-collapse:collapse}
-.stock-table th{text-align:left;font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;padding:8px 12px;border-bottom:1px solid var(--gray-100)}
+.stock-table th{text-align:left;font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;padding:8px 12px;border-bottom:2px solid var(--gray-100)}
 .stock-table td{padding:10px 12px;border-bottom:1px solid var(--gray-50);font-size:14px}
 .stock-table tr:hover td{background:var(--gray-50)}
 .stock-sym{font-weight:600;font-family:'Geist Mono',monospace}
@@ -63,7 +64,7 @@ body { /* bg from _css.html */ }
 .stock-mkt{color:var(--gray-400);font-family:'Geist Mono',monospace}
 .up{color:var(--green)}.down{color:var(--red)}
 
-footer{max-width:1280px;margin:60px auto 0;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
+footer{max-width:1280px;margin:60px auto 0;padding:24px;text-align:center;border-top:2px solid var(--gray-100)}
 footer p{font-size:12px;color:var(--gray-400)}
 footer a{color:var(--gray-400);text-decoration:underline}
 footer a:hover{color:var(--blue)}

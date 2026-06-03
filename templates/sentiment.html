@@ -54,7 +54,7 @@ body { /* bg from _css.html */ }
 .hero p{font-size:16px;color:var(--gray-500);max-width:520px;margin:0 auto;line-height:1.6}
 
 /* ── Gauge ── */
-.gauge-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:48px 32px;text-align:center;margin-bottom:24px;transition:box-shadow .15s ease}
+.gauge-card{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:48px 32px;text-align:center;margin-bottom:24px;transition:box-shadow .15s ease}
 .gauge-card:hover{box-shadow:var(--shadow-card-hover)}
 .gauge-label{font-size:13px;font-weight:600;text-transform:uppercase;letter-spacing:1px;color:var(--gray-400);margin-bottom:24px}
 
@@ -68,11 +68,14 @@ body { /* bg from _css.html */ }
 .gauge-scale{display:flex;justify-content:space-between;max-width:320px;margin:0 auto;padding-top:16px;border-top:1px solid var(--gray-100)}
 .gauge-scale span{font-size:11px;font-weight:500;color:var(--gray-400);font-family:'Geist Mono',monospace}
 
+/* ── Dividers ── */
+.divider{border:none;border-top:1px solid var(--gray-100);margin:24px 0}
+
 /* ── Info Cards Grid ── */
 .info-grid{display:grid;grid-template-columns:1fr;gap:24px;margin-bottom:24px}
 @media(min-width:600px){.info-grid{grid-template-columns:1fr 1fr}}
 
-.card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow:hidden;transition:box-shadow .15s ease}
+.card{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow:hidden;transition:box-shadow .15s ease}
 .card:hover{box-shadow:var(--shadow-card-hover)}
 .card-/* header from _header.html */
 .card-title{font-size:15px;font-weight:600;letter-spacing:-0.3px;display:flex;align-items:center;gap:8px}
@@ -95,13 +98,13 @@ body { /* bg from _css.html */ }
 .up{color:var(--green)}.down{color:var(--red)}
 
 /* ── Treasury Table ── */
-.table-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow-x:auto;margin-bottom:24px;transition:box-shadow .15s ease}
+.table-card{background:var(--white);border:1px solid var(--gray-100);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow-x:auto;margin-bottom:24px;transition:box-shadow .15s ease}
 .table-card:hover{box-shadow:var(--shadow-card-hover)}
 .table-/* header from _header.html */
 .table-title{font-size:15px;font-weight:600;letter-spacing:-0.3px;display:flex;align-items:center;gap:8px}
 
 table{width:100%;border-collapse:collapse;min-width:480px}
-th{text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray-400);padding:12px 20px;border-bottom:1px solid var(--gray-100);background:var(--gray-50)}
+th{text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray-400);padding:12px 20px;border-bottom:2px solid var(--gray-100);background:var(--gray-50)}
 td{padding:14px 20px;font-size:14px;border-bottom:1px solid var(--gray-100)}
 tr:last-child td{border-bottom:none}
 tr:hover td{background:var(--gray-50)}
@@ -113,7 +116,7 @@ td.change-cell{font-family:'Geist Mono',monospace;font-weight:600}
 .empty-state{text-align:center;padding:40px 20px;color:var(--gray-400);font-size:14px}
 .empty-state .icon{font-size:32px;margin-bottom:8px}
 
-footer{max-width:960px;margin:60px auto 0;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
+footer{max-width:960px;margin:60px auto 0;padding:24px;text-align:center;border-top:2px solid var(--gray-100)}
 footer p{font-size:12px;color:var(--gray-400)}
 footer a{color:var(--gray-500);text-decoration:none}
 footer a:hover{text-decoration:underline}
@@ -197,6 +200,7 @@ stroke-dashoffset="{{ '%.2f'|format(dash_offset) }}" />
 {% endif %}
 
 {# ─── VIX + Info Cards ─── #}
+<hr class="divider">
 <div class="info-grid">
 {# ─── VIX Card ─── #}
 <div class="card">
@@ -273,6 +277,7 @@ VIX at <strong style="color:var(--gray-600)">{{ '%.2f'|format(vix.price|float) }
 </div>
 
 {# ─── Treasury Yields Table ─── #}
+<hr class="divider">
 <div class="table-card">
 <div class="table-header">
 <div class="table-title"><span class="card-icon" style="background:var(--blue-dark)">🏦</span> Treasury Yields</div>

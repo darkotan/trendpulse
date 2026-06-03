@@ -49,13 +49,21 @@ body { /* bg from _css.html */ }
 
 .container{max-width:1280px;margin:0 auto;padding:32px 24px}
 
-.hero{margin-bottom:40px}
+/* Section styling */
+.section{margin-bottom:32px;padding-bottom:24px;border-bottom:1px solid var(--gray-100)}
+.section:last-child{border-bottom:none}
+.section-title{font-size:14px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--gray-100)}
+
+/* Dividers */
+.divider{border:none;border-top:1px solid var(--gray-100);margin:24px 0}
+
+.hero{margin-bottom:40px;padding-bottom:24px;border-bottom:1px solid var(--gray-100)}
 .hero h1{font-size:36px;font-weight:600;letter-spacing:-1.5px;margin-bottom:8px}
 .hero p{font-size:16px;color:var(--gray-500);max-width:600px}
 
 .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px}
 
-.coin-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:24px;text-decoration:none;color:var(--black);display:flex;flex-direction:column;gap:16px;transition:box-shadow 0.15s ease,border-color 0.15s ease;border:2px solid transparent;position:relative;overflow:hidden}
+.coin-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:24px;text-decoration:none;color:var(--black);display:flex;flex-direction:column;gap:16px;transition:box-shadow 0.15s ease,border-color 0.15s ease;border:1px solid var(--gray-100);position:relative;overflow:hidden}
 .coin-card:hover{border-color:var(--orange);box-shadow:var(--shadow-card),0 0 0 1px var(--orange)}
 .coin-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);opacity:0;transition:opacity 0.15s ease}
 .coin-card:hover::before{opacity:1}
@@ -79,7 +87,7 @@ body { /* bg from _css.html */ }
 .empty-state{text-align:center;padding:60px 24px;color:var(--gray-400)}
 .empty-state h2{font-size:20px;font-weight:600;margin-bottom:8px;color:var(--gray-500)}
 
-footer{margin-top:40px;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
+footer{margin-top:40px;padding:24px;text-align:center;border-top:2px solid var(--gray-100)}
 footer p{font-size:12px;color:var(--gray-400)}
 footer a{color:var(--gray-500);text-decoration:none}
 
@@ -99,6 +107,7 @@ footer a{color:var(--gray-500);text-decoration:none}
 <p>{{ description }}</p>
 </div>
 
+<hr class="divider">
 {% if coins %}
 <div class="cards-grid">
 {% for coin in coins %}
