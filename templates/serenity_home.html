@@ -1,381 +1,380 @@
-     1|     1|     1|     1|<!DOCTYPE html>
-     2|     2|     2|     2|<html lang="{{ lang }}">
-     3|     3|     3|     3|<head>
-     4|     4|     4|     4|  <meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
-     5|     5|     5|     5|  {% if lang == 'zh' %}
-     6|     6|     6|     6|  <title>Serenity 投研 — AI产业链深度追踪 | TrendPulse</title>
-     7|     7|     7|     7|  <meta name="description" content="Serenity 投研终端：每日热点标的深度分析、多空评级、AI产业链追踪。优先级分数=提及频率×确定度×新鲜度×风险回报比。">
-     8|     8|     8|     8|  {% elif lang == 'ja' %}
-     9|     9|     9|     9|  <title>Serenity リサーチ — AI サプライチェーン追跡 | TrendPulse</title>
-    10|    10|    10|    10|  <meta name="description" content="Serenity リサーチターミナル：毎日のホット銘柄分析、強弱評価、AIサプライチェーン追跡。">
-    11|    11|    11|    11|  {% elif lang == 'ko' %}
-    12|    12|    12|    12|  <title>Serenity 리서치 — AI 공급망 추적 | TrendPulse</title>
-    13|    13|    13|    13|  <meta name="description" content="Serenity 리서치 터미널: 매일 핫 종목 심층 분석, 강약 평가, AI 공급망 추적.">
-    14|    14|    14|    14|  {% elif lang == 'fr' %}
-    15|    15|    15|    15|  <title>Serenity Recherche — Chaîne d'Approvisionnement IA | TrendPulse</title>
-    16|    16|    16|    16|  <meta name="description" content="Terminal de Recherche Serenity : Analyse quotidienne, notations haussières/baissières, suivi de la chaîne IA.">
-    17|    17|    17|    17|  {% elif lang == 'de' %}
-    18|    18|    18|    18|  <title>Serenity Research — KI-Lieferkette Analyse | TrendPulse</title>
-    19|    19|    19|    19|  <meta name="description" content="Serenity Research Terminal: Tägliche Aktienanalyse, Bullish/Bearish Bewertungen, KI-Lieferkette Verfolgung.">
-    20|    20|    20|    20|  {% elif lang == 'es' %}
-    21|    21|    21|    21|  <title>Serenity Investigación — Cadena de Suministro IA | TrendPulse</title>
-    22|    22|    22|    22|  <meta name="description" content="Terminal de Investigación Serenity: Análisis diario, calificaciones alcistas/bajistas, seguimiento de cadena IA.">
-    23|    23|    23|    23|  {% elif lang == 'pt' %}
-    24|    24|    24|    24|  <title>Serenity Pesquisa — Cadeia de Suprimentos IA | TrendPulse</title>
-    25|    25|    25|    25|  <meta name="description" content="Terminal de Pesquisa Serenity: Análise diária, classificações de alta/baixa, rastreamento da cadeia de IA.">
-    26|    26|    26|    26|  {% elif lang == 'ar' %}
-    27|    27|    27|    27|  <title>أبحاث Serenity — سلسلة توريد الذكاء الاصطناعي | TrendPulse</title>
-    28|    28|    28|    28|  <meta name="description" content="طرفيّة أبحاث Serenity: تحليل يومي، تقييمات صعودية/هبوطية، تتبع سلسلة توريد الذكاء الاصطناعي.">
-    29|    29|    29|    29|  {% elif lang == 'ru' %}
-    30|    30|    30|    30|  <title>Serenity Research — ИИ цепочка поставок | TrendPulse</title>
-    31|    31|    31|    31|  <meta name="description" content="Терминал исследований Serenity: Ежедневный анализ, бычьи/медвежьи оценки, отслеживание ИИ-цепочки поставок.">
-    32|    32|    32|    32|  {% else %}
-    33|    33|    33|    33|  <title>Serenity Research — AI Supply Chain Intelligence | TrendPulse</title>
-    34|    34|    34|    34|  <meta name="description" content="Serenity Research Terminal: Daily hot stock deep analysis, bullish/bearish ratings, AI supply chain tracking. Priority = Mentions × Conviction × Freshness × Risk/Reward.">
-    35|    35|    35|    35|  {% endif %}
-    36|    36|    36|    36|  <!-- fonts loaded via _css.html -->
-    37|    37|    37|    37|  <style>
-    38|    38|    38|    38|    
-    39|    39|    39|    39|    *{box-sizing:border-box;margin:0;padding:0}
-    40|    40|    40|    40|    html{overflow-x:clip}
-    41|    41|    41|    41|    body{overflow-x:hidden;max-width:100vw}
-    42|    42|    42|    42|    body { /* bg from _css.html */ }
-    43|    43|    43|    43|
-    44|    44|    44|    44|    .container{max-width:720px;margin:0 auto;padding:32px 20px}
-    45|    45|    45|    45|
-    46|    46|    46|    46|    /* Hero */
-    47|    47|    47|    47|    .hero{margin-bottom:24px}
-    48|    48|    48|    48|    .hero h1{font-size:26px;font-weight:600;letter-spacing:-0.78px;margin-bottom:4px}
-    49|    49|    49|    49|    .hero .sub{font-size:14px;color:var(--gray-500);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
-    50|    50|    50|    50|    .hero .dot{width:3px;height:3px;background:var(--gray-400);border-radius:50%}
-    51|    51|    51|    51|    .intro-box{margin-top:14px;padding:16px 20px;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:10px;font-size:13px;color:var(--gray-600);line-height:1.8}
-    52|    52|    52|    52|    .sponsored-wrap{max-width:720px;margin:0 auto;padding:24px 20px;border-top:1px solid var(--gray-100);margin-top:24px;text-align:center}
-    53|    53|    53|    53|
-    54|    54|    54|    54|    /* Stats */
-    55|    55|    55|    55|    .stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px}
-    56|    56|    56|    56|    .stat{background:var(--white);box-shadow:var(--card-shadow);border-radius:10px;padding:12px;text-align:center}
-    57|    57|    57|    57|    .stat .val{font-size:20px;font-weight:600;font-family:'Geist Mono',monospace}
-    58|    58|    58|    58|    .stat .lbl{font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
-    59|    59|    59|    59|
-    60|    60|    60|    60|    /* Tweets feed */
-    61|    61|    61|    61|    .tweets-section{margin-bottom:28px}
-    62|    62|    62|    62|    .section-label{font-size:11px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
-    63|    63|    63|    63|    .tweet{background:var(--blue-bg);border-radius:10px;padding:12px 16px;margin-bottom:6px;font-size:13px;line-height:1.6}
-    64|    64|    64|    64|    .tweet .t-time{font-size:10px;color:var(--blue-text);font-weight:500;margin-right:8px;font-family:'Geist Mono',monospace}
-    65|    65|    65|    65|    .tweet .t-ticker{font-weight:600;color:var(--accent)}
-    66|    66|    66|    66|    .tweet .t-body{color:var(--gray-900)}
-    67|    67|    67|    67|
-    68|    68|    68|    68|    /* Picks */
-    69|    69|    69|    69|    .picks-section{margin-bottom:36px}
-    70|    70|    70|    70|    .pick{background:var(--white);box-shadow:var(--card-shadow);border-radius:12px;margin-bottom:14px;overflow:hidden;transition:transform .15s ease,box-shadow .15s ease}
-    71|    71|    71|    71|    .pick:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.08)}
-    72|    72|    72|    72|    .pie-section{margin-bottom:28px}
-    73|    73|    73|    73|    .pie-section .section-label{margin-bottom:12px}
-    74|    74|    74|    74|    .pick-/* header from _header.html */
-    75|    75|    75|    75|    .pick-rank{font-size:12px;color:var(--gray-400);font-family:'Geist Mono',monospace;min-width:24px;padding-top:2px}
-    76|    76|    76|    76|    .pick-meta{flex:1;min-width:0}
-    77|    77|    77|    77|    .pick-sym{font-size:17px;font-weight:600;letter-spacing:-0.34px}
-    78|    78|    78|    78|    .pick-tags{display:flex;align-items:center;gap:8px;margin-top:3px;flex-wrap:wrap}
-    79|    79|    79|    79|    .tag-view{font-size:10px;font-weight:600;padding:2px 8px;border-radius:5px}
-    80|    80|    80|    80|    .bull{color:var(--green);background:rgba(5,150,105,.08)}
-    81|    81|    81|    81|    .bear{color:var(--red);background:rgba(220,38,38,.08)}
-    82|    82|    82|    82|    .neutral-tag{color:var(--gray-500);background:var(--gray-50)}
-    83|    83|    83|    83|    .tag-pri{font-size:11px;color:var(--accent);font-weight:500;font-family:'Geist Mono',monospace}
-    84|    84|    84|    84|    .tag-change{font-size:11px;color:var(--gray-500)}
-    85|    85|    85|    85|    .tag-count{font-size:10px;color:var(--gray-400);font-family:'Geist Mono',monospace}
-    86|    86|    86|    86|
-    87|    87|    87|    87|    .pick-body{padding:16px 20px}
-    88|    88|    88|    88|    .pick-body p{font-size:14px;color:var(--gray-600);line-height:1.75;margin-bottom:10px}
-    89|    89|    89|    89|    .pick-body p:last-child,.pick-body .signal-block:last-child{margin-bottom:0}
-    90|    90|    90|    90|    .signal-block{background:rgba(245,158,11,.04);border-left:3px solid var(--orange);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--gray-900);line-height:1.7;margin-top:6px}
-    91|    91|    91|    91|    .signal-block .sig-label{font-size:10px;font-weight:600;color:var(--orange);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px}
-    92|    92|    92|    92|
-    93|    93|    93|    93|    /* Footer */
-    94|    94|    94|    94|    footer{text-align:center;padding:32px 20px;border-top:1px solid var(--gray-100);margin-top:0;font-size:12px;color:var(--gray-400)}
-    95|    95|    95|    95|    footer a{color:var(--gray-500);text-decoration:none}
-    96|    96|    96|    96|    footer a:hover{color:var(--black)}
-    97|    97|    97|    97|
-    98|    98|    98|    98|    .empty{text-align:center;padding:48px 20px;color:var(--gray-400);font-size:14px}
-    99|    99|    99|    99|
-   100|   100|   100|   100|    /* Refresh indicator */
-   101|   101|   101|   101|    .refresh-bar{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;font-size:11px;color:var(--gray-400)}
-   102|   102|   102|   102|    .refresh-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
-   103|   103|   103|   103|    @keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
-   104|   104|   104|   104|
-   105|   105|   105|   105|    @media(max-width:480px){
-   106|   106|   106|   106|      .container{padding:20px 12px}
-   107|   107|   107|   107|      .hero h1{font-size:20px}
-   108|   108|   108|   108|      .hero .sub{font-size:12px;gap:4px}
-   109|   109|   109|   109|      .stats{grid-template-columns:repeat(2,1fr);gap:6px}
-   110|   110|   110|   110|      .stat{padding:12px 14px}
-   111|   111|   111|   111|      .stat .val{font-size:20px}
-   112|   112|   112|   112|      .pick-/* header from _header.html */
-   113|   113|   113|   113|      .pick-body{padding:12px 14px}
-   114|   114|   114|   114|      .pick-sym{font-size:16px}
-   115|   115|   115|   115|      .intro-box{font-size:12px;padding:12px 14px;line-height:1.7}
-   116|   116|   116|   116|      .tweet{padding:8px 12px}
-   117|   117|   117|   117|      .pie-section>div{flex-direction:column;align-items:center}
-   118|   118|   118|   118|      .pie-section canvas{max-width:160px;max-height:160px}
-   119|   119|   119|   119|      .sponsored-wrap{padding:20px 12px}
-   120|   120|   120|   120|      .sponsored-wrap a{font-size:12px;padding:6px 12px}
-   121|   121|   121|   121|    }
-   122|   122|   122|   122|    @media(min-width:481px) and (max-width:768px){
-   123|   123|   123|   123|      .stats{grid-template-columns:repeat(2,1fr)}
-   124|   124|   124|   124|      .pie-section>div{flex-direction:column;align-items:center}
-   125|   125|   125|   125|      .pie-section canvas{max-width:180px;max-height:180px}
-   126|   126|   126|   126|    }
-   127|   127|   127|   127|  </style>
-   128|   128|   128|   128|</head>
-   129|   129|   129|   129|<body>
-   130|   130|   130|   130|{% set t = T %}
-   131|   131|   131|   131|{% include '_header.html' %}
-   132|   132|   132|   132|
-   133|   133|   133|   133|  <div class="container">
-   134|   134|   134|   134|    <div class="hero">
-   135|   135|   135|   135|      <h1>{{ t.hero_title }}</h1>
-   136|   136|   136|   136|      <p class="sub">
-   137|   137|   137|   137|        <span>{{ t.tracking }} {{ serenity.total_stocks }} {{ t.stocks }}</span><span class="dot"></span>
-   138|   138|   138|   138|        <span style="color:var(--green);font-weight:500">🟢 {{ serenity.bullish_count }} {{ t.bullish }}</span><span class="dot"></span>
-   139|   139|   139|   139|        <span style="color:var(--red);font-weight:500">🔴 {{ serenity.bearish_count }} {{ t.bearish }}</span>
-   140|   140|   140|   140|        {% if serenity.last_checked %}
-   141|   141|   141|   141|        <span class="dot"></span>
-   142|   142|   142|   142|        <span style="font-size:12px">🕐 {{ serenity.last_checked }}</span>
-   143|   143|   143|   143|        {% endif %}
-   144|   144|   144|   144|      </p>
-   145|   145|   145|   145|      <div class="intro-box">
-   146|   146|   146|   146|        <strong>{{ t.site_intro_title }}</strong>
-   147|   147|   147|   147|        {{ t.site_intro }}<br><br>
-   148|   148|   148|   148|        {{ t.site_intro2 }}<br><br>
-   149|   149|   149|   149|        {{ t.disclaimer }}
-   150|   150|   150|   150|      </div>
-   151|   151|   151|   151|    </div>
-   152|   152|   152|   152|
-   153|   153|   153|   153|    <!-- Stats -->
-   154|   154|   154|   154|    <div class="stats">
-   155|   155|   155|   155|      <div class="stat"><div class="val" style="color:var(--accent)">{{ serenity.total_stocks }}</div><div class="lbl">{{ t.tracking }} {{ t.stocks }}</div></div>
-   156|   156|   156|   156|      <div class="stat"><div class="val" style="color:var(--green)">{{ serenity.bullish_count }}</div><div class="lbl">{{ t.bullish }}</div></div>
-   157|   157|   157|   157|      <div class="stat"><div class="val" style="color:var(--red)">{{ serenity.bearish_count }}</div><div class="lbl">{{ t.bearish }}</div></div>
-   158|   158|   158|   158|      <div class="stat"><div class="val">{{ serenity.hot_picks|length }}</div><div class="lbl">{{ t.hot }}</div></div>
-   159|   159|   159|   159|    </div>
-   160|   160|   160|   160|
-   161|   161|   161|   161|    <!-- Priority Pie Chart -->
-   162|   162|   162|   162|    {% if serenity.hot_picks %}
-   163|   163|   163|   163|    <div class="pie-section">
-   164|   164|   164|   164|      <div class="section-label">📊 优先级权重分布（分数越高 ≈ 仓位越重）</div>
-   165|   165|   165|   165|      <div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
-   166|   166|   166|   166|        <div style="flex:0 0 200px"><canvas id="priorityPie" width="200" height="200"></canvas></div>
-   167|   167|   167|   167|        <div style="flex:1;min-width:200px;font-size:13px" id="pieLegend"></div>
-   168|   168|   168|   168|      </div>
-   169|   169|   169|   169|    </div>
-   170|   170|   170|   170|    {% endif %}
-   171|   171|   171|   171|
-   172|   172|   172|   172|    <!-- 📡 Latest Tweets -->
-   173|   173|   173|   173|    {% if serenity.latest_tweets %}
-   174|   174|   174|   174|    <div class="tweets-section">
-   175|   175|   175|   175|      <div class="section-label">📡 Serenity {{ t.signals }}</div>
-   176|   176|   176|   176|      {% for tw in serenity.latest_tweets[:8] %}
-   177|   177|   177|   177|      <div class="tweet">
-   178|   178|   178|   178|        <span class="t-time">{{ tw.time }}</span>
-   179|   179|   179|   179|        <span class="t-ticker">${{ tw.ticker }}</span>
-   180|   180|   180|   180|        <span class="t-body">{{ tw.content }}</span>
-   181|   181|   181|   181|      </div>
-   182|   182|   182|   182|      {% endfor %}
-   183|   183|   183|   183|    </div>
-   184|   184|   184|   184|    {% endif %}
-   185|   185|   185|   185|
-   186|   186|   186|   186|    <!-- 🔥 Hot Picks -->
-   187|   187|   187|   187|    {% if serenity.hot_picks %}
-   188|   188|   188|   188|    <div class="picks-section">
-   189|   189|   189|   189|      <div class="section-label">🔥 Serenity {{ t.deep_analysis }} · {{ t.priority_formula }}</div>
-   190|   190|   190|   190|
-   191|   191|   191|   191|      {% for p in serenity.hot_picks %}
-   192|   192|   192|   192|      {% set is_bull = '看多' in (p.view or '') %}
-   193|   193|   193|   193|      {% set is_bear = '看空' in (p.view or '') %}
-   194|   194|   194|   194|      <div class="pick">
-   195|   195|   195|   195|        <div class="pick-header">
-   196|   196|   196|   196|          <div class="pick-rank">#{{ p.rank }}</div>
-   197|   197|   197|   197|          <div class="pick-meta">
-   198|   198|   198|   198|            <div class="pick-sym">{{ p.symbol }}</div>
-   199|   199|   199|   199|            <div class="pick-tags">
-   200|   200|   200|   200|              <span class="tag-view {{ 'bull' if is_bull else 'bear' if is_bear else 'neutral-tag' }}">{{ p.view }}</span>
-   201|   201|   201|   201|              <span class="tag-pri">⚡ {{ p.priority }}</span>
-   202|   202|   202|   202|              <span class="tag-count">24h:{{ p.mentions_24h }} · 7d:{{ p.mentions_7d }}</span>
-   203|   203|   203|   203|            </div>
-   204|   204|   204|   204|          </div>
-   205|   205|   205|   205|        </div>
-   206|   206|   206|   206|        <div class="pick-body">
-   207|   207|   207|   207|          {% if p.change %}
-   208|   208|   208|   208|          <p style="font-size:12px;color:var(--accent);margin-bottom:8px;font-weight:500">📌 {{ p.change }}</p>
-   209|   209|   209|   209|          {% endif %}
-   210|   210|   210|   210|          <p>{{ p.context }}</p>
-   211|   211|   211|   211|          {% if p.signals %}
-   212|   212|   212|   212|          <div class="signal-block">
-   213|   213|   213|   213|            <span class="sig-label">📊 {{ t.history_signals }}</span>
-   214|   214|   214|   214|            {{ p.signals }}
-   215|   215|   215|   215|          </div>
-   216|   216|   216|   216|          {% endif %}
-   217|   217|   217|   217|        </div>
-   218|   218|   218|   218|      </div>
-   219|   219|   219|   219|      {% endfor %}
-   220|   220|   220|   220|    </div>
-   221|   221|   221|   221|    {% else %}
-   222|   222|   222|   222|    <div class="empty">
-   223|   223|   223|   223|      <p>{{ t.no_data }}</p>
-   224|   224|   224|   224|      <p style="font-size:12px;margin-top:8px">{{ t.no_data_sub }}</p>
-   225|   225|   225|   225|    </div>
-   226|   226|   226|   226|    {% endif %}
-   227|   227|   227|   227|
-   228|   228|   228|   228|    <!-- Live refresh indicator -->
-   229|   229|   229|   229|    <div class="refresh-bar" id="refreshBar">
-   230|   230|   230|   230|      <span class="refresh-dot"></span>
-   231|   231|   231|   231|      <span>{{ t.refresh }}</span>
-   232|   232|   232|   232|    </div>
-   233|   233|   233|   233|  </div>
-   234|   234|   234|   234|
-   235|   235|   235|   235|  <div class="sponsored-wrap">
-   236|   236|   236|   236|    <span style="font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px">Sponsored</span>
-   237|   237|   237|   237|    <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
-   238|   238|   238|   238|      <a href="https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX" target="_blank" rel="nofollow sponsored" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--gray-100);border-radius:8px;text-decoration:none;color:var(--black);font-size:13px;font-weight:500;transition:border-color .15s">🟡 Binance <span style="color:var(--blue);font-size:12px">10% off →</span></a>
-   239|   239|   239|   239|      <a href="https://www.okx.com/join/35101515" target="_blank" rel="nofollow sponsored" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--gray-100);border-radius:8px;text-decoration:none;color:var(--black);font-size:13px;font-weight:500;transition:border-color .15s">⚫ OKX <span style="color:var(--blue);font-size:12px">Sign up →</span></a>
-   240|   240|   240|   240|    </div>
-   241|   241|   241|   241|  </div>
-   242|   242|   242|   242|  <footer>
-   243|   243|   243|   243|    {{ t.footer }}
-   244|   244|   244|   244|  </footer>
-   245|   245|   245|   245|
-   246|   246|   246|   246|  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-   247|   247|   247|   247|
-   248|   248|   248|   248|  <script>
-   249|   249|   249|   249|    // Translations from server-side
-   250|   250|   250|   250|    const T = {
-   251|   251|   251|   251|      signals: "{{ t.signals }}",
-   252|   252|   252|   252|      deep_analysis: "{{ t.deep_analysis }}",
-   253|   253|   253|   253|      priority_formula: "{{ t.priority_formula }}",
-   254|   254|   254|   254|      history_signals: "{{ t.history_signals }}",
-   255|   255|   255|   255|      tracking: "{{ t.tracking }}",
-   256|   256|   256|   256|      stocks: "{{ t.stocks }}",
-   257|   257|   257|   257|      bullish: "{{ t.bullish }}",
-   258|   258|   258|   258|      bearish: "{{ t.bearish }}",
-   259|   259|   259|   259|      hot: "{{ t.hot }}",
-   260|   260|   260|   260|      refreshed: "{{ t.refreshed }}",
-   261|   261|   261|   261|      refresh: "{{ t.refresh }}"
-   262|   262|   262|   262|    };
-   263|   263|   263|   263|    // Live refresh — polls /api/serenity every 2 min and updates content
-   264|   264|   264|   264|    (function(){
-   265|   265|   265|   265|      const picksSection = document.querySelector('.picks-section');
-   266|   266|   266|   266|      const tweetsSection = document.querySelector('.tweets-section');
-   267|   267|   267|   267|      const statsRow = document.querySelector('.stats');
-   268|   268|   268|   268|      const heroSub = document.querySelector('.hero .sub');
-   269|   269|   269|   269|      const refreshBar = document.getElementById('refreshBar');
-   270|   270|   270|   270|
-   271|   271|   271|   271|      function esc(s){ return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : ''; }
-   272|   272|   272|   272|
-   273|   273|   273|   273|      function renderTweet(tw){
-   274|   274|   274|   274|        return `<div class="tweet">
-   275|   275|   275|   275|          <span class="t-time">${esc(tw.time)}</span>
-   276|   276|   276|   276|          <span class="t-ticker">$${esc(tw.ticker)}</span>
-   277|   277|   277|   277|          <span class="t-body">${esc(tw.content)}</span>
-   278|   278|   278|   278|        </div>`;
-   279|   279|   279|   279|      }
-   280|   280|   280|   280|
-   281|   281|   281|   281|      function renderPick(p){
-   282|   282|   282|   282|        const isBull = (p.view||'').includes('看多'), isBear = (p.view||'').includes('看空');
-   283|   283|   283|   283|        const viewCls = isBull ? 'bull' : isBear ? 'bear' : 'neutral-tag';
-   284|   284|   284|   284|        return `<div class="pick">
-   285|   285|   285|   285|          <div class="pick-header">
-   286|   286|   286|   286|            <div class="pick-rank">#${p.rank}</div>
-   287|   287|   287|   287|            <div class="pick-meta">
-   288|   288|   288|   288|              <div class="pick-sym">${esc(p.symbol)}</div>
-   289|   289|   289|   289|              <div class="pick-tags">
-   290|   290|   290|   290|                <span class="tag-view ${viewCls}">${esc(p.view)}</span>
-   291|   291|   291|   291|                <span class="tag-pri">⚡ ${p.priority}</span>
-   292|   292|   292|   292|                <span class="tag-count">24h:${p.mentions_24h||0} · 7d:${p.mentions_7d||0}</span>
-   293|   293|   293|   293|              </div>
-   294|   294|   294|   294|            </div>
-   295|   295|   295|   295|          </div>
-   296|   296|   296|   296|          <div class="pick-body">
-   297|   297|   297|   297|            ${p.change ? `<p style="font-size:12px;color:var(--accent);margin-bottom:8px;font-weight:500">📌 ${esc(p.change)}</p>` : ''}
-   298|   298|   298|   298|            <p>${esc(p.context||'')}</p>
-   299|   299|   299|   299|            ${p.signals ? `<div class="signal-block"><span class="sig-label">📊 ${T.history_signals}</span>${esc(p.signals)}</div>` : ''}
-   300|   300|   300|   300|          </div>
-   301|   301|   301|   301|        </div>`;
-   302|   302|   302|   302|      }
-   303|   303|   303|   303|
-   304|   304|   304|   304|      async function refresh(){
-   305|   305|   305|   305|        try{
-   306|   306|   306|   306|          const res = await fetch('/api/serenity');
-   307|   307|   307|   307|          const sr = await res.json();
-   308|   308|   308|   308|          const picks = sr.hot_picks||[];
-   309|   309|   309|   309|          const tweets = sr.latest_tweets||[];
-   310|   310|   310|   310|
-   311|   311|   311|   311|          if(picksSection && picks.length){
-   312|   312|   312|   312|            picksSection.innerHTML = `<div class="section-label">🔥 Serenity ${T.deep_analysis} · ${T.priority_formula}</div>` + picks.map(renderPick).join('');
-   313|   313|   313|   313|          }
-   314|   314|   314|   314|
-   315|   315|   315|   315|          if(tweetsSection && tweets.length){
-   316|   316|   316|   316|            tweetsSection.innerHTML = `<div class="section-label">📡 Serenity ${T.signals}</div>` + tweets.slice(0,8).map(renderTweet).join('');
-   317|   317|   317|   317|          } else if(tweetsSection && !tweets.length){
-   318|   318|   318|   318|            tweetsSection.innerHTML = '';
-   319|   319|   319|   319|          }
-   320|   320|   320|   320|
-   321|   321|   321|   321|          if(statsRow){
-   322|   322|   322|   322|            statsRow.innerHTML = `<div class="stat"><div class="val" style="color:var(--accent)">${sr.total_stocks||704}</div><div class="lbl">${T.tracking} ${T.stocks}</div></div>
-   323|   323|   323|   323|              <div class="stat"><div class="val" style="color:var(--green)">${sr.bullish_count||0}</div><div class="lbl">${T.bullish}</div></div>
-   324|   324|   324|   324|              <div class="stat"><div class="val" style="color:var(--red)">${sr.bearish_count||0}</div><div class="lbl">${T.bearish}</div></div>
-   325|   325|   325|   325|              <div class="stat"><div class="val">${picks.length}</div><div class="lbl">${T.hot}</div></div>`;
-   326|   326|   326|   326|          }
-   327|   327|   327|   327|
-   328|   328|   328|   328|          if(heroSub && sr.last_checked){
-   329|   329|   329|   329|            heroSub.innerHTML = `<span>${T.tracking} ${sr.total_stocks||704} ${T.stocks}</span><span class="dot"></span>
-   330|   330|   330|   330|              <span style="color:var(--green);font-weight:500">🟢 ${sr.bullish_count||0} ${T.bullish}</span><span class="dot"></span>
-   331|   331|   331|   331|              <span style="color:var(--red);font-weight:500">🔴 ${sr.bearish_count||0} ${T.bearish}</span>
-   332|   332|   332|   332|              <span class="dot"></span><span style="font-size:12px">🕐 ${sr.last_checked}</span>`;
-   333|   333|   333|   333|          }
-   334|   334|   334|   334|
-   335|   335|   335|   335|          if(refreshBar){
-   336|   336|   336|   336|            refreshBar.innerHTML = '<span class="refresh-dot"></span><span>' + T.refreshed + '</span>';
-   337|   337|   337|   337|            setTimeout(()=>{refreshBar.innerHTML='<span class="refresh-dot"></span><span>' + T.refresh + '</span>';},3000);
-   338|   338|   338|   338|          }
-   339|   339|   339|   339|        }catch(e){console.error('Refresh failed',e);}
-   340|   340|   340|   340|      }
-   341|   341|   341|   341|
-   342|   342|   342|   342|      setInterval(refresh, 120000);
-   343|   343|   343|   343|
-   344|   344|   344|   344|      // Render priority pie chart
-   345|   345|   345|   345|      const picks = {{ serenity.hot_picks | tojson }};
-   346|   346|   346|   346|      if (picks && picks.length > 0 && document.getElementById('priorityPie')) {
-   347|   347|   347|   347|        const total = picks.reduce((s,p) => s + (p.priority||0), 0);
-   348|   348|   348|   348|        const colors = ['#7c3aed','#8b5cf6','#a78bfa','#c4b5fd','#0072f5','#3b82f6','#60a5fa','#059669','#e67e00','#dc2626'];
-   349|   349|   349|   349|        const data = picks.slice(0,8).map(p => p.priority);
-   350|   350|   350|   350|        const labels = picks.slice(0,8).map(p => p.symbol);
-   351|   351|   351|   351|        new Chart(document.getElementById('priorityPie'), {
-   352|   352|   352|   352|          type: 'doughnut',
-   353|   353|   353|   353|          data: {
-   354|   354|   354|   354|            labels: labels,
-   355|   355|   355|   355|            datasets: [{data:data,backgroundColor:colors,borderWidth:2,borderColor:'#fff'}]
-   356|   356|   356|   356|          },
-   357|   357|   357|   357|          options: {
-   358|   358|   358|   358|            responsive:true,maintainAspectRatio:true,
-   359|   359|   359|   359|            plugins:{legend:{display:false}},
-   360|   360|   360|   360|          }
-   361|   361|   361|   361|        });
-   362|   362|   362|   362|        // Legend
-   363|   363|   363|   363|        const leg = document.getElementById('pieLegend');
-   364|   364|   364|   364|        leg.innerHTML = picks.slice(0,8).map((p,i) => {
-   365|   365|   365|   365|          const pct = ((p.priority/total)*100).toFixed(1);
-   366|   366|   366|   366|          return `<div style="display:flex;align-items:center;gap:8px;padding:4px 0">
-   367|   367|   367|   367|            <span style="width:12px;height:12px;border-radius:3px;background:${colors[i]};flex-shrink:0"></span>
-   368|   368|   368|   368|            <span style="font-weight:600;min-width:48px">${p.symbol}</span>
-   369|   369|   369|   369|            <span style="font-family:monospace;font-size:12px;color:var(--gray-400)">优先${p.priority} · ${pct}%</span>
-   370|   370|   370|   370|          </div>`;
-   371|   371|   371|   371|        }).join('');
-   372|   372|   372|   372|        if (picks.length > 8) {
-   373|   373|   373|   373|          const otherPct = ((picks.slice(8).reduce((s,p)=>s+(p.priority||0),0)/total)*100).toFixed(1);
-   374|   374|   374|   374|          leg.innerHTML += `<div style="display:flex;align-items:center;gap:8px;padding:4px 0;color:var(--gray-400);font-size:12px">+${picks.length-8} 其他 · ${otherPct}%</div>`;
-   375|   375|   375|   375|        }
-   376|   376|   376|   376|      }
-   377|   377|   377|   377|    })();
-   378|   378|   378|   378|  </script>
-   379|   379|   379|   379|</body>
-   380|   380|   380|   380|</html>
-   381|   381|   381|   381|
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1.0">
+{% if lang == 'zh' %}
+<title>Serenity 投研 — AI产业链深度追踪 | TrendPulse</title>
+<meta name="description" content="Serenity 投研终端：每日热点标的深度分析、多空评级、AI产业链追踪。优先级分数=提及频率×确定度×新鲜度×风险回报比。">
+{% elif lang == 'ja' %}
+<title>Serenity リサーチ — AI サプライチェーン追跡 | TrendPulse</title>
+<meta name="description" content="Serenity リサーチターミナル：毎日のホット銘柄分析、強弱評価、AIサプライチェーン追跡。">
+{% elif lang == 'ko' %}
+<title>Serenity 리서치 — AI 공급망 추적 | TrendPulse</title>
+<meta name="description" content="Serenity 리서치 터미널: 매일 핫 종목 심층 분석, 강약 평가, AI 공급망 추적.">
+{% elif lang == 'fr' %}
+<title>Serenity Recherche — Chaîne d'Approvisionnement IA | TrendPulse</title>
+<meta name="description" content="Terminal de Recherche Serenity : Analyse quotidienne, notations haussières/baissières, suivi de la chaîne IA.">
+{% elif lang == 'de' %}
+<title>Serenity Research — KI-Lieferkette Analyse | TrendPulse</title>
+<meta name="description" content="Serenity Research Terminal: Tägliche Aktienanalyse, Bullish/Bearish Bewertungen, KI-Lieferkette Verfolgung.">
+{% elif lang == 'es' %}
+<title>Serenity Investigación — Cadena de Suministro IA | TrendPulse</title>
+<meta name="description" content="Terminal de Investigación Serenity: Análisis diario, calificaciones alcistas/bajistas, seguimiento de cadena IA.">
+{% elif lang == 'pt' %}
+<title>Serenity Pesquisa — Cadeia de Suprimentos IA | TrendPulse</title>
+<meta name="description" content="Terminal de Pesquisa Serenity: Análise diária, classificações de alta/baixa, rastreamento da cadeia de IA.">
+{% elif lang == 'ar' %}
+<title>أبحاث Serenity — سلسلة توريد الذكاء الاصطناعي | TrendPulse</title>
+<meta name="description" content="طرفيّة أبحاث Serenity: تحليل يومي، تقييمات صعودية/هبوطية، تتبع سلسلة توريد الذكاء الاصطناعي.">
+{% elif lang == 'ru' %}
+<title>Serenity Research — ИИ цепочка поставок | TrendPulse</title>
+<meta name="description" content="Терминал исследований Serenity: Ежедневный анализ, бычьи/медвежьи оценки, отслеживание ИИ-цепочки поставок.">
+{% else %}
+<title>Serenity Research — AI Supply Chain Intelligence | TrendPulse</title>
+<meta name="description" content="Serenity Research Terminal: Daily hot stock deep analysis, bullish/bearish ratings, AI supply chain tracking. Priority = Mentions × Conviction × Freshness × Risk/Reward.">
+{% endif %}
+<!-- fonts loaded via _css.html -->
+<style>
+
+*{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:clip}
+body{overflow-x:hidden;max-width:100vw}
+body { /* bg from _css.html */ }
+
+.container{max-width:720px;margin:0 auto;padding:32px 20px}
+
+/* Hero */
+.hero{margin-bottom:24px}
+.hero h1{font-size:26px;font-weight:600;letter-spacing:-0.78px;margin-bottom:4px}
+.hero .sub{font-size:14px;color:var(--gray-500);display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.hero .dot{width:3px;height:3px;background:var(--gray-400);border-radius:50%}
+.intro-box{margin-top:14px;padding:16px 20px;background:var(--gray-50);border:1px solid var(--gray-100);border-radius:10px;font-size:13px;color:var(--gray-600);line-height:1.8}
+.sponsored-wrap{max-width:720px;margin:0 auto;padding:24px 20px;border-top:1px solid var(--gray-100);margin-top:24px;text-align:center}
+
+/* Stats */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-bottom:24px}
+.stat{background:var(--white);box-shadow:var(--card-shadow);border-radius:10px;padding:12px;text-align:center}
+.stat .val{font-size:20px;font-weight:600;font-family:'Geist Mono',monospace}
+.stat .lbl{font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:.6px;margin-top:2px}
+
+/* Tweets feed */
+.tweets-section{margin-bottom:28px}
+.section-label{font-size:11px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:10px}
+.tweet{background:var(--blue-bg);border-radius:10px;padding:12px 16px;margin-bottom:6px;font-size:13px;line-height:1.6}
+.tweet .t-time{font-size:10px;color:var(--blue-text);font-weight:500;margin-right:8px;font-family:'Geist Mono',monospace}
+.tweet .t-ticker{font-weight:600;color:var(--accent)}
+.tweet .t-body{color:var(--gray-900)}
+
+/* Picks */
+.picks-section{margin-bottom:36px}
+.pick{background:var(--white);box-shadow:var(--card-shadow);border-radius:12px;margin-bottom:14px;overflow:hidden;transition:transform .15s ease,box-shadow .15s ease}
+.pick:hover{transform:translateY(-1px);box-shadow:0 0 0 1px rgba(0,0,0,.06),0 4px 12px rgba(0,0,0,.08)}
+.pie-section{margin-bottom:28px}
+.pie-section .section-label{margin-bottom:12px}
+.pick-/* header from _header.html */
+.pick-rank{font-size:12px;color:var(--gray-400);font-family:'Geist Mono',monospace;min-width:24px;padding-top:2px}
+.pick-meta{flex:1;min-width:0}
+.pick-sym{font-size:17px;font-weight:600;letter-spacing:-0.34px}
+.pick-tags{display:flex;align-items:center;gap:8px;margin-top:3px;flex-wrap:wrap}
+.tag-view{font-size:10px;font-weight:600;padding:2px 8px;border-radius:5px}
+.bull{color:var(--green);background:rgba(5,150,105,.08)}
+.bear{color:var(--red);background:rgba(220,38,38,.08)}
+.neutral-tag{color:var(--gray-500);background:var(--gray-50)}
+.tag-pri{font-size:11px;color:var(--accent);font-weight:500;font-family:'Geist Mono',monospace}
+.tag-change{font-size:11px;color:var(--gray-500)}
+.tag-count{font-size:10px;color:var(--gray-400);font-family:'Geist Mono',monospace}
+
+.pick-body{padding:16px 20px}
+.pick-body p{font-size:14px;color:var(--gray-600);line-height:1.75;margin-bottom:10px}
+.pick-body p:last-child,.pick-body .signal-block:last-child{margin-bottom:0}
+.signal-block{background:rgba(245,158,11,.04);border-left:3px solid var(--orange);padding:10px 14px;border-radius:0 8px 8px 0;font-size:13px;color:var(--gray-900);line-height:1.7;margin-top:6px}
+.signal-block .sig-label{font-size:10px;font-weight:600;color:var(--orange);text-transform:uppercase;letter-spacing:.8px;display:block;margin-bottom:4px}
+
+/* Footer */
+footer{text-align:center;padding:32px 20px;border-top:1px solid var(--gray-100);margin-top:0;font-size:12px;color:var(--gray-400)}
+footer a{color:var(--gray-500);text-decoration:none}
+footer a:hover{color:var(--black)}
+
+.empty{text-align:center;padding:48px 20px;color:var(--gray-400);font-size:14px}
+
+/* Refresh indicator */
+.refresh-bar{display:flex;align-items:center;justify-content:center;gap:6px;padding:8px;font-size:11px;color:var(--gray-400)}
+.refresh-dot{width:5px;height:5px;background:var(--green);border-radius:50%;animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+
+@media(max-width:480px){
+.container{padding:20px 12px}
+.hero h1{font-size:20px}
+.hero .sub{font-size:12px;gap:4px}
+.stats{grid-template-columns:repeat(2,1fr);gap:6px}
+.stat{padding:12px 14px}
+.stat .val{font-size:20px}
+.pick-/* header from _header.html */
+.pick-body{padding:12px 14px}
+.pick-sym{font-size:16px}
+.intro-box{font-size:12px;padding:12px 14px;line-height:1.7}
+.tweet{padding:8px 12px}
+.pie-section>div{flex-direction:column;align-items:center}
+.pie-section canvas{max-width:160px;max-height:160px}
+.sponsored-wrap{padding:20px 12px}
+.sponsored-wrap a{font-size:12px;padding:6px 12px}
+}
+@media(min-width:481px) and (max-width:768px){
+.stats{grid-template-columns:repeat(2,1fr)}
+.pie-section>div{flex-direction:column;align-items:center}
+.pie-section canvas{max-width:180px;max-height:180px}
+}
+</style>
+</head>
+<body>
+{% set t = T %}
+{% include '_header.html' %}
+
+<div class="container">
+<div class="hero">
+<h1>{{ t.hero_title }}</h1>
+<p class="sub">
+<span>{{ t.tracking }} {{ serenity.total_stocks }} {{ t.stocks }}</span><span class="dot"></span>
+<span style="color:var(--green);font-weight:500">🟢 {{ serenity.bullish_count }} {{ t.bullish }}</span><span class="dot"></span>
+<span style="color:var(--red);font-weight:500">🔴 {{ serenity.bearish_count }} {{ t.bearish }}</span>
+{% if serenity.last_checked %}
+<span class="dot"></span>
+<span style="font-size:12px">🕐 {{ serenity.last_checked }}</span>
+{% endif %}
+</p>
+<div class="intro-box">
+<strong>{{ t.site_intro_title }}</strong>
+{{ t.site_intro }}<br><br>
+{{ t.site_intro2 }}<br><br>
+{{ t.disclaimer }}
+</div>
+</div>
+
+<!-- Stats -->
+<div class="stats">
+<div class="stat"><div class="val" style="color:var(--accent)">{{ serenity.total_stocks }}</div><div class="lbl">{{ t.tracking }} {{ t.stocks }}</div></div>
+<div class="stat"><div class="val" style="color:var(--green)">{{ serenity.bullish_count }}</div><div class="lbl">{{ t.bullish }}</div></div>
+<div class="stat"><div class="val" style="color:var(--red)">{{ serenity.bearish_count }}</div><div class="lbl">{{ t.bearish }}</div></div>
+<div class="stat"><div class="val">{{ serenity.hot_picks|length }}</div><div class="lbl">{{ t.hot }}</div></div>
+</div>
+
+<!-- Priority Pie Chart -->
+{% if serenity.hot_picks %}
+<div class="pie-section">
+<div class="section-label">📊 优先级权重分布（分数越高 ≈ 仓位越重）</div>
+<div style="display:flex;gap:24px;align-items:center;flex-wrap:wrap">
+<div style="flex:0 0 200px"><canvas id="priorityPie" width="200" height="200"></canvas></div>
+<div style="flex:1;min-width:200px;font-size:13px" id="pieLegend"></div>
+</div>
+</div>
+{% endif %}
+
+<!-- 📡 Latest Tweets -->
+{% if serenity.latest_tweets %}
+<div class="tweets-section">
+<div class="section-label">📡 Serenity {{ t.signals }}</div>
+{% for tw in serenity.latest_tweets[:8] %}
+<div class="tweet">
+<span class="t-time">{{ tw.time }}</span>
+<span class="t-ticker">${{ tw.ticker }}</span>
+<span class="t-body">{{ tw.content }}</span>
+</div>
+{% endfor %}
+</div>
+{% endif %}
+
+<!-- 🔥 Hot Picks -->
+{% if serenity.hot_picks %}
+<div class="picks-section">
+<div class="section-label">🔥 Serenity {{ t.deep_analysis }} · {{ t.priority_formula }}</div>
+
+{% for p in serenity.hot_picks %}
+{% set is_bull = '看多' in (p.view or '') %}
+{% set is_bear = '看空' in (p.view or '') %}
+<div class="pick">
+<div class="pick-header">
+<div class="pick-rank">#{{ p.rank }}</div>
+<div class="pick-meta">
+<div class="pick-sym">{{ p.symbol }}</div>
+<div class="pick-tags">
+<span class="tag-view {{ 'bull' if is_bull else 'bear' if is_bear else 'neutral-tag' }}">{{ p.view }}</span>
+<span class="tag-pri">⚡ {{ p.priority }}</span>
+<span class="tag-count">24h:{{ p.mentions_24h }} · 7d:{{ p.mentions_7d }}</span>
+</div>
+</div>
+</div>
+<div class="pick-body">
+{% if p.change %}
+<p style="font-size:12px;color:var(--accent);margin-bottom:8px;font-weight:500">📌 {{ p.change }}</p>
+{% endif %}
+<p>{{ p.context }}</p>
+{% if p.signals %}
+<div class="signal-block">
+<span class="sig-label">📊 {{ t.history_signals }}</span>
+{{ p.signals }}
+</div>
+{% endif %}
+</div>
+</div>
+{% endfor %}
+</div>
+{% else %}
+<div class="empty">
+<p>{{ t.no_data }}</p>
+<p style="font-size:12px;margin-top:8px">{{ t.no_data_sub }}</p>
+</div>
+{% endif %}
+
+<!-- Live refresh indicator -->
+<div class="refresh-bar" id="refreshBar">
+<span class="refresh-dot"></span>
+<span>{{ t.refresh }}</span>
+</div>
+</div>
+
+<div class="sponsored-wrap">
+<span style="font-size:10px;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px">Sponsored</span>
+<div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:8px">
+<a href="https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX" target="_blank" rel="nofollow sponsored" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--gray-100);border-radius:8px;text-decoration:none;color:var(--black);font-size:13px;font-weight:500;transition:border-color .15s">🟡 Binance <span style="color:var(--blue);font-size:12px">10% off →</span></a>
+<a href="https://www.okx.com/join/35101515" target="_blank" rel="nofollow sponsored" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;border:1px solid var(--gray-100);border-radius:8px;text-decoration:none;color:var(--black);font-size:13px;font-weight:500;transition:border-color .15s">⚫ OKX <span style="color:var(--blue);font-size:12px">Sign up →</span></a>
+</div>
+</div>
+<footer>
+{{ t.footer }}
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+
+<script>
+// Translations from server-side
+const T = {
+signals: "{{ t.signals }}",
+deep_analysis: "{{ t.deep_analysis }}",
+priority_formula: "{{ t.priority_formula }}",
+history_signals: "{{ t.history_signals }}",
+tracking: "{{ t.tracking }}",
+stocks: "{{ t.stocks }}",
+bullish: "{{ t.bullish }}",
+bearish: "{{ t.bearish }}",
+hot: "{{ t.hot }}",
+refreshed: "{{ t.refreshed }}",
+refresh: "{{ t.refresh }}"
+};
+// Live refresh — polls /api/serenity every 2 min and updates content
+(function(){
+const picksSection = document.querySelector('.picks-section');
+const tweetsSection = document.querySelector('.tweets-section');
+const statsRow = document.querySelector('.stats');
+const heroSub = document.querySelector('.hero .sub');
+const refreshBar = document.getElementById('refreshBar');
+
+function esc(s){ return s ? String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;') : ''; }
+
+function renderTweet(tw){
+return `<div class="tweet">
+<span class="t-time">${esc(tw.time)}</span>
+<span class="t-ticker">$${esc(tw.ticker)}</span>
+<span class="t-body">${esc(tw.content)}</span>
+</div>`;
+}
+
+function renderPick(p){
+const isBull = (p.view||'').includes('看多'), isBear = (p.view||'').includes('看空');
+const viewCls = isBull ? 'bull' : isBear ? 'bear' : 'neutral-tag';
+return `<div class="pick">
+<div class="pick-header">
+<div class="pick-rank">#${p.rank}</div>
+<div class="pick-meta">
+<div class="pick-sym">${esc(p.symbol)}</div>
+<div class="pick-tags">
+<span class="tag-view ${viewCls}">${esc(p.view)}</span>
+<span class="tag-pri">⚡ ${p.priority}</span>
+<span class="tag-count">24h:${p.mentions_24h||0} · 7d:${p.mentions_7d||0}</span>
+</div>
+</div>
+</div>
+<div class="pick-body">
+${p.change ? `<p style="font-size:12px;color:var(--accent);margin-bottom:8px;font-weight:500">📌 ${esc(p.change)}</p>` : ''}
+<p>${esc(p.context||'')}</p>
+${p.signals ? `<div class="signal-block"><span class="sig-label">📊 ${T.history_signals}</span>${esc(p.signals)}</div>` : ''}
+</div>
+</div>`;
+}
+
+async function refresh(){
+try{
+const res = await fetch('/api/serenity');
+const sr = await res.json();
+const picks = sr.hot_picks||[];
+const tweets = sr.latest_tweets||[];
+
+if(picksSection && picks.length){
+picksSection.innerHTML = `<div class="section-label">🔥 Serenity ${T.deep_analysis} · ${T.priority_formula}</div>` + picks.map(renderPick).join('');
+}
+
+if(tweetsSection && tweets.length){
+tweetsSection.innerHTML = `<div class="section-label">📡 Serenity ${T.signals}</div>` + tweets.slice(0,8).map(renderTweet).join('');
+} else if(tweetsSection && !tweets.length){
+tweetsSection.innerHTML = '';
+}
+
+if(statsRow){
+statsRow.innerHTML = `<div class="stat"><div class="val" style="color:var(--accent)">${sr.total_stocks||704}</div><div class="lbl">${T.tracking} ${T.stocks}</div></div>
+<div class="stat"><div class="val" style="color:var(--green)">${sr.bullish_count||0}</div><div class="lbl">${T.bullish}</div></div>
+<div class="stat"><div class="val" style="color:var(--red)">${sr.bearish_count||0}</div><div class="lbl">${T.bearish}</div></div>
+<div class="stat"><div class="val">${picks.length}</div><div class="lbl">${T.hot}</div></div>`;
+}
+
+if(heroSub && sr.last_checked){
+heroSub.innerHTML = `<span>${T.tracking} ${sr.total_stocks||704} ${T.stocks}</span><span class="dot"></span>
+<span style="color:var(--green);font-weight:500">🟢 ${sr.bullish_count||0} ${T.bullish}</span><span class="dot"></span>
+<span style="color:var(--red);font-weight:500">🔴 ${sr.bearish_count||0} ${T.bearish}</span>
+<span class="dot"></span><span style="font-size:12px">🕐 ${sr.last_checked}</span>`;
+}
+
+if(refreshBar){
+refreshBar.innerHTML = '<span class="refresh-dot"></span><span>' + T.refreshed + '</span>';
+setTimeout(()=>{refreshBar.innerHTML='<span class="refresh-dot"></span><span>' + T.refresh + '</span>';},3000);
+}
+}catch(e){console.error('Refresh failed',e);}
+}
+
+setInterval(refresh, 120000);
+
+// Render priority pie chart
+const picks = {{ serenity.hot_picks | tojson }};
+if (picks && picks.length > 0 && document.getElementById('priorityPie')) {
+const total = picks.reduce((s,p) => s + (p.priority||0), 0);
+const colors = ['#7c3aed','#8b5cf6','#a78bfa','#c4b5fd','#0072f5','#3b82f6','#60a5fa','#059669','#e67e00','#dc2626'];
+const data = picks.slice(0,8).map(p => p.priority);
+const labels = picks.slice(0,8).map(p => p.symbol);
+new Chart(document.getElementById('priorityPie'), {
+type: 'doughnut',
+data: {
+labels: labels,
+datasets: [{data:data,backgroundColor:colors,borderWidth:2,borderColor:'#fff'}]
+},
+options: {
+responsive:true,maintainAspectRatio:true,
+plugins:{legend:{display:false}},
+}
+});
+// Legend
+const leg = document.getElementById('pieLegend');
+leg.innerHTML = picks.slice(0,8).map((p,i) => {
+const pct = ((p.priority/total)*100).toFixed(1);
+return `<div style="display:flex;align-items:center;gap:8px;padding:4px 0">
+<span style="width:12px;height:12px;border-radius:3px;background:${colors[i]};flex-shrink:0"></span>
+<span style="font-weight:600;min-width:48px">${p.symbol}</span>
+<span style="font-family:monospace;font-size:12px;color:var(--gray-400)">优先${p.priority} · ${pct}%</span>
+</div>`;
+}).join('');
+if (picks.length > 8) {
+const otherPct = ((picks.slice(8).reduce((s,p)=>s+(p.priority||0),0)/total)*100).toFixed(1);
+leg.innerHTML += `<div style="display:flex;align-items:center;gap:8px;padding:4px 0;color:var(--gray-400);font-size:12px">+${picks.length-8} 其他 · ${otherPct}%</div>`;
+}
+}
+})();
+</script>
+</body>
+</html>

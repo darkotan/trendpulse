@@ -1,27 +1,27 @@
-     1|     1|<!DOCTYPE html>
-     2|     2|<html lang="en">
-     3|     3|<head>
-     4|     4|  <meta charset="UTF-8">
-     5|     5|  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     6|     6|  <title>{{ title }}</title>
-     7|     7|  <meta name="description" content="{{ description }}">
-     8|     8|  <meta name="keywords" content="{{ symbol }} stock, {{ symbol }} price, {{ symbol }} stock price today, {{ symbol }} quote">
-     9|     9|  <meta name="robots" content="index, follow">
-    10|    10|  <link rel="canonical" href="https://trendscan.org/stock/{{ symbol }}">
-    11|    11|
-    12|    12|  <meta property="og:title" content="{{ title }}">
-    13|    13|  <meta property="og:description" content="{{ description }}">
-    14|    14|  <meta property="og:type" content="website">
-    15|    15|  <meta property="og:image" content="https://trendscan.org/og-image.png">
-    16|    16|  <meta name="twitter:card" content="summary_large_image">
-    17|    17|
-    18|    18|  <script type="application/ld+json">
-    19|    19|  {"@context":"https://schema.org","@type":"WebPage","name":"{{ symbol }} Stock Price","description":"{{ description }}","url":"https://trendscan.org/stock/{{ symbol }}"}
-    20|    20|  </script>
-    21|    21|
-    22|    22|  <!-- fonts loaded via _css.html -->
-    23|    23|  <style>
-    24|    24|        :root {
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>{{ title }}</title>
+<meta name="description" content="{{ description }}">
+<meta name="keywords" content="{{ symbol }} stock, {{ symbol }} price, {{ symbol }} stock price today, {{ symbol }} quote">
+<meta name="robots" content="index, follow">
+<link rel="canonical" href="https://trendscan.org/stock/{{ symbol }}">
+
+<meta property="og:title" content="{{ title }}">
+<meta property="og:description" content="{{ description }}">
+<meta property="og:type" content="website">
+<meta property="og:image" content="https://trendscan.org/og-image.png">
+<meta name="twitter:card" content="summary_large_image">
+
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"WebPage","name":"{{ symbol }} Stock Price","description":"{{ description }}","url":"https://trendscan.org/stock/{{ symbol }}"}
+</script>
+
+<!-- fonts loaded via _css.html -->
+<style>
+:root {
       --black: var(--text); --white: var(--bg);
       --gray-900: var(--text); --gray-600: var(--text-secondary);
       --gray-500: var(--text-secondary); --gray-400: var(--text-muted);
@@ -41,166 +41,165 @@
       --accent: var(--accent); --accent-dim: var(--accent-dim);
     }
     }
-    33|    33|    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    34|    34|    html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-    35|    35|    body { /* bg from _css.html */ }
-    36|    36|
-    37|    37|    .container{max-width:900px;margin:0 auto;padding:32px 24px}
-    38|    38|    .breadcrumb{font-size:12px;color:var(--gray-400);margin-bottom:24px}
-    39|    39|    .breadcrumb a{color:var(--gray-400);text-decoration:none}
-    40|    40|    .breadcrumb a:hover{color:var(--blue)}
-    41|    41|
-    42|    42|    .quote-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:32px;margin-bottom:24px}
-    43|    43|    .ticker-row{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
-    44|    44|    .ticker-symbol{font-size:32px;font-weight:600;letter-spacing:-1px}
-    45|    45|    .ticker-price{font-size:48px;font-weight:600;letter-spacing:-2px;font-family:'Geist Mono',monospace}
-    46|    46|    .ticker-change{font-size:20px;font-weight:500;font-family:'Geist Mono',monospace}
-    47|    47|    .up{color:var(--green)}.down{color:var(--red)}
-    48|    48|    .meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;padding-top:24px;border-top:1px solid var(--gray-100)}
-    49|    49|    .meta-item{text-align:center}
-    50|    50|    .meta-label{font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
-    51|    51|    .meta-value{font-size:16px;font-weight:600;font-family:'Geist Mono',monospace}
-    52|    52|
-    53|    53|    .chart-container{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:24px;margin-bottom:24px;height:200px;position:relative}
-    54|    54|    .chart-container h3{font-size:14px;font-weight:600;margin-bottom:12px}
-    55|    55|
-    56|    56|    .info-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:20px;margin-bottom:24px}
-    57|    57|    .info-card h2{font-size:18px;font-weight:600;margin-bottom:8px}
-    58|    58|    .info-card p{font-size:14px;color:var(--gray-500);line-height:1.7}
-    59|    59|
-    60|    60|    .related-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:40px}
-    61|    61|    .related-link{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius);padding:12px 16px;font-size:13px;font-weight:500;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:8px}
-    62|    62|    .related-link:hover{border-color:var(--blue)}
-    63|    63|
-    64|    64|    .not-found{text-align:center;padding:60px 0;color:var(--gray-400)}
-    65|    65|    .affiliate-bar{background:var(--black);border-radius:var(--radius-lg);padding:20px 24px;text-align:center;color:var(--white);margin-bottom:24px}
-    66|    66|    .affiliate-bar a{color:var(--blue);text-decoration:none;font-weight:600}
-    67|    67|
-    68|    68|    footer{max-width:900px;margin:0 auto;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
-    69|    69|    footer p{font-size:12px;color:var(--gray-400)}
-    70|    70|    footer a{color:var(--gray-500);text-decoration:none}
-    71|    71|
-    72|    72|    @media(max-width:600px){
-    73|    73|      .ticker-price{font-size:36px}
-    74|    74|      .meta-grid{grid-template-columns:repeat(2,1fr)}
-    75|    75|      .related-links{grid-template-columns:1fr}
-    76|    76|    }
-    77|    77|  </style>
-    78|    78|</head>
-    79|    79|<body>
-    80|    80|  {% include '_header.html' %}
-    81|    81|  <div class="container">
-    82|    82|    <div class="breadcrumb">
-    83|    83|      <a href="/">Home</a> › <a href="/stocks">Stocks</a> › {{ symbol }}
-    84|    84|    </div>
-    85|    85|
-    86|    86|    {% if quote %}
-    87|    87|    <div class="quote-card">
-    88|    88|      <div class="ticker-row">
-    89|    89|        <span class="ticker-symbol">{{ symbol }}</span>
-    90|    90|        <span class="ticker-change {% if quote.change_pct >= 0 %}up{% else %}down{% endif %}">
-    91|    91|          {% if quote.change_pct >= 0 %}+{% endif %}{{ quote.change_pct }}%
-    92|    92|        </span>
-    93|    93|      </div>
-    94|    94|      <div class="ticker-price {% if quote.change_pct >= 0 %}up{% else %}down{% endif %}">
-    95|    95|        ${{ "{:,.2f}".format(quote.price) }}
-    96|    96|      </div>
-    97|    97|      <div class="meta-grid">
-    98|    98|        <div class="meta-item">
-    99|    99|          <div class="meta-label">Day High</div>
-   100|   100|          <div class="meta-value">${{ "{:,.2f}".format(quote.high) }}</div>
-   101|   101|        </div>
-   102|   102|        <div class="meta-item">
-   103|   103|          <div class="meta-label">Day Low</div>
-   104|   104|          <div class="meta-value">${{ "{:,.2f}".format(quote.low) }}</div>
-   105|   105|        </div>
-   106|   106|        <div class="meta-item">
-   107|   107|          <div class="meta-label">Previous Close</div>
-   108|   108|          <div class="meta-value">${{ "{:,.2f}".format(quote.previous_close) }}</div>
-   109|   109|        </div>
-   110|   110|        <div class="meta-item">
-   111|   111|          <div class="meta-label">Change</div>
-   112|   112|          <div class="meta-value {% if quote.change >= 0 %}up{% else %}down{% endif %}">
-   113|   113|            {% if quote.change >= 0 %}+{% endif %}${{ "{:,.2f}".format(quote.change) }}
-   114|   114|          </div>
-   115|   115|        </div>
-   116|   116|        <div class="meta-item">
-   117|   117|          <div class="meta-label">Volume</div>
-   118|   118|          <div class="meta-value">{{ "{:,.0f}".format(quote.volume) }}</div>
-   119|   119|        </div>
-   120|   120|        <div class="meta-item">
-   121|   121|          <div class="meta-label">Market Cap</div>
-   122|   122|          <div class="meta-value">{% if quote.market_cap %}${{ "{:,.0f}".format(quote.market_cap // 1000000000) }}B{% else %}--{% endif %}</div>
-   123|   123|        </div>
-   124|   124|      </div>
-   125|   125|    </div>
-   126|   126|
-   127|   127|    {% if quote.sparkline %}
-   128|   128|    <div class="chart-container">
-   129|   129|      <h3>5-Day Price Trend</h3>
-   130|   130|      <canvas id="sparkChart" width="850" height="150"></canvas>
-   131|   131|    </div>
-   132|   132|    <script>
-   133|   133|      const sparkline = {{ quote.sparkline | tojson }};
-   134|   134|      const canvas = document.getElementById('sparkChart');
-   135|   135|      if (canvas && sparkline.length) {
-   136|   136|        const ctx = canvas.getContext('2d');
-   137|   137|        const W = canvas.width, H = canvas.height;
-   138|   138|        const pad = 10;
-   139|   139|        const min = Math.min(...sparkline), max = Math.max(...sparkline);
-   140|   140|        const range = max - min || 1;
-   141|   141|        const points = sparkline.map((v, i) => ({
-   142|   142|          x: pad + (i / (sparkline.length - 1)) * (W - pad * 2),
-   143|   143|          y: H - pad - ((v - min) / range) * (H - pad * 2)
-   144|   144|        }));
-   145|   145|        const isUp = sparkline[sparkline.length - 1] >= sparkline[0];
-   146|   146|        ctx.strokeStyle = isUp ? '#0a9950' : '#dc2626';
-   147|   147|        ctx.lineWidth = 2;
-   148|   148|        ctx.lineJoin = 'round';
-   149|   149|        ctx.beginPath();
-   150|   150|        ctx.moveTo(points[0].x, points[0].y);
-   151|   151|        for (let i = 1; i < points.length; i++) {
-   152|   152|          ctx.lineTo(points[i].x, points[i].y);
-   153|   153|        }
-   154|   154|        ctx.stroke();
-   155|   155|        // Gradient fill
-   156|   156|        const grad = ctx.createLinearGradient(0, pad, 0, H - pad);
-   157|   157|        grad.addColorStop(0, isUp ? 'rgba(10,153,80,0.15)' : 'rgba(220,38,38,0.15)');
-   158|   158|        grad.addColorStop(1, 'rgba(255,255,255,0)');
-   159|   159|        ctx.lineTo(points[points.length-1].x, H - pad);
-   160|   160|        ctx.lineTo(points[0].x, H - pad);
-   161|   161|        ctx.closePath();
-   162|   162|        ctx.fillStyle = grad;
-   163|   163|        ctx.fill();
-   164|   164|      }
-   165|   165|    </script>
-   166|   166|    {% endif %}
-   167|   167|
-   168|   168|    <div class="info-card">
-   169|   169|      <h2>About {{ company_name }} ({{ symbol }})</h2>
-   170|   170|      <p>{{ company_desc }}</p>
-   171|   171|    </div>
-   172|   172|
-   173|   173|    {% if symbol in related_articles %}
-   174|   174|    <div class="info-card">
-   175|   175|      <h2>📝 Latest Analysis</h2>
-   176|   176|      {% for art in related_articles[symbol] %}
-   177|   177|      <p><a href="/blog/{{ art.slug }}" style="color:var(--blue);font-weight:500">{{ art.title }}</a></p>
-   178|   178|      {% endfor %}
-   179|   179|    </div>
-   180|   180|    {% endif %}
-   181|   181|
-   182|   182|    {% else %}
-   183|   183|    <div class="not-found">
-   184|   184|      <h2>{{ symbol }} — Data Unavailable</h2>
-   185|   185|      <p style="margin-top:8px">Unable to fetch live data for {{ symbol }}. This could be due to market hours or data source availability.</p>
-   186|   186|      <p style="margin-top:8px"><a href="/stocks" style="color:var(--blue)">← Back to all stocks</a></p>
-   187|   187|    </div>
-   188|   188|    {% endif %}
-   189|   189|
-   190|   190|    <footer>
-   191|   191|    <p><a href="/">TrendPulse</a> · Real-time market data · <a href="/privacy">Privacy</a> · <a href="/blog">Analysis</a></p>
-   192|   192|  </footer>
-   193|   193|</body>
-   194|   194|</html>
-   195|   195|
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+body { /* bg from _css.html */ }
+
+.container{max-width:900px;margin:0 auto;padding:32px 24px}
+.breadcrumb{font-size:12px;color:var(--gray-400);margin-bottom:24px}
+.breadcrumb a{color:var(--gray-400);text-decoration:none}
+.breadcrumb a:hover{color:var(--blue)}
+
+.quote-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:32px;margin-bottom:24px}
+.ticker-row{display:flex;align-items:baseline;gap:12px;margin-bottom:8px}
+.ticker-symbol{font-size:32px;font-weight:600;letter-spacing:-1px}
+.ticker-price{font-size:48px;font-weight:600;letter-spacing:-2px;font-family:'Geist Mono',monospace}
+.ticker-change{font-size:20px;font-weight:500;font-family:'Geist Mono',monospace}
+.up{color:var(--green)}.down{color:var(--red)}
+.meta-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:24px;padding-top:24px;border-top:1px solid var(--gray-100)}
+.meta-item{text-align:center}
+.meta-label{font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:4px}
+.meta-value{font-size:16px;font-weight:600;font-family:'Geist Mono',monospace}
+
+.chart-container{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:24px;margin-bottom:24px;height:200px;position:relative}
+.chart-container h3{font-size:14px;font-weight:600;margin-bottom:12px}
+
+.info-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow);padding:20px;margin-bottom:24px}
+.info-card h2{font-size:18px;font-weight:600;margin-bottom:8px}
+.info-card p{font-size:14px;color:var(--gray-500);line-height:1.7}
+
+.related-links{display:grid;grid-template-columns:repeat(2,1fr);gap:12px;margin-bottom:40px}
+.related-link{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:var(--radius);padding:12px 16px;font-size:13px;font-weight:500;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:8px}
+.related-link:hover{border-color:var(--blue)}
+
+.not-found{text-align:center;padding:60px 0;color:var(--gray-400)}
+.affiliate-bar{background:var(--black);border-radius:var(--radius-lg);padding:20px 24px;text-align:center;color:var(--white);margin-bottom:24px}
+.affiliate-bar a{color:var(--blue);text-decoration:none;font-weight:600}
+
+footer{max-width:900px;margin:0 auto;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
+footer p{font-size:12px;color:var(--gray-400)}
+footer a{color:var(--gray-500);text-decoration:none}
+
+@media(max-width:600px){
+.ticker-price{font-size:36px}
+.meta-grid{grid-template-columns:repeat(2,1fr)}
+.related-links{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+{% include '_header.html' %}
+<div class="container">
+<div class="breadcrumb">
+<a href="/">Home</a> › <a href="/stocks">Stocks</a> › {{ symbol }}
+</div>
+
+{% if quote %}
+<div class="quote-card">
+<div class="ticker-row">
+<span class="ticker-symbol">{{ symbol }}</span>
+<span class="ticker-change {% if quote.change_pct >= 0 %}up{% else %}down{% endif %}">
+{% if quote.change_pct >= 0 %}+{% endif %}{{ quote.change_pct }}%
+</span>
+</div>
+<div class="ticker-price {% if quote.change_pct >= 0 %}up{% else %}down{% endif %}">
+${{ "{:,.2f}".format(quote.price) }}
+</div>
+<div class="meta-grid">
+<div class="meta-item">
+<div class="meta-label">Day High</div>
+<div class="meta-value">${{ "{:,.2f}".format(quote.high) }}</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Day Low</div>
+<div class="meta-value">${{ "{:,.2f}".format(quote.low) }}</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Previous Close</div>
+<div class="meta-value">${{ "{:,.2f}".format(quote.previous_close) }}</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Change</div>
+<div class="meta-value {% if quote.change >= 0 %}up{% else %}down{% endif %}">
+{% if quote.change >= 0 %}+{% endif %}${{ "{:,.2f}".format(quote.change) }}
+</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Volume</div>
+<div class="meta-value">{{ "{:,.0f}".format(quote.volume) }}</div>
+</div>
+<div class="meta-item">
+<div class="meta-label">Market Cap</div>
+<div class="meta-value">{% if quote.market_cap %}${{ "{:,.0f}".format(quote.market_cap // 1000000000) }}B{% else %}--{% endif %}</div>
+</div>
+</div>
+</div>
+
+{% if quote.sparkline %}
+<div class="chart-container">
+<h3>5-Day Price Trend</h3>
+<canvas id="sparkChart" width="850" height="150"></canvas>
+</div>
+<script>
+const sparkline = {{ quote.sparkline | tojson }};
+const canvas = document.getElementById('sparkChart');
+if (canvas && sparkline.length) {
+const ctx = canvas.getContext('2d');
+const W = canvas.width, H = canvas.height;
+const pad = 10;
+const min = Math.min(...sparkline), max = Math.max(...sparkline);
+const range = max - min || 1;
+const points = sparkline.map((v, i) => ({
+x: pad + (i / (sparkline.length - 1)) * (W - pad * 2),
+y: H - pad - ((v - min) / range) * (H - pad * 2)
+}));
+const isUp = sparkline[sparkline.length - 1] >= sparkline[0];
+ctx.strokeStyle = isUp ? '#0a9950' : '#dc2626';
+ctx.lineWidth = 2;
+ctx.lineJoin = 'round';
+ctx.beginPath();
+ctx.moveTo(points[0].x, points[0].y);
+for (let i = 1; i < points.length; i++) {
+ctx.lineTo(points[i].x, points[i].y);
+}
+ctx.stroke();
+// Gradient fill
+const grad = ctx.createLinearGradient(0, pad, 0, H - pad);
+grad.addColorStop(0, isUp ? 'rgba(10,153,80,0.15)' : 'rgba(220,38,38,0.15)');
+grad.addColorStop(1, 'rgba(255,255,255,0)');
+ctx.lineTo(points[points.length-1].x, H - pad);
+ctx.lineTo(points[0].x, H - pad);
+ctx.closePath();
+ctx.fillStyle = grad;
+ctx.fill();
+}
+</script>
+{% endif %}
+
+<div class="info-card">
+<h2>About {{ company_name }} ({{ symbol }})</h2>
+<p>{{ company_desc }}</p>
+</div>
+
+{% if symbol in related_articles %}
+<div class="info-card">
+<h2>📝 Latest Analysis</h2>
+{% for art in related_articles[symbol] %}
+<p><a href="/blog/{{ art.slug }}" style="color:var(--blue);font-weight:500">{{ art.title }}</a></p>
+{% endfor %}
+</div>
+{% endif %}
+
+{% else %}
+<div class="not-found">
+<h2>{{ symbol }} — Data Unavailable</h2>
+<p style="margin-top:8px">Unable to fetch live data for {{ symbol }}. This could be due to market hours or data source availability.</p>
+<p style="margin-top:8px"><a href="/stocks" style="color:var(--blue)">← Back to all stocks</a></p>
+</div>
+{% endif %}
+
+<footer>
+<p><a href="/">TrendPulse</a> · Real-time market data · <a href="/privacy">Privacy</a> · <a href="/blog">Analysis</a></p>
+</footer>
+</body>
+</html>
