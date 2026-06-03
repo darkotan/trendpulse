@@ -17,7 +17,7 @@ def parse_article(path: Path) -> Optional[dict]:
     meta = {}
     body = text
 
-    # Extract frontmatter (--- key: value ---)
+    # Format 1: YAML frontmatter (--- key: value ---)
     if text.startswith("---"):
         parts = text.split("---", 2)
         if len(parts) >= 3:
@@ -26,12 +26,32 @@ def parse_article(path: Path) -> Optional[dict]:
                     k, v = line.split(":", 1)
                     meta[k.strip()] = v.strip()
             body = parts[2].strip()
+    else:
+        # Format 2: KEY: value lines at top of file
+        lines = text.split("\n")
+        body_start = 0
+        for i, line in enumerate(lines[:15]):
+            if line.startswith("TITLE:"):
+                meta["title"] = line[6:].strip()
+            elif line.startswith("DESC:"):
+                meta["description"] = line[5:].strip()
+            elif line.startswith("KEYWORDS:"):
+                meta["tags"] = line[9:].strip()
+            elif line.startswith("DATE:"):
+                meta["date"] = line[5:].strip()
+            elif line.strip() == "" and i > 0:
+                body_start = i + 1
+                break
+            else:
+                body_start = i + 1
+        if body_start > 0:
+            body = "\n".join(lines[body_start:]).strip()
 
     return {
         "slug": path.stem,
-        "title": meta.get("title", path.stem.replace("-", " ").title()),
-        "date": meta.get("date", datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d")),
-        "description": meta.get("description", body[:160].replace("\n", " ")),
+        "title": meta.get("title") or path.stem.replace("-", " ").title(),
+        "date": meta.get("date") or datetime.fromtimestamp(path.stat().st_mtime).strftime("%Y-%m-%d"),
+        "description": meta.get("description") or body[:160].replace("\n", " "),
         "tags": [t.strip() for t in meta.get("tags", "").split(",") if t.strip()],
         "body_html": _md_to_html(body),
     }

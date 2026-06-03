@@ -551,17 +551,23 @@ def crypto_page(symbol: str):
 # ── Blog / Articles ────────────────────────────────
 @app.route("/blog")
 def blog_index():
+    from translations import get_translations, detect_language
+    lang = detect_language(request.headers.get('Accept-Language', ''))
+    T = get_translations(lang)
     articles = get_articles()
-    desc = f"Market analysis & insights. {len(articles)} articles on AI, semiconductors, crypto, and more."
     return render_template("blog.html",
-        title="Market Analysis & Insights — TrendPulse Blog",
-        description=desc, articles=articles)
+        T=T, lang=lang, articles=articles,
+        active_page='blog')
 @app.route("/blog/<slug>")
 def blog_article(slug: str):
+    from translations import get_translations, detect_language
+    lang = detect_language(request.headers.get('Accept-Language', ''))
+    T = get_translations(lang)
     article = get_article(slug)
     if not article:
-        return render_template("404.html"), 404
+        return "Article not found", 404
     return render_template("article.html",
+        T=T, lang=lang,
         title=f"{article['title']} | TrendPulse",
         description=article.get("description", ""),
         article=article)
@@ -610,19 +616,6 @@ def _esc(s):
 
 
 # ── Blog ────────────────────────────────────────────
-@app.route("/blog")
-def blog_list():
-    articles = list_articles()
-    return render_template("blog_list.html", articles=articles)
-
-
-@app.route("/blog/<slug>")
-def blog_post(slug):
-    article = get_article(slug)
-    if not article:
-        return "Article not found", 404
-    return render_template("blog_post.html", article=article)
-
 
 @app.route("/performance")
 def performance():
