@@ -67,6 +67,7 @@ YEARLY_PRICE = 19900   # $199.00
 # Stripe Price IDs — replace these after creating products in Stripe Dashboard
 STRIPE_MONTHLY_PRICE_ID = os.environ.get('STRIPE_MONTHLY_PRICE_ID', 'price_placeholder')
 STRIPE_YEARLY_PRICE_ID = os.environ.get('STRIPE_YEARLY_PRICE_ID', 'price_placeholder')
+STRIPE_TRIAL_PRICE_ID = os.environ.get('STRIPE_TRIAL_PRICE_ID', 'price_placeholder')
 
 def refresh_cache():
     global _cache
@@ -753,22 +754,32 @@ def create_checkout_session():
     plan = data.get("plan", "monthly")
     email = data.get("email", "")
 
-    if plan not in ("monthly", "yearly"):
-        return jsonify({"ok": False, "error": "Invalid plan. Must be 'monthly' or 'yearly'."}), 400
+    if plan not in ("monthly", "yearly", "trial"):
+        return jsonify({"ok": False, "error": "Invalid plan. Must be 'trial', 'monthly' or 'yearly'."}), 400
 
     if not stripe.api_key:
         return jsonify({"ok": False, "error": "Stripe not configured. Set STRIPE_SECRET_KEY."}), 500
 
-    price_id = STRIPE_MONTHLY_PRICE_ID if plan == "monthly" else STRIPE_YEARLY_PRICE_ID
+    price_id = STRIPE_TRIAL_PRICE_ID if plan == "trial" else (STRIPE_MONTHLY_PRICE_ID if plan == "monthly" else STRIPE_YEARLY_PRICE_ID)
 
     try:
-        session_params = {
-            "mode": "subscription",
-            "line_items": [{"price": price_id, "quantity": 1}],
-            "success_url": "https://trendscan.org/signals?success=true",
-            "cancel_url": "https://trendscan.org/signals?canceled=true",
-            "metadata": {"plan": plan},
-        }
+        if plan == "trial":
+            # One-time payment for 1-hour trial
+            session_params = {
+                "mode": "payment",
+                "line_items": [{"price": price_id, "quantity": 1}],
+                "success_url": "https://trendscan.org/signals?success=trial",
+                "cancel_url": "https://trendscan.org/signals?canceled=true",
+                "metadata": {"plan": "trial"},
+            }
+        else:
+            session_params = {
+                "mode": "subscription",
+                "line_items": [{"price": price_id, "quantity": 1}],
+                "success_url": "https://trendscan.org/signals?success=true",
+                "cancel_url": "https://trendscan.org/signals?canceled=true",
+                "metadata": {"plan": plan},
+            }
         if email:
             session_params["customer_email"] = email
 
@@ -820,7 +831,20 @@ def stripe_webhook():
                 )
                 if not updated:
                     add_subscriber(customer_email, plan)
-                print(f"[Stripe] Checkout completed: {customer_email} → {plan}")
+
+                # Handle trial: set 1-hour expiry
+                if plan == "trial":
+                    from datetime import datetime as dt, timedelta
+                    trial_end = (dt.utcnow() + timedelta(hours=1)).isoformat()
+                    update_subscriber(
+                        email=customer_email,
+                        plan="trial",
+                        stripe_id=customer_id,
+                        subscription_end=trial_end
+                    )
+                    print(f"[Stripe] Trial activated: {customer_email} expires at {trial_end}")
+                else:
+                    print(f"[Stripe] Checkout completed: {customer_email} → {plan}")
 
         elif event_type == "customer.subscription.deleted":
             # Subscription cancelled or expired — remove subscriber

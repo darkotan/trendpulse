@@ -506,6 +506,7 @@
       <button type="submit" id="subBtn">Subscribe Now</button>
     </form>
     <div style="display:flex;gap:8px;justify-content:center;margin-bottom:12px">
+      <button class="plan-btn" id="planTrial" style="padding:8px 16px;border-radius:8px;border:2px solid var(--green);background:rgba(10,153,80,.08);color:var(--green);font-size:13px;font-weight:600;cursor:pointer;font-family:'Geist',sans-serif">⚡ Try $0.90 / 1 Hour</button>
       <button class="plan-btn" id="planMonthly" style="padding:8px 16px;border-radius:8px;border:2px solid var(--accent);background:var(--accent-dim);color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;font-family:'Geist',sans-serif">Monthly $29</button>
       <button class="plan-btn" id="planYearly" style="padding:8px 16px;border-radius:8px;border:2px solid var(--border);background:var(--bg);color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;font-family:'Geist',sans-serif">Yearly $199 <span style="color:var(--green);font-size:11px">(Save 43%)</span></button>
     </div>
@@ -906,35 +907,42 @@
 
   /* ── Plan Selection ──────────────────────────────── */
   let selectedPlan = 'monthly';
+  const planTrial = $('#planTrial');
   const planMonthly = $('#planMonthly');
   const planYearly = $('#planYearly');
 
+  const allPlans = [
+    { el: planTrial, plan: 'trial', activeBorder: 'var(--green)', activeBg: 'rgba(10,153,80,.08)', activeColor: 'var(--green)' },
+    { el: planMonthly, plan: 'monthly', activeBorder: 'var(--accent)', activeBg: 'var(--accent-dim)', activeColor: 'var(--accent)' },
+    { el: planYearly, plan: 'yearly', activeBorder: 'var(--accent)', activeBg: 'var(--accent-dim)', activeColor: 'var(--accent)' },
+  ];
+
   function updatePlanUI() {
-    if (selectedPlan === 'monthly') {
-      planMonthly.style.borderColor = 'var(--accent)';
-      planMonthly.style.background = 'var(--accent-dim)';
-      planMonthly.style.color = 'var(--accent)';
-      planYearly.style.borderColor = 'var(--border)';
-      planYearly.style.background = 'var(--bg)';
-      planYearly.style.color = 'var(--text-secondary)';
-    } else {
-      planYearly.style.borderColor = 'var(--accent)';
-      planYearly.style.background = 'var(--accent-dim)';
-      planYearly.style.color = 'var(--accent)';
-      planMonthly.style.borderColor = 'var(--border)';
-      planMonthly.style.background = 'var(--bg)';
-      planMonthly.style.color = 'var(--text-secondary)';
-    }
+    allPlans.forEach(p => {
+      if (!p.el) return;
+      if (p.plan === selectedPlan) {
+        p.el.style.borderColor = p.activeBorder;
+        p.el.style.background = p.activeBg;
+        p.el.style.color = p.activeColor;
+      } else {
+        p.el.style.borderColor = 'var(--border)';
+        p.el.style.background = 'var(--bg)';
+        p.el.style.color = 'var(--text-secondary)';
+      }
+    });
   }
 
-  if (planMonthly) planMonthly.addEventListener('click', () => { selectedPlan = 'monthly'; updatePlanUI(); });
-  if (planYearly) planYearly.addEventListener('click', () => { selectedPlan = 'yearly'; updatePlanUI(); });
+  allPlans.forEach(p => {
+    if (p.el) p.el.addEventListener('click', () => { selectedPlan = p.plan; updatePlanUI(); });
+  });
 
   /* ── Check for success/canceled from Stripe redirect ── */
   const urlParams = new URLSearchParams(window.location.search);
-  if (urlParams.get('success') === 'true') {
+  if (urlParams.get('success') === 'true' || urlParams.get('success') === 'trial') {
     const subAccess = $('#subAccess');
     if (subAccess) {
+      const isTrial = urlParams.get('success') === 'trial';
+      subAccess.textContent = isTrial ? '✓ Trial activated! You have 1 hour of full access.' : '✓ You have access! Enjoy your subscription.';
       subAccess.style.display = 'block';
       subAccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
     }
