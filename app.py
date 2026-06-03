@@ -65,8 +65,8 @@ MONTHLY_PRICE = 2900   # $29.00
 YEARLY_PRICE = 19900   # $199.00
 
 # Stripe Price IDs — replace these after creating products in Stripe Dashboard
-STRIPE_MONTHLY_PRICE_ID = 'price_monthly_placeholder'
-STRIPE_YEARLY_PRICE_ID = 'price_yearly_placeholder'
+STRIPE_MONTHLY_PRICE_ID = os.environ.get('STRIPE_MONTHLY_PRICE_ID', 'price_placeholder')
+STRIPE_YEARLY_PRICE_ID = os.environ.get('STRIPE_YEARLY_PRICE_ID', 'price_placeholder')
 
 def refresh_cache():
     global _cache
@@ -180,7 +180,7 @@ def inject_lang():
         active_page = 'analytics'
     else:
         active_page = ''
-    return {'lang': lang, 'T': get_translations(lang), 'active_page': active_page}
+    return {'lang': lang, 'T': get_translations(lang), 'active_page': active_page, 'STRIPE_PK': os.environ.get('STRIPE_PUBLISHABLE_KEY', '')}
 
 # ── Core Routes ────────────────────────────────────
 @app.route("/")
