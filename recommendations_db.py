@@ -535,6 +535,80 @@ def check_subscription(email: str) -> Optional[Dict]:
             conn.close()
 
 
+def remove_subscriber(email: str) -> bool:
+    """Remove a subscriber by email."""
+    with _db_lock:
+        conn = _get_connection()
+        try:
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM subscribers WHERE email = ?", (email,))
+            conn.commit()
+            return cursor.rowcount > 0
+        finally:
+            conn.close()
+
+
+def remove_subscriber_by_stripe_id(stripe_id: str) -> bool:
+    """Remove a subscriber by Stripe customer ID."""
+    with _db_lock:
+        conn = _get_connection()
+        try:
+            cursor = conn.cursor()
+            cursor.execute("DELETE FROM subscribers WHERE stripe_id = ?", (stripe_id,))
+            conn.commit()
+            return cursor.rowcount > 0
+        finally:
+            conn.close()
+
+
+def update_subscriber(email: str, plan: str, stripe_id: str = None,
+                      subscription_end: str = None) -> bool:
+    """Update an existing subscriber's plan and subscription details."""
+    with _db_lock:
+        conn = _get_connection()
+        try:
+            cursor = conn.cursor()
+            cursor.execute(
+                "UPDATE subscribers SET plan = ?, stripe_id = COALESCE(?, stripe_id), "
+                "subscription_end = COALESCE(?, subscription_end) WHERE email = ?",
+                (plan, stripe_id, subscription_end, email)
+            )
+            conn.commit()
+            return cursor.rowcount > 0
+        finally:
+            conn.close()
+
+
+def update_subscriber_by_stripe_id(stripe_id: str, plan: str = None,
+                                   subscription_end: str = None) -> bool:
+    """Update a subscriber by Stripe customer ID."""
+    with _db_lock:
+        conn = _get_connection()
+        try:
+            cursor = conn.cursor()
+            if plan and subscription_end:
+                cursor.execute(
+                    "UPDATE subscribers SET plan = ?, subscription_end = ? WHERE stripe_id = ?",
+                    (plan, subscription_end, stripe_id)
+                )
+            elif plan:
+                cursor.execute(
+                    "UPDATE subscribers SET plan = ? WHERE stripe_id = ?",
+                    (plan, stripe_id)
+                )
+            elif subscription_end:
+                cursor.execute(
+                    "UPDATE subscribers SET subscription_end = ? WHERE stripe_id = ?",
+                    (subscription_end, stripe_id)
+                )
+            else:
+                return False
+            conn.commit()
+            return cursor.rowcount > 0
+        finally:
+            conn.close()
+
+
 # Initialize database on module import
 init_db()
 

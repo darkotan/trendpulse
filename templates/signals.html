@@ -64,14 +64,7 @@
       scroll-behavior: smooth;
     }
     body { background: var(--bg); color: var(--text); line-height: 1.5; min-height: 100vh; }
-
-    /* ── Header Override (dark) ─────────────────────── */
-    .site-header { background: rgba(10,10,10,0.92) !important; border-bottom-color: var(--border) !important; }
-    .site-logo { color: var(--text) !important; }
-    .site-nav a { color: var(--text-muted) !important; }
-    .site-nav a:hover { color: var(--text) !important; background: rgba(255,255,255,0.05) !important; }
-    .site-nav a.active { color: var(--accent) !important; background: var(--accent-dim) !important; }
-
+    /* Header dark mode handled by _header.html dark_header flag */
     /* ── Container ──────────────────────────────────── */
     .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
@@ -344,6 +337,7 @@
 </head>
 <body>
 
+{% set dark_header = true %}
 {% include '_header.html' %}
 
 <div class="container">
@@ -463,7 +457,7 @@
   <!-- ── Subscription CTA ─────────────────────────── -->
   <section class="subscribe-section" id="subscribeSection">
     <div class="subscribe-title">Unlock Premium Signals</div>
-    <div class="subscribe-sub">Get real-time options alerts, full signal history, P&L tracking, and sell signals. Start your free trial today.</div>
+    <div class="subscribe-sub">Get real-time options alerts, full signal history, P&L tracking, and sell signals. Choose your plan below.</div>
 
     <div class="features-grid">
       <div class="feature-item"><div class="feature-icon">⚡</div><div class="feature-name">Real-time Alerts</div></div>
@@ -509,10 +503,15 @@
 
     <form class="subscribe-form" id="subscribeForm">
       <input type="email" placeholder="Enter your email" required autocomplete="email" id="subEmail">
-      <button type="submit" id="subBtn">Start Free Trial</button>
+      <button type="submit" id="subBtn">Subscribe Now</button>
     </form>
-    <div class="subscribe-note">No credit card required · 7-day free trial · Cancel anytime</div>
+    <div style="display:flex;gap:8px;justify-content:center;margin-bottom:12px">
+      <button class="plan-btn" id="planMonthly" style="padding:8px 16px;border-radius:8px;border:2px solid var(--accent);background:var(--accent-dim);color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;font-family:'Geist',sans-serif">Monthly $29</button>
+      <button class="plan-btn" id="planYearly" style="padding:8px 16px;border-radius:8px;border:2px solid var(--border);background:var(--bg);color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;font-family:'Geist',sans-serif">Yearly $199 <span style="color:var(--green);font-size:11px">(Save 43%)</span></button>
+    </div>
+    <div class="subscribe-note">Secure payment via Stripe · Cancel anytime</div>
     <div class="subscribe-confirm" id="subConfirm">✓ Welcome! Check your email to get started.</div>
+    <div class="subscribe-confirm" id="subAccess" style="display:none;color:var(--green)">✓ You have access! Enjoy your subscription.</div>
     <div class="subscribe-error" id="subError"></div>
   </section>
 
@@ -905,6 +904,51 @@
     }
   }
 
+  /* ── Plan Selection ──────────────────────────────── */
+  let selectedPlan = 'monthly';
+  const planMonthly = $('#planMonthly');
+  const planYearly = $('#planYearly');
+
+  function updatePlanUI() {
+    if (selectedPlan === 'monthly') {
+      planMonthly.style.borderColor = 'var(--accent)';
+      planMonthly.style.background = 'var(--accent-dim)';
+      planMonthly.style.color = 'var(--accent)';
+      planYearly.style.borderColor = 'var(--border)';
+      planYearly.style.background = 'var(--bg)';
+      planYearly.style.color = 'var(--text-secondary)';
+    } else {
+      planYearly.style.borderColor = 'var(--accent)';
+      planYearly.style.background = 'var(--accent-dim)';
+      planYearly.style.color = 'var(--accent)';
+      planMonthly.style.borderColor = 'var(--border)';
+      planMonthly.style.background = 'var(--bg)';
+      planMonthly.style.color = 'var(--text-secondary)';
+    }
+  }
+
+  if (planMonthly) planMonthly.addEventListener('click', () => { selectedPlan = 'monthly'; updatePlanUI(); });
+  if (planYearly) planYearly.addEventListener('click', () => { selectedPlan = 'yearly'; updatePlanUI(); });
+
+  /* ── Check for success/canceled from Stripe redirect ── */
+  const urlParams = new URLSearchParams(window.location.search);
+  if (urlParams.get('success') === 'true') {
+    const subAccess = $('#subAccess');
+    if (subAccess) {
+      subAccess.style.display = 'block';
+      subAccess.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    }
+    // Clean URL
+    window.history.replaceState({}, '', window.location.pathname);
+  } else if (urlParams.get('canceled') === 'true') {
+    const subError = $('#subError');
+    if (subError) {
+      subError.textContent = 'Payment was canceled. You can try again anytime.';
+      subError.style.display = 'block';
+    }
+    window.history.replaceState({}, '', window.location.pathname);
+  }
+
   /* ── Subscribe Form ──────────────────────────────── */
   const form = $('#subscribeForm');
   if (form) {
@@ -915,31 +959,32 @@
 
       const btn = $('#subBtn');
       btn.disabled = true;
-      btn.textContent = 'Subscribing...';
+      btn.textContent = 'Redirecting to Stripe...';
       $('#subConfirm').style.display = 'none';
+      $('#subAccess').style.display = 'none';
       $('#subError').style.display = 'none';
 
       try {
-        const res = await fetch('/api/subscribe', {
+        const res = await fetch('/api/create-checkout-session', {
           method: 'POST',
           headers: { 'Content-Type': 'application/json' },
-          body: JSON.stringify({ email })
+          body: JSON.stringify({ plan: selectedPlan, email: email })
         });
         const data = await res.json();
-        if (res.ok) {
-          $('#subConfirm').style.display = 'block';
-          form.reset();
+        if (res.ok && data.url) {
+          window.location.href = data.url;
         } else {
-          $('#subError').textContent = data.error || 'Something went wrong. Please try again.';
+          $('#subError').textContent = data.error || 'Failed to start checkout. Please try again.';
           $('#subError').style.display = 'block';
+          btn.disabled = false;
+          btn.textContent = 'Subscribe Now';
         }
       } catch (err) {
         $('#subError').textContent = 'Network error. Please try again.';
         $('#subError').style.display = 'block';
+        btn.disabled = false;
+        btn.textContent = 'Subscribe Now';
       }
-
-      btn.disabled = false;
-      btn.textContent = 'Start Free Trial';
     });
   }
 

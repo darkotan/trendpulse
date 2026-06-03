@@ -22,6 +22,10 @@ from serenity_collector import get_serenity_raw, get_serenity_summary
 from articles import get_articles, get_article
 from company_info import get_company_info
 from recommendations_db import init_db, add_recommendation, get_active, get_all, get_stats, close_recommendation, get_price_history, update_price
+from recommendations_db import add_subscriber, check_subscription, remove_subscriber, update_subscriber, remove_subscriber_by_stripe_id, update_subscriber_by_stripe_id
+import stripe
+import os
+from dotenv import load_dotenv
 import time, threading, io
 from datetime import datetime
 from pathlib import Path
@@ -32,6 +36,37 @@ _cache = {}
 _cache_lock = threading.Lock()
 _refresh_lock = threading.Lock()
 CACHE_TTL = 300
+
+# ── Stripe Payment Configuration ────────────────────────
+# To set up Stripe products:
+#   1. Go to https://dashboard.stripe.com/products
+#   2. Create a new Product called "TrendPulse Signals Monthly"
+#   3. Add a Price: $29.00/month, recurring
+#   4. Copy the price ID (e.g., price_abc123) and set it below
+#   5. Create another Product called "TrendPulse Signals Yearly"
+#   6. Add a Price: $199.00/year, recurring
+#   7. Copy the price ID and set it below
+#   8. Go to https://dashboard.stripe.com/webhooks
+#   9. Add endpoint: https://trendscan.org/api/webhook/stripe
+#   10. Select events: checkout.session.completed, customer.subscription.deleted, customer.subscription.updated
+#   11. Copy the webhook signing secret and set STRIPE_WEBHOOK_SECRET in your .env file
+#
+# Required env vars (set in .env file or environment):
+#   STRIPE_SECRET_KEY=sk_test_... (or sk_live_...)
+#   STRIPE_WEBHOOK_SECRET=whsec_...
+# ────────────────────────────────────────────────────────
+
+load_dotenv()
+stripe.api_key = os.environ.get('STRIPE_SECRET_KEY', '')
+STRIPE_WEBHOOK_SECRET = os.environ.get('STRIPE_WEBHOOK_SECRET', '')
+
+# Prices in cents
+MONTHLY_PRICE = 2900   # $29.00
+YEARLY_PRICE = 19900   # $199.00
+
+# Stripe Price IDs — replace these after creating products in Stripe Dashboard
+STRIPE_MONTHLY_PRICE_ID = 'price_monthly_placeholder'
+STRIPE_YEARLY_PRICE_ID = 'price_yearly_placeholder'
 
 def refresh_cache():
     global _cache
@@ -127,14 +162,22 @@ def inject_lang():
     lang = detect_lang(raw_lang)
     # Determine active page from request path
     path = request.path if request else '/'
-    if path == '/' or path.startswith('/api/'):
-        active_page = 'serenity'
+    if path == '/' or path == '/serenity':
+        active_page = 'home'
+    elif path.startswith('/stocks') or path.startswith('/stock/'):
+        active_page = 'stocks'
+    elif path.startswith('/crypto'):
+        active_page = 'crypto'
+    elif path.startswith('/market-sentiment'):
+        active_page = 'sentiment'
     elif path.startswith('/blog'):
         active_page = 'blog'
     elif path.startswith('/performance'):
         active_page = 'performance'
     elif path.startswith('/signals'):
         active_page = 'signals'
+    elif path.startswith('/analytics'):
+        active_page = 'analytics'
     else:
         active_page = ''
     return {'lang': lang, 'T': get_translations(lang), 'active_page': active_page}
@@ -699,6 +742,159 @@ def api_signals_close():
         return jsonify({"ok": False, "error": "id and close_price required"}), 400
     ok = close_recommendation(rec_id, close_price, reason)
     return jsonify({"ok": ok})
+
+
+# ── Stripe Payment Integration ──────────────────────────
+
+@app.route("/api/create-checkout-session", methods=["POST"])
+def create_checkout_session():
+    """Create a Stripe Checkout Session for subscription payment."""
+    data = request.get_json(force=True) if request.is_json else {}
+    plan = data.get("plan", "monthly")
+    email = data.get("email", "")
+
+    if plan not in ("monthly", "yearly"):
+        return jsonify({"ok": False, "error": "Invalid plan. Must be 'monthly' or 'yearly'."}), 400
+
+    if not stripe.api_key:
+        return jsonify({"ok": False, "error": "Stripe not configured. Set STRIPE_SECRET_KEY."}), 500
+
+    price_id = STRIPE_MONTHLY_PRICE_ID if plan == "monthly" else STRIPE_YEARLY_PRICE_ID
+
+    try:
+        session_params = {
+            "mode": "subscription",
+            "line_items": [{"price": price_id, "quantity": 1}],
+            "success_url": "https://trendscan.org/signals?success=true",
+            "cancel_url": "https://trendscan.org/signals?canceled=true",
+            "metadata": {"plan": plan},
+        }
+        if email:
+            session_params["customer_email"] = email
+
+        session = stripe.checkout.Session.create(**session_params)
+        return jsonify({"ok": True, "url": session.url})
+    except stripe.error.StripeError as e:
+        return jsonify({"ok": False, "error": str(e)}), 500
+
+
+@app.route("/api/webhook/stripe", methods=["POST"])
+def stripe_webhook():
+    """Handle Stripe webhook events for subscription lifecycle.
+
+    This endpoint MUST NOT require CSRF or authentication.
+    Stripe verifies the request via the webhook signing secret.
+    """
+    payload = request.get_data(as_text=True)
+    sig_header = request.headers.get("Stripe-Signature", "")
+
+    if not STRIPE_WEBHOOK_SECRET:
+        print("[Stripe] WARNING: STRIPE_WEBHOOK_SECRET not set, skipping signature verification")
+        return jsonify({"ok": True, "warning": "No webhook secret configured"}), 200
+
+    try:
+        event = stripe.Webhook.construct_event(payload, sig_header, STRIPE_WEBHOOK_SECRET)
+    except ValueError:
+        return jsonify({"error": "Invalid payload"}), 400
+    except stripe.error.SignatureVerificationError:
+        return jsonify({"error": "Invalid signature"}), 400
+
+    try:
+        event_type = event["type"]
+        event_data = event["data"]["object"]
+
+        if event_type == "checkout.session.completed":
+            # A new subscriber completed checkout
+            customer_email = event_data.get("customer_email") or event_data.get("customer_details", {}).get("email")
+            customer_id = event_data.get("customer")
+            subscription_id = event_data.get("subscription")
+            plan = event_data.get("metadata", {}).get("plan", "monthly")
+
+            if customer_email:
+                # Try to update existing subscriber, otherwise add new one
+                updated = update_subscriber(
+                    email=customer_email,
+                    plan=plan,
+                    stripe_id=customer_id,
+                    subscription_end=None  # Will be set on subscription.updated
+                )
+                if not updated:
+                    add_subscriber(customer_email, plan)
+                print(f"[Stripe] Checkout completed: {customer_email} → {plan}")
+
+        elif event_type == "customer.subscription.deleted":
+            # Subscription cancelled or expired — remove subscriber
+            customer_id = event_data.get("customer")
+            if customer_id:
+                removed = remove_subscriber_by_stripe_id(customer_id)
+                print(f"[Stripe] Subscription deleted: customer={customer_id}, removed={removed}")
+
+        elif event_type == "customer.subscription.updated":
+            # Subscription plan changed or renewed — update subscriber
+            customer_id = event_data.get("customer")
+            customer_email = event_data.get("customer_email")
+            status = event_data.get("status")
+            current_period_end = event_data.get("current_period_end")
+
+            # Determine the plan from the price
+            plan = "monthly"  # default
+            items = event_data.get("items", {}).get("data", [])
+            if items:
+                price_id = items[0].get("price", {}).get("id", "")
+                if price_id == STRIPE_YEARLY_PRICE_ID:
+                    plan = "yearly"
+
+            # Convert Unix timestamp to ISO format
+            subscription_end = None
+            if current_period_end:
+                from datetime import datetime as dt
+                subscription_end = dt.utcfromtimestamp(current_period_end).isoformat()
+
+            if customer_id:
+                updated = update_subscriber_by_stripe_id(
+                    stripe_id=customer_id,
+                    plan=plan,
+                    subscription_end=subscription_end
+                )
+                print(f"[Stripe] Subscription updated: customer={customer_id}, plan={plan}, status={status}")
+            elif customer_email:
+                update_subscriber(
+                    email=customer_email,
+                    plan=plan,
+                    subscription_end=subscription_end
+                )
+                print(f"[Stripe] Subscription updated: email={customer_email}, plan={plan}")
+
+        else:
+            print(f"[Stripe] Unhandled event type: {event_type}")
+
+        return jsonify({"ok": True})
+    except Exception as e:
+        print(f"[Stripe] Webhook error: {e}")
+        return jsonify({"error": str(e)}), 500
+
+
+@app.route("/api/check-access")
+def check_access():
+    """Check if an email has an active subscription.
+
+    Query param: email
+    Returns: {has_access: bool, plan: str, expires: str}
+    """
+    email = request.args.get("email", "").strip()
+    if not email or "@" not in email:
+        return jsonify({"has_access": False, "plan": None, "expires": None})
+
+    sub = check_subscription(email)
+    if sub and sub.get("is_active"):
+        expires = sub.get("subscription_end") or sub.get("trial_end")
+        return jsonify({
+            "has_access": True,
+            "plan": sub.get("plan", "unknown"),
+            "expires": expires
+        })
+
+    return jsonify({"has_access": False, "plan": None, "expires": None})
 
 
 # ── Main ───────────────────────────────────────────
