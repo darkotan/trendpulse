@@ -1,135 +1,135 @@
-     1|<!DOCTYPE html>
-     2|<html lang="{{ lang }}">
-     3|<head>
-     4|  <meta charset="UTF-8">
-     5|  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     6|  <title>{{ title }}</title>
-     7|  <meta name="description" content="{{ description }}">
-     8|  <meta name="keywords" content="crypto, cryptocurrency, bitcoin, ethereum, solana, live prices, crypto market">
-     9|  <meta name="robots" content="index, follow">
-    10|  <link rel="canonical" href="https://trendscan.org/crypto">
-    11|
-    12|  <meta property="og:title" content="{{ title }}">
-    13|  <meta property="og:description" content="{{ description }}">
-    14|  <meta property="og:type" content="website">
-    15|  <meta property="og:image" content="https://trendscan.org/og-image.png">
-    16|  <meta name="twitter:card" content="summary_large_image">
-    17|
-    18|  <script type="application/ld+json">
-    19|  {"@context":"https://schema.org","@type":"WebPage","name":"{{ title }}","description":"{{ description }}","url":"https://trendscan.org/crypto"}
-    20|  </script>
-    21|
-    22|  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-    23|  <style>
-    24|    :root {
-    25|      --black: #171717; --white: #ffffff;
-    26|      --gray-600: #4d4d4d; --gray-500: #666666; --gray-400: #808080;
-    27|      --gray-100: #ebebeb; --gray-50: #fafafa;
-    28|      --orange: #f7931a; --orange-light: #fff4e6;
-    29|      --green: #0a9950; --red: #dc2626;
-    30|      --radius: 8px; --radius-lg: 12px;
-    31|      --shadow: 0px 0px 0px 1px rgba(0,0,0,0.08), 0px 2px 2px rgba(0,0,0,0.04);
-    32|      --shadow-card: 0px 0px 0px 1px rgba(0,0,0,0.08), 0px 2px 2px rgba(0,0,0,0.04), 0px 8px 8px -8px rgba(0,0,0,0.04);
-    33|    }
-    34|    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    35|    html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-    36|    body{background:var(--gray-50);color:var(--black);line-height:1.5;min-height:100vh}
-    37|
-    38|    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 0 0 1px rgba(0,0,0,0.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-    39|
-    40|
-    41|
-    42|
-    43|
-    44|
-    45|    .container{max-width:1280px;margin:0 auto;padding:32px 24px}
-    46|
-    47|    .hero{margin-bottom:40px}
-    48|    .hero h1{font-size:36px;font-weight:600;letter-spacing:-1.5px;margin-bottom:8px}
-    49|    .hero p{font-size:16px;color:var(--gray-500);max-width:600px}
-    50|
-    51|    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px}
-    52|
-    53|    .coin-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:24px;text-decoration:none;color:var(--black);display:flex;flex-direction:column;gap:16px;transition:box-shadow 0.15s ease,border-color 0.15s ease;border:2px solid transparent;position:relative;overflow:hidden}
-    54|    .coin-card:hover{border-color:var(--orange);box-shadow:var(--shadow-card),0 0 0 1px var(--orange)}
-    55|    .coin-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);opacity:0;transition:opacity 0.15s ease}
-    56|    .coin-card:hover::before{opacity:1}
-    57|
-    58|    .coin-header{display:flex;align-items:center;justify-content:space-between}
-    59|    .coin-symbol{font-size:22px;font-weight:600;font-family:'Geist Mono',monospace;letter-spacing:-0.5px}
-    60|    .coin-badge{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;padding:4px 10px;border-radius:20px;font-family:'Geist Mono',monospace}
-    61|    .coin-badge.up{background:#e6f9f0;color:var(--green)}
-    62|    .coin-badge.down{background:#fef2f2;color:var(--red)}
-    63|
-    64|    .coin-price{font-size:28px;font-weight:600;font-family:'Geist Mono',monospace;letter-spacing:-1px}
-    65|
-    66|    .coin-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:12px;border-top:1px solid var(--gray-100)}
-    67|    .coin-stat-label{font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px}
-    68|    .coin-stat-value{font-size:14px;font-weight:500;font-family:'Geist Mono',monospace;color:var(--gray-600)}
-    69|
-    70|    .coin-volume{font-size:12px;color:var(--gray-400);font-weight:500;padding-top:8px;border-top:1px solid var(--gray-100)}
-    71|
-    72|    .empty-state{text-align:center;padding:60px 24px;color:var(--gray-400)}
-    73|    .empty-state h2{font-size:20px;font-weight:600;margin-bottom:8px;color:var(--gray-500)}
-    74|
-    75|    footer{margin-top:40px;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
-    76|    footer p{font-size:12px;color:var(--gray-400)}
-    77|    footer a{color:var(--gray-500);text-decoration:none}
-    78|
-    79|    @media(max-width:640px){
-    80|      .hero h1{font-size:28px}
-    81|      .cards-grid{grid-template-columns:1fr}
-    82|      .coin-card{padding:20px}
-    83|    }
-    84|  </style>
-    85|</head>
-    86|<body>
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="keywords" content="crypto, cryptocurrency, bitcoin, ethereum, solana, live prices, crypto market">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trendscan.org/crypto">
+
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://trendscan.org/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"WebPage","name":"{{ title }}","description":"{{ description }}","url":"https://trendscan.org/crypto"}
+  </script>
+
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #171717; --white: #ffffff;
+      --gray-600: #4d4d4d; --gray-500: #666666; --gray-400: #808080;
+      --gray-100: #ebebeb; --gray-50: #fafafa;
+      --orange: #f7931a; --orange-light: #fff4e6;
+      --green: #0a9950; --red: #dc2626;
+      --radius: 8px; --radius-lg: 12px;
+      --shadow: 0px 0px 0px 1px rgba(0,0,0,0.08), 0px 2px 2px rgba(0,0,0,0.04);
+      --shadow-card: 0px 0px 0px 1px rgba(0,0,0,0.08), 0px 2px 2px rgba(0,0,0,0.04), 0px 8px 8px -8px rgba(0,0,0,0.04);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+    body{background:var(--gray-50);color:var(--black);line-height:1.5;min-height:100vh}
+
+    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 0 0 1px rgba(0,0,0,0.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+
+
+
+
+
+
+    .container{max-width:1280px;margin:0 auto;padding:32px 24px}
+
+    .hero{margin-bottom:40px}
+    .hero h1{font-size:36px;font-weight:600;letter-spacing:-1.5px;margin-bottom:8px}
+    .hero p{font-size:16px;color:var(--gray-500);max-width:600px}
+
+    .cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:16px;margin-bottom:40px}
+
+    .coin-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);padding:24px;text-decoration:none;color:var(--black);display:flex;flex-direction:column;gap:16px;transition:box-shadow 0.15s ease,border-color 0.15s ease;border:2px solid transparent;position:relative;overflow:hidden}
+    .coin-card:hover{border-color:var(--orange);box-shadow:var(--shadow-card),0 0 0 1px var(--orange)}
+    .coin-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);opacity:0;transition:opacity 0.15s ease}
+    .coin-card:hover::before{opacity:1}
+
+    .coin-header{display:flex;align-items:center;justify-content:space-between}
+    .coin-symbol{font-size:22px;font-weight:600;font-family:'Geist Mono',monospace;letter-spacing:-0.5px}
+    .coin-badge{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;padding:4px 10px;border-radius:20px;font-family:'Geist Mono',monospace}
+    .coin-badge.up{background:#e6f9f0;color:var(--green)}
+    .coin-badge.down{background:#fef2f2;color:var(--red)}
+
+    .coin-price{font-size:28px;font-weight:600;font-family:'Geist Mono',monospace;letter-spacing:-1px}
+
+    .coin-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:12px;border-top:1px solid var(--gray-100)}
+    .coin-stat-label{font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px}
+    .coin-stat-value{font-size:14px;font-weight:500;font-family:'Geist Mono',monospace;color:var(--gray-600)}
+
+    .coin-volume{font-size:12px;color:var(--gray-400);font-weight:500;padding-top:8px;border-top:1px solid var(--gray-100)}
+
+    .empty-state{text-align:center;padding:60px 24px;color:var(--gray-400)}
+    .empty-state h2{font-size:20px;font-weight:600;margin-bottom:8px;color:var(--gray-500)}
+
+    footer{margin-top:40px;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
+    footer p{font-size:12px;color:var(--gray-400)}
+    footer a{color:var(--gray-500);text-decoration:none}
+
+    @media(max-width:640px){
+      .hero h1{font-size:28px}
+      .cards-grid{grid-template-columns:1fr}
+      .coin-card{padding:20px}
+    }
+  </style>
+</head>
+<body>
 {% include '_header.html' %}
-    96|
-    97|  <div class="container">
-    98|    <div class="hero">
-    99|      <h1>{{ title }}</h1>
-   100|      <p>{{ description }}</p>
-   101|    </div>
-   102|
-   103|    {% if coins %}
-   104|    <div class="cards-grid">
-   105|      {% for coin in coins %}
-   106|      <a href="/crypto/{{ coin.symbol }}" class="coin-card">
-   107|        <div class="coin-header">
-   108|          <span class="coin-symbol">{{ coin.symbol }}</span>
-   109|          <span class="coin-badge {% if coin.change_pct >= 0 %}up{% else %}down{% endif %}">
-   110|            {% if coin.change_pct >= 0 %}+{% endif %}{{ coin.change_pct }}%
-   111|          </span>
-   112|        </div>
-   113|        <div class="coin-price {% if coin.change_pct >= 0 %}up{% else %}down{% endif %}">
-   114|          ${{ "{:,.2f}".format(coin.price) }}
-   115|        </div>
-   116|        <div class="coin-stats">
-   117|          <div>
-   118|            <div class="coin-stat-label">24h High</div>
-   119|            <div class="coin-stat-value">${{ "{:,.2f}".format(coin.high) }}</div>
-   120|          </div>
-   121|          <div>
-   122|            <div class="coin-stat-label">24h Low</div>
-   123|            <div class="coin-stat-value">${{ "{:,.2f}".format(coin.low) }}</div>
-   124|          </div>
-   125|        </div>
-   126|        <div class="coin-volume">Vol 24h: {{ coin.volume_fmt }}</div>
-   127|      </a>
-   128|      {% endfor %}
-   129|    </div>
-   130|    {% else %}
-   131|    <div class="empty-state">
-   132|      <h2>No Cryptocurrency Data Available</h2>
-   133|      <p>Unable to load cryptocurrency data at this time. Please try again later.</p>
-   134|    </div>
-   135|    {% endif %}
-   136|  </div>
-   137|
-   138|  <footer>
-   139|    <p><a href="/">TrendPulse</a> · Real-time data aggregation · Not financial advice · <a href="/privacy">Privacy</a></p>
-   140|  </footer>
-   141|</body>
-   142|</html>
-   143|
+
+  <div class="container">
+    <div class="hero">
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+    </div>
+
+    {% if coins %}
+    <div class="cards-grid">
+      {% for coin in coins %}
+      <a href="/crypto/{{ coin.symbol }}" class="coin-card">
+        <div class="coin-header">
+          <span class="coin-symbol">{{ coin.symbol }}</span>
+          <span class="coin-badge {% if coin.change_pct >= 0 %}up{% else %}down{% endif %}">
+            {% if coin.change_pct >= 0 %}+{% endif %}{{ coin.change_pct }}%
+          </span>
+        </div>
+        <div class="coin-price {% if coin.change_pct >= 0 %}up{% else %}down{% endif %}">
+          ${{ "{:,.2f}".format(coin.price) }}
+        </div>
+        <div class="coin-stats">
+          <div>
+            <div class="coin-stat-label">24h High</div>
+            <div class="coin-stat-value">${{ "{:,.2f}".format(coin.high) }}</div>
+          </div>
+          <div>
+            <div class="coin-stat-label">24h Low</div>
+            <div class="coin-stat-value">${{ "{:,.2f}".format(coin.low) }}</div>
+          </div>
+        </div>
+        <div class="coin-volume">Vol 24h: {{ coin.volume_fmt }}</div>
+      </a>
+      {% endfor %}
+    </div>
+    {% else %}
+    <div class="empty-state">
+      <h2>No Cryptocurrency Data Available</h2>
+      <p>Unable to load cryptocurrency data at this time. Please try again later.</p>
+    </div>
+    {% endif %}
+  </div>
+
+  <footer>
+    <p><a href="/">TrendPulse</a> · Real-time data aggregation · Not financial advice · <a href="/privacy">Privacy</a></p>
+  </footer>
+</body>
+</html>
+

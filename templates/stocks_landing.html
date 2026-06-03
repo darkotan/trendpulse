@@ -1,105 +1,105 @@
-     1|<!DOCTYPE html>
-     2|<html lang="{{ lang }}">
-     3|<head>
-     4|  <meta charset="UTF-8">
-     5|  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     6|  <title>{{ title }}</title>
-     7|  <meta name="description" content="{{ description }}">
-     8|  <meta name="keywords" content="stocks, stock market today, stock prices, live stocks, market movers, AAPL, TSLA, NVDA">
-     9|  <meta name="robots" content="index, follow">
-    10|  <link rel="canonical" href="https://trendscan.org/stocks">
-    11|
-    12|  <meta property="og:title" content="{{ title }}">
-    13|  <meta property="og:description" content="{{ description }}">
-    14|  <meta property="og:type" content="website">
-    15|  <meta property="og:image" content="https://trendscan.org/og-image.png">
-    16|
-    17|  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
-    18|  <style>
-    19|    :root {
-    20|      --black: #171717; --white: #ffffff;
-    21|      --gray-600: #4d4d4d; --gray-500: #666666; --gray-400: #808080;
-    22|      --gray-100: #ebebeb; --gray-50: #fafafa;
-    23|      --blue: #0072f5; --green: #0a9950; --red: #dc2626;
-    24|      --radius: 8px; --radius-lg: 12px;
-    25|      --shadow: 0px 0px 0px 1px rgba(0,0,0,0.08), 0px 2px 2px rgba(0,0,0,0.04);
-    26|    }
-    27|    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
-    28|    html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
-    29|    body{background:var(--white);color:var(--black);line-height:1.5}
-    30|
-    31|    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 0 0 1px rgba(0,0,0,0.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-    32|
-    33|
-    34|
-    35|
-    36|
-    37|
-    38|    .container{max-width:1280px;margin:0 auto;padding:32px 24px}
-    39|    .hero{margin-bottom:40px}
-    40|    .hero h1{font-size:36px;font-weight:600;letter-spacing:-1.5px;margin-bottom:8px}
-    41|    .hero p{font-size:16px;color:var(--gray-500);max-width:600px}
-    42|
-    43|    .section{margin-bottom:40px}
-    44|    .section-title{font-size:14px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--gray-100)}
-    45|
-    46|    .stock-table{width:100%;border-collapse:collapse}
-    47|    .stock-table th{text-align:left;font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;padding:8px 12px;border-bottom:1px solid var(--gray-100)}
-    48|    .stock-table td{padding:10px 12px;border-bottom:1px solid var(--gray-50);font-size:14px}
-    49|    .stock-table tr:hover td{background:var(--gray-50)}
-    50|    .stock-sym{font-weight:600;font-family:'Geist Mono',monospace}
-    51|    .stock-sym a{color:var(--black);text-decoration:none}
-    52|    .stock-sym a:hover{color:var(--blue)}
-    53|    .stock-price{font-family:'Geist Mono',monospace;font-weight:500}
-    54|    .stock-chg{font-family:'Geist Mono',monospace;font-weight:500}
-    55|    .up{color:var(--green)}.down{color:var(--red)}
-    56|
-    57|    footer{max-width:1280px;margin:60px auto 0;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
-    58|    footer p{font-size:12px;color:var(--gray-400)}
-    59|
-    60|    @media(max-width:768px){
-    61|      .stock-table th:nth-child(4), .stock-table td:nth-child(4),
-    62|      .stock-table th:nth-child(5), .stock-table td:nth-child(5){display:none}
-    63|    }
-    64|  </style>
-    65|</head>
-    66|<body>
+<!DOCTYPE html>
+<html lang="{{ lang }}">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <meta name="description" content="{{ description }}">
+  <meta name="keywords" content="stocks, stock market today, stock prices, live stocks, market movers, AAPL, TSLA, NVDA">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://trendscan.org/stocks">
+
+  <meta property="og:title" content="{{ title }}">
+  <meta property="og:description" content="{{ description }}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://trendscan.org/og-image.png">
+
+  <link href="https://fonts.googleapis.com/css2?family=Geist:wght@300;400;500;600&family=Geist+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --black: #171717; --white: #ffffff;
+      --gray-600: #4d4d4d; --gray-500: #666666; --gray-400: #808080;
+      --gray-100: #ebebeb; --gray-50: #fafafa;
+      --blue: #0072f5; --green: #0a9950; --red: #dc2626;
+      --radius: 8px; --radius-lg: 12px;
+      --shadow: 0px 0px 0px 1px rgba(0,0,0,0.08), 0px 2px 2px rgba(0,0,0,0.04);
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
+    body{background:var(--white);color:var(--black);line-height:1.5}
+
+    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 0 0 1px rgba(0,0,0,0.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
+
+
+
+
+
+
+    .container{max-width:1280px;margin:0 auto;padding:32px 24px}
+    .hero{margin-bottom:40px}
+    .hero h1{font-size:36px;font-weight:600;letter-spacing:-1.5px;margin-bottom:8px}
+    .hero p{font-size:16px;color:var(--gray-500);max-width:600px}
+
+    .section{margin-bottom:40px}
+    .section-title{font-size:14px;font-weight:600;color:var(--gray-400);text-transform:uppercase;letter-spacing:1px;margin-bottom:16px;padding-bottom:8px;border-bottom:1px solid var(--gray-100)}
+
+    .stock-table{width:100%;border-collapse:collapse}
+    .stock-table th{text-align:left;font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;padding:8px 12px;border-bottom:1px solid var(--gray-100)}
+    .stock-table td{padding:10px 12px;border-bottom:1px solid var(--gray-50);font-size:14px}
+    .stock-table tr:hover td{background:var(--gray-50)}
+    .stock-sym{font-weight:600;font-family:'Geist Mono',monospace}
+    .stock-sym a{color:var(--black);text-decoration:none}
+    .stock-sym a:hover{color:var(--blue)}
+    .stock-price{font-family:'Geist Mono',monospace;font-weight:500}
+    .stock-chg{font-family:'Geist Mono',monospace;font-weight:500}
+    .up{color:var(--green)}.down{color:var(--red)}
+
+    footer{max-width:1280px;margin:60px auto 0;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
+    footer p{font-size:12px;color:var(--gray-400)}
+
+    @media(max-width:768px){
+      .stock-table th:nth-child(4), .stock-table td:nth-child(4),
+      .stock-table th:nth-child(5), .stock-table td:nth-child(5){display:none}
+    }
+  </style>
+</head>
+<body>
 {% include '_header.html' %}
-    76|
-    77|  <div class="container">
-    78|    <div class="hero">
-    79|      <h1>{{ title }}</h1>
-    80|      <p>{{ description }}</p>
-    81|    </div>
-    82|
-    83|    {% for sector, stocks in sectors.items() %}
-    84|    <div class="section">
-    85|      <div class="section-title">{{ sector | replace('_', ' ') | title }}</div>
-    86|      <table class="stock-table">
-    87|        <thead>
-    88|          <tr><th>Symbol</th><th>Price</th><th>Change</th><th>High</th><th>Low</th></tr>
-    89|        </thead>
-    90|        <tbody>
-    91|          {% for s in stocks %}
-    92|          <tr>
-    93|            <td class="stock-sym"><a href="/stock/{{ s.symbol }}">{{ s.symbol }}</a></td>
-    94|            <td class="stock-price">${{ "{:,.2f}".format(s.price) }}</td>
-    95|            <td class="stock-chg {% if s.change_pct >= 0 %}up{% else %}down{% endif %}">
-    96|              {% if s.change_pct >= 0 %}+{% endif %}{{ s.change_pct }}%
-    97|            </td>
-    98|            <td style="color:var(--gray-400);font-family:'Geist Mono',monospace">${{ "{:,.2f}".format(s.high) }}</td>
-    99|            <td style="color:var(--gray-400);font-family:'Geist Mono',monospace">${{ "{:,.2f}".format(s.low) }}</td>
-   100|          </tr>
-   101|          {% endfor %}
-   102|        </tbody>
-   103|      </table>
-   104|    </div>
-   105|    {% endfor %}
-   106|  </div>
-   107|
-   108|  <footer>
-   109|    <p><a href="/">TrendPulse</a> · Real-time data · Not financial advice · <a href="/privacy">Privacy</a></p>
-   110|  </footer>
-   111|</body>
-   112|</html>
-   113|
+
+  <div class="container">
+    <div class="hero">
+      <h1>{{ title }}</h1>
+      <p>{{ description }}</p>
+    </div>
+
+    {% for sector, stocks in sectors.items() %}
+    <div class="section">
+      <div class="section-title">{{ sector | replace('_', ' ') | title }}</div>
+      <table class="stock-table">
+        <thead>
+          <tr><th>Symbol</th><th>Price</th><th>Change</th><th>High</th><th>Low</th></tr>
+        </thead>
+        <tbody>
+          {% for s in stocks %}
+          <tr>
+            <td class="stock-sym"><a href="/stock/{{ s.symbol }}">{{ s.symbol }}</a></td>
+            <td class="stock-price">${{ "{:,.2f}".format(s.price) }}</td>
+            <td class="stock-chg {% if s.change_pct >= 0 %}up{% else %}down{% endif %}">
+              {% if s.change_pct >= 0 %}+{% endif %}{{ s.change_pct }}%
+            </td>
+            <td style="color:var(--gray-400);font-family:'Geist Mono',monospace">${{ "{:,.2f}".format(s.high) }}</td>
+            <td style="color:var(--gray-400);font-family:'Geist Mono',monospace">${{ "{:,.2f}".format(s.low) }}</td>
+          </tr>
+          {% endfor %}
+        </tbody>
+      </table>
+    </div>
+    {% endfor %}
+  </div>
+
+  <footer>
+    <p><a href="/">TrendPulse</a> · Real-time data · Not financial advice · <a href="/privacy">Privacy</a></p>
+  </footer>
+</body>
+</html>
+
