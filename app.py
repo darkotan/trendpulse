@@ -554,7 +554,7 @@ def blog_index():
     from translations import get_translations, detect_language
     lang = detect_language(request.headers.get('Accept-Language', ''))
     T = get_translations(lang)
-    articles = get_articles()
+    articles = get_articles(lang=lang)
     return render_template("blog.html",
         T=T, lang=lang, articles=articles,
         active_page='blog')

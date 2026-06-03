@@ -114,13 +114,29 @@ def _inline_md(text: str) -> str:
     return text
 
 
-def get_articles() -> list[dict]:
-    """Get all articles sorted by date (newest first)."""
+def _has_cjk(text: str) -> bool:
+    """Check if text contains CJK (Chinese/Japanese/Korean) characters."""
+    return any('\u4e00' <= c <= '\u9fff' or '\u3400' <= c <= '\u4dbf' for c in text)
+
+
+def get_articles(lang: str = '') -> list[dict]:
+    """Get all articles sorted by date (newest first).
+    If lang='zh', return only Chinese articles.
+    If lang is anything else, return only English articles.
+    If lang is empty, return all.
+    """
     ARTICLES_DIR.mkdir(parents=True, exist_ok=True)
     articles = []
     for f in sorted(ARTICLES_DIR.glob("*.md"), reverse=True):
         if art := parse_article(f):
-            articles.append(art)
+            if not lang:
+                articles.append(art)
+            elif lang == 'zh':
+                if _has_cjk(art.get('title', '')):
+                    articles.append(art)
+            else:
+                if not _has_cjk(art.get('title', '')):
+                    articles.append(art)
     return articles
 
 
