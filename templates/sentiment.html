@@ -35,13 +35,7 @@
     *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
     html{font-family:'Geist',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
     body{background:var(--gray-50);color:var(--black);line-height:1.5;min-height:100vh}
-
-    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:var(--shadow-border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-
-
-
-
-
+    /* header styling handled by _header.html (site-header class) */
 
     .live-dot{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--gray-500)}
     .live-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
@@ -95,18 +89,18 @@
     .up{color:var(--green)}.down{color:var(--red)}
 
     /* ── Treasury Table ── */
-    .table-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow:hidden;margin-bottom:24px;transition:box-shadow .15s ease}
+    .table-card{background:var(--white);border-radius:var(--radius-lg);box-shadow:var(--shadow-card);overflow-x:auto;margin-bottom:24px;transition:box-shadow .15s ease}
     .table-card:hover{box-shadow:var(--shadow-card-hover)}
     .table-header{display:flex;align-items:center;justify-content:space-between;padding:16px 20px;border-bottom:1px solid var(--gray-100)}
     .table-title{font-size:15px;font-weight:600;letter-spacing:-0.3px;display:flex;align-items:center;gap:8px}
 
-    table{width:100%;border-collapse:collapse}
+    table{width:100%;border-collapse:collapse;min-width:480px}
     th{text-align:left;font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;color:var(--gray-400);padding:12px 20px;border-bottom:1px solid var(--gray-100);background:var(--gray-50)}
     td{padding:14px 20px;font-size:14px;border-bottom:1px solid var(--gray-100)}
     tr:last-child td{border-bottom:none}
     tr:hover td{background:var(--gray-50)}
     td.label-cell{font-weight:600;color:var(--black)}
-    td.etf-cell{font-size:12px;font-family:'Geist Mono',monospace;color:var(--gray-400);background:var(--blue-light);padding:2px 8px;border-radius:4px;display:inline-block}
+    .etf-cell{font-size:12px;font-family:'Geist Mono',monospace;color:var(--gray-400);background:var(--blue-light);padding:2px 8px;border-radius:4px;display:inline-block}
     td.price-cell{font-family:'Geist Mono',monospace;font-weight:600}
     td.change-cell{font-family:'Geist Mono',monospace;font-weight:600}
 
@@ -120,12 +114,18 @@
 
     @media(max-width:600px){
       .hero h1{font-size:32px;letter-spacing:-1.5px}
+      .hero p{font-size:14px}
       .gauge-wrap{width:220px;height:130px}
+      .gauge-card{padding:32px 20px}
       .gauge-score{font-size:44px}
       .gauge-emoji{font-size:40px}
+      .gauge-scale span{font-size:10px}
       .vix-price{font-size:32px}
+      .card-body{padding:16px}
       th,td{padding:10px 14px}
       .info-grid{grid-template-columns:1fr}
+      .container{padding:24px 16px}
+      footer{margin-top:40px;padding:20px 16px}
     }
   </style>
 </head>

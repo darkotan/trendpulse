@@ -11,9 +11,6 @@
     html{font-family:'Geist',system-ui,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
     body{background:var(--white);color:var(--black);line-height:1.7;min-height:100vh}
     .container{max-width:640px;margin:0 auto;padding:40px 24px}
-    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 0 0 1px rgba(0,0,0,.08);padding:0 24px;height:56px;display:flex;align-items:center}
-    header a{font-size:16px;font-weight:600;letter-spacing:-0.32px;color:var(--black);text-decoration:none;display:flex;align-items:center;gap:8px}
-    .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
     h1{font-size:32px;font-weight:600;letter-spacing:-1.28px;margin-bottom:24px}
     p{margin-bottom:16px;color:var(--gray-500)}
     a{color:var(--blue);text-decoration:none}
@@ -24,7 +21,7 @@
   </style>
 </head>
 <body>
-  <header><a href="/"><span class="logo-dot"></span>TrendPulse</a></header>
+  {% include '_header.html' %}
   <div class="container">
     {{ content|safe }}
   </div>

@@ -209,11 +209,12 @@
     .subscribe-section {
       background: var(--card); border: 1px solid var(--border); border-radius: var(--radius-xl);
       padding: 48px 32px; margin-bottom: 48px; text-align: center;
-      position: relative; overflow: hidden;
+      position: relative;
     }
     .subscribe-section::before {
       content: ''; position: absolute; top: 0; left: 0; right: 0; height: 2px;
       background: linear-gradient(90deg, var(--accent), var(--blue), var(--green));
+      border-radius: var(--radius-xl) var(--radius-xl) 0 0;
     }
     .subscribe-title { font-size: 28px; font-weight: 700; letter-spacing: -1px; margin-bottom: 8px; }
     .subscribe-sub { font-size: 15px; color: var(--text-secondary); margin-bottom: 32px; max-width: 480px; margin-left: auto; margin-right: auto; line-height: 1.6; }
@@ -227,9 +228,10 @@
     .pricing-card.featured {
       border-color: var(--accent);
       background: linear-gradient(180deg, rgba(124,58,237,0.08) 0%, var(--bg) 100%);
+      padding-top: 28px;
     }
     .pricing-popular {
-      position: absolute; top: -10px; left: 50%; transform: translateX(-50%);
+      position: absolute; top: 8px; left: 50%; transform: translateX(-50%);
       padding: 3px 12px; border-radius: 9999px;
       background: var(--accent); color: #fff; font-size: 10px; font-weight: 700;
       text-transform: uppercase; letter-spacing: 0.8px;
@@ -270,6 +272,23 @@
     .subscribe-note { font-size: 12px; color: var(--text-muted); }
     .subscribe-confirm { font-size: 13px; color: var(--green); display: none; margin-top: 12px; font-weight: 500; }
     .subscribe-error { font-size: 13px; color: var(--red); display: none; margin-top: 12px; font-weight: 500; }
+
+    /* ── Plan Selection Buttons ─────────────────────── */
+    .plan-btn-row {
+      display: flex; gap: 10px; justify-content: center; align-items: center;
+      margin-bottom: 12px; flex-wrap: nowrap;
+    }
+    .plan-btn {
+      padding: 10px 20px; border-radius: 8px; border: 2px solid var(--border);
+      background: var(--bg); color: var(--text-secondary);
+      font-size: 13px; font-weight: 600; cursor: pointer;
+      font-family: 'Geist', sans-serif; white-space: nowrap; flex-shrink: 0;
+      transition: all 0.15s;
+    }
+    .plan-btn:hover { transform: translateY(-1px); }
+    .plan-btn.active-trial { border-color: var(--green); background: rgba(10,153,80,.08); color: var(--green); }
+    .plan-btn.active-monthly { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
+    .plan-btn.active-yearly { border-color: var(--accent); background: var(--accent-dim); color: var(--accent); }
 
     /* ── Features Grid ──────────────────────────────── */
     .features-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; margin-bottom: 32px; max-width: 720px; margin-left: auto; margin-right: auto; }
@@ -317,6 +336,8 @@
       .trades-highlight { grid-template-columns: 1fr; }
       .pricing-grid { grid-template-columns: 1fr; max-width: 320px; }
       .features-grid { grid-template-columns: repeat(2, 1fr); }
+      .plan-btn-row { flex-wrap: wrap; }
+      .plan-btn { flex: 1 1 calc(50% - 5px); justify-content: center; }
     }
     @media (max-width: 600px) {
       .hero { padding: 40px 0 24px; }
@@ -505,10 +526,10 @@
       <input type="email" placeholder="Enter your email" required autocomplete="email" id="subEmail">
       <button type="submit" id="subBtn">Subscribe Now</button>
     </form>
-    <div style="display:flex;gap:8px;justify-content:center;margin-bottom:12px">
-      <button class="plan-btn" id="planTrial" style="padding:8px 16px;border-radius:8px;border:2px solid var(--green);background:rgba(10,153,80,.08);color:var(--green);font-size:13px;font-weight:600;cursor:pointer;font-family:'Geist',sans-serif">⚡ Try $0.90 / 1 Hour</button>
-      <button class="plan-btn" id="planMonthly" style="padding:8px 16px;border-radius:8px;border:2px solid var(--accent);background:var(--accent-dim);color:var(--accent);font-size:13px;font-weight:600;cursor:pointer;font-family:'Geist',sans-serif">Monthly $29</button>
-      <button class="plan-btn" id="planYearly" style="padding:8px 16px;border-radius:8px;border:2px solid var(--border);background:var(--bg);color:var(--text-secondary);font-size:13px;font-weight:600;cursor:pointer;font-family:'Geist',sans-serif">Yearly $199 <span style="color:var(--green);font-size:11px">(Save 43%)</span></button>
+    <div class="plan-btn-row">
+      <button class="plan-btn" id="planTrial">⚡ Try $0.90 / 1 Hour</button>
+      <button class="plan-btn active-monthly" id="planMonthly">Monthly $29</button>
+      <button class="plan-btn" id="planYearly">Yearly $199 <span style="color:var(--green);font-size:11px">(Save 43%)</span></button>
     </div>
     <div class="subscribe-note">Secure payment via Stripe · Cancel anytime</div>
     <div class="subscribe-confirm" id="subConfirm">✓ Welcome! Check your email to get started.</div>
@@ -912,22 +933,18 @@
   const planYearly = $('#planYearly');
 
   const allPlans = [
-    { el: planTrial, plan: 'trial', activeBorder: 'var(--green)', activeBg: 'rgba(10,153,80,.08)', activeColor: 'var(--green)' },
-    { el: planMonthly, plan: 'monthly', activeBorder: 'var(--accent)', activeBg: 'var(--accent-dim)', activeColor: 'var(--accent)' },
-    { el: planYearly, plan: 'yearly', activeBorder: 'var(--accent)', activeBg: 'var(--accent-dim)', activeColor: 'var(--accent)' },
+    { el: planTrial, plan: 'trial', activeClass: 'active-trial' },
+    { el: planMonthly, plan: 'monthly', activeClass: 'active-monthly' },
+    { el: planYearly, plan: 'yearly', activeClass: 'active-yearly' },
   ];
+  const planClasses = ['active-trial', 'active-monthly', 'active-yearly'];
 
   function updatePlanUI() {
     allPlans.forEach(p => {
       if (!p.el) return;
+      planClasses.forEach(c => p.el.classList.remove(c));
       if (p.plan === selectedPlan) {
-        p.el.style.borderColor = p.activeBorder;
-        p.el.style.background = p.activeBg;
-        p.el.style.color = p.activeColor;
-      } else {
-        p.el.style.borderColor = 'var(--border)';
-        p.el.style.background = 'var(--bg)';
-        p.el.style.color = 'var(--text-secondary)';
+        p.el.classList.add(p.activeClass);
       }
     });
   }

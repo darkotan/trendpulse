@@ -34,13 +34,6 @@
     html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
     body{background:var(--white);color:var(--black);line-height:1.5;min-height:100vh}
 
-    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 0 0 1px rgba(0,0,0,0.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-    .logo{font-size:16px;font-weight:600;text-decoration:none;color:var(--black);display:flex;align-items:center;gap:8px}
-    .logo-dot{width:8px;height:8px;border-radius:50%;background:var(--blue)}
-    .header-nav{display:flex;gap:20px;font-size:13px;font-weight:500}
-    .header-nav a{color:var(--gray-500);text-decoration:none}
-    .header-nav a:hover{color:var(--black)}
-
     .container{max-width:900px;margin:0 auto;padding:32px 24px}
     .breadcrumb{font-size:12px;color:var(--gray-400);margin-bottom:24px}
     .breadcrumb a{color:var(--gray-400);text-decoration:none}
@@ -84,15 +77,7 @@
   </style>
 </head>
 <body>
-  <header>
-    <a href="/" class="logo"><span class="logo-dot"></span>TrendPulse</a>
-    <nav class="header-nav">
-      <a href="/stocks">Stocks</a>
-      <a href="/crypto">Crypto</a>
-      <a href="/market-sentiment">Sentiment</a>
-    </nav>
-  </header>
-
+  {% include '_header.html' %}
   <div class="container">
     <div class="breadcrumb">
       <a href="/">Home</a> › <a href="/stocks">Stocks</a> › {{ symbol }}

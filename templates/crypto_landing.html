@@ -35,12 +35,7 @@
     html{font-family:'Geist',system-ui,-apple-system,sans-serif;-webkit-font-smoothing:antialiased}
     body{background:var(--gray-50);color:var(--black);line-height:1.5;min-height:100vh}
 
-    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:0 0 0 1px rgba(0,0,0,0.08);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-
-
-
-
-
+    /* header styles handled by _header.html (site-header class) */
 
     .container{max-width:1280px;margin:0 auto;padding:32px 24px}
 
@@ -62,6 +57,8 @@
     .coin-badge.down{background:#fef2f2;color:var(--red)}
 
     .coin-price{font-size:28px;font-weight:600;font-family:'Geist Mono',monospace;letter-spacing:-1px}
+    .coin-price.up{color:var(--green)}
+    .coin-price.down{color:var(--red)}
 
     .coin-stats{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding-top:12px;border-top:1px solid var(--gray-100)}
     .coin-stat-label{font-size:11px;font-weight:500;color:var(--gray-400);text-transform:uppercase;letter-spacing:0.5px;margin-bottom:2px}
@@ -132,4 +129,3 @@
   </footer>
 </body>
 </html>
-

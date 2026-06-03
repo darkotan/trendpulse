@@ -35,12 +35,7 @@
     html{font-family:'Geist',system-ui,-apple-system,'Segoe UI',Roboto,sans-serif;font-feature-settings:'liga';-webkit-font-smoothing:antialiased}
     body{background:var(--gray-50);color:var(--black);line-height:1.5;min-height:100vh}
 
-    header{position:sticky;top:0;z-index:100;background:var(--white);box-shadow:var(--shadow-border);padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between}
-
-
-
-
-
+    /* Header styling handled by _header.html */
 
     .live-dot{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:500;color:var(--gray-500)}
     .live-dot::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
@@ -76,6 +71,7 @@
     .post-meta{display:flex;align-items:center;gap:12px;margin-top:6px;font-size:12px;color:var(--gray-400)}
     .post-meta span{display:flex;align-items:center;gap:3px}
     .post-score{font-weight:600;color:var(--reddit-orange)}
+    .post-time{font-size:11px;color:var(--gray-400)}
 
     footer{max-width:1280px;margin:60px auto 0;padding:24px;text-align:center;border-top:1px solid var(--gray-100)}
     footer p{font-size:12px;color:var(--gray-400)}
@@ -88,7 +84,18 @@
 
     @media(max-width:600px){
       .hero h1{font-size:32px;letter-spacing:-1.6px}
+      .hero p{font-size:16px}
+      .container{padding:24px 16px}
+      .post-item{padding:12px 16px;gap:10px}
+      .post-rank{min-width:16px;font-size:12px}
+      .post-title-text{font-size:13px}
       .post-meta{flex-wrap:wrap;gap:8px}
+      .card-header{padding:14px 16px}
+      .grid{gap:16px}
+    }
+    @media(min-width:601px) and (max-width:768px){
+      .container{padding:32px 16px}
+      .hero h1{font-size:40px;letter-spacing:-2px}
     }
   </style>
 </head>
@@ -126,9 +133,12 @@
                 {% endif %}
               </div>
               <div class="post-meta">
-                <span class="post-score">▲ {{ post.score }}</span>
-                <span>💬 {{ post.comments }} comments</span>
-                <span>by u/{{ post.author }}</span>
+                <span class="post-score">▲ {{ post.score|default(0, true) }}</span>
+                <span>💬 {{ post.comments|default(0, true) }} comments</span>
+                <span>by u/{{ post.author|default('anon', true) }}</span>
+                {% if post.created %}
+                <span class="post-time" data-time="{{ post.created }}"></span>
+                {% endif %}
               </div>
             </div>
           </a>
@@ -156,6 +166,40 @@
   <script>
     // Canonical URL
     document.getElementById('canonicalLink').href = window.location.origin;
+
+    // Format large numbers with commas
+    document.querySelectorAll('.post-score').forEach(el => {
+      const text = el.textContent;
+      const num = text.replace(/[^\d-]/g, '');
+      if (num) {
+        el.textContent = '▲ ' + Number(num).toLocaleString();
+      }
+    });
+    document.querySelectorAll('.post-meta span:nth-child(2)').forEach(el => {
+      const text = el.textContent;
+      const match = text.match(/(\d+)/);
+      if (match) {
+        el.textContent = '💬 ' + Number(match[1]).toLocaleString() + ' comments';
+      }
+    });
+
+    // Relative time display
+    document.querySelectorAll('.post-time[data-time]').forEach(el => {
+      try {
+        const date = new Date(el.dataset.time);
+        const now = new Date();
+        const diffMs = now - date;
+        const diffMins = Math.floor(diffMs / 60000);
+        const diffHrs = Math.floor(diffMs / 3600000);
+        const diffDays = Math.floor(diffMs / 86400000);
+        let text = '';
+        if (diffMins < 1) text = 'just now';
+        else if (diffMins < 60) text = diffMins + 'm ago';
+        else if (diffHrs < 24) text = diffHrs + 'h ago';
+        else text = diffDays + 'd ago';
+        el.textContent = '· ' + text;
+      } catch(e) {}
+    });
   </script>
 </body>
 </html>

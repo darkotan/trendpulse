@@ -1,19 +1,63 @@
-<!-- Shared header partial — included by all pages -->
+<!-- Shared header partial — included by all TrendPulse pages -->
 <style>
-  .site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border-bottom:1px solid var(--gray-100,#ebebeb);padding:0 20px;height:52px;display:flex;align-items:center;justify-content:space-between}
-  .site-logo{font-size:15px;font-weight:600;letter-spacing:-0.32px;color:var(--black,#171717);text-decoration:none;display:flex;align-items:center;gap:8px}
-  .site-logo-dot{width:7px;height:7px;border-radius:50%;background:var(--accent,#7c3aed)}
-  .site-nav{display:flex;align-items:center;gap:4px}
-  .site-nav a{font-size:13px;color:var(--gray-500,#666);text-decoration:none;padding:6px 12px;border-radius:6px;transition:all .15s}
-  .site-nav a:hover{color:var(--black,#171717);background:var(--gray-50,#fafafa)}
-  .site-nav a.active{color:var(--accent,#7c3aed);background:rgba(124,58,237,.08);font-weight:500}
+  .site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #e8e8ec;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+  .site-logo{font-size:16px;font-weight:700;letter-spacing:-0.4px;color:#171717;text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0}
+  .site-logo-dot{width:8px;height:8px;border-radius:50%;background:#7c3aed}
+  .site-nav{display:flex;align-items:center;gap:2px}
+  .site-nav a{font-size:13px;font-weight:500;color:#666;text-decoration:none;padding:7px 14px;border-radius:8px;transition:all .15s;white-space:nowrap}
+  .site-nav a:hover{color:#171717;background:#f5f5f5}
+  .site-nav a.active{color:#7c3aed;background:rgba(124,58,237,.08);font-weight:600}
+  .site-nav-sep{width:1px;height:18px;background:#e8e8ec;margin:0 4px}
+  .site-nav-sub{font-size:11px;color:#999;text-decoration:none;padding:3px 10px;border-radius:6px;transition:all .15s}
+  .site-nav-sub:hover{color:#666;background:#f5f5f5}
+  .site-nav-sub.active{color:#7c3aed;background:rgba(124,58,237,.06)}
+  /* Dropdown */
+  .nav-dropdown{position:relative;display:inline-block}
+  .nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;background:#fff;border:1px solid #e8e8ec;border-radius:10px;padding:6px;box-shadow:0 8px 24px rgba(0,0,0,.12);min-width:160px;z-index:200;margin-top:4px}
+  .nav-dropdown:hover .nav-dropdown-menu{display:block}
+  .nav-dropdown-menu a{display:block;padding:8px 12px;font-size:13px;color:#444;border-radius:6px;text-decoration:none}
+  .nav-dropdown-menu a:hover{background:#f5f5f5;color:#171717}
+  .nav-dropdown-menu a.active{color:#7c3aed;background:rgba(124,58,237,.08)}
+  .nav-arrow{font-size:9px;margin-left:3px;opacity:.5}
+  /* Mobile */
+  .nav-toggle{display:none;background:none;border:none;font-size:20px;cursor:pointer;padding:8px;color:#666}
+  @media(max-width:768px){
+    .site-header{padding:0 16px}
+    .nav-toggle{display:block}
+    .site-nav{display:none;position:absolute;top:56px;left:0;right:0;background:#fff;border-bottom:1px solid #e8e8ec;padding:8px 16px;flex-direction:column;gap:2px;box-shadow:0 4px 12px rgba(0,0,0,.08)}
+    .site-nav.open{display:flex}
+    .site-nav a,.site-nav-sub{padding:10px 16px;width:100%}
+    .nav-dropdown-menu{position:static;box-shadow:none;border:none;padding:0 0 0 16px;display:none}
+    .nav-dropdown:hover .nav-dropdown-menu{display:block}
+  }
+  /* Dark mode variant (signals page) */
+  .site-header-dark{background:rgba(10,10,10,.95)!important;border-bottom-color:rgba(255,255,255,.06)!important;box-shadow:0 1px 3px rgba(0,0,0,.3)!important}
+  .site-header-dark .site-logo{color:#fff}
+  .site-header-dark .site-nav a{color:rgba(255,255,255,.6)}
+  .site-header-dark .site-nav a:hover{color:#fff;background:rgba(255,255,255,.06)}
+  .site-header-dark .site-nav a.active{color:#7c3aed;background:rgba(124,58,237,.15)}
+  .site-header-dark .site-nav-sep{background:rgba(255,255,255,.1)}
+  .site-header-dark .nav-toggle{color:rgba(255,255,255,.6)}
 </style>
-<header class="site-header">
+<header class="site-header {% if dark_header %}site-header-dark{% endif %}">
   <a href="/" class="site-logo"><span class="site-logo-dot"></span>TrendPulse</a>
+  <button class="nav-toggle" onclick="this.nextElementSibling.classList.toggle('open')" aria-label="Menu">☰</button>
   <nav class="site-nav">
-    <a href="/" {% if active_page == 'serenity' %}class="active"{% endif %}>{{ T.brand }}</a>
+    <a href="/" {% if active_page == 'home' %}class="active"{% endif %}>🏠 Home</a>
+    <div class="nav-dropdown">
+      <a href="/stocks" {% if active_page in ['stocks','crypto','sentiment'] %}class="active"{% endif %}>📈 Markets <span class="nav-arrow">▾</span></a>
+      <div class="nav-dropdown-menu">
+        <a href="/stocks" {% if active_page == 'stocks' %}class="active"{% endif %}>📊 Stocks</a>
+        <a href="/crypto" {% if active_page == 'crypto' %}class="active"{% endif %}>🪙 Crypto</a>
+        <a href="/market-sentiment" {% if active_page == 'sentiment' %}class="active"{% endif %}>🌡️ Sentiment</a>
+      </div>
+    </div>
     <a href="/signals" {% if active_page == 'signals' %}class="active"{% endif %}>📡 Signals</a>
-    <a href="/blog" {% if active_page == 'blog' %}class="active"{% endif %}>{{ T.blog }}</a>
-    <a href="/performance" {% if active_page == 'performance' %}class="active"{% endif %}>📊 {{ T.performance }}</a>
+    <a href="/blog" {% if active_page == 'blog' %}class="active"{% endif %}>📝 Blog</a>
+    <a href="/performance" {% if active_page == 'performance' %}class="active"{% endif %}>📊 Performance</a>
+    <span class="site-nav-sep"></span>
+    <a href="https://data.trendscan.org" class="site-nav-sub" target="_blank">Options Data</a>
+    <a href="https://crypto.trendscan.org" class="site-nav-sub" target="_blank">Crypto</a>
+    <a href="https://brokers.trendscan.org" class="site-nav-sub" target="_blank">Brokers</a>
   </nav>
 </header>
