@@ -21,11 +21,13 @@ from analytics import track_pageview, track_ad_click, get_stats
 from serenity_collector import get_serenity_raw, get_serenity_summary
 from articles import get_articles, get_article
 from company_info import get_company_info
+from recommendations_db import init_db, add_recommendation, get_active, get_all, get_stats, close_recommendation, get_price_history, update_price
 import time, threading, io
 from datetime import datetime
 from pathlib import Path
 
 app = Flask(__name__)
+init_db()
 _cache = {}
 _cache_lock = threading.Lock()
 _refresh_lock = threading.Lock()
@@ -131,6 +133,8 @@ def inject_lang():
         active_page = 'blog'
     elif path.startswith('/performance'):
         active_page = 'performance'
+    elif path.startswith('/signals'):
+        active_page = 'signals'
     else:
         active_page = ''
     return {'lang': lang, 'T': get_translations(lang), 'active_page': active_page}
@@ -630,6 +634,71 @@ def api_performance():
     if pf.exists():
         return jsonify(json.loads(pf.read_text()))
     return jsonify({"error": "No data yet"}), 404
+
+
+# ── Options Signals ──────────────────────────────────
+
+@app.route("/signals")
+def signals_page():
+    """Options signals dashboard."""
+    return render_template("signals.html",
+        recommendations=get_all(50),
+        active=get_active(),
+        stats=get_stats())
+
+@app.route("/api/signals")
+def api_signals():
+    """Return all recommendations as JSON."""
+    return jsonify(get_all(50))
+
+@app.route("/api/signals/active")
+def api_signals_active():
+    """Return only active recommendations."""
+    return jsonify(get_active())
+
+@app.route("/api/signals/stats")
+def api_signals_stats():
+    """Return performance statistics."""
+    return jsonify(get_stats())
+
+@app.route("/api/signals/<int:id>/history")
+def api_signals_history(id):
+    """Return price history for a recommendation."""
+    return jsonify(get_price_history(id))
+
+@app.route("/api/signals/export")
+def api_signals_export():
+    """Export all recommendations as CSV."""
+    import csv
+    import io
+    recs = get_all(200)
+    output = io.StringIO()
+    writer = csv.writer(output)
+    writer.writerow(["id", "symbol", "direction", "strike", "expiry", "entry_price",
+                      "target_price", "stop_loss", "status", "close_price", "close_reason",
+                      "pnl_pct", "created_at", "closed_at"])
+    for r in recs:
+        writer.writerow([r.get("id"), r.get("symbol"), r.get("direction"), r.get("strike"),
+                          r.get("expiry"), r.get("entry_price"), r.get("target_price"),
+                          r.get("stop_loss"), r.get("status"), r.get("close_price"),
+                          r.get("close_reason"), r.get("pnl_pct"), r.get("created_at"),
+                          r.get("closed_at")])
+    resp = make_response(output.getvalue())
+    resp.headers["Content-Type"] = "text/csv"
+    resp.headers["Content-Disposition"] = "attachment; filename=signals_export.csv"
+    return resp
+
+@app.route("/api/signals/close", methods=["POST"])
+def api_signals_close():
+    """Close a recommendation."""
+    data = request.get_json(force=True) if request.is_json else {}
+    rec_id = data.get("id")
+    close_price = data.get("close_price")
+    reason = data.get("reason", "manual close")
+    if not rec_id or close_price is None:
+        return jsonify({"ok": False, "error": "id and close_price required"}), 400
+    ok = close_recommendation(rec_id, close_price, reason)
+    return jsonify({"ok": ok})
 
 
 # ── Main ───────────────────────────────────────────
