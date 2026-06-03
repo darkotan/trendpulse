@@ -119,10 +119,21 @@ def _has_cjk(text: str) -> bool:
     return any('\u4e00' <= c <= '\u9fff' or '\u3400' <= c <= '\u4dbf' for c in text)
 
 
+def _detect_lang(art: dict) -> str:
+    """Detect article language from filename suffix or title content."""
+    slug = art.get('slug', '')
+    for suffix in ['ja','ko','fr','de','es','pt','ar','ru']:
+        if slug.endswith('-' + suffix):
+            return suffix
+    title = art.get('title', '')
+    if _has_cjk(title):
+        return 'zh'
+    return 'en'
+
+
 def get_articles(lang: str = '') -> list[dict]:
     """Get all articles sorted by date (newest first).
-    If lang='zh', return only Chinese articles.
-    If lang is anything else, return only English articles.
+    If lang is set, return only articles matching that language.
     If lang is empty, return all.
     """
     ARTICLES_DIR.mkdir(parents=True, exist_ok=True)
@@ -131,12 +142,8 @@ def get_articles(lang: str = '') -> list[dict]:
         if art := parse_article(f):
             if not lang:
                 articles.append(art)
-            elif lang == 'zh':
-                if _has_cjk(art.get('title', '')):
-                    articles.append(art)
-            else:
-                if not _has_cjk(art.get('title', '')):
-                    articles.append(art)
+            elif _detect_lang(art) == lang:
+                articles.append(art)
     return articles
 
 
