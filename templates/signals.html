@@ -7,6 +7,7 @@
 <meta name="description" content="Real-time US options signals powered by Futu API + AI analysis. Track P&L, win rate, and subscribe for premium alerts.">
 <meta name="robots" content="index, follow">
 <link rel="canonical" href="" id="canonicalLink">
+<script>document.getElementById('canonicalLink').href = window.location.origin + '/signals';</script>
 
 <meta property="og:title" content="Options Signals — TrendPulse">
 <meta property="og:description" content="Real-time US options signals powered by Futu API + AI analysis.">
@@ -473,17 +474,104 @@ td, th { padding: 10px 12px; font-size: 11px; }
 </div>
 
 <div class="pricing-grid">
+<!-- Trial Plan -->
 <div class="pricing-card">
-<div class="pricing-name">Free Trial</div>
-<div class="pricing-price">$0</div>
-<div class="pricing-period">7 days access</div>
+<div class="pricing-name">Trial</div>
+<div class="pricing-price">$0.90</div>
+<div class="pricing-period">1 Hour</div>
 <ul class="pricing-features">
-<li>All features included</li>
-<li>No credit card required</li>
+<li>All premium features</li>
+<li>Cancel anytime</li>
+<li>No subscription needed</li>
+</ul>
+</div>
+<!-- Monthly Plan -->
+<div class="pricing-card featured">
+<div class="pricing-popular">Popular</div>
+<div class="pricing-name">Monthly</div>
+<div class="pricing-price">$29</div>
+<div class="pricing-period">per month</div>
+<ul class="pricing-features">
+<li>All premium features</li>
+<li>Real-time alerts</li>
+<li>Full signal history</li>
+<li>Sell signals</li>
 <li>Cancel anytime</li>
 </ul>
 </div>
+<!-- Yearly Plan -->
+<div class="pricing-card">
+<div class="pricing-name">Yearly</div>
+<div class="pricing-price">$199</div>
+<div class="pricing-period">per year</div>
+<span class="pricing-save">Save 43%</span>
+<ul class="pricing-features">
+<li>All premium features</li>
+<li>Real-time alerts</li>
+<li>Full signal history</li>
+<li>Sell signals</li>
+<li>Cancel anytime</li>
+</ul>
+</div>
+</div>
+
+<div class="plan-btn-row">
+<button class="plan-btn active-trial" data-plan="trial" onclick="selectPlan('trial')">Trial — $0.90</button>
+<button class="plan-btn" data-plan="monthly" onclick="selectPlan('monthly')">Monthly — $29</button>
+<button class="plan-btn" data-plan="yearly" onclick="selectPlan('yearly')">Yearly — $199</button>
+</div>
+
+<button class="subscribe-form" style="display:flex;gap:8px;max-width:320px;margin:0 auto" onclick="startCheckout()">
+<span style="padding:12px 24px;border-radius:8px;border:none;background:var(--accent);color:#fff;font-size:14px;font-weight:600;cursor:pointer;font-family:'Geist',sans-serif;transition:all 0.15s;white-space:nowrap;width:100%;text-align:center">Subscribe Now</span>
+</button>
+<div class="subscribe-note" id="subscribeNote">Select a plan above, then click Subscribe.</div>
+<div class="subscribe-confirm" id="subscribeConfirm"></div>
+<div class="subscribe-error" id="subscribeError"></div>
+</section>
+<!-- /subscribe-section -->
+
 <script>
+/* ── Plan Selection ─────────────────────────────── */
+let selectedPlan = 'trial';
+function selectPlan(plan) {
+  selectedPlan = plan;
+  document.querySelectorAll('.plan-btn').forEach(b => {
+    b.classList.remove('active-trial','active-monthly','active-yearly');
+    if (b.dataset.plan === plan) b.classList.add('active-' + plan);
+  });
+  document.getElementById('subscribeError').style.display = 'none';
+  document.getElementById('subscribeConfirm').style.display = 'none';
+}
+
+/* ── Checkout ───────────────────────────────────── */
+async function startCheckout() {
+  const errEl = document.getElementById('subscribeError');
+  const confEl = document.getElementById('subscribeConfirm');
+  errEl.style.display = 'none';
+  confEl.style.display = 'none';
+  try {
+    const r = await fetch('/api/create-checkout-session', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ plan: selectedPlan })
+    });
+    const data = await r.json();
+    if (data.url) {
+      window.location.href = data.url;
+    } else if (data.error) {
+      errEl.textContent = data.error;
+      errEl.style.display = 'block';
+    } else {
+      confEl.textContent = 'Redirecting to checkout…';
+      confEl.style.display = 'block';
+    }
+  } catch(e) {
+    errEl.textContent = 'Network error. Please try again.';
+    errEl.style.display = 'block';
+  }
+}
+
+/* ── Load Signals ───────────────────────────────── */
 async function loadSignals() {
   try {
     const r = await fetch('/api/signals');

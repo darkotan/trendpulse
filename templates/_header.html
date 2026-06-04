@@ -1,4 +1,18 @@
 <!-- TrendPulse Header — 1:1 OptionsData .sub-* style -->
+<style>
+.sub-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);border-bottom:1px solid #e8e8ec;padding:0 24px;height:56px;display:flex;align-items:center;justify-content:space-between;box-shadow:0 1px 3px rgba(0,0,0,.04)}
+.sub-logo{font-size:16px;font-weight:700;letter-spacing:-0.4px;color:#171717;text-decoration:none;display:flex;align-items:center;gap:8px;flex-shrink:0}
+.sub-logo-dot{width:8px;height:8px;border-radius:50%;background:#7c3aed}
+.sub-nav{display:flex;align-items:center;gap:2px}
+.sub-nav a{font-size:13px;font-weight:500;color:#666;text-decoration:none;padding:7px 14px;border-radius:8px;transition:all .15s;white-space:nowrap}
+.sub-nav a:hover{color:#171717;background:#f5f5f5}
+.sub-nav a.active{color:#7c3aed;background:rgba(124,58,237,.08);font-weight:600}
+.sub-nav-sep{width:1px;height:18px;background:#e8e8ec;margin:0 4px}
+.sub-nav-ext{font-size:11px!important;color:#999!important;text-decoration:none;padding:3px 10px;border-radius:6px;transition:all .15s}
+.sub-nav-ext:hover{color:#666!important;background:#f5f5f5}
+.sub-nav-toggle{display:none;background:none;border:none;color:#171717;font-size:1.2rem;cursor:pointer;padding:8px}
+@media(max-width:768px){.sub-nav{display:none;flex-direction:column;position:absolute;top:56px;left:0;right:0;background:rgba(255,255,255,.98);backdrop-filter:blur(16px);border-bottom:1px solid #e8e8ec;padding:8px 16px;gap:4px;z-index:99}.sub-nav.open{display:flex}.sub-nav-sep{display:none}.sub-nav a,.sub-nav-ext{padding:10px 14px;width:100%}.sub-nav-toggle{display:block}}
+</style>
 <header class="sub-header" style="position:relative">
     <a href="/" class="sub-logo"><span class="sub-logo-dot"></span>TrendPulse</a>
     <button class="sub-nav-toggle" onclick="document.querySelector('.sub-nav').classList.toggle('open')" aria-label="Toggle menu">☰</button>

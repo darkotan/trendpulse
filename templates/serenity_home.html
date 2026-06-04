@@ -22,29 +22,6 @@
 body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;background:var(--bg-primary);color:var(--text-primary);line-height:1.6;-webkit-font-smoothing:antialiased}
 a{color:var(--accent);text-decoration:none}
 
-/* Header */
-.site-header{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border-bottom:1px solid var(--border);padding:0 2rem}
-.site-header-inner{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;height:64px}
-.site-logo{font-size:1.25rem;font-weight:700;color:var(--accent);display:flex;align-items:center;gap:8px;text-decoration:none}
-.site-logo:hover{text-decoration:none}
-.site-logo-dot{width:8px;height:8px;border-radius:50%;background:var(--accent)}
-.site-nav{display:flex;gap:2rem;align-items:center}
-.site-nav a{color:var(--text-secondary);font-size:.9rem;font-weight:500;text-decoration:none;transition:color .2s}
-.site-nav a:hover{color:var(--text-primary)}
-.site-nav a.active{color:var(--accent);font-weight:600}
-.site-nav-sep{width:1px;height:18px;background:var(--border)}
-.site-nav-sub{font-size:.8rem!important;color:var(--text-muted)!important}
-.site-nav-sub:hover{color:var(--text-secondary)!important}
-.site-hamburger{display:none;background:none;border:none;color:var(--text-primary);font-size:1.5rem;cursor:pointer}
-.nav-dropdown{position:relative;display:inline-block}
-.nav-dropdown-menu{display:none;position:absolute;top:100%;left:0;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:6px;box-shadow:0 12px 30px rgba(0,0,0,.1);min-width:160px;z-index:200;margin-top:4px}
-.nav-dropdown:hover .nav-dropdown-menu{display:block}
-.nav-dropdown-menu a{display:block;padding:8px 12px;font-size:.85rem;color:var(--text-secondary);border-radius:8px;text-decoration:none}
-.nav-dropdown-menu a:hover{background:var(--bg-secondary);color:var(--text-primary)}
-.nav-dropdown-menu a.active{color:var(--accent);background:var(--accent-glow)}
-.nav-arrow{font-size:.6rem;margin-left:3px;opacity:.5}
-@media(max-width:768px){.site-nav{display:none}.site-nav.open{display:flex;flex-direction:column;position:absolute;top:64px;left:0;right:0;background:var(--bg-primary);border-bottom:1px solid var(--border);padding:1rem 2rem;gap:.5rem}.site-hamburger{display:block}}
-
 /* Container */
 .container{max-width:1200px;margin:0 auto;padding:2rem}
 
@@ -120,30 +97,7 @@ footer a:hover{color:var(--text-primary)}
 </head>
 <body>
 {% set t = T %}
-<header class="site-header">
-  <div class="site-header-inner">
-    <a href="/" class="site-logo"><span class="site-logo-dot"></span>TrendPulse</a>
-    <button class="site-hamburger" onclick="document.querySelector('.site-nav').classList.toggle('open')" aria-label="Menu">☰</button>
-    <nav class="site-nav">
-      <a href="/" class="active">🏠 Home</a>
-      <div class="nav-dropdown">
-        <a href="/stocks">📈 Markets <span class="nav-arrow">▾</span></a>
-        <div class="nav-dropdown-menu">
-          <a href="/stocks">📊 Stocks</a>
-          <a href="/crypto">🪙 Crypto</a>
-          <a href="/market-sentiment">🌡️ Sentiment</a>
-        </div>
-      </div>
-      <a href="/signals">📡 Signals</a>
-      <a href="/blog">📝 Blog</a>
-      <a href="/performance">📊 Performance</a>
-      <span class="site-nav-sep"></span>
-      <a href="https://data.trendscan.org" class="site-nav-sub">Options Data</a>
-      <a href="https://crypto.trendscan.org" class="site-nav-sub">Crypto</a>
-      <a href="https://brokers.trendscan.org" class="site-nav-sub">Brokers</a>
-    </nav>
-  </div>
-</header>
+{% include '_header.html' %}
 
 <div class="container">
 <div class="hero">

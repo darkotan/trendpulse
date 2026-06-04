@@ -17,7 +17,7 @@ from data.collector import (
 )
 from og_image import generate_og_image
 from auto_promote import ping_all_services, ping_sitemap, SITE_URL, SITE_NAME, RSS_URL, SITEMAP_URL
-from analytics import track_pageview, track_ad_click, get_stats
+from analytics import track_pageview, track_ad_click, get_stats as get_analytics_stats
 from serenity_collector import get_serenity_raw, get_serenity_summary
 from articles import get_articles, get_article
 from company_info import get_company_info
@@ -345,15 +345,6 @@ def wechat_digest():
     return jsonify({"message": "\n".join(lines)})
 
 # ── Newsletter ──────────────────────────────────────
-@app.route("/api/subscribe", methods=["POST"])
-def subscribe():
-    email = (request.json or {}).get("email", "").strip() if request.is_json else ""
-    if not email or "@" not in email:
-        return jsonify({"ok": False, "error": "Invalid email"}), 400
-    from analytics import add_subscriber
-    ok = add_subscriber(email)
-    return jsonify({"ok": ok})
-
 @app.route("/api/subscribers/count")
 def subscriber_count():
     from analytics import get_subscriber_count
@@ -363,15 +354,16 @@ def subscriber_count():
 @app.route("/analytics")
 def analytics_dashboard():
     pw = request.args.get('pw', '')
-    if pw != 'trendscan2026':
-        return "<h2>Access denied</h2><p>Add ?pw=trendscan2026 to the URL</p>", 403
+    analytics_pw = os.environ.get('ANALYTICS_PASSWORD', 'trendscan2026')
+    if pw != analytics_pw:
+        return "<h2>Access denied</h2><p>Add ?pw=" + analytics_pw + " to the URL</p>", 403
     data = get_cache()
-    stats = get_stats(7)
+    stats = get_analytics_stats(7)
     return render_template("analytics.html", stats=stats, cache=data)
 
 @app.route("/api/stats")
 def api_stats():
-    return jsonify(get_stats(7))
+    return jsonify(get_analytics_stats(7))
 
 
 @app.route("/api/serenity")
@@ -386,6 +378,31 @@ def market_story():
     stocks = data.get("stocks", [])
     crypto = data.get("crypto", [])
     hn = data.get("hn", [])
+
+    story_parts = []
+    highlights = []
+    if stocks:
+        up = [s for s in stocks if s.get("change_pct", 0) > 0]
+        down = [s for s in stocks if s.get("change_pct", 0) < 0]
+        direction = "rallying" if len(up) > len(down) else "mixed" if len(up) == len(down) else "declining"
+        story_parts.append(f"Stocks are {direction} with {len(up)}/{len(stocks)} in the green.")
+        if up:
+            top = up[0]
+            story_parts.append(f"{top['symbol']} leads at +{top['change_pct']}%.")
+            highlights.append({"symbol": top["symbol"], "change": f"+{top['change_pct']}%", "type": "gain"})
+        if down:
+            drop = down[0]
+            story_parts.append(f"{drop['symbol']} drops {drop['change_pct']}%.")
+            highlights.append({"symbol": drop["symbol"], "change": f"{drop['change_pct']}%", "type": "loss"})
+    if crypto:
+        btc = next((c for c in crypto if c["symbol"] == "BTC"), None)
+        if btc:
+            story_parts.append(f"BTC is at ${btc['price']:,.0f} ({btc['change_pct']:+.1f}%).")
+            highlights.append({"symbol": "BTC", "change": f"{btc['change_pct']:+.1f}%", "type": "crypto"})
+    if hn:
+        story_parts.append(f"On HN: '{hn[0]['title'][:60]}' is trending.")
+    story = " ".join(story_parts) if story_parts else "Loading market data..."
+    return jsonify({"story": story, "highlights": highlights})
 
 
 @app.route("/api/briefing")
@@ -442,42 +459,6 @@ def briefing():
         result["github_narrative"] = " ".join(parts)
 
     return jsonify(result)
-    stocks = data.get("stocks", [])
-    crypto = data.get("crypto", [])
-    hn = data.get("hn", [])
-
-    if not stocks:
-        return jsonify({"story": "Loading market data...", "highlights": []})
-
-    up = [s for s in stocks if s["change_pct"] > 0]
-    down = [s for s in stocks if s["change_pct"] < 0]
-    top_up = up[0] if up else None
-    top_down = down[0] if down else None
-    btc = next((c for c in crypto if c["symbol"] == "BTC"), None)
-    eth = next((c for c in crypto if c["symbol"] == "ETH"), None)
-
-    # Build narrative
-    parts = []
-    highlights = []
-
-    direction = "rallying" if len(up) > len(down) else "mixed" if len(up) == len(down) else "declining"
-    parts.append(f"Markets are {direction} today with {len(up)}/{len(stocks)} tracked stocks in the green.")
-
-    if top_up:
-        parts.append(f"Top gainer: {top_up['symbol']} +{top_up['change_pct']}% (${top_up['price']}).")
-        highlights.append({"symbol": top_up["symbol"], "change": f"+{top_up['change_pct']}%", "type": "gain"})
-    if top_down:
-        parts.append(f"Biggest drop: {top_down['symbol']} {top_down['change_pct']}%.")
-        highlights.append({"symbol": top_down["symbol"], "change": f"{top_down['change_pct']}%", "type": "loss"})
-    if btc:
-        direction = "up" if btc["change_pct"] >= 0 else "down"
-        parts.append(f"Bitcoin is {direction} {abs(btc['change_pct']):.1f}% at ${btc['price']:,.0f}.")
-        highlights.append({"symbol": "BTC", "change": f"{btc['change_pct']:+.1f}%", "type": "crypto"})
-    if hn:
-        parts.append(f"On Hacker News, '{hn[0]['title'][:60]}' is trending with {hn[0]['score']} points.")
-
-    story = " ".join(parts)
-    return jsonify({"story": story, "highlights": highlights})
 
 
 @app.route("/api/stock/<symbol>")
@@ -577,6 +558,7 @@ def stock_page(symbol: str):
     d = "↑" if pct >= 0 else "↓"
     return render_template("stock_page.html",
         symbol=symbol, quote=quote, company_name=company_name, company_desc=company_desc,
+        related_articles={},
         title=f"{symbol} Stock Price ${quote['price']:.2f} — {d}{abs(pct):.2f}% Today | TrendPulse",
         description=f"{symbol} ({company_name}) live stock price: ${quote['price']:.2f}. Change: {pct:+.2f}%. {company_desc[:100]}...")
 

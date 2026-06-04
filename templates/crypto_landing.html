@@ -58,7 +58,7 @@ body { /* bg from _css.html */ }
 .coin-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px;background:var(--orange);opacity:0;transition:opacity 0.15s ease}
 .coin-card:hover::before{opacity:1}
 
-.coin-/* header from _header.html */
+.coin-header { display: flex; align-items: center; gap: 12px; margin-bottom: 12px; }
 .coin-symbol{font-size:22px;font-weight:600;font-family:'Geist Mono',monospace;letter-spacing:-0.5px}
 .coin-badge{font-size:11px;font-weight:600;text-transform:uppercase;letter-spacing:0.5px;padding:4px 10px;border-radius:20px;font-family:'Geist Mono',monospace}
 .coin-badge.up{background:#e6f9f0;color:var(--green)}
