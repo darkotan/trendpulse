@@ -18,7 +18,6 @@
     <button class="sub-nav-toggle" onclick="document.querySelector('.sub-nav').classList.toggle('open')" aria-label="Toggle menu">☰</button>
     <nav class="sub-nav">
         <a href="/" class="{% if active_page == 'home' %}active{% endif %}">🏠 Home</a>
-        <a href="/stocks" class="{% if active_page == 'stocks' %}active{% endif %}">📈 Stocks</a>
         <a href="/crypto" class="{% if active_page == 'crypto' %}active{% endif %}">🪙 Crypto</a>
         <a href="/signals" class="{% if active_page == 'signals' %}active{% endif %}">📡 Signals</a>
         <a href="/blog" class="{% if active_page == 'blog' %}active{% endif %}">📝 Blog</a>

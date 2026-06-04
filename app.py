@@ -165,8 +165,6 @@ def inject_lang():
     path = request.path if request else '/'
     if path == '/' or path == '/serenity':
         active_page = 'home'
-    elif path.startswith('/stocks') or path.startswith('/stock/'):
-        active_page = 'stocks'
     elif path.startswith('/crypto'):
         active_page = 'crypto'
     elif path.startswith('/market-sentiment'):
@@ -226,9 +224,6 @@ def sitemap():
     articles = get_articles()
     for art in articles:
         paths.append((f"/blog/{art['slug']}", "0.7"))
-    # Stock pages
-    for ticker in ALL_TICKERS:
-        paths.append((f"/stock/{ticker}", "0.8"))
 
     # Crypto pages
     for coin in CRYPTO_SYMBOLS:
@@ -251,12 +246,7 @@ def rss_feed():
     # HN stories
     for item in data.get("hn", [])[:3]:
         items += f'    <item><title>{_esc(item.get("title",""))}</title><link>{_esc(item.get("url",base))}</link><description>Score: {item.get("score",0)} | Comments: {item.get("comments",0)}</description><pubDate>{today}</pubDate><guid>{base}/hn#{item.get("id")}</guid></item>\n'
-    # Top stocks
-    for item in data.get("stocks", [])[:5]:
-        pct = item.get("change_pct", 0)
-        d = "↑" if pct >= 0 else "↓"
-        items += f'    <item><title>{item.get("symbol","")} {d}{abs(pct):.1f}% — ${item.get("price",0):.2f}</title><link>{base}/stock/{item.get("symbol")}</link><description>Price: ${item.get("price",0):.2f} | Change: {pct:+.2f}%</description><pubDate>{today}</pubDate><guid>{base}/stock/{item.get("symbol")}</guid></item>\n'
-    xml = f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n  <channel>\n    <title>TrendPulse — Live Market Data & Tech News</title>\n    <link>{base}</link>\n    <description>Real-time stocks, crypto, HN, Reddit, ProductHunt, and market sentiment.</description>\n    <lastBuildDate>{today}</lastBuildDate>\n    <atom:link href="{base}/rss.xml" rel="self" type="application/rss+xml"/>\n{items}  </channel>\n</rss>'
+    xml = f'<?xml version="1.0" encoding="UTF-8"?>\n<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">\n  <channel>\n    <title>TrendPulse — Live Market Data & Tech News</title>\n    <link>{base}</link>\n    <description>Real-time crypto, HN, Reddit, ProductHunt, and market sentiment.</description>\n    <lastBuildDate>{today}</lastBuildDate>\n    <atom:link href="{base}/rss.xml" rel="self" type="application/rss+xml"/>\n{items}  </channel>\n</rss>'
     return make_response(xml, {"Content-Type": "application/xml; charset=utf-8"})
 
 # ── API Routes ─────────────────────────────────────
@@ -461,16 +451,6 @@ def briefing():
     return jsonify(result)
 
 
-@app.route("/api/stock/<symbol>")
-def stock_detail(symbol):
-    """Get detail for one stock with referral links."""
-    from data.collector import _get_yahoo_quote
-    quote = _get_yahoo_quote(symbol.upper())
-    if not quote:
-        return jsonify({"error": "Not found"}), 404
-    quote["binance_url"] = f"https://accounts.binance.com/en/register?ref=GRO_28502_3H9MX"
-    return jsonify(quote)
-
 
 @app.route("/api/subscribe", methods=["POST"])
 def api_subscribe():
@@ -512,14 +492,6 @@ def contact():
 <p>Email: darkotan@hotmail.com</p>""")
 
 # ── Section Landing Pages ──────────────────────────
-@app.route("/stocks")
-def stocks_landing():
-    data = get_cache()
-    return render_template("stocks_landing.html",
-        title="Stock Market Today — 50+ Stocks Live | TrendPulse",
-        description="Live stock prices for 50+ tickers. Tech, finance, ETFs, meme stocks. Real-time quotes.",
-        sectors=data.get("stocks_by_sector", {}))
-
 @app.route("/crypto")
 def crypto_landing():
     data = get_cache()
@@ -545,23 +517,6 @@ def reddit_page():
         posts=data.get("reddit", []))
 
 # ── Individual Stock Pages (Programmatic SEO) ──────
-@app.route("/stock/<symbol>")
-def stock_page(symbol: str):
-    symbol = symbol.upper()
-    quote = fetch_single_stock(symbol)
-    if not quote:
-        return render_template("stock_page.html", symbol=symbol, quote=None,
-            title=f"{symbol} Stock Price Today — Live Quote | TrendPulse",
-            description=f"{symbol} stock price unavailable. Check back for live data.")
-    company_name, sector, company_desc = get_company_info(symbol)
-    pct = quote.get("change_pct", 0)
-    d = "↑" if pct >= 0 else "↓"
-    return render_template("stock_page.html",
-        symbol=symbol, quote=quote, company_name=company_name, company_desc=company_desc,
-        related_articles={},
-        title=f"{symbol} Stock Price ${quote['price']:.2f} — {d}{abs(pct):.2f}% Today | TrendPulse",
-        description=f"{symbol} ({company_name}) live stock price: ${quote['price']:.2f}. Change: {pct:+.2f}%. {company_desc[:100]}...")
-
 # ── Individual Crypto Pages (Programmatic SEO) ─────
 @app.route("/crypto/<symbol>")
 def crypto_page(symbol: str):
