@@ -17,11 +17,11 @@
     <a href="/" class="sub-logo"><span class="sub-logo-dot"></span>TrendPulse</a>
     <button class="sub-nav-toggle" onclick="document.querySelector('.sub-nav').classList.toggle('open')" aria-label="Toggle menu">☰</button>
     <nav class="sub-nav">
-        <a href="/" class="{% if active_page == 'home' %}active{% endif %}">🏠 Home</a>
+        <a href="/" class="{% if active_page == 'home' %}active{% endif %}">🏠 {{ T.brand }}</a>
         <a href="/crypto" class="{% if active_page == 'crypto' %}active{% endif %}">🪙 Crypto</a>
         <a href="/signals" class="{% if active_page == 'signals' %}active{% endif %}">📡 Signals</a>
-        <a href="/blog" class="{% if active_page == 'blog' %}active{% endif %}">📝 Blog</a>
-        <a href="/performance" class="{% if active_page == 'performance' %}active{% endif %}">📊 Performance</a>
+        <a href="/blog" class="{% if active_page == 'blog' %}active{% endif %}">📝 {{ T.blog }}</a>
+        <a href="/performance" class="{% if active_page == 'performance' %}active{% endif %}">📊 {{ T.performance }}</a>
         <span class="sub-nav-sep"></span>
         <a href="https://data.trendscan.org" class="sub-nav-ext">Options Data</a>
         <a href="https://crypto.trendscan.org" class="sub-nav-ext">Crypto</a>

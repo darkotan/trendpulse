@@ -206,42 +206,47 @@ footer a:hover{color:var(--text-primary)}
 <!-- Premium Signals CTA -->
 <div style="background:linear-gradient(135deg,rgba(94,106,210,.12),rgba(124,58,237,.08));border:1px solid rgba(94,106,210,.25);border-radius:16px;padding:2rem;margin-bottom:2rem;text-align:center">
   <div style="font-size:.7rem;color:var(--accent);text-transform:uppercase;letter-spacing:1.5px;font-weight:600;margin-bottom:.5rem">📡 Live Options Signals</div>
-  <div style="font-size:1.5rem;font-weight:700;margin-bottom:.5rem">Every 15 min during market hours</div>
-  <div style="font-size:.9rem;color:var(--text-secondary);margin-bottom:1.5rem;max-width:500px;margin-left:auto;margin-right:auto">Futu API + AI analysis. Real-time entry/exit signals with P&L tracking. 704 stocks scanned continuously.</div>
+  <div style="font-size:1.5rem;font-weight:700;margin-bottom:.5rem">{{ "美股开盘每15分钟更新" if lang == "zh" else "Every 15 min during market hours" }}</div>
+  <div style="font-size:.9rem;color:var(--text-secondary);margin-bottom:1.5rem;max-width:500px;margin-left:auto;margin-right:auto">{{ "富途API + AI分析。实时买卖信号+盈亏跟踪。704只标的持续扫描。" if lang == "zh" else "Futu API + AI analysis. Real-time entry/exit signals with P&L tracking. 704 stocks scanned continuously." }}</div>
   <div style="display:flex;gap:1rem;justify-content:center;flex-wrap:wrap">
-    <a href="/signals" style="display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:var(--accent);color:#fff;border-radius:10px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .2s">View Signals →</a>
-    <a href="/signals" style="display:inline-flex;align-items:center;gap:6px;padding:12px 28px;border:1px solid var(--border);border-radius:10px;font-weight:500;font-size:.85rem;color:var(--text-secondary);text-decoration:none;transition:all .2s">Try $0.90 / 1 Hour</a>
+    <a href="/signals" style="display:inline-flex;align-items:center;gap:6px;padding:12px 28px;background:var(--accent);color:#fff;border-radius:10px;font-weight:600;font-size:.9rem;text-decoration:none;transition:all .2s">{{ "查看信号 →" if lang == "zh" else "View Signals →" }}</a>
+    <a href="/signals" style="display:inline-flex;align-items:center;gap:6px;padding:12px 28px;border:1px solid var(--border);border-radius:10px;font-weight:500;font-size:.85rem;color:var(--text-secondary);text-decoration:none;transition:all .2s">{{ "试用 $0.90 / 1小时" if lang == "zh" else "Try $0.90 / 1 Hour" }}</a>
   </div>
 </div>
 
 <!-- Email Newsletter -->
 <div style="background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;margin-bottom:2rem;text-align:center">
   <div style="font-size:.7rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:.5rem">📬 Newsletter</div>
-  <div style="font-size:1.1rem;font-weight:600;margin-bottom:.5rem">Get Serenity signals in your inbox</div>
-  <div style="font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem">Free daily digest. No spam. Unsubscribe anytime.</div>
+  <div style="font-size:1.1rem;font-weight:600;margin-bottom:.5rem">{{ "每日Serenity信号推送" if lang == "zh" else "Get Serenity signals in your inbox" }}</div>
+  <div style="font-size:.85rem;color:var(--text-secondary);margin-bottom:1rem">{{ "免费每日摘要，无垃圾邮件，随时退订" if lang == "zh" else "Free daily digest. No spam. Unsubscribe anytime." }}</div>
   <form id="newsletterForm" style="display:flex;gap:8px;max-width:400px;margin:0 auto">
-    <input type="email" id="nlEmail" placeholder="your@email.com" required style="flex:1;padding:10px 14px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:.85rem;outline:none">
-    <button type="submit" style="padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;white-space:nowrap">Subscribe</button>
+    <input type="email" id="nlEmail" placeholder="{{ "你的邮箱" if lang == "zh" else "your@email.com" }}" required style="flex:1;padding:10px 14px;border:1px solid var(--border);border-radius:8px;background:var(--bg);color:var(--text);font-size:.85rem;outline:none">
+    <button type="submit" style="padding:10px 20px;background:var(--accent);color:#fff;border:none;border-radius:8px;font-weight:600;font-size:.85rem;cursor:pointer;white-space:nowrap">{{ "订阅" if lang == "zh" else "Subscribe" }}</button>
   </form>
   <div id="nlMsg" style="font-size:.75rem;margin-top:.5rem;display:none"></div>
 </div>
 
 <!-- Affiliate Grid -->
-<div style="font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem;text-align:center">Trusted Platforms</div>
+<div style="font-size:.65rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:1rem;text-align:center">{{ "推荐平台" if lang == "zh" else "Trusted Platforms" }}</div>
 <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:12px;margin-bottom:2rem">
   <a href="https://www.binance.com/activity/referral-entry/CPA?ref=CPA_00X1XWG2NP" target="_blank" rel="nofollow sponsored" style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all .2s;overflow:hidden;position:relative">
-    <img src="https://cryptologos.cc/logos/binance-coin-bnb-logo.svg" width="36" height="36" alt="Binance" style="flex-shrink:0">
+    <img src="https://www.google.com/s2/favicons?domain=binance.com&sz=64" width="36" height="36" alt="Binance" style="flex-shrink:0">
     <div><div style="font-weight:600;font-size:.9rem">Binance</div><div style="font-size:.75rem;color:var(--accent)">注册返手续费20%</div></div>
   </a>
   <a href="https://www.futunn.com/en/activities/invitation?invitation_code=SBTWGA8N" target="_blank" rel="nofollow sponsored" style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all .2s;overflow:hidden;position:relative">
-    <img src="https://img.futunn.com/img/logo/futu-logo-blue.svg" width="36" height="36" alt="Futu" style="flex-shrink:0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <img src="https://www.google.com/s2/favicons?domain=futunn.com&sz=64" width="36" height="36" alt="Futu" style="flex-shrink:0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div style="width:36px;height:36px;background:#1a73e8;border-radius:8px;display:none;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:14px;flex-shrink:0">F</div>
     <div><div style="font-weight:600;font-size:.9rem">富途牛牛</div><div style="font-size:.75rem;color:var(--accent)">$100 现金券</div></div>
   </a>
   <a href="https://www.xiaomi.com/auto/invitation?code=OAVT7G" target="_blank" rel="nofollow sponsored" style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all .2s;overflow:hidden;position:relative">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Xiaomi_logo_%282021-.svg" width="36" height="36" alt="Xiaomi" style="flex-shrink:0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <img src="https://www.google.com/s2/favicons?domain=xiaomi.com&sz=64" width="36" height="36" alt="Xiaomi" style="flex-shrink:0" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
     <div style="width:36px;height:36px;background:#ff6900;border-radius:8px;display:none;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:11px;flex-shrink:0">MI</div>
     <div><div style="font-weight:600;font-size:.9rem">小米汽车</div><div style="font-size:.75rem;color:var(--accent)">专属邀请优惠</div></div>
+  </a>
+  <a href="https://url.mykeeta.com/P0jzU7Yz" target="_blank" rel="nofollow sponsored" style="display:flex;align-items:center;gap:12px;padding:16px;background:var(--bg-card);border:1px solid var(--border);border-radius:12px;text-decoration:none;color:var(--text);transition:all .2s;overflow:hidden;position:relative">
+    <img src="https://www.google.com/s2/favicons?domain=keeta.com&sz=64" width="36" height="36" alt="Keeta" style="flex-shrink:0;border-radius:8px" onerror="this.style.display='none';this.nextElementSibling.style.display='flex'">
+    <div style="width:36px;height:36px;background:#00b386;border-radius:8px;display:none;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:11px;flex-shrink:0">K</div>
+    <div><div style="font-weight:600;font-size:.9rem">Keeta</div><div style="font-size:.75rem;color:var(--accent)">外卖优惠</div></div>
   </a>
 </div>
 
