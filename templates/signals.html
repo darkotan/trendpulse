@@ -35,7 +35,7 @@ font-feature-settings: 'liga';
 scroll-behavior: smooth;
 }
 body { /* background from _css.html */ }
-/* Header dark mode handled by _header.html dark_header flag */
+/* Header styling handled by _header.html (site-header class) */
 /* ── Container ──────────────────────────────────── */
 .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
 
@@ -148,7 +148,7 @@ padding: 3px 10px; border-radius: 9999px; font-size: 11px; font-weight: 600;
 .status-active { background: var(--green-dim); color: var(--green); }
 .status-target { background: var(--blue-dim); color: var(--blue); }
 .status-stop { background: var(--red-dim); color: var(--red); }
-.status-expired { background: rgba(255,255,255,0.06); color: var(--text-muted); }
+.status-expired { background: var(--bg-secondary); color: var(--text-muted); }
 .status-monitoring { background: var(--yellow-dim); color: var(--yellow); }
 
 /* ── Expand Detail Row ──────────────────────────── */
@@ -344,7 +344,6 @@ td, th { padding: 10px 12px; font-size: 11px; }
 </head>
 <body>
 
-{% set dark_header = true %}
 {% include '_header.html' %}
 
 <div class="container">
@@ -484,3 +483,61 @@ td, th { padding: 10px 12px; font-size: 11px; }
 <li>Cancel anytime</li>
 </ul>
 </div>
+<script>
+async function loadSignals() {
+  try {
+    const r = await fetch('/api/signals');
+    const data = await r.json();
+    const signals = Array.isArray(data) ? data : (data.active || []);
+    
+    const active = signals.filter(s => !s.close_time);
+    const closed = signals.filter(s => s.close_time);
+    
+    // Active signals table
+    const tables = document.querySelectorAll('table');
+    const activeBody = tables[0]?.querySelector('tbody');
+    if (activeBody && active.length > 0) {
+      activeBody.innerHTML = active.map(s => {
+        const pnl = s.current_price && s.entry_price ? ((s.current_price - s.entry_price) / s.entry_price * 100).toFixed(1) : '--';
+        const color = parseFloat(pnl) >= 0 ? '#0a9950' : '#dc2626';
+        return '<tr><td>' + [s.open_time ? new Date(s.open_time).toLocaleString() : '--',
+          (s.ticker||'').toUpperCase(), (s.direction||'').toUpperCase(), s.option_code||'--',
+          '$'+(s.entry_price||'--'), '$'+(s.current_price||'--'),
+          '<span style="color:'+color+'">'+pnl+'%</span>',
+          s.strike ? '$'+s.strike : '--', s.expiry||'--', (s.dte||'--')+'d',
+          s.stop_price ? '$'+s.stop_price : '--', s.target_price ? '$'+s.target_price : '--',
+          '<span style="font-size:11px">'+(s.logic||'--')+'</span>',
+          '<span style="color:#0a9950">● Active</span>'
+        ].join('</td><td>') + '</td></tr>';
+      }).join('');
+    } else if (activeBody) {
+      activeBody.innerHTML = '<tr><td colspan="14" style="text-align:center;padding:24px;color:#999">No active signals</td></tr>';
+    }
+    
+    // Past signals table
+    const pastBody = tables[1]?.querySelector('tbody');
+    if (pastBody && closed.length > 0) {
+      pastBody.innerHTML = closed.map(s => {
+        const pnl = s.close_price && s.entry_price ? ((s.close_price - s.entry_price) / s.entry_price * 100).toFixed(1) : '--';
+        const color = parseFloat(pnl) >= 0 ? '#0a9950' : '#dc2626';
+        return '<tr><td>' + [s.open_time ? new Date(s.open_time).toLocaleString() : '--',
+          s.ticker||'--', '$'+(s.entry_price||'--'), '$'+(s.close_price||'--'),
+          '<span style="color:'+color+'">'+pnl+'%</span>',
+          s.close_reason||'--', (s.dte||'--')+'d',
+          s.close_time ? new Date(s.close_time).toLocaleString() : '--'
+        ].join('</td><td>') + '</td></tr>';
+      }).join('');
+    } else if (pastBody) {
+      pastBody.innerHTML = '<tr><td colspan="8" style="text-align:center;padding:24px;color:#999">No past signals</td></tr>';
+    }
+    
+    // Update counts
+    const countEl = document.getElementById('activeCount');
+    if (countEl) countEl.textContent = active.length + ' signals';
+  } catch(e) { console.error('Signals load error:', e); }
+}
+loadSignals();
+setInterval(loadSignals, 60000);
+</script>
+</body>
+</html>
